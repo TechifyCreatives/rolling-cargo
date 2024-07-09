@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
+import NextImage from "next/image";
 
 interface GridItem {
   id: number;
@@ -67,7 +67,7 @@ const GridSection: React.FC = () => {
               reject(new Error("Invalid background image"));
               return;
             }
-            const img = new Image();
+            const img = new window.Image();
             img.src = item.backgroundImage;
             img.onload = resolve;
             img.onerror = reject;
@@ -91,7 +91,7 @@ const GridSection: React.FC = () => {
   return (
     <section className="relative w-full">
       <div className="absolute inset-0 z-0">
-        <Image
+        <NextImage
           src={backgroundImage}
           layout="fill"
           priority
