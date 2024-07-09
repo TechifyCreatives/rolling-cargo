@@ -112,7 +112,7 @@ const Navbar: React.FC = () => {
               <ul className="space-y-2">
                 <li>
                   <NavLink
-                    href="/tracking"
+                    href="/traking"
                     className="text-gray-600 hover:text-gray-900 flex items-center"
                   >
                     <FaShippingFast className="mr-2" /> Tracking
