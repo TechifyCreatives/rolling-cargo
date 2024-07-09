@@ -105,31 +105,27 @@ const GridSection: React.FC = () => {
       </div>
       <div className="relative z-10 bg-black bg-opacity-50">
         <div className="container mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-2">
             {gridItems.map((item) => (
               <div
                 key={item.id}
-                className="bg-white bg-opacity-80 p-6 rounded-lg shadow-md transition-transform duration-300 hover:scale-105"
-                onMouseEnter={() =>
-                  imagesLoaded && setBackgroundImage(item.backgroundImage)
-                }
-                onMouseLeave={() =>
-                  imagesLoaded && setBackgroundImage("/default-background.jpg")
-                }
+                className=" p-6 transition-transform duration-300 hover:scale-105"
               >
-                <h2 className="text-xl font-bold mb-4">{item.heading}</h2>
-                <p className="mb-4">
+                <h2 className="text-xl text-white font-bold mb-4">
+                  {item.heading}
+                </h2>
+                <p className="mb-4 text-white">
                   {expandedItem === item.id
                     ? item.paragraph
                     : `${item.paragraph.slice(0, 100)}...`}
                 </p>
                 <button
                   onClick={() => toggleExpand(item.id)}
-                  className="text-blue-600 hover:text-blue-800 font-semibold"
+                  className="text-red-600 hover:text-blue-800 font-semibold"
                 >
                   {expandedItem === item.id ? "Read Less" : "Read More"}
                 </button>
-                <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300">
+                <button className="mt-4 ml-1 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300">
                   {item.buttonText}
                 </button>
               </div>

@@ -12,6 +12,16 @@ const Navbar: React.FC = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const NavLink: React.FC<{
+    href: string;
+    className?: string;
+    children: React.ReactNode;
+  }> = ({ href, className, children }) => (
+    <Link href={href} className={className} onClick={toggleMenu}>
+      {children}
+    </Link>
+  );
+
   return (
     <nav className="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,26 +43,26 @@ const Navbar: React.FC = () => {
 
           {/* Right side icons with text */}
           <div className="flex items-center space-x-4">
-            <Link
-              href="/traking"
+            <NavLink
+              href="/tracking"
               className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
             >
               <FaShippingFast size={24} />
               <span className="text-xs mt-1">Tracking</span>
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               href="/costestimator"
-              className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+              className="bg-blue-500 text-sm text-white px-1 py-2 rounded-md hover:bg-blue-600"
             >
               Cost Estimator
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               href="/account"
               className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
             >
               <FaUser size={24} />
               <span className="text-xs mt-1">My Account</span>
-            </Link>
+            </NavLink>
           </div>
         </div>
       </div>
@@ -85,12 +95,12 @@ const Navbar: React.FC = () => {
                   "Online Shopping",
                 ].map((item) => (
                   <li key={item}>
-                    <Link
+                    <NavLink
                       href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
                       className="text-gray-600 hover:text-gray-900"
                     >
                       {item}
-                    </Link>
+                    </NavLink>
                   </li>
                 ))}
               </ul>
@@ -101,28 +111,28 @@ const Navbar: React.FC = () => {
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link
+                  <NavLink
                     href="/tracking"
                     className="text-gray-600 hover:text-gray-900 flex items-center"
                   >
                     <FaShippingFast className="mr-2" /> Tracking
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link
+                  <NavLink
                     href="/cost-estimator"
                     className="text-gray-600 hover:text-gray-900 flex items-center"
                   >
-                    <FiDollarSign className="mr-2" /> Cost Estimator
-                  </Link>
+                    <FiDollarSign className="mr-2 text-sm" /> Cost Estimator
+                  </NavLink>
                 </li>
                 <li>
-                  <Link
+                  <NavLink
                     href="/account"
                     className="text-gray-600 hover:text-gray-900 flex items-center"
                   >
-                    <FaUser className="mr-2" /> My Account
-                  </Link>
+                    <FaUser className="mr-2 text-sm" /> My Account
+                  </NavLink>
                 </li>
               </ul>
             </div>
@@ -134,12 +144,12 @@ const Navbar: React.FC = () => {
                 {["Careers", "Blog", "Feedback", "FAQ", "Contact us"].map(
                   (item) => (
                     <li key={item}>
-                      <Link
+                      <NavLink
                         href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
                         className="text-gray-600 hover:text-gray-900"
                       >
                         {item}
-                      </Link>
+                      </NavLink>
                     </li>
                   )
                 )}
