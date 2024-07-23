@@ -1,5 +1,4 @@
 "use client";
-// components/ShippingFeedbackSection.tsx
 import { useState, FormEvent } from "react";
 
 interface FeedbackItem {
@@ -52,9 +51,9 @@ export default function ShippingFeedbackSection() {
   };
 
   return (
-    <section className="bg-blue-50 py-12">
+    <section className="bg-blue-500 py-12">
       <div className="max-w-4xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">
+        <h2 className="text-3xl font-bold text-center mb-8 text-white">
           Shipping Feedback
         </h2>
 
@@ -135,7 +134,7 @@ export default function ShippingFeedbackSection() {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors"
+            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
           >
             Submit Feedback
           </button>
@@ -143,14 +142,14 @@ export default function ShippingFeedbackSection() {
 
         {/* Feedback Cards */}
         <div className="space-y-4">
-          <h3 className="text-2xl font-bold mb-4">Recent Feedback</h3>
+          <h3 className="text-2xl font-bold mb-4 text-white">
+            Recent Feedback
+          </h3>
           {feedbacks.map((feedback) => (
             <div key={feedback.id} className="bg-white p-4 rounded-lg shadow">
               <div className="flex justify-between items-center mb-2">
                 <p className="font-bold">{feedback.name}</p>
-                <p className="text-sm text-gray-500">
-                  Shipment ID: {feedback.shipmentId}
-                </p>
+                {/* Shipment ID is now hidden */}
               </div>
               <div className="flex items-center mb-2">
                 {[1, 2, 3, 4, 5].map((star) => (
