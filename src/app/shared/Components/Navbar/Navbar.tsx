@@ -63,7 +63,7 @@ const Navbar: React.FC = () => {
           {/* Right side icons with text */}
           <div className="flex items-center space-x-2 md:space-x-4">
             <NavLink
-              href="/tracking"
+              href="/traking"
               className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
             >
               <FaShippingFast size={isMobile ? 16 : 24} />
@@ -136,7 +136,7 @@ const Navbar: React.FC = () => {
               <ul className="space-y-2">
                 <li>
                   <NavLink
-                    href="/tracking"
+                    href="/traking"
                     className="text-gray-600 hover:text-gray-900 flex items-center"
                     isMenuLink={true}
                   >
