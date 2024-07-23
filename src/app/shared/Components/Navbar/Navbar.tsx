@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaBars, FaTimes, FaShippingFast, FaUser } from "react-icons/fa";
@@ -7,6 +7,16 @@ import { FiDollarSign } from "react-icons/fi";
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -16,8 +26,17 @@ const Navbar: React.FC = () => {
     href: string;
     className?: string;
     children: React.ReactNode;
-  }> = ({ href, className, children }) => (
-    <Link href={href} className={className} onClick={toggleMenu}>
+    isMenuLink?: boolean;
+  }> = ({ href, className, children, isMenuLink }) => (
+    <Link
+      href={href}
+      className={className}
+      onClick={() => {
+        if (isMobile || isMenuLink) {
+          toggleMenu();
+        }
+      }}
+    >
       {children}
     </Link>
   );
@@ -42,27 +61,27 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Right side icons with text */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 md:space-x-4">
             <NavLink
               href="/tracking"
-              className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
+              className="text-gray-500 hover:text-gray-600 flex items-center text-xs md:text-sm md:flex-col md:items-center"
             >
-              <FaShippingFast size={24} />
-              <span className="text-xs mt-1">Tracking</span>
+              <FaShippingFast size={20} className="mr-1 md:mr-0" />
+              <span className="md:mt-1">Tracking</span>
             </NavLink>
             <NavLink
               href="/cost-estimator"
-              className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
+              className="text-gray-500 hover:text-gray-600 flex items-center text-xs md:text-sm md:flex-col md:items-center"
             >
-              <FiDollarSign size={24} />
-              <span className="text-xs mt-1">Cost Estimator</span>
+              <FiDollarSign size={20} className="mr-1 md:mr-0" />
+              <span className="md:mt-1">Cost Estimator</span>
             </NavLink>
             <NavLink
               href="/account"
-              className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
+              className="text-gray-500 hover:text-gray-600 flex items-center text-xs md:text-sm md:flex-col md:items-center"
             >
-              <FaUser size={24} />
-              <span className="text-xs mt-1">My Account</span>
+              <FaUser size={20} className="mr-1 md:mr-0" />
+              <span className="md:mt-1">My Account</span>
             </NavLink>
           </div>
         </div>
@@ -94,12 +113,13 @@ const Navbar: React.FC = () => {
                   "Air Cargo",
                   "Sea Cargo",
                   "Online Shopping",
-                  "Custom Clearence",
+                  "Custom Clearance",
                 ].map((item) => (
                   <li key={item}>
                     <NavLink
                       href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
                       className="text-gray-600 hover:text-gray-900"
+                      isMenuLink={true}
                     >
                       {item}
                     </NavLink>
@@ -114,8 +134,9 @@ const Navbar: React.FC = () => {
               <ul className="space-y-2">
                 <li>
                   <NavLink
-                    href="/traking"
+                    href="/tracking"
                     className="text-gray-600 hover:text-gray-900 flex items-center"
+                    isMenuLink={true}
                   >
                     <FaShippingFast className="mr-2" /> Tracking
                   </NavLink>
@@ -124,6 +145,7 @@ const Navbar: React.FC = () => {
                   <NavLink
                     href="/cost-estimator"
                     className="text-gray-600 hover:text-gray-900 flex items-center"
+                    isMenuLink={true}
                   >
                     <FiDollarSign className="mr-2 text-sm" /> Cost Estimator
                   </NavLink>
@@ -132,6 +154,7 @@ const Navbar: React.FC = () => {
                   <NavLink
                     href="/account"
                     className="text-gray-600 hover:text-gray-900 flex items-center"
+                    isMenuLink={true}
                   >
                     <FaUser className="mr-2 text-sm" /> My Account
                   </NavLink>
@@ -149,6 +172,7 @@ const Navbar: React.FC = () => {
                       <NavLink
                         href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
                         className="text-gray-600 hover:text-gray-900"
+                        isMenuLink={true}
                       >
                         {item}
                       </NavLink>
