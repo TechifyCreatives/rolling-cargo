@@ -116,7 +116,7 @@ const Navbar: React.FC = () => {
                   "Air Cargo",
                   "Sea Cargo",
                   "Online Shopping",
-                  "Custom Clearence",
+                  "Custom Clearance",
                 ].map((item) => (
                   <li key={item}>
                     <NavLink
@@ -139,7 +139,7 @@ const Navbar: React.FC = () => {
                   <NavLink
                     href="/traking"
                     className="text-gray-600 hover:text-gray-900 flex items-center"
-                    isMenuLink={true}
+                    isMobile={true}
                   >
                     <FaShippingFast className="mr-2" /> Tracking
                   </NavLink>
@@ -148,7 +148,7 @@ const Navbar: React.FC = () => {
                   <NavLink
                     href="/cost-estimator"
                     className="text-gray-600 hover:text-gray-900 flex items-center"
-                    // isMenuLink={true}
+                    isMobile={true}
                   >
                     <FiDollarSign className="mr-2 text-sm" /> Cost Estimator
                   </NavLink>
