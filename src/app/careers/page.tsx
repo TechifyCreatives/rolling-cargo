@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Bannercareers from "../shared/Components/Bannercareers/Bannercareers";
 
 interface Job {
   id: number;
@@ -57,6 +58,7 @@ const jobs: Job[] = [
 export default function CareersPage() {
   return (
     <div className="min-h-screen bg-gray-100">
+      <Bannercareers />
       <main className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold text-center mb-8">
           Join Our Shipping Team

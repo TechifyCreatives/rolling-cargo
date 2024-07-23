@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const Bannercontactus = () => {
+const Bannercareers = () => {
   return (
     <div className="relative mb-10 w-full h-64 md:h-80 lg:h-96">
       <Image
@@ -41,4 +41,4 @@ const Bannercontactus = () => {
   );
 };
 
-export default Bannercontactus;
+export default Bannercareers;
