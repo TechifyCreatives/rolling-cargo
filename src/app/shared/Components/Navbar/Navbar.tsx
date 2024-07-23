@@ -64,24 +64,26 @@ const Navbar: React.FC = () => {
           <div className="flex items-center space-x-2 md:space-x-4">
             <NavLink
               href="/tracking"
-              className="text-gray-500 hover:text-gray-600 flex items-center text-xs md:text-sm md:flex-col md:items-center"
+              className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
             >
-              <FaShippingFast size={20} className="mr-1 md:mr-0" />
-              <span className="md:mt-1">Tracking</span>
+              <FaShippingFast size={isMobile ? 16 : 24} />
+              <span className="text-[10px] md:text-xs mt-1">Tracking</span>
             </NavLink>
             <NavLink
               href="/cost-estimator"
-              className="text-gray-500 hover:text-gray-600 flex items-center text-xs md:text-sm md:flex-col md:items-center"
+              className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
             >
-              <FiDollarSign size={20} className="mr-1 md:mr-0" />
-              <span className="md:mt-1">Cost Estimator</span>
+              <FiDollarSign size={isMobile ? 16 : 24} />
+              <span className="text-[10px] md:text-xs mt-1">
+                Cost Estimator
+              </span>
             </NavLink>
             <NavLink
               href="/account"
-              className="text-gray-500 hover:text-gray-600 flex items-center text-xs md:text-sm md:flex-col md:items-center"
+              className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
             >
-              <FaUser size={20} className="mr-1 md:mr-0" />
-              <span className="md:mt-1">My Account</span>
+              <FaUser size={isMobile ? 16 : 24} />
+              <span className="text-[10px] md:text-xs mt-1">My Account</span>
             </NavLink>
           </div>
         </div>
