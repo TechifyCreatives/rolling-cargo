@@ -27,7 +27,8 @@ const Navbar: React.FC = () => {
     className?: string;
     children: React.ReactNode;
     isMenuLink?: boolean;
-  }> = ({ href, className, children, isMenuLink }) => (
+    isMobile?: boolean;
+  }> = ({ href, className, children, isMenuLink, isMobile }) => (
     <Link
       href={href}
       className={className}
@@ -147,7 +148,7 @@ const Navbar: React.FC = () => {
                   <NavLink
                     href="/cost-estimator"
                     className="text-gray-600 hover:text-gray-900 flex items-center"
-                    isMenuLink={true}
+                    // isMenuLink={true}
                   >
                     <FiDollarSign className="mr-2 text-sm" /> Cost Estimator
                   </NavLink>
@@ -156,7 +157,7 @@ const Navbar: React.FC = () => {
                   <NavLink
                     href="/account"
                     className="text-gray-600 hover:text-gray-900 flex items-center"
-                    isMenuLink={true}
+                    isMobile={true}
                   >
                     <FaUser className="mr-2 text-sm" /> My Account
                   </NavLink>
