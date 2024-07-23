@@ -31,7 +31,7 @@ const Bannercontactus = () => {
                 href="/contact-us"
                 className="text-white hover:text-gray-300 transition-colors"
               >
-                Careers
+                Contact Us
               </Link>
             </li>
           </ul>

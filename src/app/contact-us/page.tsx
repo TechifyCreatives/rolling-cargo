@@ -1,14 +1,12 @@
 import React from "react";
 import ContactBanner from "../shared/Components/ContactBanner/ContactBanner";
-import ContactPage from "../shared/Components/ContactPage/ContactPage";
-import Map from "../shared/Components/Maps/Maps";
+import Bannercontactus from "../shared/Components/Bannercontactus/Bannercontactus";
 
 const page = () => {
   return (
     <div>
+      <Bannercontactus />
       <ContactBanner />
-      {/* <ContactPage /> */}
-      <Map />
     </div>
   );
 };
