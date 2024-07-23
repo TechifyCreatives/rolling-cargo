@@ -51,10 +51,11 @@ const Navbar: React.FC = () => {
               <span className="text-xs mt-1">Tracking</span>
             </NavLink>
             <NavLink
-              href="/costestimator"
-              className="bg-blue-500 text-sm text-white px-1 py-2 rounded-md hover:bg-blue-600"
+              href="/cost-estimator"
+              className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
             >
-              Cost Estimator
+              <FiDollarSign size={24} />
+              <span className="text-xs mt-1">Cost Estimator</span>
             </NavLink>
             <NavLink
               href="/account"
