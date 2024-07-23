@@ -116,7 +116,7 @@ const Navbar: React.FC = () => {
                   "Air Cargo",
                   "Sea Cargo",
                   "Online Shopping",
-                  "Custom Clearance",
+                  "Custom Clearence",
                 ].map((item) => (
                   <li key={item}>
                     <NavLink
