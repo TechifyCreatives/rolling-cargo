@@ -7,7 +7,7 @@ const Shippingneeds = () => {
         <h1 className="text-4xl font-bold mb-4 text-center">
           Your Shipping Needs Met
         </h1>
-        <hr className="border-t-4 border-gray-300 rounded-full w-1/2 mx-auto mb-6" />
+        <hr className="border-t-4 border-[#640e0e] rounded-full w-1/2 mx-auto mb-6" />
         <p className="text-gray-700 text-center">
           At Rolling Cargo we pride ourselves on being a global container
           shipping company that delivers tailored solutions designed to meet the

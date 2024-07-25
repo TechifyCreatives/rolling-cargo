@@ -47,7 +47,7 @@ export default function ApplyPage() {
       <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
         <div className="md:flex">
           <div className="p-8 w-full">
-            <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold mb-1">
+            <div className="uppercase tracking-wide text-sm text-[#0f1031] font-semibold mb-1">
               Career opportunity
             </div>
             <h1 className="block mt-1 text-lg leading-tight font-medium text-black">
@@ -132,7 +132,7 @@ export default function ApplyPage() {
                 <div className="block">
                   <button
                     type="submit"
-                    className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#0f1031] hover:bg-[#0f1031] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0f1031]"
                   >
                     Submit Application
                   </button>

@@ -51,7 +51,7 @@ export default function ShippingFeedbackSection() {
   };
 
   return (
-    <section className="bg-blue-500 py-12">
+    <section className="bg-[#640e0e] py-12">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-8 text-white">
           Shipping Feedback
@@ -134,7 +134,7 @@ export default function ShippingFeedbackSection() {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+            className="w-full bg-[#0f1031] text-white py-2 px-4 rounded-md hover:bg-[#640e0e] transition-colors"
           >
             Submit Feedback
           </button>

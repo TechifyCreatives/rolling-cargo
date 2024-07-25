@@ -80,7 +80,7 @@ export default function CareersPage() {
               </p>
               <Link
                 href="/apply"
-                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded inline-block"
+                className="bg-[#0f1031] hover:bg-[#0f1031] text-white font-bold py-2 px-4 rounded inline-block"
               >
                 Apply Now
               </Link>

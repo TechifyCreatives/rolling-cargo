@@ -194,7 +194,7 @@ const FreightSection: React.FC = () => {
           </div>
           <button
             type="submit"
-            className="px-6 py-2 bg-blue-300 text-white rounded hover:bg-blue-400 transition-colors"
+            className="px-6 py-2 bg-[#0f1031] text-white rounded hover:bg-[#0f1031] transition-colors"
             disabled={isSubmitting}
           >
             {isSubmitting ? "Sending..." : "Talk to us"}

@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
 
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Image src="/logo.svg" alt="Logo" width={120} height={40} />
+            <Image src="/logo.png" alt="Logo" width={150} height={80} />
           </div>
 
           {/* Right side icons with text */}

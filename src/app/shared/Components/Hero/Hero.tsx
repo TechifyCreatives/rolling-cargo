@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
           <button
             className={`flex-1 py-2 px-4 text-center ${
               activeTab === "tracking"
-                ? "bg-blue-500 text-white"
+                ? "bg-[#0f1031] text-white"
                 : "bg-gray-200 text-gray-700"
             }`}
             onClick={() => setActiveTab("tracking")}
@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
           <button
             className={`flex-1 py-2 px-4 text-center ${
               activeTab === "contact"
-                ? "bg-blue-500 text-white"
+                ? "bg-[#0f1031] text-white"
                 : "bg-gray-200 text-gray-700"
             }`}
             onClick={() => setActiveTab("contact")}
@@ -85,7 +85,7 @@ const Hero: React.FC = () => {
                 } Number`}
                 className="flex-grow p-2 border rounded-l"
               />
-              <button className="bg-blue-500 text-white p-2 rounded-r">
+              <button className="bg-[#0f1031] text-white p-2 rounded-r">
                 <FaSearch />
               </button>
             </div>
@@ -114,7 +114,7 @@ const Hero: React.FC = () => {
               className="w-full p-2 border rounded mb-2"
               rows={3}
             ></textarea>
-            <button className="w-full bg-blue-500 text-white p-2 rounded">
+            <button className="w-full bg-[#0f1031] text-white p-2 rounded">
               Submit
             </button>
           </div>

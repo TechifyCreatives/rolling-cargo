@@ -71,7 +71,7 @@ const Blog: React.FC = () => {
                 <span className="text-sm text-gray-500">{post.date}</span>
                 <button
                   onClick={() => openModal(post)}
-                  className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+                  className="bg-[#0f1031] hover:bg-[#640e0e] text-white font-bold py-2 px-4 rounded"
                 >
                   Read More
                 </button>
@@ -107,7 +107,7 @@ const Blog: React.FC = () => {
               </div>
               <button
                 onClick={closeModal}
-                className="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+                className="mt-4 bg-[#0f1031] hover:bg-[#640e0e] text-white font-bold py-2 px-4 rounded"
               >
                 Close
               </button>

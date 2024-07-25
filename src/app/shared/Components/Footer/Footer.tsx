@@ -58,13 +58,13 @@ const Footer: React.FC = () => {
               ))}
             </select>
             <div className="flex items-center mb-2">
-              <FaPhone className="mr-2 text-blue-600" />
+              <FaPhone className="mr-2 text-[#0f1031]" />
               <a href={`tel:${selectedCountry.phone}`}>
                 {selectedCountry.phone}
               </a>
             </div>
             <div className="flex items-center">
-              <FaEnvelope className="mr-2 text-blue-600" />
+              <FaEnvelope className="mr-2 text-[#0f1031]" />
               <a href={`mailto:${selectedCountry.email}`}>
                 {selectedCountry.email}
               </a>
@@ -141,7 +141,7 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Headquarters and Copyright */}
-      <div className="bg-blue-700 py-4">
+      <div className="bg-[#0f1031] py-4">
         <div className="container mx-auto px-4 text-center">
           <p className="mb-2 text-white">
             Headquarters: Rolling Cargo – 10 Funzi Road, Off Enterprise Road,

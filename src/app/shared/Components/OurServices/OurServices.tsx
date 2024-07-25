@@ -9,7 +9,7 @@ const OurServices: React.FC = () => {
         <h2 className="text-3xl font-bold text-center mb-2">
           Our Service Area
         </h2>
-        <hr className="w-16 h-1 bg-blue-500 mx-auto mb-8" />
+        <hr className="w-16 h-1 bg-[#640e0e] mx-auto mb-8" />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div className="bg-gray-100 p-6 rounded-lg">
@@ -21,13 +21,13 @@ const OurServices: React.FC = () => {
             </p>
           </div>
 
-          <div className="bg-blue-500 p-6 rounded-lg text-white flex flex-col items-center justify-center">
+          <div className="bg-[#0f1031] p-6 rounded-lg text-white flex flex-col items-center justify-center">
             <span className="text-5xl font-bold">165</span>
             <span className="text-xl">worldwide</span>
             <span className="text-xl">offices</span>
           </div>
 
-          <div className="bg-green-500 p-6 rounded-lg text-white flex flex-col items-center justify-center">
+          <div className="bg-[#640e0e] p-6 rounded-lg text-white flex flex-col items-center justify-center">
             <span className="text-5xl font-bold">5,000</span>
             <span className="text-xl">+</span>
             <span className="text-xl">employees</span>
@@ -48,7 +48,7 @@ const OurServices: React.FC = () => {
             <h3 className="text-2xl font-bold mb-2">
               Developing our workforce
             </h3>
-            <hr className="w-16 h-1 bg-blue-500 mb-4" />
+            <hr className="w-16 h-1 bg-[#640e0e] mb-4" />
             <p className="text-gray-700">
               At Rolling Cargo, we invest in our team so they can serve you
               better. Our agility and ability to rise to any challenge all comes
@@ -63,7 +63,7 @@ const OurServices: React.FC = () => {
         <div className="grid mb-10 grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
             <h3 className="text-2xl font-bold mb-2">Recognising our stars</h3>
-            <hr className="w-16 h-1 bg-blue-500 mb-4" />
+            <hr className="w-16 h-1 bg-[#640e0e] mb-4" />
             <p className="text-gray-700">
               Hard work, passion and dedication is something we believe should
               be rewarded. That is why we incentivise our employees with a range
@@ -97,7 +97,7 @@ const OurServices: React.FC = () => {
           </div>
           <div>
             <h3 className="text-2xl font-bold mb-2">Recruiting globally</h3>
-            <hr className="w-16 h-1 bg-blue-500 mb-4" />
+            <hr className="w-16 h-1 bg-[#640e0e] mb-4" />
             <p className="text-gray-700">
               For us, it is imperative to have a global recruiting strategy that
               brings the best talent through our doors. That is why we

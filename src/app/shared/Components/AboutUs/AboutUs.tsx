@@ -21,7 +21,7 @@ const AboutUs: React.FC = () => {
       {/* About Us Content */}
       <div>
         <h2 className="text-3xl font-bold mb-4">Your Shipping Partner</h2>
-        <hr className="border-t-2 border-gray-300 mb-6" />
+        <hr className="border-t-2 border-[#640e0e] mb-6" />
         <p className="text-lg text-gray-700 leading-relaxed">
           Rolling Cargo is an established international air and sea freight
           forwarder with over 15 successful years of trusted and verified

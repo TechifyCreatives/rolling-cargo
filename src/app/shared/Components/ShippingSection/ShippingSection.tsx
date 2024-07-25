@@ -12,14 +12,14 @@ const ShippingSection = () => {
         <h2 className="text-4xl md:text-5xl font-bold mb-4">
           Moving the World, Together.
         </h2>
-        <hr className="w-1/4 mx-auto border-t-2 border-white mb-6" />
+        <hr className="w-1/4 mx-auto border-t-2 border-[#640e0e] mb-6" />
         <p className="text-lg mb-8">
           Our global shipping network is developed for our customers. By
           focusing on delivering best-in-class service to our customers, we are
           always available to help you with your particular needs and offer you
           a one-stop-shop solution for your next shipping request.
         </p>
-        <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition duration-300">
+        <button className="bg-[#640e0e] hover:bg-bg-[#0f1031] text-white font-bold py-3 px-6 rounded-full transition duration-300">
           Read More About Rolling Cargo
         </button>
 

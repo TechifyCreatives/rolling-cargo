@@ -5,7 +5,7 @@ const Onlineshoppingtext = () => {
     <div className="flex flex-col items-center justify-center my-10 bg-light-blue-100 px-2">
       <div className="w-full bg-white p-8">
         <h1 className="text-4xl font-bold mb-4 text-center">Online Shopping</h1>
-        <hr className="border-t-4 border-gray-300 rounded-full w-1/2 mx-auto mb-6" />
+        <hr className="border-t-4 border-[#640e0e] rounded-full w-1/2 mx-auto mb-6" />
         <p className="text-gray-700 text-center">
           Rolling Cargo assists you to shop online and ship goods to Kenya from
           the USA, UK, Dubai, China, India, Turkey and Netherlands, right to

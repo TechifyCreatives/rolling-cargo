@@ -7,7 +7,7 @@ const Aircargotext = () => {
         <h1 className="text-4xl font-bold mb-4 text-center">
           Why Choose Rolling Cargo for your Air Freight?
         </h1>
-        <hr className="border-t-4 border-gray-300 rounded-full w-1/2 mx-auto mb-6" />
+        <hr className="border-t-4 border-[#640e0e] rounded-full w-1/2 mx-auto mb-6" />
         <p className="text-gray-700 text-center">
           Air freight transport is the most reliable and efficient way to get
           your goods worldwide from one location to another. Rolling Cargo

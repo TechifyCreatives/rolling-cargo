@@ -7,7 +7,7 @@ const Seacargotext = () => {
         <h1 className="text-4xl font-bold mb-4 text-center">
           Ocean & Sea Transport
         </h1>
-        <hr className="border-t-4 border-gray-300 rounded-full w-1/2 mx-auto mb-6" />
+        <hr className="border-t-4 border-[#640e0e] rounded-full w-1/2 mx-auto mb-6" />
         <p className="text-gray-700 text-center">
           Sea freight is a cost-efficient way of shipping large amount of goods.
           At Rolling Cargo, we offer tailored alternatives for the movement of

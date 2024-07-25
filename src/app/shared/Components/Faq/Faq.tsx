@@ -39,16 +39,16 @@ const FAQItem: React.FC<
   FAQItem & { isOpen: boolean; toggleOpen: () => void }
 > = ({ question, answer, isOpen, toggleOpen }) => {
   return (
-    <div className="border-b mt-5 mb-5 border-blue-200 py-4">
+    <div className="border-b mt-5 mb-5 border-[#640e0e] py-4">
       <button
         className="flex justify-between items-center w-full text-left"
         onClick={toggleOpen}
       >
-        <span className="text-lg font-medium text-blue-900">{question}</span>
+        <span className="text-lg font-medium text-white">{question}</span>
         <span className="ml-6 flex-shrink-0">
           {isOpen ? (
             <svg
-              className="h-6 w-6 text-blue-500"
+              className="h-6 w-6 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -62,7 +62,7 @@ const FAQItem: React.FC<
             </svg>
           ) : (
             <svg
-              className="h-6 w-6 text-blue-500"
+              className="h-6 w-6 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -79,7 +79,7 @@ const FAQItem: React.FC<
       </button>
       {isOpen && (
         <div className="mt-2 pr-12">
-          <p className="text-base text-blue-700">{answer}</p>
+          <p className="text-base text-white">{answer}</p>
         </div>
       )}
     </div>
@@ -94,11 +94,9 @@ const Faq: React.FC = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto py-12 px-4 sm:px-6 lg:px-8 bg-blue-50 rounded-lg shadow-lg">
-      <h2 className="text-3xl font-extrabold text-blue-900 mb-8">
-        Shipping FAQ
-      </h2>
-      <dl className="space-y-6 divide-y divide-blue-200">
+    <div className="max-w-3xl mx-auto py-12 px-4 sm:px-6 lg:px-8 bg-[#0f1031] rounded-lg shadow-lg">
+      <h2 className="text-3xl font-extrabold text-white mb-8">Shipping FAQ</h2>
+      <dl className="space-y-6 divide-y divide-[#640e0e]">
         {faqData.map((item, index) => (
           <FAQItem
             key={index}
