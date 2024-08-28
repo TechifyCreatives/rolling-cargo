@@ -58,18 +58,14 @@ const Navbar: React.FC = () => {
 
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Image src="/logo.png" alt="Logo" width={150} height={80} />
+            <NavLink href="/">
+            <Image src="/logo.png" alt="Logo" width={200} height={100} />
+            </NavLink>
+            
           </div>
 
           {/* Right side icons with text */}
           <div className="flex items-center space-x-2 md:space-x-4">
-            <NavLink
-              href="/traking"
-              className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
-            >
-              <FaShippingFast size={isMobile ? 16 : 24} />
-              <span className="text-[10px] md:text-xs mt-1">Tracking</span>
-            </NavLink>
             <NavLink
               href="/cost-estimator"
               className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
@@ -78,13 +74,6 @@ const Navbar: React.FC = () => {
               <span className="text-[10px] md:text-xs mt-1">
                 Cost Estimator
               </span>
-            </NavLink>
-            <NavLink
-              href="/account"
-              className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
-            >
-              <FaUser size={isMobile ? 16 : 24} />
-              <span className="text-[10px] md:text-xs mt-1">My Account</span>
             </NavLink>
           </div>
         </div>
@@ -135,15 +124,7 @@ const Navbar: React.FC = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                <li>
-                  <NavLink
-                    href="/traking"
-                    className="text-gray-600 hover:text-gray-900 flex items-center"
-                    isMobile={true}
-                  >
-                    <FaShippingFast className="mr-2" /> Tracking
-                  </NavLink>
-                </li>
+                
                 <li>
                   <NavLink
                     href="/cost-estimator"
@@ -153,15 +134,7 @@ const Navbar: React.FC = () => {
                     <FiDollarSign className="mr-2 text-sm" /> Cost Estimator
                   </NavLink>
                 </li>
-                <li>
-                  <NavLink
-                    href="/account"
-                    className="text-gray-600 hover:text-gray-900 flex items-center"
-                    isMobile={true}
-                  >
-                    <FaUser className="mr-2 text-sm" /> My Account
-                  </NavLink>
-                </li>
+                
               </ul>
             </div>
 

@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
     >
       <div className="absolute inset-0 flex items-center justify-center">
         <h1 className="text-4xl md:text-5xl font-bold text-center text-white drop-shadow-lg">
-          Air and Sea Cargo Experts
+          Air and Sea Cargo Experts 
         </h1>
       </div>
 
