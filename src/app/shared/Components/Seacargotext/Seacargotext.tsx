@@ -4,11 +4,22 @@ const Seacargotext = () => {
   return (
     <div className="flex flex-col items-center justify-center my-10 bg-light-blue-100 px-2">
       <div className="w-full bg-white p-8">
-        <h1 className="text-4xl font-bold mb-4 text-center">
+        {/* <h1 className="text-4xl font-bold mb-4 text-center">
           Ocean & Sea Transport
+        </h1> */}
+        {/* <hr className="border-t-4 border-[#640e0e] rounded-full w-1/2 mx-auto mb-6" /> */}
+        <h1 className="text-4xl font-bold mb-4 text-center">
+        Best & Efficient Logistics Services
         </h1>
         <hr className="border-t-4 border-[#640e0e] rounded-full w-1/2 mx-auto mb-6" />
-        <p className="text-gray-700 text-center">
+        <ul className="py-4">
+          <li>1. Sea freight</li>
+          <li>2. Online Shopping</li>
+          <li>3. Custom clearance</li>
+          <li>4. Cargo Consolidation</li>
+          <li>5. Import/Exports</li>
+        </ul>
+        <p className="text-gray-700">
           Sea freight is a cost-efficient way of shipping large amount of goods.
           At Rolling Cargo, we offer tailored alternatives for the movement of
           all kinds of commodities using various equipment types and capacities.
@@ -16,7 +27,7 @@ const Seacargotext = () => {
           Less Container Loads (LCL), Rolling Cargo’s Sea freight solutions
           enable you to ship large amounts of cargo at a competitive rate for
           any destination in the world. LCL is shipment that is less than a
-          container load. That means your goods are loaded with other goods and
+          container load. <br /> <br />That means your goods are loaded with other goods and
           you only pay for the volume of goods that you ship. FCL consist of
           shipments of full 20 or 40-foot containers. Payment is made on the
           basis of a full container. We provide freight movement of your cargo,
@@ -25,7 +36,7 @@ const Seacargotext = () => {
           formalities, documentation and tracking required for your imports and
           exports to ensure that they arrive at their destination. Our robust
           port networks, guarantee that your load will safely reach any part of
-          the world by sea. We continuously seek to improve our systems and
+          the world by sea. <br /> <br /> We continuously seek to improve our systems and
           service quality, ensuring that you get the very best service
           available. Rolling Cargo provides weekly and monthly departures from
           China, Netherlands, U.K and Dubai to Kenya

@@ -26,6 +26,36 @@ const countries = [
     phone: "+8618826260042",
     email: "support@rollingcargo.co.ke",
   },
+  {
+    name: "SOUTH AFRICA",
+    phone: "+27 79 906 7166",
+    email: "support@rollingcargo.co.ke",
+  },
+  {
+    name: "EUROPE – ITALY",
+    phone: "+393716953158",
+    email: "support@rollingcargo.co.ke",
+  },
+  {
+    name: "EUROPE – NETHERLANDS",
+    phone: "+31 610624607",
+    email: "support@rollingcargo.co.ke",
+  },
+  {
+    name: "TURKEY – ISTANBUL",
+    phone: "+905526128645",
+    email: "support@rollingcargo.co.ke",
+  },
+  {
+    name: "U.K – LONDON",
+    phone: "+44 7447 959259",
+    email: "support@rollingcargo.co.ke",
+  },
+  {
+    name: "MOMBASA OFFICE",
+    phone: "+254 709 286 286",
+    email: "support@rollingcargo.co.ke",
+  },
 ];
 
 const Footer: React.FC = () => {

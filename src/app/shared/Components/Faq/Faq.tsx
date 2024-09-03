@@ -13,6 +13,36 @@ const faqData: FAQItem[] = [
       "We offer a range of services including standard ground shipping, express delivery, international shipping, and freight forwarding for larger cargo.",
   },
   {
+    question: "Which countries do you ship from?",
+    answer:
+      "We ship your goods by providing tailored end-to-end air freight, sea freight, and courier services from UK, Italy, Netherlands, Turkey, Dubai, and China. Rolling Cargo has a robust network of partners to serve your global needs.",
+  },
+  {
+    question: "What are your shipping rates and charges?",
+    answer:
+      "Charges are based on actual weight or volumetric weight of the package. We charge whichever is higher. Shipping by sea is based on Cubic per Meter (CBM). We measure using the formula Length x Width x Height (in meters).",
+  },
+  {
+    question: "Payments to suppliers",
+    answer:
+      "We assist our customers pay their suppliers abroad in Turkey. All you need to do is pay at our offices and we shall pay the supplier on your behalf.",
+  },
+  {
+    question: "What are the export charges?",
+    answer:
+      "Export charges are paid directly to the customs authorities.  The kind of goods you are exporting will dictate the charges that will be applied. We find the correct tariff applicable based on the description of your goods. Be advised that tariffs are country-specific and can vary from one country to the other.",
+  },
+  {
+    question: "What are your new working days in Dubai with the revised weekend?",
+    answer:
+      "Our Dubai office is open everyday from 9AM – 10PM.",
+  },
+  {
+    question: "Do you ship from the USA?",
+    answer:
+      "Currently we don’t have an office in USA, and for this reason we are unable to ship.😔",
+  },
+  {
     question: "How can I track my package?",
     answer:
       "You can track your package by entering your tracking number on our website or mobile app. We provide real-time updates on your shipment's location and estimated delivery time.",

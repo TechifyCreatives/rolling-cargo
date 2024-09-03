@@ -28,16 +28,16 @@ const AboutUs: React.FC = () => {
           expertise. With the backing of 200 experienced and professionally
           trained staff and the excellent relationship with carriers, customs,
           terminals, and other local authorities, We will be your best choice on
-          the extension of your business. We offer a wide range of air and sea
+          the extension of your business. <br /> <br /> We offer a wide range of air and sea
           freight services to Kenya, with a primary focus on reliability and
           communication that our customers can depend upon. In a world where air
           freight services are a vital link to today’s global logistic market,
-          efficiency and versatility are paramount. With our international
+          efficiency and versatility are paramount. <br /> <br /> With our international
           connections and hundreds of flights leaving daily, we have the unique
           ability to rapidly and reliably manage the fast flow of your products
           or goods via import or export. Whether you are shipping B2B or B2C,
           rest assured your consignments will be handled with the utmost care
-          and attention. Choose Rolling Cargo and allow our Experts to eliminate
+          and attention. <br /> <br />Choose Rolling Cargo and allow our Experts to eliminate
           the pain and effort of dealing with external carriers, customs
           clearance, compliance, and any separately required paperwork, ensuring
           high quality throughout the supply chain. Air cargo Sea Cargo Online
@@ -45,7 +45,7 @@ const AboutUs: React.FC = () => {
           on Rolling Cargo first class shipping services at very competitive
           rates to ensure the most efficient connection of your shipments by Air
           or Sea from UK, China, Turkey, Netherlands, India and Dubai to Kenya
-          and beyond. Make the most of our International Courier License for
+          and beyond. <br /> <br /> Make the most of our International Courier License for
           smaller items such as parcels, packages and cartons. For more urgent
           consignments, air freight is an excellent option. Our rates are
           reasonable, especially in comparison to airline excess luggage prices!

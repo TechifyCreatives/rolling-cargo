@@ -1,4 +1,3 @@
-// components/Banner.tsx
 import Link from "next/link";
 import Image from "next/image";
 
@@ -14,7 +13,7 @@ const Bannerblog = () => {
       />
       <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-          Blogs
+          Blog
         </h1>
         <nav>
           <ul className="flex space-x-4">
@@ -31,7 +30,7 @@ const Bannerblog = () => {
                 href="/blog"
                 className="text-white hover:text-gray-300 transition-colors"
               >
-                Blogs
+                Blog
               </Link>
             </li>
           </ul>

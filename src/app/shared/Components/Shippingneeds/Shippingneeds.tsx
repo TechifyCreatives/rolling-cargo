@@ -2,13 +2,13 @@ import React from "react";
 
 const Shippingneeds = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-light-blue-100 px-4">
-      <div className="max-w-2xl w-full bg-white p-8">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-light-blue-100">
+      <div className="max-w-2xl w-full bg-white">
         <h1 className="text-4xl font-bold mb-4 text-center">
           Your Shipping Needs Met
         </h1>
-        <hr className="border-t-4 border-[#640e0e] rounded-full w-1/2 mx-auto mb-6" />
-        <p className="text-gray-700 text-center">
+        <hr className="border-t-4 border-[#640e0e] rounded-full mx-auto mb-6" />
+        <p className="text-gray-700">
           At Rolling Cargo we pride ourselves on being a global container
           shipping company that delivers tailored solutions designed to meet the
           specific needs of each of our customers. Regardless of your cargo

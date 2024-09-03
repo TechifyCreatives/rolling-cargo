@@ -15,7 +15,7 @@ const page: React.FC = () => {
         />
       </Head>
 
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto py-8">
         <Bannerblog />
         <Blog />
       </main>
