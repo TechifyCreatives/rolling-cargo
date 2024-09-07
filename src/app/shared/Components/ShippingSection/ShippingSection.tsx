@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FaShip, FaAnchor, FaGlobe, FaBox } from "react-icons/fa";
 
 const ShippingSection = () => {
@@ -20,7 +21,7 @@ const ShippingSection = () => {
           a one-stop-shop solution for your next shipping request.
         </p>
         <button className="bg-[#640e0e] hover:bg-bg-[#0f1031] text-white font-bold py-3 px-6 rounded-full transition duration-300">
-          Read More About Rolling Cargo
+          <Link href='/about-us'>Read More About Rolling Cargo</Link>
         </button>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

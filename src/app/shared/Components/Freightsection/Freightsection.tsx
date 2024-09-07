@@ -3,22 +3,32 @@ import React, { useState, FormEvent, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 
 type FreightType = "air" | "sea";
-type Country = "USA" | "UK" | "China" | "Japan"; // Add more countries as needed
+type Country = "Kenya" | "UK" | "China" | "Turkey" | "Netherlands" | "Italy" | "South Africa"; // Add more countries as needed
 
 const FreightSection: React.FC = () => {
   const [freightType, setFreightType] = useState<FreightType | null>(null);
   const [country, setCountry] = useState<Country | null>(null);
   const [weight, setWeight] = useState<string>("");
   const [cost, setCost] = useState<string>("");
-  const [costHandling, setCostHandling] = useState<string>("");
+  const [handlingFee, setHandlingFee] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitMessage, setSubmitMessage] = useState<string>("");
+
   useEffect(() => {
     emailjs.init("YOUR_USER_ID");
   }, []);
+
+  useEffect(() => {
+    if (weight) {
+      const calculatedCost = parseFloat(weight) * 12;
+      setCost(calculatedCost.toFixed(2));
+    } else {
+      setCost("");
+    }
+  }, [weight]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -31,7 +41,7 @@ const FreightSection: React.FC = () => {
         country,
         weight,
         cost,
-        cost_handling: costHandling,
+        handling_fee: handlingFee,
         name,
         phone,
         email,
@@ -50,7 +60,7 @@ const FreightSection: React.FC = () => {
       setCountry(null);
       setWeight("");
       setCost("");
-      setCostHandling("");
+      setHandlingFee("");
       setName("");
       setPhone("");
       setEmail("");
@@ -96,7 +106,7 @@ const FreightSection: React.FC = () => {
       {freightType && (
         <div className="mb-6">
           <h3 className="text-xl font-semibold mb-4">Select Country</h3>
-          {["USA", "UK", "China", "Japan"].map((c) => (
+          {["Kenya", "UK", "China", "Turkey", "Netherlands", "Italy", "South Africa"].map((c) => (
             <label key={c} className="inline-flex items-center mr-4">
               <input
                 type="radio"
@@ -129,26 +139,25 @@ const FreightSection: React.FC = () => {
           </div>
           <div>
             <label htmlFor="cost" className="block mb-1">
-              Cost ($)
+              Estimated Cost ($)
             </label>
             <input
               type="number"
               id="cost"
               value={cost}
-              onChange={(e) => setCost(e.target.value)}
-              className="w-full px-3 py-2 border rounded"
-              required
+              className="w-full px-3 py-2 border rounded bg-gray-100"
+              readOnly
             />
           </div>
           <div>
-            <label htmlFor="costHandling" className="block mb-1">
-              Cost Estimator
+            <label htmlFor="handlingFee" className="block mb-1">
+              Handling Fee ($)
             </label>
             <input
               type="number"
-              id="costHandling"
-              value={costHandling}
-              onChange={(e) => setCostHandling(e.target.value)}
+              id="handlingFee"
+              value={handlingFee}
+              onChange={(e) => setHandlingFee(e.target.value)}
               className="w-full px-3 py-2 border rounded"
               required
             />

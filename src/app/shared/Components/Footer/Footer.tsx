@@ -125,43 +125,32 @@ const Footer: React.FC = () => {
           {/* Third Card */}
           <div className=" p-6">
             <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
-            {/* <div className="flex flex-wrap mb-4">
-              {[
-                { name: "About Us", url: "/about" },
-                { name: "Careers", url: "/careers" },
-                { name: "Faq", url: "/faq" },
-                { name: "Contact", url: "/contact" },
-              ].map((link, index) => (
-                <React.Fragment key={link.name}>
-                  <Link href={link.url} className="hover:text-blue-600">
-                    {link.name}
-                  </Link>
-                  {index < 3 && <span className="mx-2">/</span>}
-                </React.Fragment>
-              ))}
-            </div> */}
             <div className="flex space-x-4">
               <Link
                 href="https://www.facebook.com/rollingcargo"
                 className="text-2xl text-blue-600 hover:text-blue-700"
+                target="_blank"
               >
                 <FaFacebookSquare />
               </Link>
               <Link
                 href="https://twitter.com/rollingcargo"
                 className="text-2xl text-blue-400 hover:text-blue-500"
+                target="_blank"
               >
                 <FaTwitterSquare />
               </Link>
               <Link
                 href="https://www.linkedin.com/company/rollingcargo"
                 className="text-2xl text-blue-700 hover:text-blue-800"
+                target="_blank"
               >
                 <FaLinkedin />
               </Link>
               <Link
                 href="https://www.instagram.com/rollingcargo"
                 className="text-2xl text-pink-600 hover:text-pink-700"
+                target="_blank"
               >
                 <FaInstagramSquare />
               </Link>

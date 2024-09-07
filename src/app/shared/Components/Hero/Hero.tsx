@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
         </h1>
       </div>
 
-      <div className="absolute bottom-0 right-0 bg-white bg-opacity-90 rounded-tl-lg shadow-lg p-4 md:p-6 w-full max-w-md">
+      <div className="absolute bottom-0 justify-center bg-white bg-opacity-90 rounded-tl-lg shadow-lg p-4 md:p-6 w-full max-w-md">
         <div className="flex mb-4">
           <button
             className={`flex-1 py-2 px-4 text-center ${

@@ -23,7 +23,7 @@ const solutions: SolutionItem[] = [
     title: "Shipping Solutions",
     description:
       "Efficient and reliable shipping services for your business needs.",
-    link: "/shipping-solutions",
+    link: "/about-us",
   },
   {
     icon: (
@@ -39,7 +39,7 @@ const solutions: SolutionItem[] = [
     title: "Inland Transportation ",
     description:
       "Comprehensive logistics solutions for your inland transportation needs.",
-    link: "/inland-solutions",
+    link: "/about-us",
   },
   {
     icon: (
@@ -75,7 +75,7 @@ const solutions: SolutionItem[] = [
     title: "Digital Business Solutions",
     description:
       "Innovative digital solutions to streamline your business operations.",
-    link: "/digital-solutions",
+    link: "/about-us",
   },
   {
     icon: (
@@ -90,16 +90,16 @@ const solutions: SolutionItem[] = [
     ),
     title: "Cargo Cover Solutions",
     description: "Comprehensive cargo insurance and protection services.",
-    link: "/cargo-cover",
+    link: "/obout-us",
   },
 ];
 
 const GridSection: React.FC = () => {
   return (
-    <div className="w-full bg-[url('/image1.jpg')] bg-cover bg-center py-12">
-      <div className="bg-black/50 w-full py-12 h-full">
+    <div className="w-full bg-[url('/image1.jpg')] bg-cover bg-center">
+      <div className="bg-black/70 w-full h-full">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-white">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 py-12 gap-6 text-white">
             {solutions.map((solution) => {
               if (!solution) {
                 return null;
@@ -108,20 +108,20 @@ const GridSection: React.FC = () => {
               return (
                 <div
                   key={title}
-                  className="flex flex-col items-center justify-between bg-black/30 p-6 rounded-lg h-full"
+                  className="flex flex-col items-center justify-between p-6 rounded-lg h-full"
                 >
                   <div className="flex items-center mb-4 h-12">{icon}</div>
                   <h3 className="text-lg font-semibold text-center mb-4 h-14 flex items-center">
                     {title}
                   </h3>
-                  <p className="text-sm text-center mb-6 sm:hidden">
+                  <p className="text-sm mb-6">
                     {description}
                   </p>
                   <Link
                     href={link}
                     className="bg-white text-black px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors mt-auto"
                   >
-                    Learn More
+                    About Us
                   </Link>
                 </div>
               );

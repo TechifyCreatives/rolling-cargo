@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaBars, FaTimes, FaShippingFast, FaUser } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { FiDollarSign } from "react-icons/fi";
 
 const Navbar: React.FC = () => {
@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between items-center h-16">
           {/* Hamburger menu */}
           <div className="flex items-center">
             <button
@@ -58,10 +58,17 @@ const Navbar: React.FC = () => {
 
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <NavLink href="/">
-            <Image src="/logo.png" alt="Logo" width={200} height={100} />
-            </NavLink>
-            
+            <div className="relative">
+              <NavLink href="/">
+                <Image
+                  src="/logo.png"
+                  alt="Logo"
+                  width={200}
+                  height={100}
+                  style={{ marginBottom: '-4rem', backgroundColor:  'white', borderRadius: '10px'}}
+                />
+              </NavLink>
+            </div>
           </div>
 
           {/* Right side icons with text */}
@@ -124,7 +131,6 @@ const Navbar: React.FC = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                
                 <li>
                   <NavLink
                     href="/cost-estimator"
@@ -134,7 +140,6 @@ const Navbar: React.FC = () => {
                     <FiDollarSign className="mr-2 text-sm" /> Cost Estimator
                   </NavLink>
                 </li>
-                
               </ul>
             </div>
 
