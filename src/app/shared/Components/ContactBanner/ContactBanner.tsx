@@ -174,11 +174,17 @@ const ContactPage: React.FC = () => {
   const onSubmit: SubmitHandler<FormInputs> = async (data) => {
     setIsSubmitting(true);
     try {
-      // Replace these with your actual EmailJS credentials
+      // Convert FormInputs to a Record<string, string>
+      const emailData: Record<string, string> = {
+        name: data.name,
+        email: data.email,
+        message: data.message,
+      };
+
       await emailjs.send(
         "YOUR_SERVICE_ID",
         "YOUR_TEMPLATE_ID",
-        data,
+        emailData,
         "YOUR_USER_ID"
       );
       setSubmitStatus('success');
@@ -212,4 +218,4 @@ const ContactPage: React.FC = () => {
   );
 };
 
-export default ContactPage;
+export default ContactPage
