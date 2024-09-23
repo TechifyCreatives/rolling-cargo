@@ -1,4 +1,3 @@
-// components/ServiceArea.tsx
 import React from "react";
 import Image from "next/image";
 
@@ -50,7 +49,7 @@ const OurServices: React.FC = () => {
             </h3>
             <hr className="w-16 h-1 bg-[#640e0e] mb-4" />
             <p className="text-gray-700 text-center">
-            At Rolling Cargo, we invest in our team so they can serve you better. Our agility and ability to rise to any challenge is driven by our talented, passionate, and diverse team. That's why we continuously invest in recruiting, training, and developing our staff's skillset to deliver the exceptional service we are known for.
+              At Rolling Cargo, we invest in our team so they can serve you better. Our agility and ability to rise to any challenge is driven by our talented, passionate, and diverse team. That&apos;s why we continuously invest in recruiting, training, and developing our staff&apos;s skillset to deliver the exceptional service we are known for.
             </p>
           </div>
         </div>
@@ -64,7 +63,7 @@ const OurServices: React.FC = () => {
               be rewarded. That is why we incentivise our employees with a range
               of rewards throughout the year to keep them motivated,
               enthusiastic and empowered. These include offering Najm Awards,
-              celebrating Emirati Womens Day and partaking in the Dubai Fitness
+              celebrating Emirati Women&apos;s Day and partaking in the Dubai Fitness
               Challenge together.
             </p>
           </div>
@@ -72,7 +71,7 @@ const OurServices: React.FC = () => {
           <div className="relative h-64 md:h-full">
             <Image
               src="/image2.jpg"
-              alt="Workforce Development"
+              alt="Recognising Our Stars"
               layout="fill"
               objectFit="cover"
               className="rounded-lg"
@@ -84,7 +83,7 @@ const OurServices: React.FC = () => {
           <div className="relative h-64 md:h-full">
             <Image
               src="/image3.jpg"
-              alt="Workforce Development"
+              alt="Recruiting Globally"
               layout="fill"
               objectFit="cover"
               className="rounded-lg"
@@ -97,7 +96,7 @@ const OurServices: React.FC = () => {
               For us, it is imperative to have a global recruiting strategy that
               brings the best talent through our doors. That is why we
               continuously scour the globe for the most highly qualified,
-              diverse and dedicated candidates to join our every-growing team.
+              diverse and dedicated candidates to join our ever-growing team.
             </p>
           </div>
         </div>
