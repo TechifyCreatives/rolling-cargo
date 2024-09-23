@@ -28,7 +28,6 @@ const OurServices: React.FC = () => {
 
           <div className="bg-[#640e0e] p-6 rounded-lg text-white flex flex-col items-center justify-center">
             <span className="text-5xl font-bold">200+</span>
-            <span className="text-xl">+</span>
             <span className="text-xl">employees</span>
           </div>
         </div>
