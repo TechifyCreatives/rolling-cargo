@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaShip, FaAnchor, FaGlobe, FaBox } from "react-icons/fa";
+import { Ship, Plane, ShoppingBag, FileCheck } from "lucide-react";
 
 const ShippingSection = () => {
   return (
@@ -15,10 +15,7 @@ const ShippingSection = () => {
         </h2>
         <hr className="w-1/4 mx-auto border-t-2 border-[#640e0e] mb-6" />
         <p className="text-lg mb-8">
-          Our global shipping network is developed for our customers. By
-          focusing on delivering best-in-class service to our customers, we are
-          always available to help you with your particular needs and offer you
-          a one-stop-shop solution for your next shipping request.
+        We offer a wide range of air and sea freight services to Kenya, with a primary focus on reliability and communication that our customers can depend upon.
         </p>
         <button className="bg-[#640e0e] hover:bg-bg-[#0f1031] text-white font-bold py-3 px-6 rounded-full transition duration-300">
           <Link href='/about-us'>Read More About Rolling Cargo</Link>
@@ -26,13 +23,13 @@ const ShippingSection = () => {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
-            { icon: FaShip, text: "Global Shipping" },
-            { icon: FaAnchor, text: "Port Operations" },
-            { icon: FaGlobe, text: "Worldwide Network" },
-            { icon: FaBox, text: "Cargo Solutions" },
+            { icon: Ship, text: "Sea Freight" },
+            { icon: Plane, text: "Air Freight" },
+            { icon: ShoppingBag, text: "Online Shopping" },
+            { icon: FileCheck, text: "Custom Clearance" },
           ].map((item, index) => (
             <div key={index} className="flex flex-col items-center">
-              <item.icon className="text-4xl mb-4" />
+              <item.icon className="w-12 h-12 mb-4" />
               <p className="text-lg font-semibold">{item.text}</p>
               {index < 3 && (
                 <div className="hidden lg:flex items-center mt-4">

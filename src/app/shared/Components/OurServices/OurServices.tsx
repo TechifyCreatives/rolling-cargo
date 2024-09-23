@@ -13,7 +13,7 @@ const OurServices: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div className="bg-gray-100 p-6 rounded-lg">
-            <p className="text-gray-700">
+            <p className="text-gray-700 text-center">
               We pride ourselves on our multi-cultural workforce with a diverse
               range of qualifications. Trained to handle any situation across
               all commodities, our team are dedicated to ensuring your cargo is
@@ -22,13 +22,13 @@ const OurServices: React.FC = () => {
           </div>
 
           <div className="bg-[#0f1031] p-6 rounded-lg text-white flex flex-col items-center justify-center">
-            <span className="text-5xl font-bold">165</span>
+            <span className="text-5xl font-bold">7+</span>
             <span className="text-xl">worldwide</span>
             <span className="text-xl">offices</span>
           </div>
 
           <div className="bg-[#640e0e] p-6 rounded-lg text-white flex flex-col items-center justify-center">
-            <span className="text-5xl font-bold">5,000</span>
+            <span className="text-5xl font-bold">200+</span>
             <span className="text-xl">+</span>
             <span className="text-xl">employees</span>
           </div>
@@ -49,13 +49,8 @@ const OurServices: React.FC = () => {
               Developing our workforce
             </h3>
             <hr className="w-16 h-1 bg-[#640e0e] mb-4" />
-            <p className="text-gray-700">
-              At Rolling Cargo, we invest in our team so they can serve you
-              better. Our agility and ability to rise to any challenge all comes
-              down to our talented, passionate and diverse team. That is why we
-              continuously invest in recruiting, training and developing our
-              staffs skillset so we can deliver the exceptional service that
-              Emirates SkyCargo is known for.
+            <p className="text-gray-700 text-center">
+            At Rolling Cargo, we invest in our team so they can serve you better. Our agility and ability to rise to any challenge is driven by our talented, passionate, and diverse team. That's why we continuously invest in recruiting, training, and developing our staff's skillset to deliver the exceptional service we are known for.
             </p>
           </div>
         </div>
@@ -64,7 +59,7 @@ const OurServices: React.FC = () => {
           <div>
             <h3 className="text-2xl font-bold mb-2">Recognising our stars</h3>
             <hr className="w-16 h-1 bg-[#640e0e] mb-4" />
-            <p className="text-gray-700">
+            <p className="text-gray-700 text-center">
               Hard work, passion and dedication is something we believe should
               be rewarded. That is why we incentivise our employees with a range
               of rewards throughout the year to keep them motivated,
@@ -98,7 +93,7 @@ const OurServices: React.FC = () => {
           <div>
             <h3 className="text-2xl font-bold mb-2">Recruiting globally</h3>
             <hr className="w-16 h-1 bg-[#640e0e] mb-4" />
-            <p className="text-gray-700">
+            <p className="text-gray-700 text-center">
               For us, it is imperative to have a global recruiting strategy that
               brings the best talent through our doors. That is why we
               continuously scour the globe for the most highly qualified,

@@ -27,32 +27,32 @@ const countries = [
     email: "support@rollingcargo.co.ke",
   },
   {
-    name: "SOUTH AFRICA",
+    name: "South Africa",
     phone: "+27 79 906 7166",
     email: "support@rollingcargo.co.ke",
   },
   {
-    name: "EUROPE – ITALY",
+    name: "Europe – Italy",
     phone: "+393716953158",
     email: "support@rollingcargo.co.ke",
   },
   {
-    name: "EUROPE – NETHERLANDS",
+    name: "Europe – Nethalands",
     phone: "+31 610624607",
     email: "support@rollingcargo.co.ke",
   },
   {
-    name: "TURKEY – ISTANBUL",
+    name: "Turkey – Istabul",
     phone: "+905526128645",
     email: "support@rollingcargo.co.ke",
   },
   {
-    name: "U.K – LONDON",
+    name: "U.K – London",
     phone: "+44 7447 959259",
     email: "support@rollingcargo.co.ke",
   },
   {
-    name: "MOMBASA OFFICE",
+    name: "Mombasa Office",
     phone: "+254 709 286 286",
     email: "support@rollingcargo.co.ke",
   },

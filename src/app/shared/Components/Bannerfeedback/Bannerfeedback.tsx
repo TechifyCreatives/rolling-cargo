@@ -6,7 +6,7 @@ const Bannerfeedback = () => {
   return (
     <div className="relative w-full h-64 md:h-80 lg:h-96">
       <Image
-        src="/image1.jpg"
+        src="/FeedbackPage.jpg"
         alt="Background"
         layout="fill"
         objectFit="cover"

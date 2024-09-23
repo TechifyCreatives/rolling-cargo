@@ -13,7 +13,7 @@ const AboutUs: React.FC = () => {
         </div>
         <div className="w-px h-20 bg-gray-300 hidden md:block"></div>
         <div className="w-full md:w-1/2 text-right">
-          <p className="text-xl font-semibold">John Doe</p>
+          <p className="text-xl font-semibold">Mohammed</p>
           <p className="text-gray-600">CEO, Global Shipping Solutions</p>
         </div>
       </div>
@@ -22,7 +22,7 @@ const AboutUs: React.FC = () => {
       <div>
         <h2 className="text-3xl font-bold mb-4">Your Shipping Partner</h2>
         <hr className="border-t-2 border-[#640e0e] mb-6" />
-        <p className="text-lg text-gray-700 leading-relaxed">
+        <p className="text-lg text-gray-700 text-center leading-relaxed">
           Rolling Cargo is an established international air and sea freight
           forwarder with over 15 successful years of trusted and verified
           expertise. With the backing of 200 experienced and professionally

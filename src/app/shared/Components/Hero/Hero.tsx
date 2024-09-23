@@ -1,8 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { FaSearch, FaEnvelope } from "react-icons/fa";
-
-type TabType = "tracking" | "contact";
+import { FaSearch } from "react-icons/fa";
+import { X, Plane, Ship, Package, Bell } from "lucide-react";
 
 const backgroundImages = [
   "/image1.jpg",
@@ -11,10 +10,31 @@ const backgroundImages = [
   // Add more image paths as needed
 ];
 
+interface CustomAlertProps {
+  title: string;
+  description: string;
+  onClose: () => void;
+}
+
+const CustomAlert: React.FC<CustomAlertProps> = ({ title, description, onClose }) => (
+  <div className="bg-white shadow-lg rounded-lg p-4 max-w-md w-full relative">
+    <div className="flex items-center mb-2">
+      <Bell className="mr-2 text-blue-500" />
+      <h3 className="text-lg font-semibold">{title}</h3>
+    </div>
+    <p className="text-sm text-gray-600">{description}</p>
+    <button
+      onClick={onClose}
+      className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+    >
+      <X size={20} />
+    </button>
+  </div>
+);
+
 const Hero: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<TabType>("tracking");
-  const [trackingOption, setTrackingOption] = useState("container");
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+  const [showPopup, setShowPopup] = useState<boolean>(false);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -23,103 +43,62 @@ const Hero: React.FC = () => {
       );
     }, 5000); // Change image every 5 seconds
 
-    return () => clearInterval(intervalId);
+    // Show popup after a short delay
+    const popupTimeout = setTimeout(() => {
+      setShowPopup(true);
+    }, 1000);
+
+    return () => {
+      clearInterval(intervalId);
+      clearTimeout(popupTimeout);
+    };
   }, []);
 
-  return (
-    <div
-      className="relative h-[500px] bg-cover bg-center transition-all duration-1000"
-      style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})` }}
-    >
-      <div className="absolute inset-0 flex items-center justify-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-center text-white drop-shadow-lg">
-          Air and Sea Cargo Experts 
-        </h1>
-      </div>
+  const closePopup = () => {
+    setShowPopup(false);
+  };
 
-      <div className="absolute bottom-0 justify-center bg-white bg-opacity-90 rounded-tl-lg shadow-lg p-4 md:p-6 w-full max-w-md">
-        <div className="flex mb-4">
-          <button
-            className={`flex-1 py-2 px-4 text-center ${
-              activeTab === "tracking"
-                ? "bg-[#0f1031] text-white"
-                : "bg-gray-200 text-gray-700"
-            }`}
-            onClick={() => setActiveTab("tracking")}
-          >
-            Tracking
-          </button>
-          <button
-            className={`flex-1 py-2 px-4 text-center ${
-              activeTab === "contact"
-                ? "bg-[#0f1031] text-white"
-                : "bg-gray-200 text-gray-700"
-            }`}
-            onClick={() => setActiveTab("contact")}
-          >
-            Contact Us
-          </button>
+  return (
+    <div className="relative">
+      <div
+        className="relative h-[500px] bg-cover bg-center transition-all duration-1000 flex flex-col items-center justify-center"
+        style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})` }}
+      >
+        <div className="flex items-center mb-8">
+          <Plane className="text-white mr-2" size={40} />
+          <Ship className="text-white mr-2" size={40} />
+          <h1 className="text-4xl md:text-5xl font-bold text-center text-white drop-shadow-lg">
+            Air and Sea Cargo Experts 
+          </h1>
         </div>
 
-        {activeTab === "tracking" && (
-          <div>
-            <div className="mb-4">
-              <select
-                className="w-full p-2 border rounded"
-                value={trackingOption}
-                onChange={(e) => setTrackingOption(e.target.value)}
-              >
-                <option value="container">
-                  Container / Bill of Lading Number
-                </option>
-                <option value="booking">Booking Number</option>
-              </select>
-            </div>
-            <div className="flex">
-              <input
-                type="text"
-                placeholder={`Enter ${
-                  trackingOption === "container"
-                    ? "Container / Bill of Lading"
-                    : "Booking"
-                } Number`}
-                className="flex-grow p-2 border rounded-l"
-              />
-              <button className="bg-[#0f1031] text-white p-2 rounded-r">
-                <FaSearch />
-              </button>
-            </div>
+        <div className="bg-white bg-opacity-90 rounded-lg shadow-lg p-6 w-full max-w-md">
+          <div className="flex items-center justify-center mb-4 text-xl font-semibold text-[#0f1031]">
+            <Package className="mr-2" />
+            Track Your Shipment
           </div>
-        )}
-
-        {activeTab === "contact" && (
-          <div>
+          <div className="flex">
             <input
               type="text"
-              placeholder="Name"
-              className="w-full p-2 border rounded mb-2"
+              placeholder="Enter Waybill Number"
+              className="flex-grow p-2 border rounded-l focus:outline-none focus:ring-2 focus:ring-[#0f1031]"
             />
-            <input
-              type="tel"
-              placeholder="Phone"
-              className="w-full p-2 border rounded mb-2"
-            />
-            <input
-              type="email"
-              placeholder="Email Address"
-              className="w-full p-2 border rounded mb-2"
-            />
-            <textarea
-              placeholder="Message"
-              className="w-full p-2 border rounded mb-2"
-              rows={3}
-            ></textarea>
-            <button className="w-full bg-[#0f1031] text-white p-2 rounded">
-              Submit
+            <button className="bg-[#0f1031] text-white p-2 rounded-r hover:bg-[#1a1b4b] transition-colors duration-300">
+              <FaSearch />
             </button>
           </div>
-        )}
+        </div>
       </div>
+
+      {showPopup && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+          <CustomAlert
+            title="Announcement"
+            description="We're excited to announce our new express shipping service! Get your packages delivered faster than ever before."
+            onClose={closePopup}
+          />
+        </div>
+      )}
     </div>
   );
 };

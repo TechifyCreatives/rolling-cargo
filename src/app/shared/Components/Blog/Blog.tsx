@@ -15,16 +15,48 @@ interface BlogPost {
 }
 
 const blogPosts: BlogPost[] = [
+  
   {
     id: 1,
-    title: "relative h-56",
-    excerpt: "relative h-56",
-    content: "relative h-56",
-    date: "relative h-56",
-    category: "relative h-56",
+    title: "Dangerous Goods List & Items We Don't Ship",
+    excerpt: "Important information about items that require declaration or cannot be shipped.",
+    content: `
+      **Must be Declared**
+      Items or substances that may pose a health, safety, property or environmental risk and are listed or classified in accordance with the KCCA Technical Instructions as dangerous goods.
+
+      **Declarable Items Include:**
+      Air Compressor, Nail Polish, Perfumes, Perfumes Raw Materials, Aerosols, Engine, Car Batteries, Car Airbag, Dry Ice, Items Having Magnet Inside (Example Speakers), Paints, Thinner, Sanitizer, Glue & Other Adhesives, Gas Cylinder & Items Contains Gas Inside (Compressed Gas), Fire Extinguisher, Pesticides, Bleach, Fuel & Fuel Contain Equipment Or Machine (Petrol/Diesel Etc), Cleaning Liquids & Sprays, Fertilizer, Chemicals, Lighter Fuel, Poison, Oxygen Generator, Laundry Products, Acid, Electronic Cigarette, Agriculture Chemicals, Hair Tonic, Alcoholic Substance, Charcoal, Smart Wheels (Hover Boards)
+
+      **ITEMS WE DO NOT SHIP:**
+      Cigarettes, Phones, Money, Sex Toys, Ammunition/Firearms, Drug substances, Shisha, Lithium batteries, Vapes, and Accessories
+
+      Please ensure you declare all applicable items and refrain from attempting to ship prohibited items. This helps maintain safety and compliance with shipping regulations.
+    `,
+    date: "September 14, 2024",
+    category: "Shipping Policy",
     image: "/image1.jpg",
-    author: "relative h-56"
-  }
+    author: "Kennedy Mwangi"
+  },
+  {
+    id: 2,
+    title: "How to Shop in UK",
+    excerpt: "Stay informed about How to Shop in UK",
+    content: "Content for the first blog post...",
+    date: "January 21, 2022",
+    category: "Shipping News",
+    image: "/image1.jpg",
+    author: "Kennedy Mwangi"
+  },
+  {
+    id: 3,
+    title: "Dubai Time Change",
+    excerpt: "Stay informed about our Dubai Time Change",
+    content: "Dear Customer, our Dubai branch timings will be changing to align with the newly announced weekend. New timings are: Mon-Thu & Sat: 8am-10:30pm, Fri: 8am-12pm,open 2pm-10:30pm Sun: Closed. Our dubai branch operate 6 days a week as per dubai time change",
+    date: "January 3, 2022",
+    category: "Shipping News",
+    image: "/image1.jpg",
+    author: "Kennedy Mwangi"
+  },
 ];
 
 const Blog: React.FC = () => {
@@ -116,7 +148,7 @@ const Blog: React.FC = () => {
                 </div>
                 <button
                   onClick={closeModal}
-                  className="mt-8 bg-[#0f1031] hover:[#640e0e] text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
+                  className="mt-8 bg-[#0f1031] hover:bg-[#640e0e] text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
                 >
                   Close
                 </button>

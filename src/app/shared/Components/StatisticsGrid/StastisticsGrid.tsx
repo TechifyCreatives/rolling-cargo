@@ -1,14 +1,15 @@
 import React from 'react';
+import { Ship, Route, Anchor, Globe, Plane, Building2, Users, Package } from 'lucide-react';
 
 interface StatItemProps {
-  icon: string;
+  icon: React.ReactNode;
   label: string;
   value: string;
 }
 
 const StatItem: React.FC<StatItemProps> = ({ icon, label, value }) => (
   <div className="flex flex-col items-center">
-    <div className="text-5xl mb-3">{icon}</div>
+    <div className="mb-3">{icon}</div>
     <div className="text-2xl font-bold mb-1">{value}</div>
     <div className="text-sm text-gray-600 text-center">{label}</div>
   </div>
@@ -16,14 +17,14 @@ const StatItem: React.FC<StatItemProps> = ({ icon, label, value }) => (
 
 const StatisticsGrid: React.FC = () => {
   const stats = [
-    { icon: '🚢', label: 'Vessels', value: '50+' },
-    { icon: '🛣️', label: 'Routes', value: '100+' },
-    { icon: '🏙️', label: 'Ports of Call', value: '200+' },
-    { icon: '🌎', label: 'Countries', value: '50+' },
-    { icon: '✈️', label: 'Aircrafts', value: '25+' },
-    { icon: '🏢', label: 'Offices', value: '30+' },
-    { icon: '👥', label: 'Employees', value: '5000+' },
-    { icon: '📦', label: 'Carried Annually', value: '10M+' },
+    { icon: <Ship className="w-12 h-12" />, label: 'Vessels', value: '50+' },
+    { icon: <Route className="w-12 h-12" />, label: 'Routes', value: '100+' },
+    { icon: <Anchor className="w-12 h-12" />, label: 'Ports of Call', value: '200+' },
+    { icon: <Globe className="w-12 h-12" />, label: 'Countries', value: '9+' },
+    { icon: <Plane className="w-12 h-12" />, label: 'Aircrafts', value: '25+' },
+    { icon: <Building2 className="w-12 h-12" />, label: 'Offices', value: '9+' },
+    { icon: <Users className="w-12 h-12" />, label: 'Employees', value: '200+' },
+    { icon: <Package className="w-12 h-12" />, label: 'Carried Annually', value: '10M+' },
   ];
 
   return (

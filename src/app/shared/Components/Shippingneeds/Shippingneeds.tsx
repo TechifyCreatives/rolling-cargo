@@ -5,21 +5,13 @@ const Shippingneeds = () => {
     <div className="flex flex-col items-center justify-center min-h-screen bg-light-blue-100">
       <div className="max-w-2xl w-full bg-white">
         <h1 className="text-4xl font-bold mb-4 text-center">
-          Your Shipping Needs Met
+        Your Shipping Partner.
         </h1>
         <hr className="border-t-4 border-[#640e0e] rounded-full mx-auto mb-6" />
-        <p className="text-gray-700">
-          At Rolling Cargo we pride ourselves on being a global container
-          shipping company that delivers tailored solutions designed to meet the
-          specific needs of each of our customers. Regardless of your cargo
-          type, or final destination, we offer versatile solutions that cover
-          air, land, and sea. <br /> <br />
-          Thanks to the extensive capacity of our container fleet, Rolling Cargo
-          is the trusted transportation partner and shipping company for
-          numerous companies the world over. Combining this with our global port
-          coverage and extensive equipment availability means, we are able to
-          deliver a professional, efficient shipping service, tailored to the
-          specific needs of your business.
+        <p className="text-gray-700 text-center">
+        Rolling Cargo is an established international air and sea freight forwarder with over 15 successful years of trusted and verified expertise. <br/> <br/>
+With the backing of 200 experienced and professionally trained staff and the excellent relationship with carriers, customs, terminals, and other local authorities, We will be your best choice on the extension of your business.
+
         </p>
       </div>
     </div>

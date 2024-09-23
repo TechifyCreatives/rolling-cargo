@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { FiDollarSign } from "react-icons/fi";
+import { FiDollarSign, FiBell, FiMail } from "react-icons/fi";
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -56,16 +56,17 @@ const Navbar: React.FC = () => {
             </button>
           </div>
 
-          {/* Logo */}
+          {/* Logo with curved background */}
           <div className="flex-shrink-0 flex items-center">
-            <div className="relative">
-              <NavLink href="/">
+            <div className="relative overflow-hidden">
+              <div className="absolute inset-0"></div>
+              <NavLink href="/" className="relative z-10 flex items-center justify-center h-full">
                 <Image
                   src="/logo.png"
                   alt="Logo"
-                  width={200}
-                  height={100}
-                  style={{ marginBottom: '-4rem', backgroundColor:  'white', borderRadius: '10px'}}
+                  width={150}
+                  height={150}
+                  style={{ objectFit: 'contain' }}
                 />
               </NavLink>
             </div>
@@ -80,6 +81,24 @@ const Navbar: React.FC = () => {
               <FiDollarSign size={isMobile ? 16 : 24} />
               <span className="text-[10px] md:text-xs mt-1">
                 Cost Estimator
+              </span>
+            </NavLink>
+            <NavLink
+              href="/blog"
+              className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
+            >
+              <FiBell size={isMobile ? 16 : 24} />
+              <span className="text-[10px] md:text-xs mt-1">
+                Updates
+              </span>
+            </NavLink>
+            <NavLink
+              href="/contact-us"
+              className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
+            >
+              <FiMail size={isMobile ? 16 : 24} />
+              <span className="text-[10px] md:text-xs mt-1">
+                Contact Us
               </span>
             </NavLink>
           </div>
@@ -138,6 +157,24 @@ const Navbar: React.FC = () => {
                     isMobile={true}
                   >
                     <FiDollarSign className="mr-2 text-sm" /> Cost Estimator
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    href="/blog"
+                    className="text-gray-600 hover:text-gray-900 flex items-center"
+                    isMobile={true}
+                  >
+                    <FiBell className="mr-2 text-sm" /> Updates
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    href="/contact-us"
+                    className="text-gray-600 hover:text-gray-900 flex items-center"
+                    isMobile={true}
+                  >
+                    <FiMail className="mr-2 text-sm" /> Contact Us
                   </NavLink>
                 </li>
               </ul>

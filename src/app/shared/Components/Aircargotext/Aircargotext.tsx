@@ -9,17 +9,10 @@ const Aircargotext = () => {
         </h1> */}
         {/* <hr className="border-t-4 border-[#640e0e] rounded-full w-1/2 mx-auto mb-6" /> */}
         <h1 className="text-4xl font-bold mb-4 text-center">
-        Best & Efficient Logistics Services
+        Fast & Efficient.
         </h1>
         <hr className="border-t-4 border-[#640e0e] rounded-full w-1/2 mx-auto mb-6" />
-        <ul className="py-4">
-          <li>1. Sea freight</li>
-          <li>2. Online Shopping</li>
-          <li>3. Custom clearance</li>
-          <li>4. Cargo Consolidation</li>
-          <li>5. Import/Exports</li>
-        </ul>
-        <p className="text-gray-700">
+        <p className="text-gray-700 text-center">
           Air freight transport is the most reliable and efficient way to get
           your goods worldwide from one location to another. Rolling Cargo
           delivers fast, safe and sound air freight solutions. We have extensive

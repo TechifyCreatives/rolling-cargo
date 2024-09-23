@@ -6,7 +6,7 @@ const Banneraboutus = () => {
   return (
     <div className="relative w-full h-64 md:h-80 lg:h-96">
       <Image
-        src="/image3.jpg"
+        src="/About Us Page.jpg"
         alt="Background"
         layout="fill"
         objectFit="cover"

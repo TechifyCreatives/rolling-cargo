@@ -62,14 +62,13 @@ const faqData: FAQItem[] = [
     answer:
       "You can schedule a pickup through our website, mobile app, or by calling our customer service. We offer flexible pickup windows to accommodate your schedule.",
   },
-  // Add more shipping-related FAQ items as needed
 ];
 
 const FAQItem: React.FC<
   FAQItem & { isOpen: boolean; toggleOpen: () => void }
 > = ({ question, answer, isOpen, toggleOpen }) => {
   return (
-    <div className="border-b mt-5 mb-5 border-[#640e0e] py-4">
+    <div className="mt-5 mb-5 py-4">
       <button
         className="flex justify-between items-center w-full text-left"
         onClick={toggleOpen}

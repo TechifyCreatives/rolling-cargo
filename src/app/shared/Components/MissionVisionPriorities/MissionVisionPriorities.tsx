@@ -1,10 +1,10 @@
-// components/MissionVisionPriorities.tsx
 import React from "react";
+import { Anchor, Globe, Target } from "lucide-react";
 
 interface ValueProps {
   title: string;
   content: string;
-  icon: string;
+  icon: React.ReactNode;
   fullWidth?: boolean;
 }
 
@@ -19,7 +19,7 @@ const ValueCard: React.FC<ValueProps> = ({
       fullWidth ? "col-span-full" : ""
     }`}
   >
-    <div className="text-4xl mb-4">{icon}</div>
+    <div className="text-[#640e0e] mb-4">{icon}</div>
     <h3 className="text-xl font-semibold mb-2">{title}</h3>
     <p className="text-gray-600">{content}</p>
   </div>
@@ -31,19 +31,19 @@ const MissionVisionPriorities: React.FC = () => {
       title: "Our Mission",
       content:
         "To enhance effective and efficient service delivery that promotes ultimate client's satisfaction at all times.",
-      icon: "🚢",
+      icon: <Anchor size={48} />,
     },
     {
       title: "Our Vision",
       content:
         "To be the market leader and trend setter in offering specialised services and logistics solutions beyond our customers' expectations.",
-      icon: "🌍",
+      icon: <Globe size={48} />,
     },
     {
       title: "Our Priorities",
       content:
         "Rolling Cargo's main goal is to provide you with excellent services while making sure that your time and money are well preserved. By virtue of our exclusive agreements and commitments with leading carriers in both Air and Sea, we enjoy special rates on all of our shipments and confirmed space in every booking which we will pass to you to guarantee a speedy and hassle-free delivery.",
-      icon: "🎯",
+      icon: <Target size={48} />,
       fullWidth: true,
     },
   ];

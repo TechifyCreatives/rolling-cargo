@@ -5,7 +5,7 @@ const Banneronlineshopping = () => {
   return (
     <div className="relative mb-10 w-full h-64 md:h-80 lg:h-96">
       <Image
-        src="/image4.jpg"
+        src="/OnlineShoppingPage.jpg"
         alt="Background"
         layout="fill"
         objectFit="cover"

@@ -6,7 +6,7 @@ const Bannertraking = () => {
   return (
     <div className="relative w-full h-64 md:h-80 lg:h-96">
       <Image
-        src="/image3.jpg"
+        src="/OnlineShoppingTwo.jpg"
         alt="Background"
         layout="fill"
         objectFit="cover"
