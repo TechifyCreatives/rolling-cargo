@@ -22,7 +22,10 @@ const Appdownload: React.FC = () => {
               <li>Easy booking and management</li>
               <li>24/7 customer support</li>
             </ul>
-            <Link
+            
+          </div>
+          <div className="md:w-1/2 flex justify-center">
+          <Link
               href="https://play.google.com/store/apps/details?id=com.yourcompany.app"
               target="_blank"
               rel="noopener noreferrer"
@@ -37,15 +40,6 @@ const Appdownload: React.FC = () => {
               />
               Download on Google Play
             </Link>
-          </div>
-          <div className="md:w-1/2 flex justify-center">
-            <Image
-              src="/app-screenshot.jpg"
-              alt="Shipping App Screenshot"
-              width={300}
-              height={600}
-              className="rounded-3xl shadow-2xl"
-            />
           </div>
         </div>
       </div>
