@@ -200,6 +200,19 @@ const Navbar: React.FC = () => {
               </ul>
             </div>
           </div>
+
+          {/* New responsive image */}
+          <div className="mt-8 w-full">
+            <Image
+              src="/aeo.jpg"
+              alt="Toggle Image"
+              width={1200}
+              height={600}
+              layout="responsive"
+              objectFit="cover"
+              className="rounded-lg shadow-md"
+            />
+          </div>
         </div>
       </div>
     </nav>

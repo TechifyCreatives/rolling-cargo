@@ -4,9 +4,9 @@ import { FaSearch } from "react-icons/fa";
 import { X, Plane, Ship, Package, Bell } from "lucide-react";
 
 const backgroundImages = [
-  "/image1.jpg",
-  "/image2.jpg",
-  "/image3.jpg",
+  "/banner.jpg",
+  "/banner2.jpg",
+  "/banner3.jpg",
   // Add more image paths as needed
 ];
 
@@ -64,9 +64,12 @@ const Hero: React.FC = () => {
         className="relative h-[500px] bg-cover bg-center transition-all duration-1000 flex flex-col items-center justify-center"
         style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})` }}
       >
-        <div className="flex items-center mb-8">
+        <div className="icons flex items-center">
           <Plane className="text-white mr-2" size={40} />
           <Ship className="text-white mr-2" size={40} />
+          </div>
+        <div className="flex items-center mb-8">
+          
           <h1 className="text-4xl md:text-5xl font-bold text-center text-white drop-shadow-lg">
             Air and Sea Cargo Experts 
           </h1>

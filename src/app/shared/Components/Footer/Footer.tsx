@@ -2,13 +2,13 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import {
-  FaPhone,
-  FaEnvelope,
-  FaFacebookSquare,
-  FaTwitterSquare,
-  FaLinkedin,
-  FaInstagramSquare,
-} from "react-icons/fa";
+  Phone,
+  Mail,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Instagram,
+} from "lucide-react";
 
 const countries = [
   {
@@ -58,7 +58,7 @@ const countries = [
   },
 ];
 
-const Footer: React.FC = () => {
+const Footer = () => {
   const [selectedCountry, setSelectedCountry] = useState(countries[0]);
 
   const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* First Card */}
-          <div className=" p-6">
+          <div className="p-6">
             <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
             <select
               className="w-full p-2 mb-4 border rounded"
@@ -88,21 +88,21 @@ const Footer: React.FC = () => {
               ))}
             </select>
             <div className="flex items-center mb-2">
-              <FaPhone className="mr-2 text-[#0f1031]" />
-              <a href={`tel:${selectedCountry.phone}`}>
+              <Phone className="mr-2 text-gray-800" size={18} />
+              <a href={`tel:${selectedCountry.phone}`} className="hover:text-gray-600">
                 {selectedCountry.phone}
               </a>
             </div>
             <div className="flex items-center">
-              <FaEnvelope className="mr-2 text-[#0f1031]" />
-              <a href={`mailto:${selectedCountry.email}`}>
+              <Mail className="mr-2 text-gray-800" size={18} />
+              <a href={`mailto:${selectedCountry.email}`} className="hover:text-gray-600">
                 {selectedCountry.email}
               </a>
             </div>
           </div>
 
           {/* Second Card */}
-          <div className=" p-6">
+          <div className="p-6">
             <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
             <div className="flex flex-wrap">
               {[
@@ -113,7 +113,7 @@ const Footer: React.FC = () => {
                 { name: "Blog", url: "/blog" },
               ].map((link, index) => (
                 <React.Fragment key={link.name}>
-                  <Link href={link.url} className="hover:text-blue-600">
+                  <Link href={link.url} className="hover:text-gray-600">
                     {link.name}
                   </Link>
                   {index < 4 && <span className="mx-2">/</span>}
@@ -123,36 +123,36 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Third Card */}
-          <div className=" p-6">
+          <div className="p-6">
             <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
             <div className="flex space-x-4">
               <Link
                 href="https://www.facebook.com/rollingcargo"
-                className="text-2xl text-blue-600 hover:text-blue-700"
+                className="text-gray-800 hover:text-gray-600"
                 target="_blank"
               >
-                <FaFacebookSquare />
+                <Facebook size={24} />
               </Link>
               <Link
                 href="https://twitter.com/rollingcargo"
-                className="text-2xl text-blue-400 hover:text-blue-500"
+                className="text-gray-800 hover:text-gray-600"
                 target="_blank"
               >
-                <FaTwitterSquare />
+                <Twitter size={24} />
               </Link>
               <Link
                 href="https://www.linkedin.com/company/rollingcargo"
-                className="text-2xl text-blue-700 hover:text-blue-800"
+                className="text-gray-800 hover:text-gray-600"
                 target="_blank"
               >
-                <FaLinkedin />
+                <Linkedin size={24} />
               </Link>
               <Link
                 href="https://www.instagram.com/rollingcargo"
-                className="text-2xl text-pink-600 hover:text-pink-700"
+                className="text-gray-800 hover:text-gray-600"
                 target="_blank"
               >
-                <FaInstagramSquare />
+                <Instagram size={24} />
               </Link>
             </div>
           </div>
@@ -160,7 +160,7 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Headquarters and Copyright */}
-      <div className="bg-[#0f1031] py-4">
+      <div className="bg-gray-800 py-4">
         <div className="container mx-auto px-4 text-center">
           <p className="mb-2 text-white">
             Headquarters: Rolling Cargo – 10 Funzi Road, Off Enterprise Road,
