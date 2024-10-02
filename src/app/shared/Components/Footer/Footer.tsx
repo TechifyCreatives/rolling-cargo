@@ -159,7 +159,7 @@ const Footer = () => {
         </div>
       </div>
       {/* Headquarters and Copyright */}
-      <div className="bg-gray-800 py-4">
+      <div className="bg-[#0f1031] py-4">
         <div className="container mx-auto px-4 text-center">
           <p className="mb-2 text-white">
             Headquarters: Rolling Cargo – 10 Funzi Road, Off Enterprise Road,

@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
   return (
     <div className="relative">
       <div
-        className="relative h-[500px] bg-cover bg-center transition-all duration-1000 flex flex-col items-center justify-center"
+        className="relative mt-16 h-[500px] bg-cover bg-center transition-all duration-1000 flex flex-col items-center justify-center"
         style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})` }}
       >
         <div className="icons flex items-center">

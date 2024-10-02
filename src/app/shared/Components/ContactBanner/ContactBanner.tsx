@@ -91,7 +91,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, submi
   const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>();
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 ">
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
         <input

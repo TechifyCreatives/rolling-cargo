@@ -15,7 +15,7 @@ const ShippingSection = () => {
         </h2>
         <hr className="w-1/4 mx-auto border-t-2 border-[#640e0e] mb-6" />
         <p className="text-lg mb-8">
-        We offer a wide range of air and sea freight services to Kenya, with a primary focus on reliability and communication that our customers can depend upon.
+          We offer a wide range of air and sea freight services to Kenya, with a primary focus on reliability and communication that our customers can depend upon.
         </p>
         <button className="bg-[#640e0e] hover:bg-bg-[#0f1031] text-white font-bold py-3 px-6 rounded-full transition duration-300">
           <Link href='/about-us'>Read More About Rolling Cargo</Link>
@@ -31,16 +31,14 @@ const ShippingSection = () => {
             <div key={index} className="flex flex-col items-center">
               <item.icon className="w-12 h-12 mb-4" />
               <p className="text-lg font-semibold">{item.text}</p>
-              {index < 3 && (
-                <div className="hidden lg:flex items-center mt-4">
-                  {[...Array(6)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="w-1 h-1 bg-white rounded-full mx-1"
-                    ></div>
-                  ))}
-                </div>
-              )}
+              <div className="hidden lg:flex items-center mt-4">
+                {[...Array(6)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-1 h-1 bg-white rounded-full mx-1"
+                  ></div>
+                ))}
+              </div>
             </div>
           ))}
         </div>

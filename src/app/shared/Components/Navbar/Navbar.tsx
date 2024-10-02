@@ -56,20 +56,17 @@ const Navbar: React.FC = () => {
             </button>
           </div>
 
-          {/* Logo with curved background */}
-          <div className="flex-shrink-0 flex items-center">
-            <div className="relative overflow-hidden">
-              <div className="absolute inset-0"></div>
-              <NavLink href="/" className="relative z-10 flex items-center justify-center h-full">
-                <Image
-                  src="/logo.png"
-                  alt="Logo"
-                  width={150}
-                  height={150}
-                  style={{ objectFit: 'contain' }}
-                />
-              </NavLink>
-            </div>
+          {/* Centered logo */}
+          <div className="absolute left-1/2 top-1/2 mt-1 transform -translate-x-1/2 -translate-y-1/2">
+            <NavLink href="/" className="flex items-center justify-center">
+              <Image
+                src="/LOGO.png"
+                alt="Logo"
+                width={isMobile ? 80 : 100}
+                height={isMobile ? 80 : 100}
+                style={{ objectFit: 'contain' }}
+              />
+            </NavLink>
           </div>
 
           {/* Right side icons with text */}
@@ -170,11 +167,11 @@ const Navbar: React.FC = () => {
                 </li>
                 <li>
                   <NavLink
-                    href="/contact-us"
+                    href="/terms"
                     className="text-gray-600 hover:text-gray-900 flex items-center"
                     isMobile={true}
                   >
-                    <FiMail className="mr-2 text-sm" /> Contact Us
+                    Terms and Conditions
                   </NavLink>
                 </li>
               </ul>
@@ -201,13 +198,13 @@ const Navbar: React.FC = () => {
             </div>
           </div>
 
-          {/* New responsive image */}
-          <div className="mt-8 w-full">
+          {/* Responsive image */}
+          <div className="mt-8 w-full max-w-md mx-auto">
             <Image
               src="/aeo.jpg"
               alt="Toggle Image"
-              width={1200}
-              height={600}
+              width={400}
+              height={200}
               layout="responsive"
               objectFit="cover"
               className="rounded-lg shadow-md"

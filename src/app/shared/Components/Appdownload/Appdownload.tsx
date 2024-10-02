@@ -1,7 +1,5 @@
-// components/AppPromoSection.tsx
-
-import Image from "next/image";
 import Link from "next/link";
+import { PlayCircle } from "lucide-react";
 
 const Appdownload: React.FC = () => {
   return (
@@ -22,22 +20,15 @@ const Appdownload: React.FC = () => {
               <li>Easy booking and management</li>
               <li>24/7 customer support</li>
             </ul>
-            
           </div>
           <div className="md:w-1/2 flex justify-center">
-          <Link
+            <Link
               href="https://play.google.com/store/apps/details?id=com.yourcompany.app"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-blue-700 font-semibold py-3 px-6 rounded-full inline-flex items-center hover:bg-blue-100 transition duration-300"
             >
-              <Image
-                src="/playstore.png"
-                alt="Google Play"
-                width={24}
-                height={24}
-                className="mr-2"
-              />
+              <PlayCircle size={24} className="mr-2" />
               Download on Google Play
             </Link>
           </div>

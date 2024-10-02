@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Bannertraking = () => {
   return (
-    <div className="relative w-full h-64 md:h-80 lg:h-96">
+    <div className="relative w-full mt-16 h-64 md:h-80 lg:h-96">
       <Image
         src="/OnlineShoppingTwo.jpg"
         alt="Background"
