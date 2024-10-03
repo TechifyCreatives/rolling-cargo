@@ -1,9 +1,31 @@
-"use client";
+"use client"
 import React, { useState, FormEvent, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 
 type FreightType = "air" | "sea";
-type Country = "Kenya" | "UK" | "China" | "Turkey" | "Netherlands" | "Italy" | "South Africa"; // Add more countries as needed
+type Country = "Kenya" | "UK" | "China" | "Turkey" | "Netherlands" | "Italy" | "South Africa";
+
+interface CurrencyInfo {
+  code: string;
+  symbol: string;
+  rate: number;
+}
+
+const currencyMap: Record<Country, CurrencyInfo> = {
+  Kenya: { code: "KES", symbol: "KSh", rate: 137.39 },
+  UK: { code: "GBP", symbol: "£", rate: 0.79 },
+  China: { code: "CNY", symbol: "¥", rate: 7.18 },
+  Turkey: { code: "TRY", symbol: "₺", rate: 31.03 },
+  Netherlands: { code: "EUR", symbol: "€", rate: 0.92 },
+  Italy: { code: "EUR", symbol: "€", rate: 0.92 },
+  "South Africa": { code: "ZAR", symbol: "R", rate: 18.74 }
+};
+
+const handlingFees: Partial<Record<Country, number>> = {
+  Netherlands: 40,
+  Turkey: 20,
+  UK: 25
+};
 
 const FreightSection: React.FC = () => {
   const [freightType, setFreightType] = useState<FreightType | null>(null);
@@ -22,13 +44,24 @@ const FreightSection: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (weight) {
-      const calculatedCost = parseFloat(weight) * 12;
-      setCost(calculatedCost.toFixed(2));
+    if (weight && country) {
+      const baseRate = 12; // $12 per kg
+      const weightValue = parseFloat(weight);
+      const { rate, symbol } = currencyMap[country];
+      const calculatedCost = weightValue * baseRate * rate;
+      setCost(`${symbol}${calculatedCost.toFixed(2)}`);
+
+      if (country in handlingFees) {
+        const fee = handlingFees[country as keyof typeof handlingFees]!;
+        setHandlingFee(`${symbol}${(fee * rate).toFixed(2)}`);
+      } else {
+        setHandlingFee("");
+      }
     } else {
       setCost("");
+      setHandlingFee("");
     }
-  }, [weight]);
+  }, [weight, country]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -106,7 +139,7 @@ const FreightSection: React.FC = () => {
       {freightType && (
         <div className="mb-6">
           <h3 className="text-xl font-semibold mb-4">Select Country</h3>
-          {["Kenya", "UK", "China", "Turkey", "Netherlands", "Italy", "South Africa"].map((c) => (
+          {Object.keys(currencyMap).map((c) => (
             <label key={c} className="inline-flex items-center mr-4">
               <input
                 type="radio"
@@ -122,7 +155,7 @@ const FreightSection: React.FC = () => {
         </div>
       )}
 
-      {freightType && (
+      {freightType && country && (
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="weight" className="block mb-1">
@@ -139,29 +172,30 @@ const FreightSection: React.FC = () => {
           </div>
           <div>
             <label htmlFor="cost" className="block mb-1">
-              Estimated Cost ($)
+              Estimated Cost ({currencyMap[country].code})
             </label>
             <input
-              type="number"
+              type="text"
               id="cost"
               value={cost}
               className="w-full px-3 py-2 border rounded bg-gray-100"
               readOnly
             />
           </div>
-          <div>
-            <label htmlFor="handlingFee" className="block mb-1">
-              Handling Fee ($)
-            </label>
-            <input
-              type="number"
-              id="handlingFee"
-              value={handlingFee}
-              onChange={(e) => setHandlingFee(e.target.value)}
-              className="w-full px-3 py-2 border rounded"
-              required
-            />
-          </div>
+          {handlingFee && (
+            <div>
+              <label htmlFor="handlingFee" className="block mb-1">
+                Handling Fee ({currencyMap[country].code})
+              </label>
+              <input
+                type="text"
+                id="handlingFee"
+                value={handlingFee}
+                className="w-full px-3 py-2 border rounded bg-gray-100"
+                readOnly
+              />
+            </div>
+          )}
           <div>
             <label htmlFor="name" className="block mb-1">
               Name

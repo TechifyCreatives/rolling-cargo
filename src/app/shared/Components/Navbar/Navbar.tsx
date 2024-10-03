@@ -2,8 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaBars, FaTimes } from "react-icons/fa";
-import { FiDollarSign, FiBell, FiMail } from "react-icons/fi";
+import { Menu, X, DollarSign, Bell, Mail, User, FileText } from "lucide-react";
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -52,7 +51,7 @@ const Navbar: React.FC = () => {
               onClick={toggleMenu}
               className="text-gray-500 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
             >
-              {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
 
@@ -75,7 +74,7 @@ const Navbar: React.FC = () => {
               href="/cost-estimator"
               className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
             >
-              <FiDollarSign size={isMobile ? 16 : 24} />
+              <DollarSign size={isMobile ? 16 : 24} />
               <span className="text-[10px] md:text-xs mt-1">
                 Cost Estimator
               </span>
@@ -84,7 +83,7 @@ const Navbar: React.FC = () => {
               href="/blog"
               className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
             >
-              <FiBell size={isMobile ? 16 : 24} />
+              <Bell size={isMobile ? 16 : 24} />
               <span className="text-[10px] md:text-xs mt-1">
                 Updates
               </span>
@@ -93,7 +92,7 @@ const Navbar: React.FC = () => {
               href="/contact-us"
               className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
             >
-              <FiMail size={isMobile ? 16 : 24} />
+              <Mail size={isMobile ? 16 : 24} />
               <span className="text-[10px] md:text-xs mt-1">
                 Contact Us
               </span>
@@ -113,7 +112,7 @@ const Navbar: React.FC = () => {
             onClick={toggleMenu}
             className="absolute top-4 right-4 text-gray-500 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
           >
-            <FaTimes size={24} />
+            <X size={24} />
           </button>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -153,7 +152,7 @@ const Navbar: React.FC = () => {
                     className="text-gray-600 hover:text-gray-900 flex items-center"
                     isMobile={true}
                   >
-                    <FiDollarSign className="mr-2 text-sm" /> Cost Estimator
+                    <DollarSign className="mr-2" size={16} /> Cost Estimator
                   </NavLink>
                 </li>
                 <li>
@@ -162,7 +161,7 @@ const Navbar: React.FC = () => {
                     className="text-gray-600 hover:text-gray-900 flex items-center"
                     isMobile={true}
                   >
-                    <FiBell className="mr-2 text-sm" /> Updates
+                    <Bell className="mr-2" size={16} /> Updates
                   </NavLink>
                 </li>
                 <li>
@@ -171,7 +170,16 @@ const Navbar: React.FC = () => {
                     className="text-gray-600 hover:text-gray-900 flex items-center"
                     isMobile={true}
                   >
-                    Terms and Conditions
+                    <FileText className="mr-2" size={16} /> Terms and Conditions
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    href="/profile"
+                    className="text-gray-600 hover:text-gray-900 flex items-center"
+                    isMobile={true}
+                  >
+                    <User className="mr-2" size={16} /> Profile
                   </NavLink>
                 </li>
               </ul>
