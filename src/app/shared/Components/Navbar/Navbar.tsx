@@ -164,7 +164,7 @@ const Navbar: React.FC = () => {
                     <Bell className="mr-2" size={16} /> Updates
                   </NavLink>
                 </li>
-                <li>
+                {/* <li>
                   <NavLink
                     href="/terms"
                     className="text-gray-600 hover:text-gray-900 flex items-center"
@@ -172,7 +172,7 @@ const Navbar: React.FC = () => {
                   >
                     <FileText className="mr-2" size={16} /> Terms and Conditions
                   </NavLink>
-                </li>
+                </li> */}
                 <li>
                   <NavLink
                     href="/profile"
