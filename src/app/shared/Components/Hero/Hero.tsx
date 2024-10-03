@@ -1,4 +1,5 @@
-"use client";
+"use client"
+
 import React, { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import { X, Plane, Ship, Package, Bell } from "lucide-react";
@@ -11,18 +12,33 @@ const backgroundImages = [
 ];
 
 interface CustomAlertProps {
-  title: string;
-  description: string;
   onClose: () => void;
 }
 
-const CustomAlert: React.FC<CustomAlertProps> = ({ title, description, onClose }) => (
+const CustomAlert: React.FC<CustomAlertProps> = ({ onClose }) => (
   <div className="bg-white shadow-lg rounded-lg p-4 max-w-md w-full relative">
     <div className="flex items-center mb-2">
       <Bell className="mr-2 text-blue-500" />
-      <h3 className="text-lg font-semibold">{title}</h3>
+      <h3 className="text-lg font-semibold">ANNOUNCEMENT!</h3>
     </div>
-    <p className="text-sm text-gray-600">{description}</p>
+    {/* <img src="/pop.jpeg" alt="Contact Us" className="w-full mb-2" /> */}
+    <p className="text-sm text-gray-600 mb-4">
+      To help us serve you more efficiently, please share the details below when sending your cargo to us:
+    </p>
+    <ul className="list-disc pl-5 mb-4 text-sm text-gray-600">
+      <li>Name</li>
+      <li>Contact</li>
+      <li>Mode of shipping (air or by sea)</li>
+    </ul>
+    <p className="text-sm text-gray-600 mb-4">
+      For all other queries, talk to us on <strong>+254709 286 286</strong>
+    </p>
+    <div className="mt-4">
+      <h4 className="font-semibold mb-2">Contact Us</h4>
+      <button className="bg-[#0f1031] text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-300">
+        Contact Us
+      </button>
+    </div>
     <button
       onClick={onClose}
       className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
@@ -67,11 +83,10 @@ const Hero: React.FC = () => {
         <div className="icons flex items-center">
           <Plane className="text-white mr-2" size={40} />
           <Ship className="text-white mr-2" size={40} />
-          </div>
+        </div>
         <div className="flex items-center mb-8">
-          
           <h1 className="text-4xl md:text-5xl font-bold text-center text-white drop-shadow-lg">
-            Air and Sea Cargo Experts 
+            Air and Sea Cargo Experts
           </h1>
         </div>
 
@@ -95,11 +110,7 @@ const Hero: React.FC = () => {
 
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-          <CustomAlert
-            title="Announcement"
-            description="We're excited to announce our new express shipping service! Get your packages delivered faster than ever before."
-            onClose={closePopup}
-          />
+          <CustomAlert onClose={closePopup} />
         </div>
       )}
     </div>
