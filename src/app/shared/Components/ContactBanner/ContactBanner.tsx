@@ -126,7 +126,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, submi
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#0f1031] hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
       >
         {isSubmitting ? 'Sending...' : 'Send Message'}
         <Send className="ml-2 h-5 w-5" />
@@ -146,21 +146,21 @@ interface OfficeInfoProps {
 }
 
 const OfficeInfo: React.FC<OfficeInfoProps> = ({ office }) => (
-  <div className="border-l-4 border-indigo-500 pl-4 mb-6">
+  <div className="border-l-4 border-[#0f1031] pl-4 mb-6">
     <h3 className="text-lg font-medium text-gray-900">{office.name}</h3>
     <div className="mt-2 text-sm text-gray-600 space-y-1">
       <p className="flex items-center">
-        <Phone className="mr-2 h-4 w-4 text-indigo-500" />
+        <Phone className="mr-2 h-4 w-4 text-[#0f1031]" />
         {office.phone}
       </p>
       {office.email && (
         <p className="flex items-center">
-          <Mail className="mr-2 h-4 w-4 text-indigo-500" />
+          <Mail className="mr-2 h-4 w-4 text-[#0f1031]" />
           {office.email}
         </p>
       )}
       <p className="flex items-start">
-        <MapPin className="mr-2 h-4 w-4 text-indigo-500 mt-1" />
+        <MapPin className="mr-2 h-4 w-4 text-[#0f1031] mt-1" />
         <span>{office.address}</span>
       </p>
     </div>
@@ -198,15 +198,15 @@ const ContactPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-100 to-purple-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-center text-indigo-800 mb-12">Get in Touch</h1>
+        <h1 className="text-4xl font-bold text-center text-[#0f1031] mb-12">Get in Touch</h1>
         
         <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
-          <h2 className="text-2xl font-semibold text-indigo-800 mb-6">Send us a message</h2>
+          <h2 className="text-2xl font-semibold text-[#0f1031] mb-6">Send us a message</h2>
           <ContactForm onSubmit={onSubmit} isSubmitting={isSubmitting} submitStatus={submitStatus} />
         </div>
         
         <div className="bg-white rounded-xl shadow-lg p-8">
-          <h2 className="text-2xl font-semibold text-indigo-800 mb-6">Our Offices</h2>
+          <h2 className="text-2xl font-semibold text-[#0f1031] mb-6">Our Offices</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {offices.map((office, index) => (
               <OfficeInfo key={index} office={office} />

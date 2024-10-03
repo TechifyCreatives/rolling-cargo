@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Bannerfeedback = () => {
   return (
-    <div className="relative mt-16 w-full h-64 md:h-80 lg:h-96">
+    <div className="relative mt-4 w-full h-64 md:h-80 lg:h-96">
       <Image
         src="/FeedbackPage.jpg"
         alt="Background"

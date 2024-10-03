@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Bannercareers = () => {
   return (
-    <div className="relative mb-10 mt-16 w-full h-64 md:h-80 lg:h-96">
+    <div className="relative mb-10 mt-4 w-full h-64 md:h-80 lg:h-96">
       <Image
         src="/image3.jpg"
         alt="Background"
