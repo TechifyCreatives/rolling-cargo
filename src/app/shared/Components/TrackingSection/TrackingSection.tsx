@@ -2,16 +2,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-type TrackingType = "container" | "booking";
 type TrackingResult = {
-  id: string;
+  waybill: string;
   status: string;
   location: string;
   eta: string;
 };
 
 const TrackingSection: React.FC = () => {
-  const [trackingType, setTrackingType] = useState<TrackingType>("container");
   const [trackingNumber, setTrackingNumber] = useState("");
   const [trackingResults, setTrackingResults] = useState<TrackingResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -23,14 +21,17 @@ const TrackingSection: React.FC = () => {
     setTrackingResults([]);
 
     try {
-      // Replace with your actual API endpoint
-      const response = await axios.get(`https://api.example.com/track`, {
+      const response = await axios.get(`https://rolling-cargo.appspot.com/master/websiteTrackingData`, {
         params: {
-          type: trackingType,
-          number: trackingNumber,
+          waybill: trackingNumber,
         },
       });
-      setTrackingResults(response.data);
+      
+      if (response.data && response.data.length > 0) {
+        setTrackingResults(response.data);
+      } else {
+        setError("No tracking information found for the given waybill number.");
+      }
     } catch (err) {
       setError("Failed to fetch tracking information. Please try again.");
     } finally {
@@ -50,24 +51,13 @@ const TrackingSection: React.FC = () => {
             type="radio"
             className="form-radio"
             name="trackingType"
-            value="container"
-            checked={trackingType === "container"}
-            onChange={() => setTrackingType("container")}
+            value="waybill"
+            checked={true}
+            readOnly
           />
           <span className="ml-2 text-sm sm:text-base">
-            Container/Bill of Lading Number
+            Waybill Number
           </span>
-        </label>
-        <label className="flex items-center">
-          <input
-            type="radio"
-            className="form-radio"
-            name="trackingType"
-            value="booking"
-            checked={trackingType === "booking"}
-            onChange={() => setTrackingType("booking")}
-          />
-          <span className="ml-2 text-sm sm:text-base">Booking Number</span>
         </label>
       </div>
 
@@ -75,11 +65,7 @@ const TrackingSection: React.FC = () => {
         <input
           type="text"
           className="w-full sm:flex-grow px-4 py-2 border rounded-md sm:rounded-r-none focus:outline-none focus:ring-2 focus:ring-[#640e0e] mb-2 sm:mb-0"
-          placeholder={
-            trackingType === "container"
-              ? "Enter Container/Bill of Lading Number"
-              : "Enter Booking Number"
-          }
+          placeholder="Enter Waybill Number"
           value={trackingNumber}
           onChange={(e) => setTrackingNumber(e.target.value)}
         />
@@ -99,9 +85,9 @@ const TrackingSection: React.FC = () => {
       {trackingResults.length > 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {trackingResults.map((result) => (
-            <div key={result.id} className="bg-white p-4 rounded shadow">
+            <div key={result.waybill} className="bg-white p-4 rounded shadow">
               <h3 className="font-bold mb-2 text-sm sm:text-base">
-                Tracking ID: {result.id}
+                Waybill: {result.waybill}
               </h3>
               <p className="text-sm sm:text-base">Status: {result.status}</p>
               <p className="text-sm sm:text-base">

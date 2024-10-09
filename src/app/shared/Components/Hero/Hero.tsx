@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import { X, Plane, Ship, Package, Bell } from "lucide-react";
+import axios from "axios";
 
 const backgroundImages = [
   "/banner.jpg",
   "/banner2.jpg",
   "/banner3.jpg",
-  // Add more image paths as needed
 ];
 
 interface CustomAlertProps {
@@ -21,7 +21,6 @@ const CustomAlert: React.FC<CustomAlertProps> = ({ onClose }) => (
       <Bell className="mr-2 text-blue-500" />
       <h3 className="text-lg font-semibold">ANNOUNCEMENT!</h3>
     </div>
-    {/* <img src="/pop.jpeg" alt="Contact Us" className="w-full mb-2" /> */}
     <p className="text-sm text-gray-600 mb-4">
       To help us serve you more efficiently, please share the details below when sending your cargo to us:
     </p>
@@ -48,9 +47,20 @@ const CustomAlert: React.FC<CustomAlertProps> = ({ onClose }) => (
   </div>
 );
 
+type TrackingResult = {
+  waybill: string;
+  status: string;
+  location: string;
+  eta: string;
+};
+
 const Hero: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [showPopup, setShowPopup] = useState<boolean>(false);
+  const [trackingNumber, setTrackingNumber] = useState("");
+  const [trackingResults, setTrackingResults] = useState<TrackingResult[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -72,6 +82,30 @@ const Hero: React.FC = () => {
 
   const closePopup = () => {
     setShowPopup(false);
+  };
+
+  const handleTrack = async () => {
+    setIsLoading(true);
+    setError("");
+    setTrackingResults([]);
+
+    try {
+      const response = await axios.get(`https://rolling-cargo.appspot.com/master/websiteTrackingData`, {
+        params: {
+          waybill: trackingNumber,
+        },
+      });
+      
+      if (response.data && response.data.length > 0) {
+        setTrackingResults(response.data);
+      } else {
+        setError("No tracking information found for the given waybill number.");
+      }
+    } catch (err) {
+      setError("Failed to fetch tracking information. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -100,17 +134,44 @@ const Hero: React.FC = () => {
               type="text"
               placeholder="Enter Waybill Number"
               className="flex-grow p-2 border rounded-l focus:outline-none focus:ring-2 focus:ring-[#0f1031]"
+              value={trackingNumber}
+              onChange={(e) => setTrackingNumber(e.target.value)}
             />
-            <button className="bg-[#0f1031] text-white p-2 rounded-r hover:bg-[#1a1b4b] transition-colors duration-300">
-              <FaSearch />
+            <button 
+              className="bg-[#0f1031] text-white p-2 rounded-r hover:bg-[#1a1b4b] transition-colors duration-300"
+              onClick={handleTrack}
+              disabled={isLoading}
+            >
+              {isLoading ? "..." : <FaSearch />}
             </button>
           </div>
+          {error && (
+            <p className="text-red-500 mt-2 text-sm">{error}</p>
+          )}
         </div>
       </div>
 
       {showPopup && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
           <CustomAlert onClose={closePopup} />
+        </div>
+      )}
+
+      {trackingResults.length > 0 && (
+        <div className="mt-8 max-w-4xl mx-auto p-4">
+          <h2 className="text-2xl font-bold mb-4">Tracking Results</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {trackingResults.map((result) => (
+              <div key={result.waybill} className="bg-white p-4 rounded shadow">
+                <h3 className="font-bold mb-2">
+                  Waybill: {result.waybill}
+                </h3>
+                <p>Status: {result.status}</p>
+                <p>Location: {result.location}</p>
+                <p>ETA: {result.eta}</p>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>

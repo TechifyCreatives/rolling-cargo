@@ -182,7 +182,7 @@ const ContactPage: React.FC = () => {
       };
 
       await emailjs.send(
-        "YOUR_SERVICE_ID",
+        "service_hzylhcx",
         "YOUR_TEMPLATE_ID",
         emailData,
         "YOUR_USER_ID"
