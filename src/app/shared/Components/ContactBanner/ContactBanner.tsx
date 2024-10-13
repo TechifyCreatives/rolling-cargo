@@ -17,6 +17,7 @@ interface Office {
   email: string;
   address: string;
   chineseName?: string;
+  chinesePhone?: string;
   chineseAddress?: string;
 }
 
@@ -42,7 +43,8 @@ const offices: Office[] = [
   {
     name: "China – Guangzhou (Air Shipment)",
     chineseName: "中国 – 广州（空运）",
-    phone: "+8618826260042 (Liuan刘安), +8618826260043 (Hellen海伦)",
+    phone: "+8618826260042 (Liuan), +8618826260043 (Hellen)",
+    chinesePhone: "+8618826260042 (刘安), +8618826260043 (海伦)",
     email: "support@rollingcargo.co.ke",
     address: "106.Building C, Zone C, Guangdong New Material Industry Base, Lishui Town, Nanhai District, Foshan City, POST CODE: 528244",
     chineseAddress: "广东省佛山市南海区里水镇广东新材料产业基地C区C栋106，邮编：528244",
@@ -50,7 +52,8 @@ const offices: Office[] = [
   {
     name: "China – Guangzhou (Sea Shipment)",
     chineseName: "中国 – 广州（海运）",
-    phone: "+8618826260044 (A WEI阿伟), +8619927449452 (KEVIN凯文)",
+    phone: "+8618826260044 (A WEI), +8619927449452 (KEVIN)",
+    chinesePhone: "+8618826260044 (阿伟), +8619927449452 (凯文)",
     email: "support@rollingcargo.co.ke",
     address: "107,Building C, Zone C, Guangdong New Material Industry Base, Lishui Town, Nanhai District, Foshan City, POST CODE: 528244",
     chineseAddress: "广东省佛山市南海区里水镇广东新材料产业基地C区C栋107，邮编：528244",
@@ -160,7 +163,7 @@ const OfficeInfo: React.FC<OfficeInfoProps> = ({ office }) => (
     <div className="mt-2 text-sm text-gray-600 space-y-1">
       <p className="flex items-center group-hover:text-blue-600 transition-colors duration-300">
         <Phone className="mr-2 h-4 w-4 text-[#0f1031] group-hover:text-blue-600 transition-colors duration-300" />
-        {office.phone}
+        {office.chinesePhone || office.phone}
       </p>
       {office.email && (
         <p className="flex items-center group-hover:text-blue-600 transition-colors duration-300">
@@ -171,10 +174,7 @@ const OfficeInfo: React.FC<OfficeInfoProps> = ({ office }) => (
       <p className="flex items-start group-hover:text-blue-600 transition-colors duration-300">
         <MapPin className="mr-2 h-4 w-4 text-[#0f1031] mt-1 group-hover:text-blue-600 transition-colors duration-300" />
         <span>
-          {office.address}
-          {office.chineseAddress && (
-            <span className="block mt-1 text-sm group-hover:text-blue-600 transition-colors duration-300">{office.chineseAddress}</span>
-          )}
+          {office.chineseAddress || office.address}
         </span>
       </p>
     </div>
