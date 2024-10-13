@@ -66,8 +66,8 @@ const Navbar: React.FC = () => {
               <Image
                 src="/logo.png" // Changed to lowercase as a precaution
                 alt="Logo"
-                width={isMobile ? 120 : 180}
-                height={isMobile ? 120 : 180}
+                width={isMobile ? 80 : 100}
+                height={isMobile ? 80 : 100}
                 style={{ objectFit: 'contain' }}
                 onError={(e) => {
                   console.error("Error loading logo:", e);
