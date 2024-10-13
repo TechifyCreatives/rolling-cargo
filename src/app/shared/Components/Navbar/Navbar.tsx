@@ -4,6 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, DollarSign, Bell, Mail, User, FileText } from "lucide-react";
 
+// Consider using dynamic import if you're having issues with the Image component
+// import dynamic from 'next/dynamic'
+// const Image = dynamic(() => import('next/image'), { ssr: false })
+
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -58,12 +62,19 @@ const Navbar: React.FC = () => {
           {/* Centered logo */}
           <div className="absolute left-1/2 top-1/2 mt-1 transform -translate-x-1/2 -translate-y-1/2">
             <NavLink href="/" className="flex items-center justify-center">
+              {/* Updated Image component with error handling and loading indicator */}
               <Image
-                src="/LOGO.png"
+                src="/logo.png" // Changed to lowercase as a precaution
                 alt="Logo"
-                width={isMobile ? 80 : 100}
-                height={isMobile ? 80 : 100}
+                width={isMobile ? 120 : 180}
+                height={isMobile ? 120 : 180}
                 style={{ objectFit: 'contain' }}
+                onError={(e) => {
+                  console.error("Error loading logo:", e);
+                  // Fallback to text if image fails to load
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.insertAdjacentHTML('afterend', '<span class="text-xl font-bold">Your Logo</span>');
+                }}
               />
             </NavLink>
           </div>
@@ -164,15 +175,6 @@ const Navbar: React.FC = () => {
                     <Bell className="mr-2" size={16} /> Updates
                   </NavLink>
                 </li>
-                {/* <li>
-                  <NavLink
-                    href="/terms"
-                    className="text-gray-600 hover:text-gray-900 flex items-center"
-                    isMobile={true}
-                  >
-                    <FileText className="mr-2" size={16} /> Terms and Conditions
-                  </NavLink>
-                </li> */}
                 <li>
                   <NavLink
                     href="/profile"

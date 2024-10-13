@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import React, { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import { X, Plane, Ship, Package, Bell } from "lucide-react";
@@ -47,32 +46,33 @@ const CustomAlert: React.FC<CustomAlertProps> = ({ onClose }) => (
   </div>
 );
 
-type TrackingResult = {
+interface TrackingResult {
   waybill: string;
   status: string;
   location: string;
   eta: string;
-};
+}
 
 const Hero: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [showPopup, setShowPopup] = useState<boolean>(false);
-  const [trackingNumber, setTrackingNumber] = useState("");
+  const [trackingNumber, setTrackingNumber] = useState<string>("RD56364");
   const [trackingResults, setTrackingResults] = useState<TrackingResult[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentImageIndex(
         (prevIndex) => (prevIndex + 1) % backgroundImages.length
       );
-    }, 5000); // Change image every 5 seconds
+    }, 5000);
 
-    // Show popup after a short delay
     const popupTimeout = setTimeout(() => {
       setShowPopup(true);
     }, 1000);
+
+    handleTrack();
 
     return () => {
       clearInterval(intervalId);
@@ -90,7 +90,7 @@ const Hero: React.FC = () => {
     setTrackingResults([]);
 
     try {
-      const response = await axios.get(`https://rolling-cargo.appspot.com/master/websiteTrackingData`, {
+      const response = await axios.get<TrackingResult[]>(`https://rolling-cargo.appspot.com/master/websiteTrackingData`, {
         params: {
           waybill: trackingNumber,
         },
