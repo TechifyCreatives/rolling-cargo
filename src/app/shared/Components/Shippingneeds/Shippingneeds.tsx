@@ -2,7 +2,7 @@ import React from "react";
 
 const Shippingneeds = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-light-blue-100">
+    <div className="flex flex-col my-5 py-8 items-center justify-center bg-light-blue-100">
       <div className="max-w-2xl w-full bg-white">
         <h1 className="text-4xl font-bold mb-4 text-center">
         Your Shipping Partner.
