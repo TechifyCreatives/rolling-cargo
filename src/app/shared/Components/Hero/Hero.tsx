@@ -73,7 +73,6 @@ const ContactForm: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
     console.log(formData);
     onClose();
   };
@@ -228,11 +227,11 @@ const Hero: React.FC = () => {
   return (
     <div className="relative">
       <div
-        className="relative mt-16 h-[500px] bg-cover bg-center transition-all duration-1000 flex flex-col items-center justify-center"
+        className="relative mt-16 mb-20 h-[600px] bg-cover bg-center transition-all duration-1000 flex flex-col items-center justify-center"
         style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})` }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative z-10">
+        <div className="relative z-10 mb-32">
           <div className="icons flex items-center justify-center mb-4">
             <Plane className="text-white mr-2" size={40} />
             <Ship className="text-white mr-2" size={40} />
@@ -243,52 +242,54 @@ const Hero: React.FC = () => {
             </h1>
           </div>
         </div>
-      </div>
 
-      {/* Services Box */}
-      <div className="max-w-5xl mx-auto -mt-20 px-4">
-        <div className="bg-white rounded-lg shadow-xl grid grid-cols-1 md:grid-cols-3 overflow-hidden">
-          {/* Track Shipment */}
-          <a 
-            href="/track" 
-            className="group p-6 hover:bg-[#0f1031] transition-colors duration-300 cursor-pointer"
-          >
-            <div className="flex flex-col items-center text-center">
-              <Package className="text-[#0f1031] group-hover:text-white mb-4" size={40} />
-              <h3 className="text-lg font-semibold mb-2 group-hover:text-white">Track Shipment</h3>
-              <p className="text-sm text-gray-600 group-hover:text-gray-300">
-                Track your cargo in real-time with our advanced tracking system
-              </p>
-            </div>
-          </a>
+        {/* Services Box - Moved inside the hero section */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 transform translate-y-1/2">
+          <div className="max-w-5xl mx-auto px-4">
+            <div className="bg-[#f8fafc] rounded-lg shadow-xl grid grid-cols-1 md:grid-cols-3 overflow-hidden">
+              {/* Track Shipment */}
+              <a 
+                href="/track" 
+                className="group p-6 hover:bg-[#0f1031] transition-colors duration-300 cursor-pointer"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <Package className="text-[#0f1031] group-hover:text-white mb-4" size={40} />
+                  <h3 className="text-lg font-semibold mb-2 group-hover:text-white">Track Shipment</h3>
+                  <p className="text-sm text-gray-600 group-hover:text-gray-300">
+                    Track your cargo in real-time with our advanced tracking system
+                  </p>
+                </div>
+              </a>
 
-          {/* Request Quote */}
-          <div 
-            onClick={() => setShowContactForm(true)} 
-            className="group p-6 hover:bg-[#0f1031] transition-colors duration-300 cursor-pointer border-t md:border-t-0 md:border-l md:border-r border-gray-200"
-          >
-            <div className="flex flex-col items-center text-center">
-              <Mail className="text-[#0f1031] group-hover:text-white mb-4" size={40} />
-              <h3 className="text-lg font-semibold mb-2 group-hover:text-white">Request Quote</h3>
-              <p className="text-sm text-gray-600 group-hover:text-white">
-                Get instant quotes for your shipping needs
-              </p>
+              {/* Request Quote */}
+              <div 
+                onClick={() => setShowContactForm(true)} 
+                className="group p-6 hover:bg-[#0f1031] transition-colors duration-300 cursor-pointer border-t md:border-t-0 md:border-l md:border-r border-gray-200"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <Mail className="text-[#0f1031] group-hover:text-white mb-4" size={40} />
+                  <h3 className="text-lg font-semibold mb-2 group-hover:text-white">Request Quote</h3>
+                  <p className="text-sm text-gray-600 group-hover:text-white">
+                    Get instant quotes for your shipping needs
+                  </p>
+                </div>
+              </div>
+
+              {/* Contact Us */}
+              <a 
+                href="/contact" 
+                className="group p-6 hover:bg-[#0f1031] transition-colors duration-300 cursor-pointer border-t md:border-t-0"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <Phone className="text-[#0f1031] group-hover:text-white mb-4" size={40} />
+                  <h3 className="text-lg font-semibold mb-2 group-hover:text-white">Contact Us</h3>
+                  <p className="text-sm text-gray-600 group-hover:text-white">
+                    Get in touch with our customer service team
+                  </p>
+                </div>
+              </a>
             </div>
           </div>
-
-          {/* Contact Us */}
-          <a 
-            href="/contact" 
-            className="group p-6 hover:bg-[#0f1031] transition-colors duration-300 cursor-pointer border-t md:border-t-0"
-          >
-            <div className="flex flex-col items-center text-center">
-              <Phone className="text-[#0f1031] group-hover:text-white mb-4" size={40} />
-              <h3 className="text-lg font-semibold mb-2 group-hover:text-white">Contact Us</h3>
-              <p className="text-sm text-gray-600 group-hover:text-white">
-                Get in touch with our customer service team
-              </p>
-            </div>
-          </a>
         </div>
       </div>
 
