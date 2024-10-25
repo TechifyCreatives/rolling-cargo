@@ -5,12 +5,16 @@ import Textarea from "./shared/Components/Textarea/Textarea";
 import Shippingneeds from "./shared/Components/Shippingneeds/Shippingneeds";
 import ShippingSection from "./shared/Components/ShippingSection/ShippingSection";
 import Appdownload from "./shared/Components/Appdownload/Appdownload";
+import Onlineshoppingsection from "./shared/Components/Onlineshoppingsection/Onlineshoppingsection";
+import Servicessection from "./shared/Components/Servicessection/Servicessection";
 
 export default function Home() {
   return (
     <div>
       <Hero />
       <Textarea />
+      <Onlineshoppingsection/>
+      <Servicessection/>
       <GridSection />
       <Shippingneeds />
       <ShippingSection />

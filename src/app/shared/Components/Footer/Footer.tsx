@@ -14,47 +14,47 @@ const countries = [
   {
     name: "Head Office",
     phone: "+254 709 286 286",
-    email: "support@rollingcargo.co.ke",
+    email: "salesinquiries@rollingcargo.co.ke",
   },
   {
     name: "UAE - Dubai",
     phone: "+971 4 2965 432",
-    email: "support@rollingcargo.co.ke",
+    email: "salesinquiries@rollingcargo.co.ke",
   },
   {
     name: "China Office",
     phone: "+8618826260042",
-    email: "support@rollingcargo.co.ke",
+    email: "salesinquiries@rollingcargo.co.ke",
   },
   {
     name: "South Africa",
     phone: "+27 79 906 7166",
-    email: "support@rollingcargo.co.ke",
+    email: "salesinquiries@rollingcargo.co.ke",
   },
   {
     name: "Europe – Italy",
     phone: "+393716953158",
-    email: "support@rollingcargo.co.ke",
+    email: "salesinquiries@rollingcargo.co.ke",
   },
   {
     name: "Europe – Nethalands",
     phone: "+31 610624607",
-    email: "support@rollingcargo.co.ke",
+    email: "salesinquiries@rollingcargo.co.ke",
   },
   {
     name: "Turkey – Istabul",
     phone: "+905526128645",
-    email: "support@rollingcargo.co.ke",
+    email: "salesinquiries@rollingcargo.co.ke",
   },
   {
     name: "U.K – London",
     phone: "+44 7447 959259",
-    email: "support@rollingcargo.co.ke",
+    email: "salesinquiries@rollingcargo.co.ke",
   },
   {
     name: "Mombasa Office",
     phone: "+254 709 286 286",
-    email: "support@rollingcargo.co.ke",
+    email: "salesinquiries@rollingcargo.co.ke",
   },
 ];
 
@@ -69,7 +69,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-100 text-gray-800">
+    <footer className=" text-gray-800">
       <hr className="border-gray-300" />
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
