@@ -1,4 +1,6 @@
-import { Clock, Users, Star, Trophy } from 'lucide-react';
+import React from 'react'
+import { Plane, Ship, ShoppingBag, FileCheck } from 'lucide-react';
+import Link from 'next/link';
 
 interface IconItemProps {
   icon: React.ReactNode;
@@ -7,8 +9,11 @@ interface IconItemProps {
 
 const IconItem = ({ icon, text }: IconItemProps) => (
   <div className="flex items-center gap-3">
-    <div className="text-indigo-600">
-      {icon}
+    <div className="p-2 rounded-lg" style={{ backgroundColor: '#640e0e' }}>
+      {React.cloneElement(icon as React.ReactElement, { 
+        size: 24,
+        color: 'white'
+      })}
     </div>
     <span className="text-gray-600">{text}</span>
   </div>
@@ -32,54 +37,54 @@ const Servicessection = () => {
           {/* Top Section */}
           <div className="mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Experience Excellence
+              Cargo Shipping
             </h2>
             <p className="text-xl text-indigo-600">
-              Discover our achievements
+              With Rolling Cargo
             </p>
           </div>
 
           {/* Middle Section */}
           <div className="mb-12">
             <p className="text-gray-600 leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do 
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat 
-              nulla pariatur.
+              Discover shipping and logistics service options from Rolling Cargo.
             </p>
           </div>
 
           {/* Bottom Section with different background */}
           <div className="bg-indigo-50 rounded-lg p-8 shadow-inner">
             <h3 className="text-xl font-semibold text-gray-900 mb-6">
-              Our Key Metrics
+              Our Services
             </h3>
             
             {/* First Row of Icons */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <IconItem 
-                icon={<Clock size={24} />} 
-                text="10+ Years Experience"
+                icon={<Plane />} 
+                text="Air Freight"
               />
               <IconItem 
-                icon={<Users size={24} />} 
-                text="500+ Happy Clients"
+                icon={<Ship />} 
+                text="Sea Freight"
               />
             </div>
 
             {/* Second Row of Icons */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <IconItem 
-                icon={<Star size={24} />} 
-                text="4.9 Average Rating"
+                icon={<ShoppingBag />} 
+                text="Online Shopping"
               />
               <IconItem 
-                icon={<Trophy size={24} />} 
-                text="15 Industry Awards"
+                icon={<FileCheck />} 
+                text="Custom Clearance"
               />
             </div>
+          </div>
+          <div className='flex bg-[#640e0e] text-white p-4 rounded text-center'>
+            <button>
+              <Link href='/services'>Our Services</Link>
+            </button>
           </div>
         </div>
       </div>

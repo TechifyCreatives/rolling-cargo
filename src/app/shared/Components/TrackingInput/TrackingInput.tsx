@@ -33,8 +33,8 @@ const TrackingInput: React.FC<TrackingInputProps> = ({
         onClick={onTrack}
         className={`${
           isMobile
-            ? "bg-[#0f1031] text-white px-4 rounded-r"
-            : "bg-[#0f1031] text-white p-1 rounded"
+            ? "bg-[#640e0e] text-white px-4 rounded-r"
+            : "bg-[#640e0e] text-white p-1 rounded"
         } hover:bg-[#1a1b4b] transition-colors duration-300`}
         disabled={isLoading}
       >
