@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import { X, Plane, Ship, Package, Bell, Phone, Mail, Box } from "lucide-react";
 import axios from "axios";
+import Link from "next/link";
 
 const backgroundImages = [
   // "/banner.jpg",
@@ -248,8 +249,8 @@ const Hero: React.FC = () => {
           <div className="max-w-5xl mx-auto px-4">
             <div className="bg-[#f8fafc] rounded-lg shadow-xl grid grid-cols-1 md:grid-cols-3 overflow-hidden">
               {/* Track Shipment */}
-              <a 
-                href="/track" 
+              <Link 
+                href="/traking" 
                 className="group p-6 hover:bg-[#0f1031] transition-colors duration-300 cursor-pointer"
               >
                 <div className="flex flex-col items-center text-center">
@@ -259,7 +260,7 @@ const Hero: React.FC = () => {
                     Track your cargo in real-time with our advanced tracking system
                   </p>
                 </div>
-              </a>
+              </Link>
 
               {/* Request Quote */}
               <div 
@@ -276,8 +277,8 @@ const Hero: React.FC = () => {
               </div>
 
               {/* Contact Us */}
-              <a 
-                href="/contact" 
+              <Link 
+                href="/contact-us" 
                 className="group p-6 hover:bg-[#0f1031] transition-colors duration-300 cursor-pointer border-t md:border-t-0"
               >
                 <div className="flex flex-col items-center text-center">
@@ -287,7 +288,7 @@ const Hero: React.FC = () => {
                     Get in touch with our customer service team
                   </p>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

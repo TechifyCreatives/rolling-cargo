@@ -2,3 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Biennale';          /* Name you want to use in your CSS */
+    src: url('/biennale.woff2') format('woff2'),     /* Modern browsers */
+         url('/biennale.woff') format('woff'),       /* Older browsers */
+         url('/biennale.ttf') format('truetype');    /* Safari, Android, iOS */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Step 2: Use the font */
+*{
+    font-family: 'Biennale', sans-serif !important;    /* Always include a fallback */
+}
