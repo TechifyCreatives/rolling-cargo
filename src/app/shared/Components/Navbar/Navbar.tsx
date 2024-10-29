@@ -101,16 +101,8 @@ const Navbar: React.FC = () => {
 
           {/* Center section with logo and mobile track button */}
           <div className="flex items-center justify-center space-x-4">
-            {/* Mobile track button */}
-            <button
-              onClick={toggleTracking}
-              className="md:hidden bg-[#0f1031] text-white px-3 py-1 rounded-full text-sm hover:bg-[#1a1b4b] transition-colors duration-300"
-            >
-              Track
-            </button>
-
-            {/* Centered logo */}
-            <div className="hidden md:block">
+            {/* Logo - visible on all screen sizes */}
+            <div className="flex items-center">
               <NavLink href="/" className="flex items-center justify-center">
                 <Image
                   src="/logo.png"
@@ -126,6 +118,14 @@ const Navbar: React.FC = () => {
                 />
               </NavLink>
             </div>
+            
+            {/* Mobile track button */}
+            <button
+              onClick={toggleTracking}
+              className="md:hidden bg-[#0f1031] text-white px-3 py-1 rounded-full text-sm hover:bg-[#1a1b4b] transition-colors duration-300"
+            >
+              Track
+            </button>
           </div>
 
           {/* Right section with icons */}
