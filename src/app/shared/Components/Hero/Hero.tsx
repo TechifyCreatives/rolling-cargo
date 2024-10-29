@@ -46,9 +46,11 @@ const CustomAlert: React.FC<CustomAlertProps> = ({ onClose }) => (
       </p>
       <div className="mt-4">
         <h4 className="font-semibold mb-2">Contact Us</h4>
-        <button className="bg-[#0f1031] text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-300">
-          Contact Us
-        </button>
+        <Link href='/contact-us'>
+          <button className="bg-[#0f1031] text-white px-4 py-2 rounded hover:bg-[#640e0e] transition-colors duration-300">
+            Contact Us
+          </button>
+        </Link>
       </div>
       <button
         onClick={onClose}
