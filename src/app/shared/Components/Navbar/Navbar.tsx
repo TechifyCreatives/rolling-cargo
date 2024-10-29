@@ -81,53 +81,54 @@ const Navbar: React.FC = () => {
     <nav className="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
+          {/* Left section with hamburger menu and tracking input */}
           <div className="flex items-center space-x-4">
-            {/* Hamburger menu and tracking input */}
-            <div className="flex items-center space-x-2">
-              <button
-                onClick={toggleMenu}
-                className="text-gray-500 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-              >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-              <div className="hidden md:flex items-center space-x-2 bg-gray-100 rounded-lg p-1">
-                <TrackingInput
-                  trackingNumber={trackingNumber}
-                  onTrackingNumberChange={setTrackingNumber}
-                  onTrack={handleTrack}
-                  isLoading={isLoading}
-                />
-              </div>
+            <button
+              onClick={toggleMenu}
+              className="text-gray-500 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+            <div className="hidden md:flex items-center space-x-2 bg-gray-100 rounded-lg p-1">
+              <TrackingInput
+                trackingNumber={trackingNumber}
+                onTrackingNumberChange={setTrackingNumber}
+                onTrack={handleTrack}
+                isLoading={isLoading}
+              />
             </div>
           </div>
 
-          {/* Mobile tracking button */}
-          <button
-            onClick={toggleTracking}
-            className="md:hidden absolute left-1/2 transform -translate-x-1/2 bg-[#0f1031] text-white px-3 py-1 rounded-full text-sm hover:bg-[#1a1b4b] transition-colors duration-300"
-          >
-            Track
-          </button>
+          {/* Center section with logo and mobile track button */}
+          <div className="flex items-center justify-center space-x-4">
+            {/* Mobile track button */}
+            <button
+              onClick={toggleTracking}
+              className="md:hidden bg-[#0f1031] text-white px-3 py-1 rounded-full text-sm hover:bg-[#1a1b4b] transition-colors duration-300"
+            >
+              Track
+            </button>
 
-          {/* Centered logo */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 flex-shrink-0">
-            <NavLink href="/" className="flex items-center justify-center">
-              <Image
-                src="/logo.png"
-                alt="Logo"
-                width={isMobile ? 60 : 80}
-                height={isMobile ? 60 : 80}
-                style={{ objectFit: 'contain' }}
-                onError={(e) => {
-                  console.error("Error loading logo:", e);
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.insertAdjacentHTML('afterend', '<span class="text-xl font-bold">Your Logo</span>');
-                }}
-              />
-            </NavLink>
+            {/* Centered logo */}
+            <div className="hidden md:block">
+              <NavLink href="/" className="flex items-center justify-center">
+                <Image
+                  src="/logo.png"
+                  alt="Logo"
+                  width={isMobile ? 60 : 80}
+                  height={isMobile ? 60 : 80}
+                  style={{ objectFit: 'contain' }}
+                  onError={(e) => {
+                    console.error("Error loading logo:", e);
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.insertAdjacentHTML('afterend', '<span class="text-xl font-bold">Your Logo</span>');
+                  }}
+                />
+              </NavLink>
+            </div>
           </div>
 
-          {/* Right side icons */}
+          {/* Right section with icons */}
           <div className="flex items-center space-x-2 md:space-x-4">
             <NavLink
               href="/cost-estimator"
