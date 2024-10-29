@@ -21,7 +21,7 @@ const IconItem = ({ icon, text }: IconItemProps) => (
 
 const Onlineshoppingsection = () => {
   return (
-    <section className="relative w-full min-h-screen px-4 py-8 md:p-8">
+    <section className="w-full bg-white py-8 md:py-8">
       {/* Mobile Image */}
       <div className="md:hidden w-full h-48 mb-6">
         <img 
