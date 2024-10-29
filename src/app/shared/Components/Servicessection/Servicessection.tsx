@@ -9,23 +9,32 @@ interface IconItemProps {
 
 const IconItem = ({ icon, text }: IconItemProps) => (
   <div className="flex items-center gap-3">
-    <div className="p-2 rounded-lg" style={{ backgroundColor: '#640e0e' }}>
+    <div className="p-2 rounded-lg bg-[#640e0e]">
       {React.cloneElement(icon as React.ReactElement, { 
-        size: 24,
+        size: 20,
         color: 'white'
       })}
     </div>
-    <span className="text-gray-600">{text}</span>
+    <span className="text-gray-600 text-sm md:text-base">{text}</span>
   </div>
 );
 
 const Servicessection = () => {
   return (
-    <section className="relative min-h-screen flex items-center p-8">
-      {/* Image Side - Left */}
-      <div className="absolute left-0 top-0 bottom-0 w-1/2 hidden lg:block">
+    <section className="relative w-full min-h-screen px-4 py-8 md:p-8">
+      {/* Mobile Image */}
+      <div className="md:hidden w-full h-48 mb-6">
         <img 
-          src="/image2.jpg" 
+          src="/Image-beside-Shipping-Logistics.png" 
+          alt="Section Image" 
+          className="h-full w-full object-cover rounded-lg shadow-lg"
+        />
+      </div>
+
+      {/* Desktop Image - Left Side */}
+      <div className="absolute left-0 top-0 bottom-0 w-1/2 hidden md:block">
+        <img 
+          src="/Image-beside-Shipping-Logistics.png" 
           alt="Section Image" 
           className="h-full w-full object-cover rounded-lg shadow-xl"
         />
@@ -33,54 +42,56 @@ const Servicessection = () => {
 
       {/* Content Container */}
       <div className="container mx-auto flex items-center">
-        <div className="relative lg:w-3/5 bg-white rounded-lg shadow-lg p-8 lg:p-12 z-10 ml-auto">
+        <div className="w-full md:w-3/5 bg-white rounded-lg shadow-lg p-6 md:p-8 lg:p-12 z-10 md:ml-auto">
           {/* Top Section */}
-          <div className="mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="mb-6 md:mb-12">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
               Shipping Logistics
             </h2>
           </div>
 
           {/* Middle Section */}
-          <div className="mb-12">
-            <p className="text-gray-600 leading-relaxed">
+          <div className="mb-6 md:mb-12">
+            <p className="text-sm md:text-base text-gray-600 leading-relaxed">
               Discover shipping and logistics service options from Rolling Cargo.
             </p>
           </div>
 
           {/* Bottom Section with different background */}
-          <div className="bg-indigo-50 rounded-lg p-8 shadow-inner">
-            <h3 className="text-xl font-semibold text-gray-900 mb-6">
+          <div className="bg-indigo-50 rounded-lg p-4 md:p-8 shadow-inner">
+            <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-4 md:mb-6">
               Our Services
             </h3>
             
-            {/* First Row of Icons */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <IconItem 
-                icon={<Plane />} 
-                text="Air Freight"
-              />
-              <IconItem 
-                icon={<Ship />} 
-                text="Sea Freight"
-              />
-            </div>
+            {/* Services Grid */}
+            <div className="space-y-4 md:space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                <IconItem 
+                  icon={<Plane />} 
+                  text="Air Freight"
+                />
+                <IconItem 
+                  icon={<Ship />} 
+                  text="Sea Freight"
+                />
+              </div>
 
-            {/* Second Row of Icons */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <IconItem 
-                icon={<ShoppingBag />} 
-                text="Online Shopping"
-              />
-              <IconItem 
-                icon={<FileCheck />} 
-                text="Custom Clearance"
-              />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                <IconItem 
+                  icon={<ShoppingBag />} 
+                  text="Online Shopping"
+                />
+                <IconItem 
+                  icon={<FileCheck />} 
+                  text="Custom Clearance"
+                />
+              </div>
             </div>
           </div>
+
           <Link 
             href="/our-services" 
-            className="group inline-flex mt-4 items-center gap-2 bg-[#640e0e] hover:bg-[#8B0000] text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-all duration-300 ease-out hover:shadow-md hover:translate-y-[-1px]"
+            className="group inline-flex mt-6 md:mt-4 items-center gap-2 bg-[#640e0e] hover:bg-[#8B0000] text-white text-sm font-medium px-4 md:px-5 py-2 md:py-2.5 rounded-lg transition-all duration-300 ease-out hover:shadow-md hover:translate-y-[-1px]"
           >
             Our Services
             <svg 
@@ -98,15 +109,6 @@ const Servicessection = () => {
             </svg>
           </Link>
         </div>
-      </div>
-
-      {/* Mobile Image */}
-      <div className="lg:hidden w-full h-64 mb-8">
-        <img 
-          src="/image2.jpg" 
-          alt="Section Image" 
-          className="h-full w-full object-cover rounded-lg shadow-lg"
-        />
       </div>
     </section>
   );

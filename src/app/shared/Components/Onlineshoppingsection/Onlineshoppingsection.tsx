@@ -1,3 +1,4 @@
+import React from 'react';
 import { Camera, Phone, Mail, MapPin } from 'lucide-react';
 import Link from 'next/link';
 
@@ -9,17 +10,29 @@ interface IconItemProps {
 const IconItem = ({ icon, text }: IconItemProps) => (
   <div className="flex items-center gap-3">
     <div className="text-blue-600">
-      {icon}
+      {React.cloneElement(icon as React.ReactElement, { 
+        size: 20,
+        className: 'md:w-6 md:h-6'
+      })}
     </div>
-    <span className="text-gray-600">{text}</span>
+    <span className="text-gray-600 text-sm md:text-base">{text}</span>
   </div>
 );
 
 const Onlineshoppingsection = () => {
   return (
-    <section className="relative min-h-screen flex items-center p-8">
-      {/* Image Side */}
-      <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block">
+    <section className="relative w-full min-h-screen px-4 py-8 md:p-8">
+      {/* Mobile Image */}
+      <div className="md:hidden w-full h-48 mb-6">
+        <img 
+          src="/banner2.jpg" 
+          alt="Section Image" 
+          className="h-full w-full object-cover rounded-lg shadow-lg"
+        />
+      </div>
+
+      {/* Desktop Image Side */}
+      <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden md:block">
         <img 
           src="/banner2.jpg" 
           alt="Section Image" 
@@ -29,27 +42,27 @@ const Onlineshoppingsection = () => {
 
       {/* Content Container */}
       <div className="container mx-auto flex items-center">
-        <div className="relative lg:w-3/5 bg-white rounded-lg shadow-lg p-8 lg:p-12 z-10">
+        <div className="w-full md:w-3/5 bg-white rounded-lg shadow-lg p-6 md:p-8 lg:p-12 z-10">
           {/* Top Section */}
-          <div className="mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="mb-6 md:mb-12">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-2 md:mb-4">
               Strategically Located 
             </h2>
-            <p className="text-xl text-[#640e0e]">
+            <p className="text-lg md:text-xl text-[#640e0e]">
               In 9+ Countries
             </p>
           </div>
 
           {/* Middle Section */}
-          <div className="mb-12">
-            <p className="text-gray-600 leading-relaxed">
+          <div className="mb-8 md:mb-12">
+            <p className="text-sm md:text-base text-gray-600 leading-relaxed">
               We have extensive and well-established partnerships with different industry players. This enables us to offer better and most competitive rates. We deliver using the shortest possible transit time with optimum routings that are cost efficient.
             </p>
           </div>
 
           <Link 
             href="/about-us" 
-            className="group inline-flex items-center gap-2 bg-[#640e0e] hover:bg-[#8B0000] text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-all duration-300 ease-out hover:shadow-md hover:translate-y-[-1px]"
+            className="group inline-flex items-center gap-2 bg-[#640e0e] hover:bg-[#8B0000] text-white text-sm font-medium px-4 md:px-5 py-2 md:py-2.5 rounded-lg transition-all duration-300 ease-out hover:shadow-md hover:translate-y-[-1px]"
           >
             About Us
             <svg 
@@ -67,15 +80,6 @@ const Onlineshoppingsection = () => {
             </svg>
           </Link>
         </div>
-      </div>
-
-      {/* Mobile Image */}
-      <div className="lg:hidden w-full h-64 mt-8">
-        <img 
-          src="/banner2.jpg" 
-          alt="Section Image" 
-          className="h-full w-full object-cover rounded-lg shadow-lg"
-        />
       </div>
     </section>
   );

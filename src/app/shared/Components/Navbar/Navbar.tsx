@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [showTracking, setShowTracking] = useState(false);
-  const [trackingNumber, setTrackingNumber] = useState<string>("RD56364");
+  const [trackingNumber, setTrackingNumber] = useState<string>("");
   const [trackingResults, setTrackingResults] = useState<TrackingResult[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
