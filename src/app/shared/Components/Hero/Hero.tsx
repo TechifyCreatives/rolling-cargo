@@ -6,8 +6,6 @@ import axios from "axios";
 import Link from "next/link";
 
 const backgroundImages = [
-  // "/banner.jpg",
-  // "/banner2.jpg",
   "/banner3.jpg",
 ];
 
@@ -230,7 +228,7 @@ const Hero: React.FC = () => {
   return (
     <div className="relative">
       <div
-        className="relative mt-16 h-[450px] mb-20 bg-cover bg-center transition-all duration-1000 flex flex-col items-center justify-center"
+        className="relative mt-16 h-[450px] bg-cover bg-center transition-all duration-1000 flex flex-col items-center justify-center"
         style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})` }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -246,10 +244,10 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Services Box - Moved inside the hero section */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 transform translate-y-1/4">
+        {/* Services Box - Hidden on mobile, visible on md and up */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 transform translate-y-1/4 hidden md:block">
           <div className="max-w-5xl mx-auto px-4">
-            <div className="bg-[#f8fafc] rounded-lg shadow-xl grid grid-cols-1 md:grid-cols-3 overflow-hidden">
+            <div className="bg-[#f8fafc] rounded-lg shadow-xl grid grid-cols-3 overflow-hidden">
               {/* Track Shipment */}
               <Link 
                 href="/traking" 
@@ -267,7 +265,7 @@ const Hero: React.FC = () => {
               {/* Request Quote */}
               <div 
                 onClick={() => setShowContactForm(true)} 
-                className="group p-6 hover:bg-[#0f1031] transition-colors duration-300 cursor-pointer border-t md:border-t-0 md:border-l md:border-r border-gray-200"
+                className="group p-6 hover:bg-[#0f1031] transition-colors duration-300 cursor-pointer border-l border-r border-gray-200"
               >
                 <div className="flex flex-col items-center text-center">
                   <Mail className="text-[#640e0e] group-hover:text-white mb-4" size={40} />
@@ -281,7 +279,7 @@ const Hero: React.FC = () => {
               {/* Contact Us */}
               <Link 
                 href="/contact-us" 
-                className="group p-6 hover:bg-[#0f1031] transition-colors duration-300 cursor-pointer border-t md:border-t-0"
+                className="group p-6 hover:bg-[#0f1031] transition-colors duration-300 cursor-pointer"
               >
                 <div className="flex flex-col items-center text-center">
                   <Phone className="text-[#640e0e] group-hover:text-white mb-4" size={40} />
