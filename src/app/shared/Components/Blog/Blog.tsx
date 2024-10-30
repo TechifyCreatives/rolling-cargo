@@ -34,17 +34,28 @@ const blogPosts: BlogPost[] = [
     `,
     date: "September 14, 2024",
     category: "Shipping Policy",
-    image: "/image1.jpg",
+    image: "/Dangerous Goods List & Items We Don't Ship.jpg",
     author: "Kennedy Mwangi"
   },
   {
     id: 2,
-    title: "How to Shop in UK",
-    excerpt: "Stay informed about How to Shop in UK",
-    content: "Content for the first blog post...",
+    title: "Efficient Cargo Shipping from the UK to Kenya.",
+    excerpt: "How Rolling Cargo Simplifies Your Logistics",
+    content: `
+      **Keywords: **
+      UK to Kenya cargo shipping, freight services UK, air freight from UK to Kenya, sea freight services, import cargo UK Kenya
+
+      When shipping cargo from the UK to Kenya, efficiency and reliability are key factors. At Rolling Cargo, we provide tailored air and sea freight solutions to ensure your goods arrive on time and in perfect condition. Whether it's small packages or large commercial shipments, we handle the complexities of customs clearance, documentation, and logistics. Discover how our services stand out with competitive rates, real-time tracking, and dedicated customer support.
+
+      **Why Choose Rolling Cargo for UK Shipments?**
+      1. Affordable sea freight from the UK to Kenya
+      2. Fast air freight services with guaranteed delivery timelines
+      3. Streamlined customs clearance to avoid delays
+      4. Expert handling of fragile and high-value goods
+    `,
     date: "January 21, 2022",
     category: "Shipping News",
-    image: "/image1.jpg",
+    image: "/How to Shop in UK.jpg",
     author: "Kennedy Mwangi"
   },
   {
@@ -54,9 +65,140 @@ const blogPosts: BlogPost[] = [
     content: "Dear Customer, our Dubai branch timings will be changing to align with the newly announced weekend. New timings are: Mon-Thu & Sat: 8am-10:30pm, Fri: 8am-12pm,open 2pm-10:30pm Sun: Closed. Our dubai branch operate 6 days a week as per dubai time change",
     date: "January 3, 2022",
     category: "Shipping News",
-    image: "/image1.jpg",
+    image: "/Dubai Time Change.jpg",
     author: "Kennedy Mwangi"
   },
+  {
+    id: 4,
+    title: "Affordable Sea Freight from Turkey",
+    excerpt: "The Key to Successful Kenyan Imports",
+    content: `
+      **Keywords: **
+      Turkey to Kenya shipping, sea freight Turkey, affordable shipping Turkey, cargo services from Turkey, shipping logistics Kenya
+
+      With Turkey becoming a leading hub for manufacturing, businesses in Kenya are increasingly sourcing products from Turkish suppliers. Rolling Cargo provides cost-effective sea freight solutions, ensuring safe, timely, and affordable transport of your goods from Turkey to Kenya. Our comprehensive service covers everything from pick-up to customs clearance, giving you peace of mind.
+
+      **Benefits of Using Rolling Cargo for Turkish Imports:**
+      1. Competitive sea freight rates from Turkey
+      2. Efficient handling of bulk cargo and large volumes
+      3. Secure warehousing options in Turkey
+      4. Streamlined customs and clearance processes
+      5. Dedicated account managers for personalised support
+    `,
+    date: "October 30, 2024",
+    category: "Shipping News",
+    image: "/Blog2.jpg",
+    author: "Kennedy Mwangi"
+  },
+  {
+    id: 5,
+    title: "Connecting South Africa to Kenya",
+    excerpt: "Road and Air Freight Solutions by Rolling Cargo",
+    content: `
+      **Keywords: **
+      South Africa Kenya freight, air freight South Africa, road freight services South Africa, cargo transport from South Africa, import services Kenya
+
+      As trade between South Africa and Kenya grows, the demand for reliable cargo solutions has increased. Rolling Cargo offers both road and air freight options, making it easy for businesses to transport goods safely and swiftly. Whether it’s perishable items, machinery, or general cargo, our logistics experts are on hand to ensure seamless transportation, with regular updates and a commitment to meeting your deadlines.
+
+      **Why Rolling Cargo is the Best Choice for South Africa Imports:**
+      1. Flexible road and air freight services
+      2. Real-time tracking and cargo management
+      3. Professional handling of sensitive and high-value goods
+      4. Door-to-door delivery options for added convenience
+      5. Efficient cross-border shipping with minimal delays
+    `,
+    date: "January 30, 2024",
+    category: "Shipping News",
+    image: "/Blog 3 Connecting South Africa to Kenya Road and Air Freight Solutions by Rolling Cargo .jpg",
+    author: "Kennedy Mwangi"
+  },
+  {
+    id: 6,
+    title: "Seamless Sea Freight from the Netherlands",
+    excerpt: "Importing to Kenya with Rolling Cargo",
+    content: `
+      **Keywords: **
+      Netherlands to Kenya sea freight, freight forwarding Netherlands, shipping from Holland, import services Kenya, sea cargo logistics
+
+      The Netherlands, known for its advanced logistics network, is a major trade partner with Kenya. Rolling Cargo specialises in sea freight solutions from Holland to Kenya, handling everything from agricultural products to heavy machinery. Our team ensures your cargo is loaded, transported, and cleared at the port efficiently, reducing transit times and costs.
+
+      **Top Reasons to Choose Rolling Cargo for Dutch Imports**
+      1. Efficient sea freight routes from the Netherlands to Kenya
+      2. Timely customs clearance to avoid delays at Mombasa port
+      3. Handling of large-scale shipments, including heavy equipment
+      4. Secure storage and warehousing in the Netherlands
+      5. Expert advice on import regulations and documentation
+    `,
+    date: "October 30, 2024",
+    category: "Shipping News",
+    image: "/Blog 4 Seamless Sea Freight from the Netherlands Importing to Kenya with Rolling Cargo.jpg",
+    author: "Kennedy Mwangi"
+  },
+  {
+    id: 7,
+    title: "Streamlining Cargo Imports from China to Kenya: ",
+    excerpt: "How Rolling Cargo Supports Your Business",
+    content: `
+      **Keywords: **
+      China to Kenya cargo, shipping from China to Kenya, air and sea freight China Kenya, cargo logistics China, import services Kenya
+
+      China remains one of Kenya’s largest trading partners, and importing goods from China requires a reliable logistics partner. At Rolling Cargo, we specialise in both air and sea freight services, providing a complete package from door-to-door delivery, customs clearance, and warehousing. Whether you're importing electronics, clothing, or heavy machinery, we ensure that your cargo arrives on time and within budget.
+
+      **Key Features of Rolling Cargo’s China Import Services:**
+      1. Fast and reliable air freight from China to Kenya
+      2. Cost-effective sea freight solutions for large shipments
+      3. Full customs support to streamline import processes
+      4. Real-time tracking for transparency at every stage
+      5. Warehousing options in China for pre-shipment storage
+    `,
+    date: "October 30, 2024",
+    category: "Shipping News",
+    image: "/Blog 5 Streamlining Cargo Imports from China to Kenya How Rolling Cargo Supports Your Business.jpg",
+    author: "Kennedy Mwangi"
+  },
+  {
+    id: 8,
+    title: "Cargo Shipping Solutions from Dubai to Kenya Rolling Cargo Delivers Excellence",
+    excerpt: "Rolling Cargo Delivers Excellence",
+    content: `
+      **Keywords: **
+      Dubai to Kenya shipping, air freight Dubai, sea freight Dubai to Kenya, cargo services Dubai, logistics Dubai Kenya
+
+      Dubai is a key transit hub for global trade, and Rolling Cargo provides expert logistics solutions for businesses importing from the UAE. Whether you’re moving consumer goods, electronics, or construction materials, we offer both air and sea freight options tailored to meet your needs. Our team in Dubai ensures every detail is managed, from pickup to delivery in Kenya.
+
+      **Why Rolling Cargo is Your Go-To Partner for Dubai Imports:**
+      1. Fast air freight for time-sensitive shipments
+      2. Economical sea freight for larger cargo loads
+      3. Secure and insured transport for valuable goods
+      4. Real-time tracking and 24/7 customer support
+      5. Expertise in handling customs clearance in Dubai and Kenya
+    `,
+    date: "October 30, 2024",
+    category: "Shipping News",
+    image: "/Blog 6 Cargo Shipping Solutions from Dubai to Kenya Rolling Cargo Delivers Excellence.jpg",
+    author: "Kennedy Mwangi"
+  },
+  // {
+  //   id: 9,
+  //   title: "Efficient Cargo Shipping from the UK to Kenya.",
+  //   excerpt: "How Rolling Cargo Simplifies Your Logistics",
+  //   content: `
+  //     **Keywords: **
+  //     UK to Kenya cargo shipping, freight services UK, air freight from UK to Kenya, sea freight services, import cargo UK Kenya
+
+  //     When shipping cargo from the UK to Kenya, efficiency and reliability are key factors. At Rolling Cargo, we provide tailored air and sea freight solutions to ensure your goods arrive on time and in perfect condition. Whether it's small packages or large commercial shipments, we handle the complexities of customs clearance, documentation, and logistics. Discover how our services stand out with competitive rates, real-time tracking, and dedicated customer support.
+
+  //     **Why Choose Rolling Cargo for UK Shipments?**
+  //     1. Affordable sea freight from the UK to Kenya
+  //     2. Fast air freight services with guaranteed delivery timelines
+  //     3. Streamlined customs clearance to avoid delays
+  //     4. Expert handling of fragile and high-value goods
+  //   `,
+  //   date: "January 21, 2022",
+  //   category: "Shipping News",
+  //   image: "/How to Shop in UK.jpg",
+  //   author: "Kennedy Mwangi"
+  // },
 ];
 
 const Blog: React.FC = () => {
