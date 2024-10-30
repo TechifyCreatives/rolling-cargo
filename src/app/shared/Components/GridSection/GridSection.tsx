@@ -35,7 +35,7 @@ const solutions: SolutionItem[] = [
 
 const GridSection: React.FC = () => {
   return (
-    <div className="w-full bg-[url('/image1.jpg')] bg-cover bg-center">
+    <div className="w-full bg-[url('/image11.jpg')] bg-cover bg-center">
       <div className="bg-black/70 w-full h-full py-12">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-white text-center mb-8 relative">

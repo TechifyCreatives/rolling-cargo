@@ -29,8 +29,8 @@ const Servicessection = () => {
             <div className="relative w-full h-48 md:h-[600px]">
               <img 
                 src="/Image-beside-Shipping-Logistics.png" 
-                alt="Section Image" 
-                className="w-full h-full object-cover rounded-lg shadow-lg"
+                alt="Shipping and logistics services illustration" 
+                className="w-full h-full rounded-lg shadow-lg object-cover"
               />
             </div>
           </div>
@@ -86,7 +86,7 @@ const Servicessection = () => {
 
               <Link 
                 href="/our-services" 
-                className="group inline-flex mt-6 items-center gap-2 bg-[#640e0e] hover:bg-[#8B0000] text-white text-sm font-medium px-4 md:px-5 py-2 md:py-2.5 rounded-lg transition-all duration-300 ease-out hover:shadow-md hover:translate-y-[-1px]"
+                className="group inline-flex mt-6 items-center gap-2 bg-[#640e0e] hover:bg-[#8B0000] text-white text-sm font-medium px-4 md:px-5 py-2 md:py-2.5 rounded-lg transition-all duration-300 ease-out hover:shadow-md hover:-translate-y-0.5"
               >
                 Our Services
                 <svg 

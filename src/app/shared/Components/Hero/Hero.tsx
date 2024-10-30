@@ -226,29 +226,26 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative mb-28">
       <div
-        className="relative mt-16 h-[450px] bg-cover bg-center transition-all duration-1000 flex flex-col items-center justify-center"
+        className="relative mt-16 h-[300px] md:h-[450px] bg-cover bg-center transition-all duration-1000 flex flex-col items-center justify-center"
         style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})` }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative z-10 mb-32">
+        <div className="relative z-10 text-center px-4">
           <div className="icons flex items-center justify-center mb-4">
-            <Plane className="text-white mr-2" size={40} />
-            <Ship className="text-white mr-2" size={40} />
+            <Plane className="text-white mr-2" size={32} />
+            <Ship className="text-white mr-2" size={32} />
           </div>
-          <div className="flex items-center justify-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-center text-white drop-shadow-lg">
-              Air and Sea Cargo Experts
-            </h1>
-          </div>
+          <h1 className="text-3xl md:text-5xl font-bold text-white drop-shadow-lg max-w-3xl mx-auto">
+            Air and Sea Cargo Experts
+          </h1>
         </div>
 
-        {/* Services Box - Hidden on mobile, visible on md and up */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 transform translate-y-1/4 hidden md:block">
+        {/* Services Box - Desktop only */}
+        <div className="hidden md:block absolute bottom-0 left-0 right-0 z-20 transform translate-y-1/2">
           <div className="max-w-5xl mx-auto px-4">
             <div className="bg-[#f8fafc] rounded-lg shadow-xl grid grid-cols-3 overflow-hidden">
-              {/* Track Shipment */}
               <Link 
                 href="/traking" 
                 className="group p-6 hover:bg-[#0f1031] transition-colors duration-300 cursor-pointer"
@@ -262,7 +259,6 @@ const Hero: React.FC = () => {
                 </div>
               </Link>
 
-              {/* Request Quote */}
               <div 
                 onClick={() => setShowContactForm(true)} 
                 className="group p-6 hover:bg-[#0f1031] transition-colors duration-300 cursor-pointer border-l border-r border-gray-200"
@@ -276,7 +272,6 @@ const Hero: React.FC = () => {
                 </div>
               </div>
 
-              {/* Contact Us */}
               <Link 
                 href="/contact-us" 
                 className="group p-6 hover:bg-[#0f1031] transition-colors duration-300 cursor-pointer"
