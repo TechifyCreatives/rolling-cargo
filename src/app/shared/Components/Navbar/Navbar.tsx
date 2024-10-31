@@ -253,7 +253,7 @@ const Navbar: React.FC = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Company</h3>
               <ul className="space-y-2">
-                {["Careers", "Blog", "Feedback", "FAQ", "Contact us"].map(
+                {["Careers", "Blog", "Feedback", "FAQ", "Contact us", "Terms"].map(
                   (item) => (
                     <li key={item}>
                       <NavLink
