@@ -32,7 +32,7 @@ const blogPosts: BlogPost[] = [
 
       Please ensure you declare all applicable items and refrain from attempting to ship prohibited items. This helps maintain safety and compliance with shipping regulations.
     `,
-    date: "September 14, 2024",
+    date: "Sep 14, 2022",
     category: "Shipping Policy",
     image: "/Dangerous Goods List & Items We Don't Ship.jpg",
     author: "Kennedy Mwangi"
