@@ -67,7 +67,7 @@ const GridSection: React.FC = () => {
           <div className="flex justify-center align-center mt-8">
             <Link
               href='/about-us' 
-              className="bg-white text-center text-black px-6 py-3 rounded-full text-sm font-semibold hover:bg-[#0f1031] transition-colors mt-auto"
+              className="bg-white text-center text-black px-6 py-3 rounded-full text-sm font-semibold hover:bg-[#0f1031] hover:text-white transition-colors mt-auto"
             >
               About Us
             </Link>
