@@ -69,7 +69,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className=" text-gray-800">
+    <footer className="text-gray-800">
       <hr className="border-gray-300" />
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -125,7 +125,7 @@ const Footer = () => {
           {/* Third Card */}
           <div className="p-6">
             <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 mb-4">
               <Link
                 href="https://www.facebook.com/rollingcargo"
                 className="text-gray-800 hover:text-gray-600"
@@ -155,6 +155,11 @@ const Footer = () => {
                 <Instagram size={24} />
               </Link>
             </div>
+            <img 
+              src="/aeo.jpg" 
+              alt="Social Media" 
+              className="w-30 h-12"
+            />
           </div>
         </div>
       </div>

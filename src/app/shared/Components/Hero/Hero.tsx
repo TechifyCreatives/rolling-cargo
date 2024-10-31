@@ -102,6 +102,7 @@ const ContactForm: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         
         <div className="p-6">
           <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Form fields remain unchanged */}
             <div>
               <label className="block text-sm font-medium mb-1">Name</label>
               <input
@@ -237,9 +238,18 @@ const Hero: React.FC = () => {
             <Plane className="text-white mr-2" size={32} />
             <Ship className="text-white mr-2" size={32} />
           </div>
-          <h1 className="text-3xl md:text-5xl font-bold text-white drop-shadow-lg max-w-3xl mx-auto">
+          <h1 className="text-3xl md:text-5xl font-bold text-white drop-shadow-lg max-w-3xl mx-auto mb-8">
             Air and Sea Cargo Experts
           </h1>
+          
+          {/* Added Image beneath text */}
+          <div className="max-w-2xl mx-auto">
+            <img 
+              src="/aeo.jpg" 
+              alt="Cargo Services"
+              className="rounded-lg shadow-xl w-full h-[200px] md:h-[200px] mb-8 object-cover"
+            />
+          </div>
         </div>
 
         {/* Services Box - Desktop only */}

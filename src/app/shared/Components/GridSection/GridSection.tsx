@@ -21,7 +21,7 @@ const solutions: SolutionItem[] = [
     icon: <FaMoneyBillWave className="w-12 h-12" />,
     title: "We pay on your behalf",
     description:
-      "Send the funds to our Rolling Cargo Account, then we remit the payments on your behalf (Turkey)",
+      "Send the funds to our Rolling Cargo Account, then we remit the payments on your behalf.",
     link: "/about-us",
   },
   {

@@ -29,7 +29,7 @@ const Appdownload: React.FC = () => {
               className="bg-white text-blue-700 font-semibold py-3 px-6 rounded-full inline-flex items-center hover:bg-blue-100 transition duration-300"
             >
               <PlayCircle size={24} className="mr-2" />
-              Download on Google Play
+              App Comming Soon
             </Link>
           </div>
         </div>

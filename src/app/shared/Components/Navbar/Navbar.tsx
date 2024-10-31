@@ -101,7 +101,7 @@ const Navbar: React.FC = () => {
 
           {/* Center section with logo and mobile track button */}
           <div className="flex items-center justify-center space-x-4">
-            {/* Logo - visible on all screen sizes */}
+            {/* Logo and year text - visible on all screen sizes */}
             <div className="flex items-center">
               <NavLink href="/" className="flex items-center justify-center">
                 <Image
@@ -116,6 +116,9 @@ const Navbar: React.FC = () => {
                     e.currentTarget.insertAdjacentHTML('afterend', '<span class="text-xl font-bold">Your Logo</span>');
                   }}
                 />
+                <span className="ml-2 text-sm text-gray-500 font-medium hidden sm:block">
+                  Since 2007
+                </span>
               </NavLink>
             </div>
             
