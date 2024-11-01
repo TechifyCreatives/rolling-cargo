@@ -53,7 +53,7 @@ const OurServices: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid mb-10 grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        {/* <div className="grid mb-10 grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
             <h3 className="text-2xl font-bold mb-2">Recognising our stars</h3>
             <hr className="w-16 h-1 bg-[#640e0e] mb-4" />
@@ -98,7 +98,7 @@ const OurServices: React.FC = () => {
               diverse and dedicated candidates to join our ever-growing team.
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

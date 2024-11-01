@@ -7,8 +7,8 @@ const page = () => {
       {/* Header */}
       <header className="bg-[#0f1031] text-white py-6">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold">Rolling Cargo Company</h1>
-          <p className="mt-2 text-xl">Your Trusted Shipping Partner</p>
+          <h1 className="text-4xl font-bold">Rolling Cargo LTD</h1>
+          <p className="mt-2 text-xl">Your Shipping Partner</p>
         </div>
       </header>
 

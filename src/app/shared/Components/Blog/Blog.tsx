@@ -15,19 +15,18 @@ interface BlogPost {
 }
 
 const blogPosts: BlogPost[] = [
-  
   {
     id: 1,
     title: "Dangerous Goods List & Items We Don't Ship",
     excerpt: "Important information about items that require declaration or cannot be shipped.",
     content: `
-      **Must be Declared**
+      <strong>Must be Declared</strong>
       Items or substances that may pose a health, safety, property or environmental risk and are listed or classified in accordance with the KCCA Technical Instructions as dangerous goods.
 
-      **Declarable Items Include:**
+      <strong>Declarable Items Include:</strong>
       Air Compressor, Nail Polish, Perfumes, Perfumes Raw Materials, Aerosols, Engine, Car Batteries, Car Airbag, Dry Ice, Items Having Magnet Inside (Example Speakers), Paints, Thinner, Sanitizer, Glue & Other Adhesives, Gas Cylinder & Items Contains Gas Inside (Compressed Gas), Fire Extinguisher, Pesticides, Bleach, Fuel & Fuel Contain Equipment Or Machine (Petrol/Diesel Etc), Cleaning Liquids & Sprays, Fertilizer, Chemicals, Lighter Fuel, Poison, Oxygen Generator, Laundry Products, Acid, Electronic Cigarette, Agriculture Chemicals, Hair Tonic, Alcoholic Substance, Charcoal, Smart Wheels (Hover Boards)
 
-      **ITEMS WE DO NOT SHIP:**
+      <strong>ITEMS WE DO NOT SHIP:</strong>
       Cigarettes, Phones, Money, Sex Toys, Ammunition/Firearms, Drug substances, Shisha, Lithium batteries, Vapes, and Accessories
 
       Please ensure you declare all applicable items and refrain from attempting to ship prohibited items. This helps maintain safety and compliance with shipping regulations.
@@ -42,12 +41,12 @@ const blogPosts: BlogPost[] = [
     title: "Efficient Cargo Shipping from the UK to Kenya.",
     excerpt: "How Rolling Cargo Simplifies Your Logistics",
     content: `
-      **Keywords: **
+      <strong>Keywords:</strong>
       UK to Kenya cargo shipping, freight services UK, air freight from UK to Kenya, sea freight services, import cargo UK Kenya
 
       When shipping cargo from the UK to Kenya, efficiency and reliability are key factors. At Rolling Cargo, we provide tailored air and sea freight solutions to ensure your goods arrive on time and in perfect condition. Whether it's small packages or large commercial shipments, we handle the complexities of customs clearance, documentation, and logistics. Discover how our services stand out with competitive rates, real-time tracking, and dedicated customer support.
 
-      **Why Choose Rolling Cargo for UK Shipments?**
+      <strong>Why Choose Rolling Cargo for UK Shipments?</strong>
       1. Affordable sea freight from the UK to Kenya
       2. Fast air freight services with guaranteed delivery timelines
       3. Streamlined customs clearance to avoid delays
@@ -55,7 +54,7 @@ const blogPosts: BlogPost[] = [
     `,
     date: "January 21, 2022",
     category: "Shipping News",
-    image: "/How to Shop in UK.jpg",
+    image: "/big-ben-westminster-bridge-on-river-thames-in-lon-2023-11-27-05-36-07-utc.jpg",
     author: "Kennedy Mwangi"
   },
   {
@@ -73,12 +72,12 @@ const blogPosts: BlogPost[] = [
     title: "Affordable Sea Freight from Turkey",
     excerpt: "The Key to Successful Kenyan Imports",
     content: `
-      **Keywords: **
+      <strong>Keywords:</strong>
       Turkey to Kenya shipping, sea freight Turkey, affordable shipping Turkey, cargo services from Turkey, shipping logistics Kenya
 
       With Turkey becoming a leading hub for manufacturing, businesses in Kenya are increasingly sourcing products from Turkish suppliers. Rolling Cargo provides cost-effective sea freight solutions, ensuring safe, timely, and affordable transport of your goods from Turkey to Kenya. Our comprehensive service covers everything from pick-up to customs clearance, giving you peace of mind.
 
-      **Benefits of Using Rolling Cargo for Turkish Imports:**
+      <strong>Benefits of Using Rolling Cargo for Turkish Imports:</strong>
       1. Competitive sea freight rates from Turkey
       2. Efficient handling of bulk cargo and large volumes
       3. Secure warehousing options in Turkey
@@ -95,12 +94,12 @@ const blogPosts: BlogPost[] = [
     title: "Connecting South Africa to Kenya",
     excerpt: "Road and Air Freight Solutions by Rolling Cargo",
     content: `
-      **Keywords: **
+      <strong>Keywords:</strong>
       South Africa Kenya freight, air freight South Africa, road freight services South Africa, cargo transport from South Africa, import services Kenya
 
-      As trade between South Africa and Kenya grows, the demand for reliable cargo solutions has increased. Rolling Cargo offers both road and air freight options, making it easy for businesses to transport goods safely and swiftly. Whether it’s perishable items, machinery, or general cargo, our logistics experts are on hand to ensure seamless transportation, with regular updates and a commitment to meeting your deadlines.
+      As trade between South Africa and Kenya grows, the demand for reliable cargo solutions has increased. Rolling Cargo offers both road and air freight options, making it easy for businesses to transport goods safely and swiftly. Whether it's perishable items, machinery, or general cargo, our logistics experts are on hand to ensure seamless transportation, with regular updates and a commitment to meeting your deadlines.
 
-      **Why Rolling Cargo is the Best Choice for South Africa Imports:**
+      <strong>Why Rolling Cargo is the Best Choice for South Africa Imports:</strong>
       1. Flexible road and air freight services
       2. Real-time tracking and cargo management
       3. Professional handling of sensitive and high-value goods
@@ -109,7 +108,7 @@ const blogPosts: BlogPost[] = [
     `,
     date: "January 30, 2024",
     category: "Shipping News",
-    image: "/Blog 3 Connecting South Africa to Kenya Road and Air Freight Solutions by Rolling Cargo .jpg",
+    image: "/aerial-view-of-green-point-in-cape-town-2023-11-27-05-30-14-utc.jpg",
     author: "Kennedy Mwangi"
   },
   {
@@ -117,12 +116,12 @@ const blogPosts: BlogPost[] = [
     title: "Seamless Sea Freight from the Netherlands",
     excerpt: "Importing to Kenya with Rolling Cargo",
     content: `
-      **Keywords: **
+      <strong>Keywords:</strong>
       Netherlands to Kenya sea freight, freight forwarding Netherlands, shipping from Holland, import services Kenya, sea cargo logistics
 
       The Netherlands, known for its advanced logistics network, is a major trade partner with Kenya. Rolling Cargo specialises in sea freight solutions from Holland to Kenya, handling everything from agricultural products to heavy machinery. Our team ensures your cargo is loaded, transported, and cleared at the port efficiently, reducing transit times and costs.
 
-      **Top Reasons to Choose Rolling Cargo for Dutch Imports**
+      <strong>Top Reasons to Choose Rolling Cargo for Dutch Imports</strong>
       1. Efficient sea freight routes from the Netherlands to Kenya
       2. Timely customs clearance to avoid delays at Mombasa port
       3. Handling of large-scale shipments, including heavy equipment
@@ -139,12 +138,12 @@ const blogPosts: BlogPost[] = [
     title: "Streamlining Cargo Imports from China to Kenya: ",
     excerpt: "How Rolling Cargo Supports Your Business",
     content: `
-      **Keywords: **
+      <strong>Keywords:</strong>
       China to Kenya cargo, shipping from China to Kenya, air and sea freight China Kenya, cargo logistics China, import services Kenya
 
-      China remains one of Kenya’s largest trading partners, and importing goods from China requires a reliable logistics partner. At Rolling Cargo, we specialise in both air and sea freight services, providing a complete package from door-to-door delivery, customs clearance, and warehousing. Whether you're importing electronics, clothing, or heavy machinery, we ensure that your cargo arrives on time and within budget.
+      China remains one of Kenya's largest trading partners, and importing goods from China requires a reliable logistics partner. At Rolling Cargo, we specialise in both air and sea freight services, providing a complete package from door-to-door delivery, customs clearance, and warehousing. Whether you're importing electronics, clothing, or heavy machinery, we ensure that your cargo arrives on time and within budget.
 
-      **Key Features of Rolling Cargo’s China Import Services:**
+      <strong>Key Features of Rolling Cargo's China Import Services:</strong>
       1. Fast and reliable air freight from China to Kenya
       2. Cost-effective sea freight solutions for large shipments
       3. Full customs support to streamline import processes
@@ -161,12 +160,12 @@ const blogPosts: BlogPost[] = [
     title: "Cargo Shipping Solutions from Dubai to Kenya Rolling Cargo Delivers Excellence",
     excerpt: "Rolling Cargo Delivers Excellence",
     content: `
-      **Keywords: **
+      <strong>Keywords:</strong>
       Dubai to Kenya shipping, air freight Dubai, sea freight Dubai to Kenya, cargo services Dubai, logistics Dubai Kenya
 
-      Dubai is a key transit hub for global trade, and Rolling Cargo provides expert logistics solutions for businesses importing from the UAE. Whether you’re moving consumer goods, electronics, or construction materials, we offer both air and sea freight options tailored to meet your needs. Our team in Dubai ensures every detail is managed, from pickup to delivery in Kenya.
+      Dubai is a key transit hub for global trade, and Rolling Cargo provides expert logistics solutions for businesses importing from the UAE. Whether you're moving consumer goods, electronics, or construction materials, we offer both air and sea freight options tailored to meet your needs. Our team in Dubai ensures every detail is managed, from pickup to delivery in Kenya.
 
-      **Why Rolling Cargo is Your Go-To Partner for Dubai Imports:**
+      <strong>Why Rolling Cargo is Your Go-To Partner for Dubai Imports:</strong>
       1. Fast air freight for time-sensitive shipments
       2. Economical sea freight for larger cargo loads
       3. Secure and insured transport for valuable goods
@@ -177,28 +176,7 @@ const blogPosts: BlogPost[] = [
     category: "Shipping News",
     image: "/Blog 6 Cargo Shipping Solutions from Dubai to Kenya Rolling Cargo Delivers Excellence.jpg",
     author: "Kennedy Mwangi"
-  },
-  // {
-  //   id: 9,
-  //   title: "Efficient Cargo Shipping from the UK to Kenya.",
-  //   excerpt: "How Rolling Cargo Simplifies Your Logistics",
-  //   content: `
-  //     **Keywords: **
-  //     UK to Kenya cargo shipping, freight services UK, air freight from UK to Kenya, sea freight services, import cargo UK Kenya
-
-  //     When shipping cargo from the UK to Kenya, efficiency and reliability are key factors. At Rolling Cargo, we provide tailored air and sea freight solutions to ensure your goods arrive on time and in perfect condition. Whether it's small packages or large commercial shipments, we handle the complexities of customs clearance, documentation, and logistics. Discover how our services stand out with competitive rates, real-time tracking, and dedicated customer support.
-
-  //     **Why Choose Rolling Cargo for UK Shipments?**
-  //     1. Affordable sea freight from the UK to Kenya
-  //     2. Fast air freight services with guaranteed delivery timelines
-  //     3. Streamlined customs clearance to avoid delays
-  //     4. Expert handling of fragile and high-value goods
-  //   `,
-  //   date: "January 21, 2022",
-  //   category: "Shipping News",
-  //   image: "/How to Shop in UK.jpg",
-  //   author: "Kennedy Mwangi"
-  // },
+  }
 ];
 
 const Blog: React.FC = () => {
@@ -281,12 +259,8 @@ const Blog: React.FC = () => {
                   <span className="font-medium">{selectedPost.author}</span>
                   <span>{selectedPost.date}</span>
                 </div>
-                <div className="prose max-w-none">
-                  {selectedPost.content.split("\n").map((paragraph, index) => (
-                    <p key={index} className="mb-4 text-gray-700">
-                      {paragraph}
-                    </p>
-                  ))}
+                <div className="prose max-w-none" 
+                  dangerouslySetInnerHTML={{ __html: selectedPost.content }}>
                 </div>
                 <button
                   onClick={closeModal}

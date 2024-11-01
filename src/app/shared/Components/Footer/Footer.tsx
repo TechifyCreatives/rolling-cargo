@@ -156,9 +156,9 @@ const Footer = () => {
               </Link>
             </div>
             <img 
-              src="/aeo.jpg" 
+              src="/aeo.png" 
               alt="Social Media" 
-              className="w-30 h-12"
+              className="w-40 h-20"
             />
           </div>
         </div>

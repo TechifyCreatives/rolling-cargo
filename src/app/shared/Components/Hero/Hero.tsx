@@ -100,99 +100,96 @@ const ContactForm: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           </button>
         </div>
         
-        <div className="p-6">
-          <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Form fields remain unchanged */}
-            <div>
-              <label className="block text-sm font-medium mb-1">Name</label>
-              <input
-                type="text"
-                required
-                className="w-full p-2 border rounded"
-                value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">Phone</label>
-              <input
-                type="tel"
-                required
-                className="w-full p-2 border rounded"
-                value={formData.phone}
-                onChange={(e) => setFormData({...formData, phone: e.target.value})}
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">Email</label>
-              <input
-                type="email"
-                required
-                className="w-full p-2 border rounded"
-                value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">Shipping Mode</label>
-              <select
-                className="w-full p-2 border rounded"
-                value={formData.shippingMode}
-                onChange={(e) => setFormData({...formData, shippingMode: e.target.value})}
-              >
-                <option value="air">Air Shipment</option>
-                <option value="sea">Sea Shipment</option>
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">Weight (kg)</label>
-              <input
-                type="number"
-                required
-                className="w-full p-2 border rounded"
-                value={formData.weight}
-                onChange={(e) => setFormData({...formData, weight: e.target.value})}
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">Volumetric Weight</label>
-              <input
-                type="number"
-                required
-                className="w-full p-2 border rounded"
-                value={formData.volumetricWeight}
-                onChange={(e) => setFormData({...formData, volumetricWeight: e.target.value})}
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">CBM</label>
-              <input
-                type="number"
-                required
-                className="w-full p-2 border rounded"
-                value={formData.cbm}
-                onChange={(e) => setFormData({...formData, cbm: e.target.value})}
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">Message</label>
-              <textarea
-                className="w-full p-2 border rounded"
-                rows={4}
-                value={formData.message}
-                onChange={(e) => setFormData({...formData, message: e.target.value})}
-              ></textarea>
-            </div>
-            <div className="sticky bottom-0 bg-white pt-4">
-              <button
-                type="submit"
-                className="w-full bg-[#0f1031] text-white py-2 rounded hover:bg-blue-600 transition-colors duration-300"
-              >
-                Submit
-              </button>
-            </div>
-          </form>
-        </div>
+        <form onSubmit={handleSubmit} className="p-6 space-y-4">
+          <div>
+            <label className="block text-sm font-medium mb-1">Name</label>
+            <input
+              type="text"
+              required
+              className="w-full p-2 border rounded"
+              value={formData.name}
+              onChange={(e) => setFormData({...formData, name: e.target.value})}
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Phone</label>
+            <input
+              type="tel"
+              required
+              className="w-full p-2 border rounded"
+              value={formData.phone}
+              onChange={(e) => setFormData({...formData, phone: e.target.value})}
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Email</label>
+            <input
+              type="email"
+              required
+              className="w-full p-2 border rounded"
+              value={formData.email}
+              onChange={(e) => setFormData({...formData, email: e.target.value})}
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Shipping Mode</label>
+            <select
+              className="w-full p-2 border rounded"
+              value={formData.shippingMode}
+              onChange={(e) => setFormData({...formData, shippingMode: e.target.value})}
+            >
+              <option value="air">Air Shipment</option>
+              <option value="sea">Sea Shipment</option>
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Weight (kg)</label>
+            <input
+              type="number"
+              required
+              className="w-full p-2 border rounded"
+              value={formData.weight}
+              onChange={(e) => setFormData({...formData, weight: e.target.value})}
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Volumetric Weight</label>
+            <input
+              type="number"
+              required
+              className="w-full p-2 border rounded"
+              value={formData.volumetricWeight}
+              onChange={(e) => setFormData({...formData, volumetricWeight: e.target.value})}
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">CBM</label>
+            <input
+              type="number"
+              required
+              className="w-full p-2 border rounded"
+              value={formData.cbm}
+              onChange={(e) => setFormData({...formData, cbm: e.target.value})}
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-1">Message</label>
+            <textarea
+              className="w-full p-2 border rounded"
+              rows={4}
+              value={formData.message}
+              onChange={(e) => setFormData({...formData, message: e.target.value})}
+            ></textarea>
+          </div>
+          <div className="sticky bottom-0 bg-white pt-4">
+            <button
+              type="submit"
+              className="w-full bg-[#0f1031] text-white py-2 rounded hover:bg-blue-600 transition-colors duration-300"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
@@ -202,8 +199,6 @@ const Hero: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [showPopup, setShowPopup] = useState<boolean>(false);
   const [showContactForm, setShowContactForm] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string>("");
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -229,25 +224,24 @@ const Hero: React.FC = () => {
   return (
     <div className="relative mb-28">
       <div
-        className="relative mt-16 h-[300px] md:h-[450px] bg-cover bg-center transition-all duration-1000 flex flex-col items-center justify-center"
+        className="relative mt-16 h-[300px] md:h-[550px] bg-cover bg-center transition-all duration-1000 flex flex-col items-center justify-center"
         style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})` }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative z-10 text-center px-4">
-          <div className="icons flex items-center justify-center mb-4">
-            <Plane className="text-white mr-2" size={32} />
-            <Ship className="text-white mr-2" size={32} />
+        <div className="relative z-10 text-center px-4 pt-8 md:pt-0">
+          <div className="icons flex items-center justify-center mb-6 md:mb-4">
+            <Plane className="text-white mr-4 md:mr-2" size={32} />
+            <Ship className="text-white" size={32} />
           </div>
           <h1 className="text-3xl md:text-5xl font-bold text-white drop-shadow-lg max-w-3xl mx-auto mb-8">
             Air and Sea Cargo Experts
           </h1>
           
-          {/* Added Image beneath text */}
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-2xl mx-auto md:mt-8 bg-white">
             <img 
-              src="/aeo.jpg" 
+              src="/aeo.png" 
               alt="Cargo Services"
-              className="rounded-lg shadow-xl w-full h-[200px] md:h-[200px] mb-8 object-cover"
+              className="rounded-lg shadow-xl w-full h-[160px] md:h-[200px] mb-8 object-cover"
             />
           </div>
         </div>
