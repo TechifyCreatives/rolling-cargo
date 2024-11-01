@@ -23,7 +23,7 @@ interface Office {
 
 const offices: Office[] = [
   {
-    name: "Nairobi Office (Main Office)",
+    name: "Nairobi Office (Headquaters)",
     phone: "+254 709 286 286",
     email: "support@rollingcargo.co.ke",
     address: "10 Funzi Road, Off Enterprise Road. P.O.BOX 14009-00100 NAIROBI - KENYA",
@@ -74,7 +74,7 @@ const offices: Office[] = [
     name: "Europe – Netherlands",
     phone: "+31 610624607",
     email: "support@rollingcargo.co.ke",
-    address: "Kollenbergweg 5 1101 AT AMSTERDAM Netherlands",
+    address: "Zuid-Afrikaweg 12-K1432 DA Aalsmeer Netherlands",
   },
   {
     name: "Europe – Italy",

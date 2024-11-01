@@ -12,7 +12,7 @@ import {
 
 const countries = [
   {
-    name: "Head Office",
+    name: "Headquater",
     phone: "+254 709 286 286",
     email: "salesinquiries@rollingcargo.co.ke",
   },
