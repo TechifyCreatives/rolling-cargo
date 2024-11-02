@@ -12,38 +12,33 @@ interface CurrencyInfo {
 }
 
 const currencyMap: Record<Country, CurrencyInfo> = {
-  UK: { code: "GBP", symbol: "£", rate: 1 }, // Using 1 since UK rates are already in GBP
-  China: { code: "USD", symbol: "$", rate: 1 },
-  Turkey: { code: "USD", symbol: "$", rate: 1 },
-  Netherlands: { code: "USD", symbol: "$", rate: 1 },
-  Italy: { code: "USD", symbol: "$", rate: 1 },
-  "South Africa": { code: "USD", symbol: "$", rate: 1 },
-  Dubai: { code: "USD", symbol: "$", rate: 1 }
+  UK: { code: "GBP", symbol: "£", rate: 0.79 },
+  China: { code: "CNY", symbol: "¥", rate: 7.18 },
+  Turkey: { code: "TRY", symbol: "₺", rate: 31.03 },
+  Netherlands: { code: "EUR", symbol: "€", rate: 0.92 },
+  Italy: { code: "EUR", symbol: "€", rate: 0.92 },
+  "South Africa": { code: "ZAR", symbol: "R", rate: 18.74 },
+  Dubai: { code: "AED", symbol: "د.إ", rate: 3.67 }
 };
 
-interface RateInfo {
-  normalRate: number;
-  specialRate?: number; // For cases like "less than 1kg"
-  handlingFee?: number;
-}
-
-const airFreightRates: Record<Country, RateInfo> = {
-  UK: { normalRate: 6.5, handlingFee: 25 },
-  China: { normalRate: 12, specialRate: 15 },
-  Turkey: { normalRate: 7.5, handlingFee: 20 },
-  Netherlands: { normalRate: 10, handlingFee: 30 },
-  Italy: { normalRate: 11, handlingFee: 40 },
-  "South Africa": { normalRate: 13 },
-  Dubai: { normalRate: 8, specialRate: 10 }
+const handlingFees: Partial<Record<Country, number>> = {
+  Netherlands: 40,
+  Turkey: 20,
+  UK: 25
 };
 
-const seaFreightRates: Partial<Record<Country, RateInfo>> = {
-  UK: { normalRate: 2.5, handlingFee: 15 }
-  // Other countries' sea freight rates to be added
-};
-
+// Define available countries for each freight type
 const airFreightCountries: Country[] = ["UK", "China", "Turkey", "Netherlands", "Italy", "South Africa", "Dubai"];
-const seaFreightCountries: Country[] = ["UK"]; // Currently only UK has sea freight rates
+const seaFreightCountries: Country[] = ["UK", "China", "Turkey", "Netherlands", "Dubai"];
+
+// CBM rates based on the rate card
+const cbmRates: Partial<Record<Country, number | { below10: number; above10: number }>> = {
+  Turkey: { below10: 650, above10: 600 },
+  Dubai: 60000,
+  UK: 0, // Add actual rate
+  China: 60000,
+  Netherlands: 0 // Add actual rate
+};
 
 const Freightsection: React.FC = () => {
   const [freightType, setFreightType] = useState<FreightType | null>(null);
@@ -76,35 +71,26 @@ const Freightsection: React.FC = () => {
     }
   }, [length, width, height]);
 
-  // Calculate cost based on freight type and weight
+  // Calculate cost based on freight type, weight, volumetric weight, and CBM
   useEffect(() => {
-    if (!country || !freightType) return;
+    if (!country) return;
 
-    const { symbol } = currencyMap[country];
+    const { rate, symbol } = currencyMap[country];
     let calculatedCost = 0;
-    let calculatedHandlingFee = 0;
 
     if (freightType === "air") {
       const actualWeight = parseFloat(weight) || 0;
       const volWeight = volumetricWeight || 0;
       const chargeableWeight = Math.max(actualWeight, volWeight);
-      const rates = airFreightRates[country];
-
-      if (chargeableWeight < 1 && rates.specialRate) {
-        calculatedCost = rates.specialRate;
-      } else {
-        calculatedCost = chargeableWeight * rates.normalRate;
-      }
-
-      if (rates.handlingFee) {
-        calculatedHandlingFee = rates.handlingFee;
-      }
-    } else if (freightType === "sea") {
-      const rates = seaFreightRates[country];
-      if (rates) {
-        const weightValue = parseFloat(weight) || 0;
-        calculatedCost = weightValue * rates.normalRate;
-        calculatedHandlingFee = rates.handlingFee || 0;
+      calculatedCost = chargeableWeight * 12 * rate; // $12 per kg
+    } else if (freightType === "sea" && cbm) {
+      const cbmValue = parseFloat(cbm);
+      const cbmRate = cbmRates[country];
+      
+      if (typeof cbmRate === "number") {
+        calculatedCost = cbmValue * cbmRate * rate;
+      } else if (cbmRate && typeof cbmRate === "object") {
+        calculatedCost = cbmValue * (cbmValue < 10 ? cbmRate.below10 : cbmRate.above10) * rate;
       }
     }
 
@@ -114,12 +100,14 @@ const Freightsection: React.FC = () => {
       setCost("");
     }
 
-    if (calculatedHandlingFee > 0) {
-      setHandlingFee(`${symbol}${calculatedHandlingFee.toFixed(2)}`);
+    // Set handling fee
+    if (country in handlingFees) {
+      const fee = handlingFees[country as keyof typeof handlingFees]!;
+      setHandlingFee(`${symbol}${(fee * rate).toFixed(2)}`);
     } else {
       setHandlingFee("");
     }
-  }, [weight, volumetricWeight, country, freightType]);
+  }, [weight, volumetricWeight, cbm, country, freightType]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -235,7 +223,6 @@ const Freightsection: React.FC = () => {
                   onChange={(e) => setWeight(e.target.value)}
                   className="w-full px-3 py-2 border rounded"
                   required
-                  step="0.01"
                 />
               </div>
               <div className="grid grid-cols-3 gap-4">
@@ -298,14 +285,14 @@ const Freightsection: React.FC = () => {
 
           {freightType === "sea" && (
             <div>
-              <label htmlFor="weight" className="block mb-1">
-                Weight (kg)
+              <label htmlFor="cbm" className="block mb-1">
+                CBM (Cubic Meters)
               </label>
               <input
                 type="number"
-                id="weight"
-                value={weight}
-                onChange={(e) => setWeight(e.target.value)}
+                id="cbm"
+                value={cbm}
+                onChange={(e) => setCbm(e.target.value)}
                 className="w-full px-3 py-2 border rounded"
                 required
                 step="0.01"
