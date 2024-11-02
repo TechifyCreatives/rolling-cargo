@@ -224,30 +224,32 @@ const Hero: React.FC = () => {
   return (
     <div className="relative mb-28">
       <div
-        className="relative mt-16 h-[300px] md:h-[550px] bg-cover bg-center transition-all duration-1000 flex flex-col items-center justify-center"
+        className="relative mt-16 h-[250px] md:h-[400px] bg-cover bg-center transition-all duration-1000 flex flex-col items-center justify-center"
         style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})` }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative z-10 text-center px-4 pt-8 md:pt-0">
-          <div className="icons flex items-center justify-center mb-6 md:mb-4">
+        <div className="relative z-10 text-center px-4 pt-4 md:pt-0">
+          <div className="icons flex items-center justify-center mb-4 md:mb-4">
             <Plane className="text-white mr-4 md:mr-2" size={32} />
             <Ship className="text-white" size={32} />
           </div>
-          <h1 className="text-3xl md:text-5xl font-bold text-white drop-shadow-lg max-w-3xl mx-auto mb-8">
+          <h1 className="text-2xl md:text-4xl font-bold text-white drop-shadow-lg max-w-3xl mx-auto mb-6">
             Air and Sea Cargo Experts
           </h1>
           
-          <div className="max-w-2xl mx-auto md:mt-8 bg-white">
-            <img 
-              src="/aeo.png" 
-              alt="Cargo Services"
-              className="rounded-lg shadow-xl w-full h-[160px] md:h-[200px] mb-8 object-cover"
-            />
+          <div className="max-w-xl mx-auto md:mt-4">
+            <div className="bg-white p-4 rounded-lg shadow-xl">
+              <img 
+                src="/aeo.png" 
+                alt="Cargo Services"
+                className="w-full h-[60px] md:h-[80px] object-contain"
+              />
+            </div>
           </div>
         </div>
 
         {/* Services Box - Desktop only */}
-        <div className="hidden md:block absolute bottom-0 left-0 right-0 z-20 transform translate-y-1/2">
+        <div className="hidden md:block absolute -bottom-24 left-0 right-0 z-20">
           <div className="max-w-5xl mx-auto px-4">
             <div className="bg-[#f8fafc] rounded-lg shadow-xl grid grid-cols-3 overflow-hidden">
               <Link 
