@@ -18,6 +18,11 @@ const getCurrencyInfo = (country: Country, freightType: FreightType): CurrencyIn
       ? { code: "USD", symbol: "$", rate: 1 }
       : { code: "KES", symbol: "KSh", rate: 1 };
   }
+  if (country === "Dubai") {
+    return freightType === "air"
+      ? { code: "USD", symbol: "$", rate: 1 }
+      : { code: "KES", symbol: "KSh", rate: 1 };
+  }
   return currencyMap[country];
 };
 
@@ -28,7 +33,7 @@ const currencyMap: Record<Country, CurrencyInfo> = {
   Netherlands: { code: "USD", symbol: "$", rate: 1 },
   Italy: { code: "USD", symbol: "$", rate: 1 },
   "South Africa": { code: "USD", symbol: "$", rate: 1 },
-  Dubai: { code: "KES", symbol: "KSh", rate: 1 }
+  Dubai: { code: "USD", symbol: "$", rate: 1 }
 };
 
 const airFreightRates: Record<Country, { baseRate: number; minimumRate?: number }> = {
