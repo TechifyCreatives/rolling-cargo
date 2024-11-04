@@ -107,10 +107,10 @@ const TrackingSection: React.FC = () => {
               id="card"
               className="bg-white rounded-lg shadow-md p-4 border-l-4 border-[#640e0e]"
             >
-              <p id="date" className="mb-2">
+              {/* <p id="date" className="mb-2">
                 <strong>Date: </strong>
                 {formatDate(result.date)}
-              </p>
+              </p> */}
               <p id="message" className="mb-2">
                 <strong>Status: </strong>
                 {result.message}
