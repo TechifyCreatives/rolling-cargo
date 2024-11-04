@@ -13,32 +13,44 @@ interface CurrencyInfo {
 
 const currencyMap: Record<Country, CurrencyInfo> = {
   UK: { code: "GBP", symbol: "£", rate: 0.79 },
-  China: { code: "CNY", symbol: "¥", rate: 7.18 },
-  Turkey: { code: "TRY", symbol: "₺", rate: 31.03 },
-  Netherlands: { code: "EUR", symbol: "€", rate: 0.92 },
-  Italy: { code: "EUR", symbol: "€", rate: 0.92 },
-  "South Africa": { code: "ZAR", symbol: "R", rate: 18.74 },
-  Dubai: { code: "AED", symbol: "د.إ", rate: 3.67 }
+  China: { code: "USD", symbol: "$", rate: 1 },
+  Turkey: { code: "USD", symbol: "$", rate: 1 },
+  Netherlands: { code: "USD", symbol: "$", rate: 1 },
+  Italy: { code: "USD", symbol: "$", rate: 1 },
+  "South Africa": { code: "USD", symbol: "$", rate: 1 },
+  Dubai: { code: "KES", symbol: "KSh", rate: 1 }
 };
 
-const handlingFees: Partial<Record<Country, number>> = {
-  Netherlands: 40,
-  Turkey: 20,
-  UK: 25
+const airFreightRates: Record<Country, { baseRate: number; minimumRate?: number }> = {
+  UK: { baseRate: 6.5 }, // GBP
+  China: { baseRate: 12, minimumRate: 15 }, // USD
+  Turkey: { baseRate: 7.5 }, // USD
+  Netherlands: { baseRate: 10 }, // USD
+  Italy: { baseRate: 11 }, // USD
+  "South Africa": { baseRate: 13 }, // USD
+  Dubai: { baseRate: 8, minimumRate: 10 } // USD
 };
 
-// Define available countries for each freight type
+const handlingFees: Record<Country, { air: number; sea?: number }> = {
+  UK: { air: 25, sea: 15 }, // GBP
+  China: { air: 0 },
+  Turkey: { air: 20, sea: 10 }, // USD
+  Netherlands: { air: 30, sea: 20 }, // USD
+  Italy: { air: 40 }, // USD
+  "South Africa": { air: 0 },
+  Dubai: { air: 0 }
+};
+
+const seaFreightRates: Partial<Record<Country, number | { regular: number; small?: number; large?: number }>> = {
+  UK: { regular: 2.5 }, // GBP per CBM
+  Dubai: { regular: 60000, small: 12000 }, // KES, small is for 0.2 CBM
+  China: { regular: 60000, small: 12000 }, // KES, small is for 0.2 CBM
+  Turkey: { regular: 50, large: 600 }, // USD, large is for above 10 CBM
+  Netherlands: { regular: 5 } // USD per CBM
+};
+
 const airFreightCountries: Country[] = ["UK", "China", "Turkey", "Netherlands", "Italy", "South Africa", "Dubai"];
 const seaFreightCountries: Country[] = ["UK", "China", "Turkey", "Netherlands", "Dubai"];
-
-// CBM rates based on the rate card
-const cbmRates: Partial<Record<Country, number | { below10: number; above10: number }>> = {
-  Turkey: { below10: 650, above10: 600 },
-  Dubai: 60000,
-  UK: 0, // Add actual rate
-  China: 60000,
-  Netherlands: 0 // Add actual rate
-};
 
 const Freightsection: React.FC = () => {
   const [freightType, setFreightType] = useState<FreightType | null>(null);
@@ -51,6 +63,7 @@ const Freightsection: React.FC = () => {
   const [cbm, setCbm] = useState<string>("");
   const [cost, setCost] = useState<string>("");
   const [handlingFee, setHandlingFee] = useState<string>("");
+  const [totalCost, setTotalCost] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -61,7 +74,6 @@ const Freightsection: React.FC = () => {
     emailjs.init("YOUR_USER_ID");
   }, []);
 
-  // Calculate volumetric weight when dimensions change
   useEffect(() => {
     if (length && width && height) {
       const volumetric = (parseFloat(length) * parseFloat(width) * parseFloat(height)) / 6000;
@@ -71,42 +83,53 @@ const Freightsection: React.FC = () => {
     }
   }, [length, width, height]);
 
-  // Calculate cost based on freight type, weight, volumetric weight, and CBM
   useEffect(() => {
     if (!country) return;
 
-    const { rate, symbol } = currencyMap[country];
+    const { symbol } = currencyMap[country];
     let calculatedCost = 0;
+    let calculatedHandlingFee = 0;
 
     if (freightType === "air") {
       const actualWeight = parseFloat(weight) || 0;
       const volWeight = volumetricWeight || 0;
       const chargeableWeight = Math.max(actualWeight, volWeight);
-      calculatedCost = chargeableWeight * 12 * rate; // $12 per kg
+      const rate = airFreightRates[country];
+
+      if (chargeableWeight < 1 && rate.minimumRate) {
+        calculatedCost = rate.minimumRate;
+      } else {
+        calculatedCost = chargeableWeight * rate.baseRate;
+      }
+
+      calculatedHandlingFee = handlingFees[country].air;
     } else if (freightType === "sea" && cbm) {
       const cbmValue = parseFloat(cbm);
-      const cbmRate = cbmRates[country];
-      
-      if (typeof cbmRate === "number") {
-        calculatedCost = cbmValue * cbmRate * rate;
-      } else if (cbmRate && typeof cbmRate === "object") {
-        calculatedCost = cbmValue * (cbmValue < 10 ? cbmRate.below10 : cbmRate.above10) * rate;
+      const seaRate = seaFreightRates[country];
+
+      if (seaRate) {
+        if (typeof seaRate === "number") {
+          calculatedCost = cbmValue * seaRate;
+        } else {
+          if (country === "Dubai" || country === "China") {
+            calculatedCost = cbmValue <= 0.2 ? seaRate.small! : seaRate.regular;
+          } else if (country === "Turkey") {
+            calculatedCost = cbmValue > 10 ? seaRate.large! : cbmValue * seaRate.regular;
+          } else {
+            calculatedCost = cbmValue * seaRate.regular;
+          }
+        }
       }
+
+      calculatedHandlingFee = handlingFees[country].sea || 0;
     }
 
-    if (calculatedCost > 0) {
-      setCost(`${symbol}${calculatedCost.toFixed(2)}`);
-    } else {
-      setCost("");
-    }
+    const total = calculatedCost + calculatedHandlingFee;
 
-    // Set handling fee
-    if (country in handlingFees) {
-      const fee = handlingFees[country as keyof typeof handlingFees]!;
-      setHandlingFee(`${symbol}${(fee * rate).toFixed(2)}`);
-    } else {
-      setHandlingFee("");
-    }
+    setCost(`${symbol}${calculatedCost.toFixed(2)}`);
+    setHandlingFee(`${symbol}${calculatedHandlingFee.toFixed(2)}`);
+    setTotalCost(`${symbol}${total.toFixed(2)}`);
+    
   }, [weight, volumetricWeight, cbm, country, freightType]);
 
   const handleSubmit = async (e: FormEvent) => {
@@ -123,6 +146,7 @@ const Freightsection: React.FC = () => {
         cbm,
         cost,
         handling_fee: handlingFee,
+        total_cost: totalCost,
         name,
         phone,
         email,
@@ -147,6 +171,7 @@ const Freightsection: React.FC = () => {
       setCbm("");
       setCost("");
       setHandlingFee("");
+      setTotalCost("");
       setName("");
       setPhone("");
       setEmail("");
@@ -302,7 +327,7 @@ const Freightsection: React.FC = () => {
 
           <div>
             <label htmlFor="cost" className="block mb-1">
-              Estimated Cost ({currencyMap[country].code})
+              Freight Cost ({currencyMap[country].code})
             </label>
             <input
               type="text"
@@ -313,20 +338,31 @@ const Freightsection: React.FC = () => {
             />
           </div>
 
-          {handlingFee && (
-            <div>
-              <label htmlFor="handlingFee" className="block mb-1">
-                Handling Fee ({currencyMap[country].code})
-              </label>
-              <input
-                type="text"
-                id="handlingFee"
-                value={handlingFee}
-                className="w-full px-3 py-2 border rounded bg-gray-100"
-                readOnly
-              />
-            </div>
-          )}
+          <div>
+            <label htmlFor="handlingFee" className="block mb-1">
+              Handling Fee ({currencyMap[country].code})
+            </label>
+            <input
+              type="text"
+              id="handlingFee"
+              value={handlingFee}
+              className="w-full px-3 py-2 border rounded bg-gray-100"
+              readOnly
+            />
+          </div>
+
+          <div>
+            <label htmlFor="totalCost" className="block mb-1 font-semibold">
+              Total Cost ({currencyMap[country].code})
+            </label>
+            <input
+              type="text"
+              id="totalCost"
+              value={totalCost}
+              className="w-full px-3 py-2 border rounded bg-gray-100 font-bold text-lg"
+              readOnly
+            />
+          </div>
 
           <div>
             <label htmlFor="name" className="block mb-1">

@@ -237,7 +237,7 @@ const Hero: React.FC = () => {
             Air and Sea Cargo Experts
           </h1>
           
-          <div className="max-w-xl mx-auto md:mt-4">
+          <div className=" mx-auto md:mt-4">
             <div className="bg-white p-4 rounded-lg shadow-xl">
               <img 
                 src="/aeo.png" 
