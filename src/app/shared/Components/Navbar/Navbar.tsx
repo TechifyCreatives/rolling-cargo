@@ -2,19 +2,23 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, DollarSign, Bell, Mail, User } from "lucide-react";
-import TrackingInput from "../TrackingInput/TrackingInput";
-import TrackingResults, { TrackingResult } from "../TrackingResults/TrackingResults";
-import { trackShipment } from "../TrackingService/TrackingService";
+import { Menu, X, DollarSign, Bell, Mail, Search } from "lucide-react";
+
+// Custom Button Component
+const CustomButton: React.FC<{
+  className?: string;
+  children: React.ReactNode;
+}> = ({ className, children }) => (
+  <button
+    className={`inline-flex items-center justify-center rounded-lg transition-all duration-200 ${className}`}
+  >
+    {children}
+  </button>
+);
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [showTracking, setShowTracking] = useState(false);
-  const [trackingNumber, setTrackingNumber] = useState<string>("");
-  const [trackingResults, setTrackingResults] = useState<TrackingResult[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string>("");
 
   useEffect(() => {
     const handleResize = () => {
@@ -27,34 +31,6 @@ const Navbar: React.FC = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-  };
-
-  const toggleTracking = () => {
-    setShowTracking(!showTracking);
-    if (showTracking) {
-      setTrackingResults([]);
-      setError("");
-    }
-  };
-
-  const handleTrack = async () => {
-    if (!trackingNumber.trim()) {
-      setError("Please enter a tracking number");
-      return;
-    }
-
-    setIsLoading(true);
-    setError("");
-    setTrackingResults([]);
-
-    try {
-      const results = await trackShipment(trackingNumber);
-      setTrackingResults(results);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred while tracking');
-    } finally {
-      setIsLoading(false);
-    }
   };
 
   const NavLink: React.FC<{
@@ -81,7 +57,7 @@ const Navbar: React.FC = () => {
     <nav className="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Left section with hamburger menu and tracking input */}
+          {/* Left section with hamburger menu and tracking button */}
           <div className="flex items-center space-x-4">
             <button
               onClick={toggleMenu}
@@ -89,46 +65,35 @@ const Navbar: React.FC = () => {
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
-            <div className="hidden md:flex items-center space-x-2 bg-gray-100 rounded-lg p-1">
-              <TrackingInput
-                trackingNumber={trackingNumber}
-                onTrackingNumberChange={setTrackingNumber}
-                onTrack={handleTrack}
-                isLoading={isLoading}
-              />
-            </div>
+            <NavLink
+              href="/tracking"
+              className="bg-[#0f1031] hover:bg-[#1a1b4b] text-white px-4 py-2 rounded-lg flex items-center gap-2"
+            >
+              <Search size={18} />
+              <span className="hidden md:inline">Track Shipment</span>
+              <span className="md:hidden">Track</span>
+            </NavLink>
           </div>
 
-          {/* Center section with logo and mobile track button */}
-          <div className="flex items-center justify-center space-x-4">
-            {/* Logo and year text - visible on all screen sizes */}
-            <div className="flex items-center">
-              <NavLink href="/" className="flex items-center justify-center">
-                <Image
-                  src="/logo.png"
-                  alt="Logo"
-                  width={isMobile ? 60 : 80}
-                  height={isMobile ? 60 : 80}
-                  style={{ objectFit: 'contain' }}
-                  onError={(e) => {
-                    console.error("Error loading logo:", e);
-                    e.currentTarget.style.display = 'none';
-                    e.currentTarget.insertAdjacentHTML('afterend', '<span class="text-xl font-bold">Your Logo</span>');
-                  }}
-                />
-                <span className="ml-2 text-sm text-gray-500 font-medium hidden sm:block">
-                  Since 2007
-                </span>
-              </NavLink>
-            </div>
-            
-            {/* Mobile track button */}
-            <button
-              onClick={toggleTracking}
-              className="md:hidden bg-[#0f1031] text-white px-3 py-1 rounded-full text-sm hover:bg-[#1a1b4b] transition-colors duration-300"
-            >
-              Track
-            </button>
+          {/* Center section with logo */}
+          <div className="absolute left-1/2 transform -translate-x-1/2">
+            <NavLink href="/" className="flex items-center justify-center">
+              <Image
+                src="/logo.png"
+                alt="Logo"
+                width={isMobile ? 60 : 80}
+                height={isMobile ? 60 : 80}
+                style={{ objectFit: 'contain' }}
+                onError={(e) => {
+                  console.error("Error loading logo:", e);
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.insertAdjacentHTML('afterend', '<span class="text-xl font-bold">Your Logo</span>');
+                }}
+              />
+              <span className="ml-2 text-sm text-gray-500 font-medium hidden sm:block">
+                Since 2007
+              </span>
+            </NavLink>
           </div>
 
           {/* Right section with icons */}
@@ -157,25 +122,6 @@ const Navbar: React.FC = () => {
           </div>
         </div>
       </div>
-
-      {/* Mobile tracking dropdown */}
-      {showTracking && (
-        <div className="md:hidden absolute top-16 left-0 w-full bg-white shadow-md p-4 z-50">
-          <TrackingInput
-            trackingNumber={trackingNumber}
-            onTrackingNumberChange={setTrackingNumber}
-            onTrack={handleTrack}
-            isLoading={isLoading}
-            isMobile={true}
-          />
-          {error && (
-            <p className="text-red-500 mt-2 text-sm">{error}</p>
-          )}
-          {trackingResults.length > 0 && (
-            <TrackingResults results={trackingResults} />
-          )}
-        </div>
-      )}
 
       {/* Menu content */}
       <div
@@ -224,6 +170,15 @@ const Navbar: React.FC = () => {
               <ul className="space-y-2">
                 <li>
                   <NavLink
+                    href="/tracking"
+                    className="text-gray-600 hover:text-gray-900 flex items-center"
+                    isMobile={true}
+                  >
+                    <Search className="mr-2" size={16} /> Track Shipment
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
                     href="/cost-estimator"
                     className="text-gray-600 hover:text-gray-900 flex items-center"
                     isMobile={true}
@@ -240,15 +195,6 @@ const Navbar: React.FC = () => {
                     <Bell className="mr-2" size={16} /> Updates
                   </NavLink>
                 </li>
-                <li>
-                  <NavLink
-                    href="/profile"
-                    className="text-gray-600 hover:text-gray-900 flex items-center"
-                    isMobile={true}
-                  >
-                    <User className="mr-2" size={16} /> Profile
-                  </NavLink>
-                </li>
               </ul>
             </div>
 
@@ -256,7 +202,7 @@ const Navbar: React.FC = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Company</h3>
               <ul className="space-y-2">
-                {["Careers", "Blog", "Feedback", "FAQ", "Contact us", "Terms"].map(
+                {["Careers", "Blog", "Feedback", "FAQ", "Contact us", "Terms & Conditions"].map(
                   (item) => (
                     <li key={item}>
                       <NavLink

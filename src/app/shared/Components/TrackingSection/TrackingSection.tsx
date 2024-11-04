@@ -1,99 +1,126 @@
 "use client";
 import React, { useState } from "react";
-import axios from "axios";
 
-type TrackingResult = {
-  waybill: string;
-  status: string;
-  location: string;
-  eta: string;
-};
+interface TrackingDetail {
+  date: string;
+  message: string;
+  details?: string;
+}
+
+interface ApiResponse {
+  data: TrackingDetail[];
+}
 
 const TrackingSection: React.FC = () => {
   const [trackingNumber, setTrackingNumber] = useState("");
-  const [trackingResults, setTrackingResults] = useState<TrackingResult[]>([]);
+  const [trackingResults, setTrackingResults] = useState<TrackingDetail[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleTrack = async () => {
+  const handleTrack = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!trackingNumber.trim()) {
+      setError("Please enter a waybill number");
+      return;
+    }
+
     setIsLoading(true);
     setError("");
     setTrackingResults([]);
 
     try {
-      const response = await axios.get(`https://rolling-cargo.appspot.com/master/websiteTrackingData`, {
-        params: {
-          waybill: trackingNumber,
-        },
-      });
+      // Use the local API route instead of calling the external API directly
+      const response = await fetch(`/api/tracking?waybill=${encodeURIComponent(trackingNumber)}`);
       
-      if (response.data && response.data.length > 0) {
-        setTrackingResults(response.data);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const responseData: ApiResponse = await response.json();
+      
+      if (responseData.data && responseData.data.length > 0) {
+        setTrackingResults(responseData.data);
       } else {
         setError("No tracking information found for the given waybill number.");
       }
     } catch (err) {
+      console.error('Tracking error:', err);
       setError("Failed to fetch tracking information. Please try again.");
     } finally {
       setIsLoading(false);
     }
   };
 
+  const formatDate = (dateString: string) => {
+    try {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    } catch (e) {
+      return dateString;
+    }
+  };
+
   return (
     <section className="max-w-4xl mx-auto p-4 sm:p-6">
-      <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Tracking</h2>
+      <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Track Your Shipment</h2>
 
       <hr className="h-1 bg-[#640e0e] rounded-full mb-4 sm:mb-6" />
 
-      <div className="mb-4 sm:mb-6 space-y-2 sm:space-y-0">
-        <label className="flex items-center mb-2 sm:mb-0 sm:mr-6">
+      <form onSubmit={handleTrack} className="mb-6">
+        <div className="flex flex-col sm:flex-row gap-2">
           <input
-            type="radio"
-            className="form-radio"
-            name="trackingType"
-            value="waybill"
-            checked={true}
-            readOnly
+            type="text"
+            className="flex-grow px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#640e0e]"
+            placeholder="Enter Waybill Number (e.g., 359777)"
+            value={trackingNumber}
+            onChange={(e) => setTrackingNumber(e.target.value)}
+            aria-label="Waybill Number Input"
           />
-          <span className="ml-2 text-sm sm:text-base">
-            Waybill Number
-          </span>
-        </label>
-      </div>
-
-      <div className="flex flex-col sm:flex-row mb-4 sm:mb-6">
-        <input
-          type="text"
-          className="w-full sm:flex-grow px-4 py-2 border rounded-md sm:rounded-r-none focus:outline-none focus:ring-2 focus:ring-[#640e0e] mb-2 sm:mb-0"
-          placeholder="Enter Waybill Number"
-          value={trackingNumber}
-          onChange={(e) => setTrackingNumber(e.target.value)}
-        />
-        <button
-          className="w-full sm:w-auto bg-[#0f1031] text-white px-6 py-2 rounded-md sm:rounded-l-none hover:bg-[#640e0e] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#640e0e] focus:ring-opacity-50"
-          onClick={handleTrack}
-          disabled={isLoading}
-        >
-          {isLoading ? "Tracking..." : "Track"}
-        </button>
-      </div>
+          <button
+            type="submit"
+            className="bg-[#0f1031] text-white px-6 py-2 rounded-md hover:bg-[#640e0e] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#640e0e] disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={isLoading}
+          >
+            {isLoading ? "Tracking..." : "Track Your Shipment"}
+          </button>
+        </div>
+      </form>
 
       {error && (
-        <p className="text-red-500 mb-4 text-sm sm:text-base">{error}</p>
+        <p className="text-red-500 mb-4 text-sm sm:text-base" role="alert" id="noresults">
+          {error}
+        </p>
       )}
 
       {trackingResults.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {trackingResults.map((result) => (
-            <div key={result.waybill} className="bg-white p-4 rounded shadow">
-              <h3 className="font-bold mb-2 text-sm sm:text-base">
-                Waybill: {result.waybill}
-              </h3>
-              <p className="text-sm sm:text-base">Status: {result.status}</p>
-              <p className="text-sm sm:text-base">
-                Location: {result.location}
+        <div id="searchResults" className="space-y-4">
+          {trackingResults.map((result, index) => (
+            <div
+              key={index}
+              id="card"
+              className="bg-white rounded-lg shadow-md p-4 border-l-4 border-[#640e0e]"
+            >
+              <p id="date" className="mb-2">
+                <strong>Date: </strong>
+                {formatDate(result.date)}
               </p>
-              <p className="text-sm sm:text-base">ETA: {result.eta}</p>
+              <p id="message" className="mb-2">
+                <strong>Status: </strong>
+                {result.message}
+              </p>
+              {result.details && (
+                <p id="details" className="text-gray-700">
+                  <strong>Details: </strong>
+                  {result.details}
+                </p>
+              )}
             </div>
           ))}
         </div>

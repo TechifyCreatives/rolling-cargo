@@ -11,9 +11,19 @@ interface CurrencyInfo {
   rate: number;
 }
 
+// Function to get currency info based on country and freight type
+const getCurrencyInfo = (country: Country, freightType: FreightType): CurrencyInfo => {
+  if (country === "China") {
+    return freightType === "air" 
+      ? { code: "USD", symbol: "$", rate: 1 }
+      : { code: "KES", symbol: "KSh", rate: 1 };
+  }
+  return currencyMap[country];
+};
+
 const currencyMap: Record<Country, CurrencyInfo> = {
   UK: { code: "GBP", symbol: "£", rate: 0.79 },
-  China: { code: "USD", symbol: "$", rate: 1 },
+  China: { code: "USD", symbol: "$", rate: 1 }, // Default, but will be overridden by getCurrencyInfo
   Turkey: { code: "USD", symbol: "$", rate: 1 },
   Netherlands: { code: "USD", symbol: "$", rate: 1 },
   Italy: { code: "USD", symbol: "$", rate: 1 },
@@ -25,7 +35,7 @@ const airFreightRates: Record<Country, { baseRate: number; minimumRate?: number 
   UK: { baseRate: 6.5 }, // GBP
   China: { baseRate: 12, minimumRate: 15 }, // USD
   Turkey: { baseRate: 7.5 }, // USD
-  Netherlands: { baseRate: 10 }, // USD
+  Netherlands: { baseRate: 11 }, // USD
   Italy: { baseRate: 11 }, // USD
   "South Africa": { baseRate: 13 }, // USD
   Dubai: { baseRate: 8, minimumRate: 10 } // USD
@@ -35,7 +45,7 @@ const handlingFees: Record<Country, { air: number; sea?: number }> = {
   UK: { air: 25, sea: 15 }, // GBP
   China: { air: 0 },
   Turkey: { air: 20, sea: 10 }, // USD
-  Netherlands: { air: 30, sea: 20 }, // USD
+  Netherlands: { air: 40, sea: 20 }, // USD
   Italy: { air: 40 }, // USD
   "South Africa": { air: 0 },
   Dubai: { air: 0 }
@@ -43,9 +53,9 @@ const handlingFees: Record<Country, { air: number; sea?: number }> = {
 
 const seaFreightRates: Partial<Record<Country, number | { regular: number; small?: number; large?: number }>> = {
   UK: { regular: 2.5 }, // GBP per CBM
-  Dubai: { regular: 60000, small: 12000 }, // KES, small is for 0.2 CBM
-  China: { regular: 60000, small: 12000 }, // KES, small is for 0.2 CBM
-  Turkey: { regular: 50, large: 600 }, // USD, large is for above 10 CBM
+  Dubai: { regular: 60000, small: 12000 }, // KES
+  China: { regular: 60000, small: 12000 }, // KES
+  Turkey: { regular: 750, large: 600 }, // USD
   Netherlands: { regular: 5 } // USD per CBM
 };
 
@@ -84,9 +94,9 @@ const Freightsection: React.FC = () => {
   }, [length, width, height]);
 
   useEffect(() => {
-    if (!country) return;
+    if (!country || !freightType) return;
 
-    const { symbol } = currencyMap[country];
+    const currencyInfo = getCurrencyInfo(country, freightType);
     let calculatedCost = 0;
     let calculatedHandlingFee = 0;
 
@@ -126,9 +136,9 @@ const Freightsection: React.FC = () => {
 
     const total = calculatedCost + calculatedHandlingFee;
 
-    setCost(`${symbol}${calculatedCost.toFixed(2)}`);
-    setHandlingFee(`${symbol}${calculatedHandlingFee.toFixed(2)}`);
-    setTotalCost(`${symbol}${total.toFixed(2)}`);
+    setCost(`${currencyInfo.symbol}${calculatedCost.toFixed(2)}`);
+    setHandlingFee(`${currencyInfo.symbol}${calculatedHandlingFee.toFixed(2)}`);
+    setTotalCost(`${currencyInfo.symbol}${total.toFixed(2)}`);
     
   }, [weight, volumetricWeight, cbm, country, freightType]);
 
@@ -327,7 +337,7 @@ const Freightsection: React.FC = () => {
 
           <div>
             <label htmlFor="cost" className="block mb-1">
-              Freight Cost ({currencyMap[country].code})
+              Freight Cost ({country && freightType ? getCurrencyInfo(country, freightType).code : ""})
             </label>
             <input
               type="text"
@@ -340,7 +350,7 @@ const Freightsection: React.FC = () => {
 
           <div>
             <label htmlFor="handlingFee" className="block mb-1">
-              Handling Fee ({currencyMap[country].code})
+              Handling Fee ({country && freightType ? getCurrencyInfo(country, freightType).code : ""})
             </label>
             <input
               type="text"
@@ -353,7 +363,7 @@ const Freightsection: React.FC = () => {
 
           <div>
             <label htmlFor="totalCost" className="block mb-1 font-semibold">
-              Total Cost ({currencyMap[country].code})
+              Total Cost ({country && freightType ? getCurrencyInfo(country, freightType).code : ""})
             </label>
             <input
               type="text"
