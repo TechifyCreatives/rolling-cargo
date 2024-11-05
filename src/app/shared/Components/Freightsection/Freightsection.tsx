@@ -168,10 +168,10 @@ const Freightsection: React.FC = () => {
       };
 
       await emailjs.send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        "service_od2wm1x",
+        "template_lws7abq",
         templateParams,
-        "YOUR_USER_ID"
+        "AWuVmDvp3lqD8Xks_"
       );
 
       setSubmitMessage("Your message has been sent successfully!");
