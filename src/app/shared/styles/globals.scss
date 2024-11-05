@@ -11,6 +11,11 @@
     font-style: normal;
 }
 
+*{
+  margin: 0;
+  padding: 0;
+}
+
 /* Step 2: Use the font */
 body{
     font-family: 'Biennale', sans-serif;    /* Always include a fallback */
