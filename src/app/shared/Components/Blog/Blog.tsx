@@ -8,7 +8,6 @@ interface BlogPost {
   title: string;
   excerpt: string;
   content: string;
-  date: string;
   category: string;
   image: string;
   author: string;
@@ -31,7 +30,6 @@ const blogPosts: BlogPost[] = [
 
       Please ensure you declare all applicable items and refrain from attempting to ship prohibited items. This helps maintain safety and compliance with shipping regulations.
     `,
-    date: "Sep 14, 2022",
     category: "Shipping Policy",
     image: "/Dangerous Goods List & Items We Don't Ship.jpg",
     author: "Kennedy Mwangi"
@@ -52,7 +50,6 @@ const blogPosts: BlogPost[] = [
       3. Streamlined customs clearance to avoid delays
       4. Expert handling of fragile and high-value goods
     `,
-    date: "January 21, 2022",
     category: "Shipping News",
     image: "/big-ben-westminster-bridge-on-river-thames-in-lon-2023-11-27-05-36-07-utc.jpg",
     author: "Kennedy Mwangi"
@@ -62,7 +59,6 @@ const blogPosts: BlogPost[] = [
     title: "Dubai Time Change",
     excerpt: "Stay informed about our Dubai Time Change",
     content: "Dear Customer, our Dubai branch timings will be changing to align with the newly announced weekend. New timings are: Mon-Thu & Sat: 8am-10:30pm, Fri: 8am-12pm,open 2pm-10:30pm Sun: Closed. Our dubai branch operate 6 days a week as per dubai time change",
-    date: "January 3, 2022",
     category: "Shipping News",
     image: "/Dubai Time Change.jpg",
     author: "Kennedy Mwangi"
@@ -84,7 +80,6 @@ const blogPosts: BlogPost[] = [
       4. Streamlined customs and clearance processes
       5. Dedicated account managers for personalised support
     `,
-    date: "October 30, 2024",
     category: "Shipping News",
     image: "/Blog2.jpg",
     author: "Kennedy Mwangi"
@@ -106,7 +101,6 @@ const blogPosts: BlogPost[] = [
       4. Door-to-door delivery options for added convenience
       5. Efficient cross-border shipping with minimal delays
     `,
-    date: "January 30, 2024",
     category: "Shipping News",
     image: "/aerial-view-of-green-point-in-cape-town-2023-11-27-05-30-14-utc.jpg",
     author: "Kennedy Mwangi"
@@ -128,7 +122,6 @@ const blogPosts: BlogPost[] = [
       4. Secure storage and warehousing in the Netherlands
       5. Expert advice on import regulations and documentation
     `,
-    date: "October 30, 2024",
     category: "Shipping News",
     image: "/Blog 4 Seamless Sea Freight from the Netherlands Importing to Kenya with Rolling Cargo.jpg",
     author: "Kennedy Mwangi"
@@ -150,7 +143,6 @@ const blogPosts: BlogPost[] = [
       4. Real-time tracking for transparency at every stage
       5. Warehousing options in China for pre-shipment storage
     `,
-    date: "October 30, 2024",
     category: "Shipping News",
     image: "/Blog 5 Streamlining Cargo Imports from China to Kenya How Rolling Cargo Supports Your Business.jpg",
     author: "Kennedy Mwangi"
@@ -172,7 +164,6 @@ const blogPosts: BlogPost[] = [
       4. Real-time tracking and 24/7 customer support
       5. Expertise in handling customs clearance in Dubai and Kenya
     `,
-    date: "October 30, 2024",
     category: "Shipping News",
     image: "/Blog 6 Cargo Shipping Solutions from Dubai to Kenya Rolling Cargo Delivers Excellence.jpg",
     author: "Kennedy Mwangi"
@@ -218,7 +209,7 @@ const Blog: React.FC = () => {
               <h2 className="text-2xl font-bold mb-3 text-gray-800">{post.title}</h2>
               <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
               <div className="flex justify-between items-center">
-                <span className="text-sm text-gray-500">{post.date}</span>
+                <span className="text-sm text-gray-500">{post.author}</span>
                 <button
                   onClick={() => openModal(post)}
                   className="bg-[#0f1031] hover:bg-[#640e0e] text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
@@ -257,7 +248,6 @@ const Blog: React.FC = () => {
                 </div>
                 <div className="flex justify-between text-sm text-gray-500 mb-6">
                   <span className="font-medium">{selectedPost.author}</span>
-                  <span>{selectedPost.date}</span>
                 </div>
                 <div className="prose max-w-none" 
                   dangerouslySetInnerHTML={{ __html: selectedPost.content }}>

@@ -76,9 +76,9 @@ const Freightsection: React.FC = () => {
   const [height, setHeight] = useState<string>("");
   const [volumetricWeight, setVolumetricWeight] = useState<number | null>(null);
   const [cbm, setCbm] = useState<string>("");
-  const [cost, setCost] = useState<string>("");
-  const [handlingFee, setHandlingFee] = useState<string>("");
-  const [totalCost, setTotalCost] = useState<string>("");
+  const [cost, setCost] = useState<string>("00");
+  const [handlingFee, setHandlingFee] = useState<string>("00");
+  const [totalCost, setTotalCost] = useState<string>("00");
   const [name, setName] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -99,7 +99,12 @@ const Freightsection: React.FC = () => {
   }, [length, width, height]);
 
   useEffect(() => {
-    if (!country || !freightType) return;
+    if (!country || !freightType) {
+      setCost("00");
+      setHandlingFee("00");
+      setTotalCost("00");
+      return;
+    }
 
     const currencyInfo = getCurrencyInfo(country, freightType);
     let calculatedCost = 0;
@@ -141,9 +146,9 @@ const Freightsection: React.FC = () => {
 
     const total = calculatedCost + calculatedHandlingFee;
 
-    setCost(`${currencyInfo.symbol}${calculatedCost.toFixed(2)}`);
-    setHandlingFee(`${currencyInfo.symbol}${calculatedHandlingFee.toFixed(2)}`);
-    setTotalCost(`${currencyInfo.symbol}${total.toFixed(2)}`);
+    setCost(calculatedCost > 0 ? `${currencyInfo.symbol}${calculatedCost.toFixed(2)}` : "00");
+    setHandlingFee(calculatedHandlingFee > 0 ? `${currencyInfo.symbol}${calculatedHandlingFee.toFixed(2)}` : "00");
+    setTotalCost(total > 0 ? `${currencyInfo.symbol}${total.toFixed(2)}` : "00");
     
   }, [weight, volumetricWeight, cbm, country, freightType]);
 
@@ -184,9 +189,9 @@ const Freightsection: React.FC = () => {
       setHeight("");
       setVolumetricWeight(null);
       setCbm("");
-      setCost("");
-      setHandlingFee("");
-      setTotalCost("");
+      setCost("00");
+      setHandlingFee("00");
+      setTotalCost("00");
       setName("");
       setPhone("");
       setEmail("");
@@ -262,6 +267,7 @@ const Freightsection: React.FC = () => {
                   value={weight}
                   onChange={(e) => setWeight(e.target.value)}
                   className="w-full px-3 py-2 border rounded"
+                  placeholder="00"
                   required
                 />
               </div>
@@ -276,6 +282,7 @@ const Freightsection: React.FC = () => {
                     value={length}
                     onChange={(e) => setLength(e.target.value)}
                     className="w-full px-3 py-2 border rounded"
+                    placeholder="00"
                     required
                   />
                 </div>
@@ -289,6 +296,7 @@ const Freightsection: React.FC = () => {
                     value={width}
                     onChange={(e) => setWidth(e.target.value)}
                     className="w-full px-3 py-2 border rounded"
+                    placeholder="00"
                     required
                   />
                 </div>
@@ -302,6 +310,7 @@ const Freightsection: React.FC = () => {
                     value={height}
                     onChange={(e) => setHeight(e.target.value)}
                     className="w-full px-3 py-2 border rounded"
+                    placeholder="00"
                     required
                   />
                 </div>
@@ -315,6 +324,7 @@ const Freightsection: React.FC = () => {
                     type="text"
                     id="volumetricWeight"
                     value={volumetricWeight.toFixed(2)}
+                    placeholder="00"
                     className="w-full px-3 py-2 border rounded bg-gray-100"
                     readOnly
                   />
@@ -334,6 +344,7 @@ const Freightsection: React.FC = () => {
                 value={cbm}
                 onChange={(e) => setCbm(e.target.value)}
                 className="w-full px-3 py-2 border rounded"
+                placeholder="00"
                 required
                 step="0.01"
               />
@@ -348,6 +359,7 @@ const Freightsection: React.FC = () => {
               type="text"
               id="cost"
               value={cost}
+              placeholder="00"
               className="w-full px-3 py-2 border rounded bg-gray-100"
               readOnly
             />
@@ -361,6 +373,7 @@ const Freightsection: React.FC = () => {
               type="text"
               id="handlingFee"
               value={handlingFee}
+              placeholder="00"
               className="w-full px-3 py-2 border rounded bg-gray-100"
               readOnly
             />
@@ -374,6 +387,7 @@ const Freightsection: React.FC = () => {
               type="text"
               id="totalCost"
               value={totalCost}
+              placeholder="00"
               className="w-full px-3 py-2 border rounded bg-gray-100 font-bold text-lg"
               readOnly
             />

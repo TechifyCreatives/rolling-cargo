@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import { X, Plane, Ship, Package, Bell, Phone, Mail, Box } from "lucide-react";
-import axios from "axios";
+import emailjs from '@emailjs/browser';
 import Link from "next/link";
 
 const backgroundImages = [
@@ -22,6 +22,12 @@ interface ContactFormData {
   volumetricWeight: string;
   cbm: string;
   message: string;
+}
+
+// Add this new interface for form status
+interface FormStatus {
+  message: string;
+  type: 'success' | 'error' | null;
 }
 
 const CustomAlert: React.FC<CustomAlertProps> = ({ onClose }) => (
@@ -72,10 +78,56 @@ const ContactForm: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState<FormStatus>({
+    message: '',
+    type: null
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
-    onClose();
+    setIsSubmitting(true);
+    setFormStatus({ message: '', type: null });
+
+    try {
+      // Replace these with your actual EmailJS credentials
+      const templateParams = {
+        to_name: "Recipient Name",
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        shipping_mode: formData.shippingMode,
+        weight: formData.weight,
+        volumetric_weight: formData.volumetricWeight,
+        cbm: formData.cbm,
+        message: formData.message
+      };
+
+      await emailjs.send(
+        'service_od2wm1x', // Replace with your Service ID
+        'template_lws7abq', // Replace with your Template ID
+        templateParams,
+        'AWuVmDvp3lqD8Xks_' // Replace with your Public Key
+      );
+
+      setFormStatus({
+        message: 'Quote request sent successfully! We will contact you soon.',
+        type: 'success'
+      });
+
+      // Close the form after a delay
+      setTimeout(() => {
+        onClose();
+      }, 2000);
+
+    } catch (error) {
+      setFormStatus({
+        message: 'Failed to send quote request. Please try again.',
+        type: 'error'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -101,6 +153,14 @@ const ContactForm: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         </div>
         
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
+          {formStatus.message && (
+            <div className={`p-4 rounded ${
+              formStatus.type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+            }`}>
+              {formStatus.message}
+            </div>
+          )}
+
           <div>
             <label className="block text-sm font-medium mb-1">Name</label>
             <input
@@ -184,9 +244,12 @@ const ContactForm: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           <div className="sticky bottom-0 bg-white pt-4">
             <button
               type="submit"
-              className="w-full bg-[#0f1031] text-white py-2 rounded hover:bg-blue-600 transition-colors duration-300"
+              disabled={isSubmitting}
+              className={`w-full bg-[#0f1031] text-white py-2 rounded transition-colors duration-300 ${
+                isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-600'
+              }`}
             >
-              Submit
+              {isSubmitting ? 'Submitting...' : 'Submit'}
             </button>
           </div>
         </form>
@@ -210,6 +273,9 @@ const Hero: React.FC = () => {
     const popupTimeout = setTimeout(() => {
       setShowPopup(true);
     }, 1000);
+
+    // Initialize EmailJS
+    emailjs.init("AWuVmDvp3lqD8Xks_"); // Replace with your actual public key
 
     return () => {
       clearInterval(intervalId);

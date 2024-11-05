@@ -196,10 +196,10 @@ const ContactPage: React.FC = () => {
       };
 
       await emailjs.send(
-        "service_hzylhcx",
-        "YOUR_TEMPLATE_ID",
+        "service_od2wm1x",
+        "template_lws7abq",
         emailData,
-        "YOUR_USER_ID"
+        "AWuVmDvp3lqD8Xks_"
       );
       setSubmitStatus('success');
     } catch (error) {
