@@ -32,7 +32,7 @@ const blogPosts: BlogPost[] = [
     `,
     category: "Shipping Policy",
     image: "/Dangerous Goods List & Items We Don't Ship.jpg",
-    author: "Kennedy Mwangi"
+    author: "Rolling Cargo"
   },
   {
     id: 2,
@@ -52,7 +52,7 @@ const blogPosts: BlogPost[] = [
     `,
     category: "Shipping News",
     image: "/big-ben-westminster-bridge-on-river-thames-in-lon-2023-11-27-05-36-07-utc.jpg",
-    author: "Kennedy Mwangi"
+    author: "Rolling Cargo"
   },
   {
     id: 3,
@@ -61,7 +61,7 @@ const blogPosts: BlogPost[] = [
     content: "Dear Customer, our Dubai branch timings will be changing to align with the newly announced weekend. New timings are: Mon-Thu & Sat: 8am-10:30pm, Fri: 8am-12pm,open 2pm-10:30pm Sun: Closed. Our dubai branch operate 6 days a week as per dubai time change",
     category: "Shipping News",
     image: "/Dubai Time Change.jpg",
-    author: "Kennedy Mwangi"
+    author: "Rolling Cargo"
   },
   {
     id: 4,
@@ -82,7 +82,7 @@ const blogPosts: BlogPost[] = [
     `,
     category: "Shipping News",
     image: "/Blog2.jpg",
-    author: "Kennedy Mwangi"
+    author: "Rolling Cargo"
   },
   {
     id: 5,
@@ -103,7 +103,7 @@ const blogPosts: BlogPost[] = [
     `,
     category: "Shipping News",
     image: "/aerial-view-of-green-point-in-cape-town-2023-11-27-05-30-14-utc.jpg",
-    author: "Kennedy Mwangi"
+    author: "Rolling Cargo"
   },
   {
     id: 6,
@@ -124,7 +124,7 @@ const blogPosts: BlogPost[] = [
     `,
     category: "Shipping News",
     image: "/Blog 4 Seamless Sea Freight from the Netherlands Importing to Kenya with Rolling Cargo.jpg",
-    author: "Kennedy Mwangi"
+    author: "Rolling Cargo"
   },
   {
     id: 7,
@@ -145,7 +145,7 @@ const blogPosts: BlogPost[] = [
     `,
     category: "Shipping News",
     image: "/Blog 5 Streamlining Cargo Imports from China to Kenya How Rolling Cargo Supports Your Business.jpg",
-    author: "Kennedy Mwangi"
+    author: "Rolling Cargo"
   },
   {
     id: 8,
@@ -166,7 +166,7 @@ const blogPosts: BlogPost[] = [
     `,
     category: "Shipping News",
     image: "/Blog 6 Cargo Shipping Solutions from Dubai to Kenya Rolling Cargo Delivers Excellence.jpg",
-    author: "Kennedy Mwangi"
+    author: "Rolling Cargo"
   }
 ];
 
