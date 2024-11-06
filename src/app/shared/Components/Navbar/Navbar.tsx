@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Left section with hamburger menu and tracking button */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 md:space-x-4">
             <button
               onClick={toggleMenu}
               className="text-gray-500 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
@@ -67,22 +67,22 @@ const Navbar: React.FC = () => {
             </button>
             <NavLink
               href="/tracking"
-              className="bg-[#0f1031] hover:bg-[#1a1b4b] text-white px-4 py-2 rounded-lg flex items-center gap-2"
+              className="bg-[#0f1031] hover:bg-[#1a1b4b] text-white px-2 md:px-4 py-1 md:py-2 rounded-lg flex items-center gap-1 md:gap-2 text-xs md:text-base"
             >
-              <Search size={18} />
+              <Search size={isMobile ? 14 : 18} />
               <span className="hidden md:inline">Track Shipment</span>
               <span className="md:hidden">Track</span>
             </NavLink>
           </div>
 
           {/* Center section with logo */}
-          <div className="absolute left-1/2 transform -translate-x-1/2">
+          <div className="flex items-center justify-center">
             <NavLink href="/" className="flex items-center justify-center">
               <Image
                 src="/logo.png"
                 alt="Logo"
-                width={isMobile ? 60 : 80}
-                height={isMobile ? 60 : 80}
+                width={isMobile ? 50 : 80}
+                height={isMobile ? 50 : 80}
                 style={{ objectFit: 'contain' }}
                 onError={(e) => {
                   console.error("Error loading logo:", e);
@@ -103,21 +103,21 @@ const Navbar: React.FC = () => {
               className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
             >
               <DollarSign size={isMobile ? 16 : 24} />
-              <span className="text-[10px] md:text-xs mt-1">Cost Estimator</span>
+              <span className="text-[8px] md:text-xs mt-1">Cost Estimator</span>
             </NavLink>
             <NavLink
               href="/blog"
               className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
             >
               <Bell size={isMobile ? 16 : 24} />
-              <span className="text-[10px] md:text-xs mt-1">Updates</span>
+              <span className="text-[8px] md:text-xs mt-1">Updates</span>
             </NavLink>
             <NavLink
               href="/contact-us"
               className="text-gray-500 hover:text-gray-600 flex flex-col items-center"
             >
               <Mail size={isMobile ? 16 : 24} />
-              <span className="text-[10px] md:text-xs mt-1">Contact Us</span>
+              <span className="text-[8px] md:text-xs mt-1">Contact Us</span>
             </NavLink>
           </div>
         </div>

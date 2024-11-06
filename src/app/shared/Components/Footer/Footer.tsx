@@ -37,7 +37,7 @@ const countries = [
     email: "salesinquiries@rollingcargo.co.ke",
   },
   {
-    name: "Europe – Nethalands",
+    name: "Europe – Netherlands",
     phone: "+31 610624607",
     email: "salesinquiries@rollingcargo.co.ke",
   },

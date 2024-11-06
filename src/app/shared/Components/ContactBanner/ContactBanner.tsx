@@ -40,28 +40,23 @@ const offices: Office[] = [
     email: "salesinquiries@rollingcargo.co.ke",
     address: "Deira, Sabkha Road, Behind Sabkha Bus Station Sabkha Building 1st floor RM 118. Warehouse at Al Hamriya port side gate No.9 next to Mosque Sheikh Murr.",
   },
-  {                                                                                             
-// ROLLING CARGO 海运仓库地址：
-
-// 佛山市南海区里水镇广东新材料产业基地C区C栋107 (上班时间周一至周六11点~18点）
-
-// 联系人:阿伟 +8618826260044  小王：+8619927449452
+  {
     name: "China – Guangzhou (Air Shipment)",
     chineseName: "中国 – 广州（空运）",
-    phone: "+8618826260044 (A Wei), +8619927449452 (kevin)",
-    chinesePhone: "+8618826260044 (阿伟), +8619927449452 (凯文)",
+    phone: "+8618826260042 (Liu An), +8618826260043 (Hellen)",
+    chinesePhone: "+8618826260042 (刘安), +8618826260043 (海伦)",
     email: "salesinquiries@rollingcargo.co.ke",
-    address: "107,Building C, Zone C, Guangdong New Materiallndustry Base, Lishui Town, Nanhai District,Foshan City ",
-    chineseAddress: "货物外箱每箱必须标注国外客户姓名电话号码以及海运，再附上装箱单发到仓库，如唛头信息不齐，仓库拒收",
+    address: "106, Building C, Zone C, Guangdong New Material Industry Base, Lishui Town, Nanhai District, Foshan City, POST CODE: 528244",
+    chineseAddress: "佛山市南海区里水镇广东新材料产业基地C区C栋106 (上班时间周一至周日11点~19点）联系人:HELLEN+8618826260043 刘安 货物外箱每箱必须标注国外客户姓名电话号码以及空运，再附上装箱单发到仓库，如唛头信息不齐，仓库拒收",
   },
   {
     name: "China – Guangzhou (Sea Shipment)",
     chineseName: "中国 – 广州（海运）",
     phone: "+8618826260044 (A WEI), +8619927449452 (KEVIN)",
-    chinesePhone: "+8618826260044 (刘安) , +8619927449452 (海伦)",
+    chinesePhone: "+8618826260044 (阿伟), +8619927449452 (小王)",
     email: "salesinquiries@rollingcargo.co.ke",
-    address: "107,Building C, Zone C, Guangdong New Materiallndustry Base, Lishui Town, Nanhai District,Foshan City ",
-    chineseAddress: "货物外箱每箱必须标注国外客户姓名电话号码以及海运，再附上装箱单发到仓库，如唛头信息不齐，仓库拒收",
+    address: "107, Building C, Zone C, Guangdong New Material Industry Base, Lishui Town, Nanhai District, Foshan City, POST CODE: 528244",
+    chineseAddress: "佛山市南海区里水镇广东新材料产业基地C区C栋107 (上班时间周一至周六11点~18点）联系人:阿伟 +8618826260044 小王：+8619927449452 货物外箱每箱必须标注国外客户姓名电话号码以及海运，再附上装箱单发到仓库，如唛头信息不齐，仓库拒收",
   },
   {
     name: "U.K – London",
