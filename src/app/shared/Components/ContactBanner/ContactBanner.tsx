@@ -43,20 +43,20 @@ const offices: Office[] = [
   {
     name: "China – Guangzhou (Air Shipment)",
     chineseName: "中国 – 广州（空运）",
-    phone: "+8618826260042 (Liu An), +8618826260043 (Hellen)",
-    chinesePhone: "+8618826260042 (刘安), +8618826260043 (海伦)",
+    phone: "+8618826260042 (Liu An), +8618826260043 (Hellen), WhatsApp: +254 709 286 286",
+    chinesePhone: "+8618826260042 (刘安), +8618826260043 (Hellen)",
     email: "salesinquiries@rollingcargo.co.ke",
     address: "106, Building C, Zone C, Guangdong New Material Industry Base, Lishui Town, Nanhai District, Foshan City, POST CODE: 528244",
-    chineseAddress: "佛山市南海区里水镇广东新材料产业基地C区C栋106 (上班时间周一至周日11点~19点）联系人:HELLEN+8618826260043 刘安 货物外箱每箱必须标注国外客户姓名电话号码以及空运，再附上装箱单发到仓库，如唛头信息不齐，仓库拒收",
+    chineseAddress: "ROLLING CARGO 空运仓库地址：佛山市南海区里水镇广东新材料产业基地C区C栋106 (上班时间周一至周日11点~19点）联系人:HELLEN+8618826260043 刘安 货物外箱每箱必须标注国外客户姓名电话号码以及空运，再附上装箱单发到仓库，如唛头信息不齐，仓库拒收",
   },
   {
     name: "China – Guangzhou (Sea Shipment)",
     chineseName: "中国 – 广州（海运）",
-    phone: "+8618826260044 (A WEI), +8619927449452 (KEVIN)",
-    chinesePhone: "+8618826260044 (阿伟), +8619927449452 (小王)",
+    phone: "A WEI: +8618826260044, KEVIN: +8619927449452",
+    chinesePhone: "阿伟: +8618826260044, 小王: +8619927449452",
     email: "salesinquiries@rollingcargo.co.ke",
     address: "107, Building C, Zone C, Guangdong New Material Industry Base, Lishui Town, Nanhai District, Foshan City, POST CODE: 528244",
-    chineseAddress: "佛山市南海区里水镇广东新材料产业基地C区C栋107 (上班时间周一至周六11点~18点）联系人:阿伟 +8618826260044 小王：+8619927449452 货物外箱每箱必须标注国外客户姓名电话号码以及海运，再附上装箱单发到仓库，如唛头信息不齐，仓库拒收",
+    chineseAddress: "ROLLING CARGO 海运仓库地址：佛山市南海区里水镇广东新材料产业基地C区C栋107 (上班时间周一至周六11点~18点）联系人:阿伟 +8618826260044 小王：+8619927449452 货物外箱每箱必须标注国外客户姓名电话号码以及海运，再附上装箱单发到仓库，如唛头信息不齐，仓库拒收",
   },
   {
     name: "U.K – London",
@@ -188,7 +188,6 @@ const ContactPage: React.FC = () => {
   const onSubmit: SubmitHandler<FormInputs> = async (data) => {
     setIsSubmitting(true);
     try {
-      // Convert FormInputs to a Record<string, string>
       const emailData: Record<string, string> = {
         name: data.name,
         email: data.email,
