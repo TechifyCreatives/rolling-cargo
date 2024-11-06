@@ -4,6 +4,7 @@ import "./shared/styles/globals.scss";
 import Footer from "./shared/Components/Footer/Footer";
 import ScrollToTopButton from "./shared/Components/ScrollToTopButton/ScrollToTopButton";
 import Navbar from "./shared/Components/Navbar/Navbar";
+import WhatsAppButton from "./shared/Components/WhatsAppButton/WhatsAppButton";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Navbar />
         {children}
+        <WhatsAppButton />
         <ScrollToTopButton />
         <Footer />
       </body>
