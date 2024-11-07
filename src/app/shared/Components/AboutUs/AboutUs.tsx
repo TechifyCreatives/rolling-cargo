@@ -13,8 +13,8 @@ const AboutUs: React.FC = () => {
         </div>
         <div className="w-px h-20 bg-gray-300 hidden md:block"></div>
         <div className="w-full md:w-1/2 text-right">
-          <p className="text-xl font-semibold">Mohammed</p>
-          <p className="text-gray-600">CEO, Exercutive chairman and founder</p>
+          <p className="text-xl font-semibold">Mohammed Abdi</p>
+          <p className="text-gray-600">Exercutive chairman and founder</p>
         </div>
       </div>
 
