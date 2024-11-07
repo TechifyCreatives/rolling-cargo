@@ -8,13 +8,13 @@ const AboutUs: React.FC = () => {
         <div className="w-full md:w-1/2 mb-8 md:mb-0">
           <p className="text-2xl italic text-gray-600">
             Our commitment to excellence in shipping sets us apart. We do not
-            just deliver packages; we deliver peace of mind
+            just deliver packages; we deliver peace of mind.
           </p>
         </div>
         <div className="w-px h-20 bg-gray-300 hidden md:block"></div>
         <div className="w-full md:w-1/2 text-right">
           <p className="text-xl font-semibold">Mohammed Abdi</p>
-          <p className="text-gray-600">Exercutive chairman and founder</p>
+          <p className="text-gray-600">Executive Chairman and Founder.</p>
         </div>
       </div>
 
