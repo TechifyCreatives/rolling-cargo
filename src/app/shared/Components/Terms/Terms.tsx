@@ -169,6 +169,46 @@ const Terms = () => {
               cover indirect loss or damage, or loss or damage caused by delays.
             </p>
           </TermsSection>
+          
+          <TermsSection title="Circumstances Beyond ROLLING CARGO LIMITED's Control">
+            <p className="mb-2">
+              ROLLING CARGO LIMITED is not liable for loss or damage resulting from circumstances beyond its control, including but not limited to electrical or magnetic damage to electronic or photographic images, data, or recordings; defects related to the shipment's nature; acts or omissions by third parties; cyber-attacks; or force majeure events such as natural disasters, war, or civil unrest. 
+            </p>
+          </TermsSection>
+
+          <TermsSection title="Shipper's Representations, Warranties, and Indemnities">
+            <p className="mb-2">
+              The Shipper shall indemnify and hold ROLLING CARGO LIMITED harmless from liabilities, losses, and damages arising from:
+            </p>
+            <p>
+              <ul className="list-disc pl-5 space-y-2">
+              <li>Compliance with the unacceptable shipments policy</li>
+              <li>Secure preparation and storage of the shipment.</li>
+              <li>Adherence to export control, sanctions, customs laws, and other regulations.</li>
+              <li>Full and accurate declaration of goods subject to government authorizations.</li>
+              <li>Provision of complete and accurate information, permits, licenses, and documents.</li>
+              <li>Compliance with legal obligations regarding the processing and sharing of personal data.</li>
+            </ul>
+            </p>
+          </TermsSection>
+
+          <TermsSection title="Routing">
+            <p className="mb-2">
+              The Shipper agrees to all routing and diversion, including the possibility of intermediate stops. 
+            </p>
+          </TermsSection>
+
+          <TermsSection title="Government Law">
+            <p className="mb-2">
+              Disputes arising under these Terms and Conditions will be governed by the law of the shipment's country of origin and subject to the non-exclusive jurisdiction of its courts unless otherwise required by law.
+            </p>
+          </TermsSection>
+
+          <TermsSection title="Severability">
+            <p className="mb-2">
+              If any provision of these Terms and Conditions is found to be invalid or unenforceable, it will not affect the validity or enforceability of the remaining provisions. 
+            </p>
+          </TermsSection>
 
           <div className="text-sm text-gray-500 pt-8 border-t border-gray-200">
             <p>For further information, please visit the ROLLING CARGO LIMITED website at{' '}
