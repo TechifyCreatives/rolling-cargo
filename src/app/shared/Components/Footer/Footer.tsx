@@ -14,47 +14,47 @@ const countries = [
   {
     name: "Headquaters",
     phone: "+254 709 286 286",
-    email: "salesinquiries@rollingcargo.co.ke",
+    email: "sales@rollingcargo.co.ke",
   },
   {
     name: "UAE - Dubai",
     phone: "+971 4 2965 432",
-    email: "salesinquiries@rollingcargo.co.ke",
+    email: "sales@rollingcargo.co.ke",
   },
   {
     name: "China Office",
     phone: "+8618826260042",
-    email: "salesinquiries@rollingcargo.co.ke",
+    email: "sales@rollingcargo.co.ke",
   },
   {
     name: "South Africa",
     phone: "+27 79 906 7166",
-    email: "salesinquiries@rollingcargo.co.ke",
+    email: "sales@rollingcargo.co.ke",
   },
   {
     name: "Europe – Italy",
     phone: "+393716953158",
-    email: "salesinquiries@rollingcargo.co.ke",
+    email: "sales@rollingcargo.co.ke",
   },
   {
     name: "Europe – Netherlands",
     phone: "+31 610624607",
-    email: "salesinquiries@rollingcargo.co.ke",
+    email: "sales@rollingcargo.co.ke",
   },
   {
     name: "Turkey – Istabul",
     phone: "+905526128645",
-    email: "salesinquiries@rollingcargo.co.ke",
+    email: "sales@rollingcargo.co.ke",
   },
   {
     name: "U.K – London",
     phone: "+44 7447 959259",
-    email: "salesinquiries@rollingcargo.co.ke",
+    email: "sales@rollingcargo.co.ke",
   },
   {
     name: "Mombasa Office",
     phone: "+254 709 286 286",
-    email: "salesinquiries@rollingcargo.co.ke",
+    email: "sales@rollingcargo.co.ke",
   },
 ];
 
