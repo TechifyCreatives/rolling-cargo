@@ -1,11 +1,15 @@
 import React from "react";
-import Bannercustomclearence from "../shared/Components/Bannercustomclearence/Bannercustomclearence";
 import Customclearencetext from "../shared/Components/Customclearencetext/Customclearencetext";
+import Banner from "../shared/Components/Banner/Banner";
+import { customClearenceBannerContent } from "@/data/data";
 
 const page = () => {
   return (
     <div>
-      <Bannercustomclearence />
+      <Banner
+        content={customClearenceBannerContent}
+        imageSrc="/CustomsClearancePage.jpeg"
+      />
       <Customclearencetext />
     </div>
   );

@@ -1,11 +1,15 @@
 import React from "react";
-import Banneronlineshopping from "../shared/Components/Banneronlineshopping/Banneronlineshopping";
 import Onlineshoppingtext from "../shared/Components/Onlineshoppingtext/Onlineshoppingtext";
+import { onlineShoppingBannerContent } from "@/data/data";
+import Banner from "../shared/Components/Banner/Banner";
 
 const page = () => {
   return (
     <div>
-      <Banneronlineshopping />
+      <Banner
+        content={onlineShoppingBannerContent}
+        imageSrc="/OnlineShoppingPage.jpg"
+      />
       <Onlineshoppingtext />
     </div>
   );

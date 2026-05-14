@@ -1,464 +1,391 @@
-"use client"
-import React, { useState, FormEvent, useEffect } from "react";
-import emailjs from "@emailjs/browser";
+"use client";
 
-type FreightType = "air" | "sea";
-type Country = "UK" | "China" | "Turkey" | "Netherlands" | "Italy" | "South Africa" | "Dubai";
+import React, { useState } from "react";
+import { calculateFreightCost } from "@/lib/calculateFreightCost";
+import { CountryName, FreightType } from "@/types/feright.types";
+import { airFreightCountries, seaFreightCountries } from "@/data/data";
+import FreightTypeSelector from "../freight-calculator/FreightTypeSelector";
+import CountrySelector from "../freight-calculator/CountrySelector";
+import FreightForm from "../freight-calculator/FreightForm";
+import CalculationResults from "../freight-calculator/CalculationResults";
 
-interface CurrencyInfo {
-  code: string;
-  symbol: string;
-  rate: number;
-}
-
-// Function to get currency info based on country and freight type
-const getCurrencyInfo = (country: Country, freightType: FreightType): CurrencyInfo => {
-  if (country === "China") {
-    return freightType === "air" 
-      ? { code: "USD", symbol: "$", rate: 1 }
-      : { code: "KES", symbol: "KSh", rate: 1 };
-  }
-  if (country === "Dubai") {
-    return freightType === "air"
-      ? { code: "USD", symbol: "$", rate: 1 }
-      : { code: "KES", symbol: "KSh", rate: 1 };
-  }
-  return currencyMap[country];
-};
-
-const currencyMap: Record<Country, CurrencyInfo> = {
-  UK: { code: "GBP", symbol: "£", rate: 0.79 },
-  China: { code: "USD", symbol: "$", rate: 1 }, // Default, but will be overridden by getCurrencyInfo
-  Turkey: { code: "USD", symbol: "$", rate: 1 },
-  Netherlands: { code: "USD", symbol: "$", rate: 1 },
-  Italy: { code: "USD", symbol: "$", rate: 1 },
-  "South Africa": { code: "USD", symbol: "$", rate: 1 },
-  Dubai: { code: "USD", symbol: "$", rate: 1 }
-};
-
-const airFreightRates: Record<Country, { baseRate: number; minimumRate?: number }> = {
-  UK: { baseRate: 6.5 }, // GBP
-  China: { baseRate: 12, minimumRate: 15 }, // USD
-  Turkey: { baseRate: 7.5 }, // USD
-  Netherlands: { baseRate: 11 }, // USD
-  Italy: { baseRate: 11 }, // USD
-  "South Africa": { baseRate: 13 }, // USD
-  Dubai: { baseRate: 8, minimumRate: 10 } // USD
-};
-
-const handlingFees: Record<Country, { air: number; sea?: number }> = {
-  UK: { air: 25, sea: 15 }, // GBP
-  China: { air: 0 },
-  Turkey: { air: 20, sea: 10 }, // USD
-  Netherlands: { air: 40, sea: 20 }, // USD
-  Italy: { air: 40 }, // USD
-  "South Africa": { air: 0 },
-  Dubai: { air: 0 }
-};
-
-const seaFreightRates: Partial<Record<Country, number | { regular: number; small?: number; large?: number }>> = {
-  UK: { regular: 2.5 }, // GBP per CBM
-  Dubai: { regular: 60000, small: 12000 }, // KES
-  China: { regular: 60000, small: 12000 }, // KES
-  Turkey: { regular: 750, large: 600 }, // USD
-  Netherlands: { regular: 5 } // USD per CBM
-};
-
-const airFreightCountries: Country[] = ["UK", "China", "Turkey", "Netherlands", "Italy", "South Africa", "Dubai"];
-const seaFreightCountries: Country[] = ["UK", "China", "Turkey", "Netherlands", "Dubai"];
-
-const Freightsection: React.FC = () => {
+const FreightSection: React.FC = () => {
   const [freightType, setFreightType] = useState<FreightType | null>(null);
-  const [country, setCountry] = useState<Country | null>(null);
-  const [weight, setWeight] = useState<string>("");
-  const [length, setLength] = useState<string>("");
-  const [width, setWidth] = useState<string>("");
-  const [height, setHeight] = useState<string>("");
+  const [selectedCountry, setSelectedCountry] = useState<CountryName | null>(
+    null
+  );
+
+  const [formData, setFormData] = useState({
+    weight: "",
+    length: "",
+    width: "",
+    height: "",
+    cbm: "",
+    name: "",
+    phone: "",
+    email: "",
+  });
+
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [volumetricWeight, setVolumetricWeight] = useState<number | null>(null);
-  const [cbm, setCbm] = useState<string>("");
-  const [cost, setCost] = useState<string>("00");
-  const [handlingFee, setHandlingFee] = useState<string>("00");
-  const [totalCost, setTotalCost] = useState<string>("00");
-  const [name, setName] = useState<string>("");
-  const [phone, setPhone] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [submitMessage, setSubmitMessage] = useState<string>("");
+  const [calculationResult, setCalculationResult] = useState<{
+    freightCost: number;
+    handlingFee: number;
+    totalCost: number;
+    currency: string;
+    symbol: string;
+  } | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
-    emailjs.init("YOUR_USER_ID");
-  }, []);
+  const handleFreightTypeSelect = (type: FreightType) => {
+    setFreightType(type);
+    setFormData({
+      ...formData,
+      weight: "",
+      length: "",
+      width: "",
+      height: "",
+      cbm: "",
+    });
+    setErrors({});
+    setVolumetricWeight(null);
+    setCalculationResult(null);
+  };
 
-  useEffect(() => {
-    if (length && width && height) {
-      const volumetric = (parseFloat(length) * parseFloat(width) * parseFloat(height)) / 6000;
-      setVolumetricWeight(volumetric);
-    } else {
-      setVolumetricWeight(null);
+  const handleCountrySelect = (country: CountryName) => {
+    setSelectedCountry(country);
+    setCalculationResult(null);
+  };
+
+  const calculateCost = () => {
+    if (!freightType || !selectedCountry) return;
+
+    try {
+      if (freightType === "air") {
+        const weight = parseFloat(formData.weight);
+        if (isNaN(weight) || weight <= 0) return;
+      }
+
+      if (freightType === "sea") {
+        const cbm = parseFloat(formData.cbm);
+        if (isNaN(cbm) || cbm <= 0) return;
+      }
+
+      const result = calculateFreightCost(
+        freightType,
+        selectedCountry,
+        parseFloat(formData.weight),
+        parseFloat(formData.cbm)
+      );
+
+      setCalculationResult(result);
+    } catch (error) {
+      console.error(error);
+      setCalculationResult(null);
     }
-  }, [length, width, height]);
+  };
 
-  useEffect(() => {
-    if (!country || !freightType) {
-      setCost("00");
-      setHandlingFee("00");
-      setTotalCost("00");
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { id, value } = e.target;
+
+    if (
+      (id === "weight" ||
+        id === "length" ||
+        id === "width" ||
+        id === "height") &&
+      freightType === "air"
+    ) {
+      const weight =
+        id === "weight" ? parseFloat(value) : parseFloat(formData.weight);
+      const length =
+        id === "length" ? parseFloat(value) : parseFloat(formData.length);
+      const width =
+        id === "width" ? parseFloat(value) : parseFloat(formData.width);
+      const height =
+        id === "height" ? parseFloat(value) : parseFloat(formData.height);
+
+      if (!isNaN(length) && !isNaN(width) && !isNaN(height)) {
+        const vw = (length * width * height) / 5000; // Volumetric divisor
+        setVolumetricWeight(vw);
+      }
+    }
+
+    const newFormData = { ...formData, [id]: value };
+    setFormData(newFormData);
+
+    // Calculate cost immediately when relevant fields change
+    if (id === "weight" || id === "cbm") {
+      setTimeout(calculateCost, 100); // Small delay to ensure state is updated
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!freightType || !selectedCountry) {
+      alert("Please select both freight type and country.");
       return;
     }
 
-    const currencyInfo = getCurrencyInfo(country, freightType);
-    let calculatedCost = 0;
-    let calculatedHandlingFee = 0;
+    let newErrors: Record<string, string> = {};
+    let isValid = true;
 
     if (freightType === "air") {
-      const actualWeight = parseFloat(weight) || 0;
-      const volWeight = volumetricWeight || 0;
-      const chargeableWeight = Math.max(actualWeight, volWeight);
-      const rate = airFreightRates[country];
+      const weight = parseFloat(formData.weight);
+      const length = parseFloat(formData.length);
+      const width = parseFloat(formData.width);
+      const height = parseFloat(formData.height);
 
-      if (chargeableWeight < 1 && rate.minimumRate) {
-        calculatedCost = rate.minimumRate;
-      } else {
-        calculatedCost = chargeableWeight * rate.baseRate;
+      if (isNaN(weight) || weight <= 0) {
+        newErrors.weight = "Weight must be greater than 0.";
+        isValid = false;
       }
 
-      calculatedHandlingFee = handlingFees[country].air;
-    } else if (freightType === "sea" && cbm) {
-      const cbmValue = parseFloat(cbm);
-      const seaRate = seaFreightRates[country];
-
-      if (seaRate) {
-        if (typeof seaRate === "number") {
-          calculatedCost = cbmValue * seaRate;
-        } else {
-          if (country === "Dubai" || country === "China") {
-            calculatedCost = cbmValue <= 0.2 ? seaRate.small! : seaRate.regular;
-          } else if (country === "Turkey") {
-            calculatedCost = cbmValue > 10 ? seaRate.large! : cbmValue * seaRate.regular;
-          } else {
-            calculatedCost = cbmValue * seaRate.regular;
-          }
-        }
+      if (isNaN(length) || isNaN(width) || isNaN(height)) {
+        newErrors.dimensions = "All dimensions are required.";
+        isValid = false;
       }
-
-      calculatedHandlingFee = handlingFees[country].sea || 0;
     }
 
-    const total = calculatedCost + calculatedHandlingFee;
+    if (freightType === "sea") {
+      const cbm = parseFloat(formData.cbm);
+      if (isNaN(cbm) || cbm <= 0) {
+        newErrors.cbm = "CBM must be greater than 0.";
+        isValid = false;
+      }
+    }
 
-    setCost(calculatedCost > 0 ? `${currencyInfo.symbol}${calculatedCost.toFixed(2)}` : "00");
-    setHandlingFee(calculatedHandlingFee > 0 ? `${currencyInfo.symbol}${calculatedHandlingFee.toFixed(2)}` : "00");
-    setTotalCost(total > 0 ? `${currencyInfo.symbol}${total.toFixed(2)}` : "00");
-    
-  }, [weight, volumetricWeight, cbm, country, freightType]);
+    const name = formData.name.trim();
+    const phone = formData.phone.trim();
+    const email = formData.email.trim();
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
+    if (!name) {
+      newErrors.name = "Name is required.";
+      isValid = false;
+    }
+
+    if (!phone) {
+      newErrors.phone = "Phone is required.";
+      isValid = false;
+    }
+
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = "Valid email is required.";
+      isValid = false;
+    }
+
+    if (!isValid) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
     setIsSubmitting(true);
-    setSubmitMessage("");
 
     try {
-      const templateParams = {
-        freight_type: freightType,
-        country,
-        weight,
-        volumetric_weight: volumetricWeight?.toFixed(2),
-        cbm,
-        cost,
-        handling_fee: handlingFee,
-        total_cost: totalCost,
-        name,
-        phone,
-        email,
-      };
-
-      await emailjs.send(
-        "service_od2wm1x",
-        "template_lws7abq",
-        templateParams,
-        "AWuVmDvp3lqD8Xks_"
+      // Calculate final cost for email
+      const result = calculateFreightCost(
+        freightType,
+        selectedCountry,
+        parseFloat(formData.weight),
+        parseFloat(formData.cbm)
       );
 
-      setSubmitMessage("Your message has been sent successfully!");
-      // Reset form fields
-      setFreightType(null);
-      setCountry(null);
-      setWeight("");
-      setLength("");
-      setWidth("");
-      setHeight("");
-      setVolumetricWeight(null);
-      setCbm("");
-      setCost("00");
-      setHandlingFee("00");
-      setTotalCost("00");
-      setName("");
-      setPhone("");
-      setEmail("");
+      // Prepare email data
+      const emailData = {
+        to: "sales@rollingcargo.co.ke",
+        subject: `Freight Quote Request - ${name}`,
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 10px;">
+              New Freight Quote Request
+            </h2>
+            
+            <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
+              <h3 style="color: #374151; margin-top: 0;">Customer Information:</h3>
+              <p><strong>Name:</strong> ${name}</p>
+              <p><strong>Phone:</strong> ${phone}</p>
+              <p><strong>Email:</strong> ${email}</p>
+            </div>
+            
+            <div style="background-color: #f0f9ff; padding: 20px; border-radius: 8px; margin: 20px 0;">
+              <h3 style="color: #374151; margin-top: 0;">Shipment Details:</h3>
+              <p><strong>Freight Type:</strong> ${freightType.toUpperCase()}</p>
+              <p><strong>Destination:</strong> ${selectedCountry}</p>
+              ${
+                freightType === "air"
+                  ? `
+                <p><strong>Weight:</strong> ${formData.weight} kg</p>
+                <p><strong>Dimensions:</strong> ${formData.length} x ${
+                      formData.width
+                    } x ${formData.height} cm</p>
+                ${
+                  volumetricWeight
+                    ? `<p><strong>Volumetric Weight:</strong> ${volumetricWeight.toFixed(
+                        2
+                      )} kg</p>`
+                    : ""
+                }
+              `
+                  : `
+                <p><strong>CBM:</strong> ${formData.cbm}</p>
+              `
+              }
+            </div>
+            
+            <div style="background-color: #f0fdf4; padding: 20px; border-radius: 8px; margin: 20px 0;">
+              <h3 style="color: #374151; margin-top: 0;">Calculated Costs:</h3>
+              <p><strong>Freight Cost:</strong> ${
+                result.symbol
+              }${result.freightCost.toFixed(2)}</p>
+              <p><strong>Handling Fee:</strong> ${
+                result.symbol
+              }${result.handlingFee.toFixed(2)}</p>
+              <p style="font-size: 18px; color: #059669;"><strong>Total Cost:</strong> ${
+                result.symbol
+              }${result.totalCost.toFixed(2)}</p>
+            </div>
+            
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 14px;">
+              <p>This quote is automatically generated from rollingcargo.co.ke</p>
+              <p>Please contact the customer for further details and confirmation.</p>
+            </div>
+          </div>
+        `,
+      };
+
+      // Send email using the API route
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(emailData),
+      });
+
+      const responseData = await response.json();
+
+      if (response.ok && responseData.success) {
+        alert(
+          "Thank you! Your freight quote request has been submitted successfully. We'll contact you soon."
+        );
+        // Reset form
+        setFormData({
+          weight: "",
+          length: "",
+          width: "",
+          height: "",
+          cbm: "",
+          name: "",
+          phone: "",
+          email: "",
+        });
+        setVolumetricWeight(null);
+        setCalculationResult(null);
+      } else {
+        throw new Error(responseData.error || "Failed to send email");
+      }
     } catch (error) {
-      console.error("Failed to send email:", error);
-      setSubmitMessage("Failed to send message. Please try again.");
+      console.error("Error submitting form:", error);
+
+      // Enhanced fallback: create mailto link
+      const subject = encodeURIComponent(`Freight Quote Request - ${name}`);
+      const body = encodeURIComponent(`
+Customer Information:
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+
+Shipment Details:
+Freight Type: ${freightType.toUpperCase()}
+Destination: ${selectedCountry}
+${
+  freightType === "air"
+    ? `
+Weight: ${formData.weight} kg
+Dimensions: ${formData.length} x ${formData.width} x ${formData.height} cm
+${
+  volumetricWeight ? `Volumetric Weight: ${volumetricWeight.toFixed(2)} kg` : ""
+}
+`
+    : `
+CBM: ${formData.cbm}
+`
+}
+
+Calculated Costs:
+Freight Cost: ${
+        calculationResult?.symbol
+      }${calculationResult?.freightCost.toFixed(2)}
+Handling Fee: ${
+        calculationResult?.symbol
+      }${calculationResult?.handlingFee.toFixed(2)}
+Total Cost: ${calculationResult?.symbol}${calculationResult?.totalCost.toFixed(
+        2
+      )}
+
+---
+Generated from rollingcargo.co.ke
+      `);
+
+      const mailtoLink = `mailto:sales@rollingcargo.co.ke?subject=${subject}&body=${body}`;
+      window.open(mailtoLink, "_blank");
+
+      alert(
+        "There was an issue sending the email automatically. Your email client has been opened with the quote details. Please send the email to complete your request."
+      );
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section className="max-w-4xl mx-auto p-6">
-      <h2 className="text-3xl font-bold mb-6">
-        Freight services<span className="text-red-500">*</span>
-      </h2>
+    <div className="container mx-auto p-6">
+      <h2 className="text-2xl font-bold mb-4">Freight Cost Calculator</h2>
 
-      <div className="mb-6">
-        <label className="inline-flex items-center mr-6">
-          <input
-            type="radio"
-            className="form-radio"
-            name="freightType"
-            value="air"
-            checked={freightType === "air"}
-            onChange={() => setFreightType("air")}
-          />
-          <span className="ml-2">Air Freight</span>
-        </label>
-        <label className="inline-flex items-center">
-          <input
-            type="radio"
-            className="form-radio"
-            name="freightType"
-            value="sea"
-            checked={freightType === "sea"}
-            onChange={() => setFreightType("sea")}
-          />
-          <span className="ml-2">Sea Freight</span>
-        </label>
-      </div>
+      <FreightTypeSelector
+        selectedType={freightType}
+        onSelect={handleFreightTypeSelect}
+      />
 
       {freightType && (
-        <div className="mb-6">
-          <h3 className="text-xl font-semibold mb-4">Select Country</h3>
-          {(freightType === "air" ? airFreightCountries : seaFreightCountries).map((c) => (
-            <label key={c} className="inline-flex items-center mr-4 mb-2">
-              <input
-                type="radio"
-                className="form-radio"
-                name="country"
-                value={c}
-                checked={country === c}
-                onChange={() => setCountry(c as Country)}
-              />
-              <span className="ml-2">{c}</span>
-            </label>
-          ))}
-        </div>
+        <CountrySelector
+          freightType={freightType}
+          selectedCountry={selectedCountry}
+          onSelect={handleCountrySelect}
+        />
       )}
 
-      {freightType && country && (
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {freightType === "air" && (
-            <>
-              <div>
-                <label htmlFor="weight" className="block mb-1">
-                  Weight (kg)
-                </label>
-                <input
-                  type="number"
-                  id="weight"
-                  value={weight}
-                  onChange={(e) => setWeight(e.target.value)}
-                  className="w-full px-3 py-2 border rounded"
-                  placeholder="00"
-                  required
-                />
-              </div>
-              <div className="grid grid-cols-3 gap-4">
-                <div>
-                  <label htmlFor="length" className="block mb-1">
-                    Length (cm)
-                  </label>
-                  <input
-                    type="number"
-                    id="length"
-                    value={length}
-                    onChange={(e) => setLength(e.target.value)}
-                    className="w-full px-3 py-2 border rounded"
-                    placeholder="00"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="width" className="block mb-1">
-                    Width (cm)
-                  </label>
-                  <input
-                    type="number"
-                    id="width"
-                    value={width}
-                    onChange={(e) => setWidth(e.target.value)}
-                    className="w-full px-3 py-2 border rounded"
-                    placeholder="00"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="height" className="block mb-1">
-                    Height (cm)
-                  </label>
-                  <input
-                    type="number"
-                    id="height"
-                    value={height}
-                    onChange={(e) => setHeight(e.target.value)}
-                    className="w-full px-3 py-2 border rounded"
-                    placeholder="00"
-                    required
-                  />
-                </div>
-              </div>
-              {volumetricWeight !== null && (
-                <div>
-                  <label htmlFor="volumetricWeight" className="block mb-1">
-                    Volumetric Weight (kg)
-                  </label>
-                  <input
-                    type="text"
-                    id="volumetricWeight"
-                    value={volumetricWeight.toFixed(2)}
-                    placeholder="00"
-                    className="w-full px-3 py-2 border rounded bg-gray-100"
-                    readOnly
-                  />
-                </div>
-              )}
-            </>
+      {freightType && selectedCountry && (
+        <>
+          <FreightForm
+            formData={formData}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            errors={errors}
+            freightType={freightType}
+            selectedCountry={selectedCountry}
+            volumetricWeight={volumetricWeight}
+            isSubmitting={isSubmitting}
+          />
+
+          {calculationResult && (
+            <CalculationResults
+              freightType={freightType}
+              country={selectedCountry}
+              freightCost={calculationResult.freightCost}
+              handlingFee={calculationResult.handlingFee}
+              totalCost={calculationResult.totalCost}
+              currency={calculationResult.currency}
+              symbol={calculationResult.symbol}
+            />
           )}
-
-          {freightType === "sea" && (
-            <div>
-              <label htmlFor="cbm" className="block mb-1">
-                CBM (Cubic Meters)
-              </label>
-              <input
-                type="number"
-                id="cbm"
-                value={cbm}
-                onChange={(e) => setCbm(e.target.value)}
-                className="w-full px-3 py-2 border rounded"
-                placeholder="00"
-                required
-                step="0.01"
-              />
-            </div>
-          )}
-
-          <div>
-            <label htmlFor="cost" className="block mb-1">
-              Freight Cost ({country && freightType ? getCurrencyInfo(country, freightType).code : ""})
-            </label>
-            <input
-              type="text"
-              id="cost"
-              value={cost}
-              placeholder="00"
-              className="w-full px-3 py-2 border rounded bg-gray-100"
-              readOnly
-            />
-          </div>
-
-          <div>
-            <label htmlFor="handlingFee" className="block mb-1">
-              Handling Fee ({country && freightType ? getCurrencyInfo(country, freightType).code : ""})
-            </label>
-            <input
-              type="text"
-              id="handlingFee"
-              value={handlingFee}
-              placeholder="00"
-              className="w-full px-3 py-2 border rounded bg-gray-100"
-              readOnly
-            />
-          </div>
-
-          <div>
-            <label htmlFor="totalCost" className="block mb-1 font-semibold">
-              Total Cost ({country && freightType ? getCurrencyInfo(country, freightType).code : ""})
-            </label>
-            <input
-              type="text"
-              id="totalCost"
-              value={totalCost}
-              placeholder="00"
-              className="w-full px-3 py-2 border rounded bg-gray-100 font-bold text-lg"
-              readOnly
-            />
-          </div>
-
-          <div>
-            <label htmlFor="name" className="block mb-1">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="w-full px-3 py-2 border rounded"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="phone" className="block mb-1">
-              Phone
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              className="w-full px-3 py-2 border rounded"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="email" className="block mb-1">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 border rounded"
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            className="px-6 py-2 bg-[#0f1031] text-white rounded hover:bg-[#0f1031] transition-colors"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "Sending..." : "Talk to us"}
-          </button>
-          {submitMessage && (
-            <p
-              className={`mt-4 ${
-                submitMessage.includes("successfully")
-                  ? "text-green-600"
-                  : "text-red-600"
-              }`}
-            >
-              {submitMessage}
-            </p>
-          )}
-        </form>
+        </>
       )}
-
-      {/* Disclaimer note */}
-      <p className="mt-8 text-sm text-gray-600 italic">
-        Note that this calculator is designed to provide an estimate only. For actual costs contact us directly on +254709286286
-      </p>
-    </section>
+    </div>
   );
 };
 
-export default Freightsection;
+export default FreightSection;

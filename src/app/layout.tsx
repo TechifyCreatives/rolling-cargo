@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./shared/styles/globals.scss";
 import Footer from "./shared/Components/Footer/Footer";
 import ScrollToTopButton from "./shared/Components/ScrollToTopButton/ScrollToTopButton";
 import Navbar from "./shared/Components/Navbar/Navbar";
 import WhatsAppButton from "./shared/Components/WhatsAppButton/WhatsAppButton";
-const inter = Inter({ subsets: ["latin"] });
+import GoogleAnalytics from "./shared/Components/Analytics/google";
 
 export const metadata: Metadata = {
   title: "Rolling Cargo",
@@ -20,12 +20,35 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
+        {/* Google Analytics */}
+        <GoogleAnalytics />
+
+        {/* Navbar */}
         <Navbar />
+
+        {/* Page content */}
         {children}
+
+        {/* Floating buttons */}
         <WhatsAppButton />
         <ScrollToTopButton />
+
+        {/* Footer */}
         <Footer />
+
+        {/* === Zoho SalesIQ Live Chat Widget === */}
+        <Script id="zoho-init" strategy="afterInteractive">
+          {`
+            window.$zoho = window.$zoho || {};
+            $zoho.salesiq = $zoho.salesiq || { ready: function(){} };
+          `}
+        </Script>
+        <Script
+          id="zoho-salesiq"
+          strategy="afterInteractive"
+          src="https://salesiq.zohopublic.com/widget?wc=siq6a532bee01e82351ccdcd99fba49f76e5b44b27b51f2b5e0e565315602bbfe03"
+        />
       </body>
     </html>
   );

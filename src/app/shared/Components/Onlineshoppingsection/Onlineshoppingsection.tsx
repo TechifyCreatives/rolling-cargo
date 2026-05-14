@@ -1,6 +1,7 @@
-import React from 'react';
-import { Camera, Phone, Mail, MapPin } from 'lucide-react';
-import Link from 'next/link';
+import React from "react";
+import { Camera, Phone, Mail, MapPin } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 interface IconItemProps {
   icon: React.ReactNode;
@@ -12,7 +13,7 @@ const IconItem = ({ icon, text }: IconItemProps) => (
     <div className="text-blue-600">
       {React.cloneElement(icon as React.ReactElement, {
         size: 20,
-        className: 'md:w-6 md:h-6'
+        className: "md:w-6 md:h-6",
       })}
     </div>
     <span className="text-gray-600 text-sm md:text-base">{text}</span>
@@ -25,8 +26,10 @@ const Onlineshoppingsection = () => {
       {/* Mobile Image */}
       <div className="md:hidden w-full h-64 px-4">
         <div className="relative w-full h-full">
-          <img
-            src="/banner2.jpg"
+          <Image
+            fill
+            priority
+            src="/RC Jan-101.jpg"
             alt="Strategic locations worldwide"
             className="absolute inset-0 w-full h-full object-cover rounded-lg shadow-lg"
           />
@@ -36,8 +39,10 @@ const Onlineshoppingsection = () => {
       {/* Desktop Image Side */}
       <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden md:block">
         <div className="relative h-full w-full">
-          <img
-            src="/banner2.jpg"
+          <Image
+            src="/RC Jan-101.jpg"
+            fill
+            priority
             alt="Strategic locations worldwide"
             className="absolute inset-0 h-full w-full object-cover rounded-lg shadow-xl"
           />
@@ -61,9 +66,10 @@ const Onlineshoppingsection = () => {
             {/* Middle Section */}
             <div className="mb-8 md:mb-12">
               <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                We have extensive and well-established partnerships with different industry players. 
-                This enables us to offer better and most competitive rates. We deliver using the 
-                shortest possible transit time with optimum routings that are cost efficient.
+                We have extensive and well-established partnerships with
+                different industry players. This enables us to offer better and
+                most competitive rates. We deliver using the shortest possible
+                transit time with optimum routings that are cost efficient.
               </p>
             </div>
 

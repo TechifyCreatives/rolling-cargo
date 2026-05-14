@@ -1,11 +1,12 @@
 import React from "react";
-import Banneraircargo from "../shared/Components/Banneraircargo/Banneraircargo";
 import Aircargotext from "../shared/Components/Aircargotext/Aircargotext";
+import Banner from "../shared/Components/Banner/Banner";
+import { airCargoBannerContent } from "@/data/data";
 
 const page = () => {
   return (
     <div>
-      <Banneraircargo />
+      <Banner content={airCargoBannerContent} imageSrc="/AirfreightPage.jpg" />
       <Aircargotext />
     </div>
   );

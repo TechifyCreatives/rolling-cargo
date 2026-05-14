@@ -1,230 +1,490 @@
 "use client";
 
-import React, { useState } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { Phone, Mail, MapPin, Send } from 'lucide-react';
-import emailjs from 'emailjs-com';
+import React, { useState } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Send,
+  CheckCircle,
+  AlertCircle,
+  Loader2,
+} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ContactFormProps,
+  FormInputs,
+  OfficeInfoProps,
+} from "@/types/contact.types";
+import { offices } from "@/data/data";
 
-interface FormInputs {
-  name: string;
-  email: string;
-  message: string;
-}
+const ContactForm: React.FC<ContactFormProps> = ({
+  onSubmit,
+  isSubmitting,
+  submitStatus,
+}) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<FormInputs>();
 
-interface Office {
-  name: string;
-  phone: string;
-  email: string;
-  address: string;
-  chineseName?: string;
-  chinesePhone?: string;
-  chineseAddress?: string;
-}
-
-const offices: Office[] = [
-  {
-    name: "Nairobi Office (Headquaters)",
-    phone: "+254 709 286 286",
-    email: "salesinquiries@rollingcargo.co.ke",
-    address: "10 Funzi Road, Off Enterprise Road. P.O.BOX 14009-00100 NAIROBI - KENYA",
-  },
-  {
-    name: "Mombasa Office",
-    phone: "(+254) 709 286 286",
-    email: "salesinquiries@rollingcargo.co.ke",
-    address: "Sheikh Abdullas F. Rd, Opposite Alliance Medical Centre Bondeni, Kilifi Corner, Mombasa.",
-  },
-  {
-    name: "UAE – Dubai",
-    phone: "+97 155 919 6774",
-    email: "salesinquiries@rollingcargo.co.ke",
-    address: "Deira, Sabkha Road, Behind Sabkha Bus Station Sabkha Building 1st floor RM 118. Warehouse at Al Hamriya port side gate No.9 next to Mosque Sheikh Murr.",
-  },
-  {
-    name: "China – Guangzhou (Air Shipment)",
-    chineseName: "中国 – 广州（空运）",
-    phone: "+8618826260042 (Liu An), +8618826260043 (Hellen), WhatsApp: +254 709 286 286",
-    chinesePhone: "+8618826260042 (刘安), +8618826260043 (Hellen)",
-    email: "salesinquiries@rollingcargo.co.ke",
-    address: "106, Building C, Zone C, Guangdong New Material Industry Base, Lishui Town, Nanhai District, Foshan City, POST CODE: 528244",
-    chineseAddress: "佛山市南海区里水镇广东新材料产业基地C区C栋106 (上班时间周一至周日11点~19点）联系人:HELLEN+8618826260043 刘安 货物外箱每箱必须标注国外客户姓名电话号码以及空运，再附上装箱单发到仓库，如唛头信息不齐，仓库拒收",
-  },
-  {
-    name: "China – Guangzhou (Sea Shipment)",
-    chineseName: "中国 – 广州（海运）",
-    phone: "A WEI: +8618826260044, KEVIN: +8619927449452",
-    chinesePhone: "阿伟: +8618826260044, 小王: +8619927449452",
-    email: "salesinquiries@rollingcargo.co.ke",
-    address: "107, Building C, Zone C, Guangdong New Material Industry Base, Lishui Town, Nanhai District, Foshan City, POST CODE: 528244",
-    chineseAddress: "ROLLING CARGO 107 (上班时间周一至周六11点~18点）联系人:阿伟 +8618826260044 小王：+8619927449452 货物外箱每箱必须标注国外客户姓名电话号码以及海运，再附上装箱单发到仓库，如唛头信息不齐，仓库拒收",
-  },
-  {
-    name: "U.K – London",
-    phone: "+44 7447 959259",
-    email: "salesinquiries@rollingcargo.co.ke",
-    address: "Unit 3 Alpha Estate Clayton Road Hayes Middlesex, UB3 1BB",
-  },
-  {
-    name: "Turkey – Instanbul",
-    phone: "+905526128645",
-    email: "salesinquiries@rollingcargo.co.ke",
-    address: "Saraç İshak Mah. Turanlı Sok. No:12 Safir İ˛Merkezi D. 304-312. Beyazıt v.d 3710200842 Beyazıt / İSTANBUL / TÜRKİYE.",
-  },
-  {
-    name: "Europe – Netherlands",
-    phone: "+31 610624607",
-    email: "salesinquiries@rollingcargo.co.ke",
-    address: "Zuid-Afrikaweg 12-K1432 DA Aalsmeer Netherlands",
-  },
-  {
-    name: "Europe – Italy",
-    phone: "+393716953158",
-    email: "salesinquiries@rollingcargo.co.ke",
-    address: "Via Montorfano 98, 20831 Seregno (MB)",
-  },
-  {
-    name: "South Africa",
-    phone: "+27 79 906 7166",
-    email: "salesinquiries@rollingcargo.co.ke",
-    address: "ORBIT 22 Hugget street, Kempton Park 011 390 3555",
-  },
-];
-
-interface ContactFormProps {
-  onSubmit: SubmitHandler<FormInputs>;
-  isSubmitting: boolean;
-  submitStatus: 'success' | 'error' | null;
-}
-
-const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, submitStatus }) => {
-  const { register, handleSubmit, formState: { errors } } = useForm<FormInputs>();
+  const handleFormSubmit: SubmitHandler<FormInputs> = async (data) => {
+    await onSubmit(data);
+    if (submitStatus === "success") {
+      reset();
+    }
+  };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
-        <input
-          {...register("name", { required: "Name is required" })}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          placeholder="Your Name"
-        />
-        {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>}
-      </div>
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-        <input
-          {...register("email", { 
-            required: "Email is required",
-            pattern: { value: /\S+@\S+\.\S+/, message: "Invalid email address" }
-          })}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          placeholder="your@email.com"
-        />
-        {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>}
-      </div>
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
-        <textarea
-          {...register("message", { required: "Message is required" })}
-          rows={4}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          placeholder="Your message here"
-        ></textarea>
-        {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message.message}</p>}
-      </div>
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#0f1031] hover:bg-[#0f1031] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-      >
-        {isSubmitting ? 'Sending...' : 'Send Message'}
-        <Send className="ml-2 h-5 w-5" />
-      </button>
-      {submitStatus === 'success' && (
-        <p className="mt-4 text-sm text-green-600">Message sent successfully!</p>
-      )}
-      {submitStatus === 'error' && (
-        <p className="mt-4 text-sm text-red-600">An error occurred. Please try again.</p>
-      )}
-    </form>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="relative"
+    >
+      <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6">
+        {/* Name and Email Row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <label
+              htmlFor="name"
+              className="block text-sm font-semibold text-slate-700 mb-2"
+            >
+              Full Name *
+            </label>
+            <input
+              {...register("name", { required: "Name is required" })}
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/50 backdrop-blur-sm focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-300 placeholder:text-slate-400"
+              placeholder="John Doe"
+            />
+            <AnimatePresence>
+              {errors.name && (
+                <motion.p
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="mt-2 text-sm text-red-500 flex items-center gap-1"
+                >
+                  <AlertCircle className="w-4 h-4" />
+                  {errors.name.message}
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </motion.div>
+
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <label
+              htmlFor="email"
+              className="block text-sm font-semibold text-slate-700 mb-2"
+            >
+              Email Address *
+            </label>
+            <input
+              {...register("email", {
+                required: "Email is required",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Invalid email address",
+                },
+              })}
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/50 backdrop-blur-sm focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-300 placeholder:text-slate-400"
+              placeholder="john@example.com"
+            />
+            <AnimatePresence>
+              {errors.email && (
+                <motion.p
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="mt-2 text-sm text-red-500 flex items-center gap-1"
+                >
+                  <AlertCircle className="w-4 h-4" />
+                  {errors.email.message}
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        </div>
+
+        {/* Phone and Company Row */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <label
+              htmlFor="phone"
+              className="block text-sm font-semibold text-slate-700 mb-2"
+            >
+              Phone Number
+            </label>
+            <input
+              {...register("phone")}
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/50 backdrop-blur-sm focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-300 placeholder:text-slate-400"
+              placeholder="+254 700 123 456"
+            />
+          </motion.div>
+
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <label
+              htmlFor="company"
+              className="block text-sm font-semibold text-slate-700 mb-2"
+            >
+              Company
+            </label>
+            <input
+              {...register("company")}
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/50 backdrop-blur-sm focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-300 placeholder:text-slate-400"
+              placeholder="Your Company"
+            />
+          </motion.div>
+        </div>
+
+        {/* Subject */}
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          <label
+            htmlFor="subject"
+            className="block text-sm font-semibold text-slate-700 mb-2"
+          >
+            Subject *
+          </label>
+          <input
+            {...register("subject", { required: "Subject is required" })}
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/50 backdrop-blur-sm focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-300 placeholder:text-slate-400"
+            placeholder="How can we help you?"
+          />
+          <AnimatePresence>
+            {errors.subject && (
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="mt-2 text-sm text-red-500 flex items-center gap-1"
+              >
+                <AlertCircle className="w-4 h-4" />
+                {errors.subject.message}
+              </motion.p>
+            )}
+          </AnimatePresence>
+        </motion.div>
+
+        {/* Message */}
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          <label
+            htmlFor="message"
+            className="block text-sm font-semibold text-slate-700 mb-2"
+          >
+            Message *
+          </label>
+          <textarea
+            {...register("message", { required: "Message is required" })}
+            rows={6}
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/50 backdrop-blur-sm focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-300 placeholder:text-slate-400 resize-none"
+            placeholder="Tell us about your requirements..."
+          />
+          <AnimatePresence>
+            {errors.message && (
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="mt-2 text-sm text-red-500 flex items-center gap-1"
+              >
+                <AlertCircle className="w-4 h-4" />
+                {errors.message.message}
+              </motion.p>
+            )}
+          </AnimatePresence>
+        </motion.div>
+
+        {/* Submit Button */}
+        <motion.button
+          type="submit"
+          disabled={isSubmitting}
+          whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+        >
+          {isSubmitting ? (
+            <>
+              <Loader2 className="w-5 h-5 animate-spin" />
+              Sending Message...
+            </>
+          ) : (
+            <>
+              <Send className="w-5 h-5" />
+              Send Message
+            </>
+          )}
+        </motion.button>
+
+        {/* Status Messages */}
+        <AnimatePresence>
+          {submitStatus === "success" && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="p-4 bg-green-50 border border-green-200 rounded-xl flex items-center gap-3"
+            >
+              <CheckCircle className="w-5 h-5 text-green-600" />
+              <p className="text-green-800 font-medium">
+                Message sent successfully! We'll get back to you soon.
+              </p>
+            </motion.div>
+          )}
+          {submitStatus === "error" && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3"
+            >
+              <AlertCircle className="w-5 h-5 text-red-600" />
+              <p className="text-red-800 font-medium">
+                Failed to send message. Please try again or contact us directly.
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </form>
+    </motion.div>
   );
 };
 
-interface OfficeInfoProps {
-  office: Office;
-}
+const OfficeInfo: React.FC<OfficeInfoProps> = ({ office, index }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    whileHover={{ y: -5 }}
+    className="group"
+  >
+    <div className="h-full p-6 bg-white/80 backdrop-blur-sm rounded-2xl border border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300">
+      <div className="flex items-start gap-4">
+        <div className="p-3 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl text-white shadow-lg">
+          <MapPin className="w-6 h-6" />
+        </div>
+        <div className="flex-1">
+          <h3 className="text-lg font-bold text-slate-800 mb-1 group-hover:text-blue-600 transition-colors">
+            {office.name}
+            {office.chineseName && (
+              <span className="block text-sm font-normal text-slate-600">
+                {office.chineseName}
+              </span>
+            )}
+          </h3>
 
-const OfficeInfo: React.FC<OfficeInfoProps> = ({ office }) => (
-  <div className="border-l-4 border-[#0f1031] pl-4 mb-6 group">
-    <h3 className="text-lg font-medium text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
-      {office.name}
-      {office.chineseName && <span className="block text-sm group-hover:text-blue-600 transition-colors duration-300">{office.chineseName}</span>}
-    </h3>
-    <div className="mt-2 text-sm text-gray-600 space-y-1">
-      <p className="flex items-center group-hover:text-blue-600 transition-colors duration-300">
-        <Phone className="mr-2 h-4 w-4 text-[#0f1031] group-hover:text-blue-600 transition-colors duration-300" />
-        {office.chinesePhone || office.phone}
-      </p>
-      {office.email && (
-        <p className="flex items-center group-hover:text-blue-600 transition-colors duration-300">
-          <Mail className="mr-2 h-4 w-4 text-[#0f1031] group-hover:text-blue-600 transition-colors duration-300" />
-          {office.email}
-        </p>
-      )}
-      <p className="flex items-start group-hover:text-blue-600 transition-colors duration-300">
-        <MapPin className="mr-2 h-4 w-4 text-[#0f1031] mt-1 group-hover:text-blue-600 transition-colors duration-300" />
-        <span>
-          {office.chineseAddress || office.address}
-        </span>
-      </p>
+          <div className="space-y-3 mt-4">
+            <div className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors">
+              <Phone className="w-4 h-4 flex-shrink-0" />
+              <span className="text-sm">
+                {office.chinesePhone || office.phone}
+              </span>
+            </div>
+
+            {office.email && (
+              <div className="flex items-center gap-3 text-slate-600 hover:text-blue-600 transition-colors">
+                <Mail className="w-4 h-4 flex-shrink-0" />
+                <a
+                  href={`mailto:${office.email}`}
+                  className="text-sm hover:underline"
+                >
+                  {office.email}
+                </a>
+              </div>
+            )}
+
+            <div className="flex items-start gap-3 text-slate-600">
+              <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
+              <span className="text-sm leading-relaxed">
+                {office.chineseAddress || office.address}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </motion.div>
 );
 
 const ContactPage: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(
+    null
+  );
 
   const onSubmit: SubmitHandler<FormInputs> = async (data) => {
     setIsSubmitting(true);
-    try {
-      const emailData: Record<string, string> = {
-        name: data.name,
-        email: data.email,
-        message: data.message,
-      };
+    setSubmitStatus(null);
 
-      await emailjs.send(
-        "service_od2wm1x",
-        "template_lws7abq",
-        emailData,
-        "AWuVmDvp3lqD8Xks_"
-      );
-      setSubmitStatus('success');
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+      } else {
+        throw new Error("Failed to send message");
+      }
     } catch (error) {
-      console.error("Error sending email:", error);
-      setSubmitStatus('error');
+      console.error("Error sending message:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+      // Clear status after 5 seconds
+      setTimeout(() => setSubmitStatus(null), 5000);
     }
-    setIsSubmitting(false);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-100 to-purple-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-center text-[#0f1031] mb-12">Get in Touch</h1>
-        
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-12">
-          <h2 className="text-2xl font-semibold text-[#0f1031] mb-6">Send us a message</h2>
-          <ContactForm onSubmit={onSubmit} isSubmitting={isSubmitting} submitStatus={submitStatus} />
-        </div>
-        
-        <div className="bg-white rounded-xl shadow-lg p-8">
-          <h2 className="text-2xl font-semibold text-[#0f1031] mb-6">Our Offices</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {offices.map((office, index) => (
-              <OfficeInfo key={index} office={office} />
-            ))}
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
+      {/* Animated Background Elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{
+            x: [0, 100, 0],
+            y: [0, -100, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            x: [0, -100, 0],
+            y: [0, 100, 0],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl"
+        />
+      </div>
+
+      <div className="relative z-10 py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-slate-800 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
+              Get in Touch
+            </h1>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              Ready to transform your logistics? Let's discuss how we can help
+              streamline your cargo operations.
+            </p>
+          </motion.div>
+
+          {/* Contact Form */}
+          <div className="mb-20">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="max-w-4xl mx-auto"
+            >
+              <div className="bg-white/60 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 p-8 md:p-12">
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold text-slate-800 mb-4">
+                    Send us a Message
+                  </h2>
+                  <p className="text-slate-600">
+                    Fill out the form below and we'll get back to you within 24
+                    hours.
+                  </p>
+                </div>
+                <ContactForm
+                  onSubmit={onSubmit}
+                  isSubmitting={isSubmitting}
+                  submitStatus={submitStatus}
+                />
+              </div>
+            </motion.div>
           </div>
+
+          {/* Office Information */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-slate-800 mb-4">
+                Our Offices
+              </h2>
+              <p className="text-slate-600 max-w-2xl mx-auto">
+                Visit us at any of our locations or reach out through your
+                preferred communication channel.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {offices.map((office, index) => (
+                <OfficeInfo key={index} office={office} index={index} />
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Direct Contact CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="mt-20"
+          >
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white shadow-2xl">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                  Need Immediate Assistance?
+                </h3>
+                <p className="text-blue-100 mb-8 text-lg">
+                  For urgent inquiries, reach out to us directly
+                </p>
+                <motion.a
+                  href="mailto:sales@rollingcargo.co.ke"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-3 bg-white text-blue-600 font-semibold px-8 py-4 rounded-xl hover:bg-blue-50 transition-all duration-300 shadow-lg"
+                >
+                  <Mail className="w-5 h-5" />
+                  sales@rollingcargo.co.ke
+                </motion.a>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>

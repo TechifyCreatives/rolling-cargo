@@ -1,13 +1,14 @@
 import React from "react";
-import Banneraboutus from "../shared/Components/Banneraboutus/Banneraboutus";
 import AboutUs from "../shared/Components/AboutUs/AboutUs";
 import MissionVisionPriorities from "../shared/Components/MissionVisionPriorities/MissionVisionPriorities";
 import StatisticsGrid from "../shared/Components/StatisticsGrid/StastisticsGrid";
+import Banner from "../shared/Components/Banner/Banner";
+import { aboutUsBannerContent } from "@/data/data";
 
 const page = () => {
   return (
     <div>
-      <Banneraboutus />
+      <Banner content={aboutUsBannerContent} imageSrc="/About Us Page.jpg" />
       <AboutUs />
       <MissionVisionPriorities />
       <StatisticsGrid />

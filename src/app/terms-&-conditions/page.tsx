@@ -1,14 +1,15 @@
-import React from 'react'
-import Bannerterms from '../shared/Components/Bannerterms/Bannerterms'
-import Terms from '../shared/Components/Terms/Terms'
+import React from "react";
+import Terms from "../shared/Components/Terms/Terms";
+import Banner from "../shared/Components/Banner/Banner";
+import { termsBannerContent } from "@/data/data";
 
 const page = () => {
   return (
     <div>
-        <Bannerterms />
-        <Terms/>
+      <Banner content={termsBannerContent} imageSrc="/banner.jpg" />
+      <Terms />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

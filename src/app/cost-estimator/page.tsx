@@ -1,12 +1,14 @@
 import React from "react";
-import Bannercost from "../shared/Components/Bannercost/Bannercost";
-import FreightSection from "../shared/Components/Freightsection/Freightsection";
+import Banner from "../shared/Components/Banner/Banner";
+import { costEstimatorBannerContent } from "@/data/data";
 
 const page = () => {
   return (
     <div>
-      <Bannercost />
-      <FreightSection />
+      <Banner
+        content={costEstimatorBannerContent}
+        imageSrc="/CostEstimator.jpg"
+      />
     </div>
   );
 };

@@ -1,11 +1,15 @@
 import React from "react";
-import Bannertraking from "../shared/Components/Bannertraking/Bannertraking";
 import TrackingSection from "../shared/Components/TrackingSection/TrackingSection";
+import { trackingBannerContent } from "@/data/data";
+import Banner from "../shared/Components/Banner/Banner";
 
 const page = () => {
   return (
     <div>
-      <Bannertraking />
+      <Banner
+        content={trackingBannerContent}
+        imageSrc="/OnlineShoppingTwo.jpg"
+      />
       <TrackingSection />
     </div>
   );

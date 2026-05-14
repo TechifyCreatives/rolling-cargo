@@ -1,370 +1,239 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
-import { FaSearch } from "react-icons/fa";
-import { X, Plane, Ship, Package, Bell, Phone, Mail, Box } from "lucide-react";
-import emailjs from '@emailjs/browser';
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Mail,
+  Package,
+  Plane,
+  Ship,
+  X,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import { Card, CardContent } from "@/components/ui/card";
+import { useFormHandler } from "@/hooks/useFormHandler";
+import { useImageRotation } from "@/hooks/useHeroAnimations"; // ← removed unused usePopup
+import { backgroundImages } from "@/data/data";
+// Removed: import { CustomAlert } from "./CustomAlert";
+import ContactForm from "./ContactForm";
 
-const backgroundImages = [
-  "/banner3.jpg",
+const sliderImages = [
+  { src: "/popone.jpeg", alt: "Cargo Ship" },
+  { src: "/poptwo.jpeg", alt: "Air Freight" },
+  { src: "/popthree.jpeg", alt: "Modern Warehouse" },
+  { src: "/popfour.jpeg", alt: "Logistics Operations" },
+  { src: "/popfive.jpeg", alt: "Global Shipping Network" },
+  { src: "/popsix.jpeg", alt: "International Cargo" },
 ];
 
-interface CustomAlertProps {
-  onClose: () => void;
-}
+export default function Hero() {
+  const [showContactForm, setShowContactForm] = useState(false);
+  const [showImageSlider, setShowImageSlider] = useState(false);
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const currentImageIndex = useImageRotation(backgroundImages.length);
+  const currentImage = backgroundImages[currentImageIndex];
 
-interface ContactFormData {
-  name: string;
-  phone: string;
-  email: string;
-  shippingMode: string;
-  weight: string;
-  volumetricWeight: string;
-  cbm: string;
-  message: string;
-}
+  const { handleSubmit } = useFormHandler();
 
-// Add this new interface for form status
-interface FormStatus {
-  message: string;
-  type: 'success' | 'error' | null;
-}
-
-const CustomAlert: React.FC<CustomAlertProps> = ({ onClose }) => (
-  <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50" style={{ marginTop: '64px' }}>
-    <div className="bg-white shadow-lg rounded-lg p-4 max-w-md w-full relative">
-      <div className="flex items-center mb-2">
-        <Bell className="mr-2 text-blue-500" />
-        <h3 className="text-lg font-semibold">ANNOUNCEMENT!</h3>
-      </div>
-      <p className="text-sm text-gray-600 mb-4">
-        To help us serve you more efficiently, please share the details below when sending your cargo to us:
-      </p>
-      <ul className="list-disc pl-5 mb-4 text-sm text-gray-600">
-        <li>Name</li>
-        <li>Contact</li>
-        <li>Mode of shipping (air or by sea)</li>
-      </ul>
-      <p className="text-sm text-gray-600 mb-4">
-        For all other queries, talk to us on <strong>+254709 286 286</strong>
-      </p>
-      <div className="mt-4">
-        <h4 className="font-semibold mb-2">Contact Us</h4>
-        <Link href='/contact-us'>
-          <button className="bg-[#0f1031] text-white px-4 py-2 rounded hover:bg-[#640e0e] transition-colors duration-300">
-            Contact Us
-          </button>
-        </Link>
-      </div>
-      <button
-        onClick={onClose}
-        className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
-      >
-        <X size={20} />
-      </button>
-    </div>
-  </div>
-);
-
-const ContactForm: React.FC<{ onClose: () => void }> = ({ onClose }) => {
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: "",
-    phone: "",
-    email: "",
-    shippingMode: "air",
-    weight: "",
-    volumetricWeight: "",
-    cbm: "",
-    message: "",
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formStatus, setFormStatus] = useState<FormStatus>({
-    message: '',
-    type: null
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setFormStatus({ message: '', type: null });
-
-    try {
-      // Replace these with your actual EmailJS credentials
-      const templateParams = {
-        to_name: "Recipient Name",
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        shipping_mode: formData.shippingMode,
-        weight: formData.weight,
-        volumetric_weight: formData.volumetricWeight,
-        cbm: formData.cbm,
-        message: formData.message
-      };
-
-      await emailjs.send(
-        'service_od2wm1x', // Replace with your Service ID
-        'template_lws7abq', // Replace with your Template ID
-        templateParams,
-        'AWuVmDvp3lqD8Xks_' // Replace with your Public Key
-      );
-
-      setFormStatus({
-        message: 'Quote request sent successfully! We will contact you soon.',
-        type: 'success'
-      });
-
-      // Close the form after a delay
-      setTimeout(() => {
-        onClose();
-      }, 2000);
-
-    } catch (error) {
-      setFormStatus({
-        message: 'Failed to send quote request. Please try again.',
-        type: 'error'
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (e.target === e.currentTarget) {
-      onClose();
-    }
-  };
-
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" 
-         style={{ marginTop: '64px' }}
-         onClick={handleOverlayClick}>
-      <div className="relative bg-white rounded-lg w-full max-w-md max-h-[calc(100vh-100px)] overflow-y-auto"
-           onClick={e => e.stopPropagation()}>
-        <div className="sticky top-0 bg-white p-6 border-b z-10">
-          <h2 className="text-2xl font-bold">Request Quote</h2>
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-          >
-            <X size={20} />
-          </button>
-        </div>
-        
-        <form onSubmit={handleSubmit} className="p-6 space-y-4">
-          {formStatus.message && (
-            <div className={`p-4 rounded ${
-              formStatus.type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
-            }`}>
-              {formStatus.message}
-            </div>
-          )}
-
-          <div>
-            <label className="block text-sm font-medium mb-1">Name</label>
-            <input
-              type="text"
-              required
-              className="w-full p-2 border rounded"
-              value={formData.name}
-              onChange={(e) => setFormData({...formData, name: e.target.value})}
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-1">Phone</label>
-            <input
-              type="tel"
-              required
-              className="w-full p-2 border rounded"
-              value={formData.phone}
-              onChange={(e) => setFormData({...formData, phone: e.target.value})}
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-1">Email</label>
-            <input
-              type="email"
-              required
-              className="w-full p-2 border rounded"
-              value={formData.email}
-              onChange={(e) => setFormData({...formData, email: e.target.value})}
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-1">Shipping Mode</label>
-            <select
-              className="w-full p-2 border rounded"
-              value={formData.shippingMode}
-              onChange={(e) => setFormData({...formData, shippingMode: e.target.value})}
-            >
-              <option value="air">Air Shipment</option>
-              <option value="sea">Sea Shipment</option>
-            </select>
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-1">Weight (kg)</label>
-            <input
-              type="number"
-              required
-              className="w-full p-2 border rounded"
-              value={formData.weight}
-              onChange={(e) => setFormData({...formData, weight: e.target.value})}
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-1">Volumetric Weight</label>
-            <input
-              type="number"
-              required
-              className="w-full p-2 border rounded"
-              value={formData.volumetricWeight}
-              onChange={(e) => setFormData({...formData, volumetricWeight: e.target.value})}
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-1">CBM</label>
-            <input
-              type="number"
-              required
-              className="w-full p-2 border rounded"
-              value={formData.cbm}
-              onChange={(e) => setFormData({...formData, cbm: e.target.value})}
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-1">Message</label>
-            <textarea
-              className="w-full p-2 border rounded"
-              rows={4}
-              value={formData.message}
-              onChange={(e) => setFormData({...formData, message: e.target.value})}
-            ></textarea>
-          </div>
-          <div className="sticky bottom-0 bg-white pt-4">
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className={`w-full bg-[#0f1031] text-white py-2 rounded transition-colors duration-300 ${
-                isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-600'
-              }`}
-            >
-              {isSubmitting ? 'Submitting...' : 'Submit'}
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
-};
-
-const Hero: React.FC = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
-  const [showPopup, setShowPopup] = useState<boolean>(false);
-  const [showContactForm, setShowContactForm] = useState<boolean>(false);
-
+  // Auto-show slider after 3s
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentImageIndex(
-        (prevIndex) => (prevIndex + 1) % backgroundImages.length
-      );
-    }, 5000);
-
-    const popupTimeout = setTimeout(() => {
-      setShowPopup(true);
-    }, 1000);
-
-    // Initialize EmailJS
-    emailjs.init("AWuVmDvp3lqD8Xks_"); // Replace with your actual public key
-
-    return () => {
-      clearInterval(intervalId);
-      clearTimeout(popupTimeout);
-    };
+    const timer = setTimeout(() => setShowImageSlider(true), 3000);
+    return () => clearTimeout(timer);
   }, []);
 
-  const closePopup = () => {
-    setShowPopup(false);
-  };
+  // Auto-advance slides
+  useEffect(() => {
+    if (!showImageSlider) return;
+    const interval = setInterval(() => {
+      setCurrentSlideIndex((prev) => (prev + 1) % sliderImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [showImageSlider]);
+
+  const nextSlide = () =>
+    setCurrentSlideIndex((prev) => (prev + 1) % sliderImages.length);
+  const prevSlide = () =>
+    setCurrentSlideIndex(
+      (prev) => (prev - 1 + sliderImages.length) % sliderImages.length
+    );
+  const goToSlide = (index: number) => setCurrentSlideIndex(index);
 
   return (
-    <div className="relative mb-28">
-      <div
-        className="relative mt-16 h-[250px] md:h-[400px] bg-cover bg-center transition-all duration-1000 flex flex-col items-center justify-center"
-        style={{ backgroundImage: `url(${backgroundImages[currentImageIndex]})` }}
-      >
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative z-10 text-center px-4 pt-4 md:pt-0">
-          <div className="icons flex items-center justify-center mb-4 md:mb-4">
-            <Plane className="text-white mr-4 md:mr-2" size={32} />
-            <Ship className="text-white" size={32} />
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className="relative mb-28"
+    >
+      {/* Background Hero */}
+      <div className="relative mt-16 h-[250px] md:h-[400px] overflow-hidden">
+        <Image
+          src={currentImage.src}
+          alt={currentImage.alt}
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black opacity-50" />
+
+        <motion.div
+          className="relative z-10 flex flex-col items-center justify-center text-center text-white px-4 h-full"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5 }}
+        >
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <Plane size={48} className="text-white" />
+            <Ship size={48} className="text-white" />
           </div>
-          <h1 className="text-2xl md:text-4xl font-bold text-white drop-shadow-lg max-w-3xl mx-auto mb-6">
+          <h1 className="text-2xl md:text-4xl font-bold drop-shadow-lg max-w-3xl mx-auto my-6">
             Air and Sea Cargo Experts
           </h1>
-          
-          <div className="max-w-xl mx-auto md:mt-4">
-            <div className="p-4 shadow-xl">
-              <img 
-                src="/aeo.png" 
-                alt="Cargo Services"
-                className="bg-white mx-auto rounded-lg h-[60px] md:h-[80px] object-contain"
-              />
-            </div>
-          </div>
-        </div>
+        </motion.div>
+      </div>
 
-        {/* Services Box - Desktop only */}
-        <div className="hidden md:block absolute -bottom-24 left-0 right-0 z-20">
-          <div className="max-w-5xl mx-auto px-4">
-            <div className="bg-[#f8fafc] rounded-lg shadow-xl grid grid-cols-3 overflow-hidden">
-              <Link 
-                href="/traking" 
-                className="group p-6 hover:bg-[#0f1031] transition-colors duration-300 cursor-pointer"
+      {/* Services Box - Desktop */}
+      <div className="hidden md:block absolute -bottom-24 left-0 right-0 z-20">
+        <div className="max-w-5xl mx-auto px-4">
+          <Card className="overflow-hidden shadow-xl border-none">
+            <CardContent className="p-0 grid grid-cols-3 divide-x divide-gray-300">
+              <Link
+                href="/tracking"
+                className="flex flex-col items-center justify-center p-6 text-center bg-[#0f1031] text-white transition-none"
               >
-                <div className="flex flex-col items-center text-center">
-                  <Package className="text-[#640e0e] group-hover:text-white mb-4" size={40} />
-                  <h3 className="text-lg font-semibold mb-2 group-hover:text-white">Track Shipment</h3>
-                  <p className="text-sm text-gray-600 group-hover:text-gray-300">
-                    Track your cargo in real-time with our advanced tracking system
-                  </p>
-                </div>
+                <Package className="mb-2 w-6 h-6" />
+                <h3 className="font-semibold mb-1">Track Shipment</h3>
+                <p className="text-sm opacity-80">Real-time tracking system</p>
               </Link>
 
-              <div 
-                onClick={() => setShowContactForm(true)} 
-                className="group p-6 hover:bg-[#0f1031] transition-colors duration-300 cursor-pointer border-l border-r border-gray-200"
+              <button
+                onClick={() => setShowContactForm(true)}
+                className="flex flex-col items-center justify-center p-6 text-center focus:outline-none hover:bg-transparent"
               >
-                <div className="flex flex-col items-center text-center">
-                  <Mail className="text-[#640e0e] group-hover:text-white mb-4" size={40} />
-                  <h3 className="text-lg font-semibold mb-2 group-hover:text-white">Request Quote</h3>
-                  <p className="text-sm text-gray-600 group-hover:text-white">
-                    Get instant quotes for your shipping needs
-                  </p>
-                </div>
-              </div>
+                <Mail className="mb-2 w-6 h-6 text-primary" />
+                <h3 className="font-semibold mb-1">Request Quote</h3>
+                <p className="text-sm text-muted-foreground">
+                  Get a customized quote
+                </p>
+              </button>
 
-              <Link 
-                href="/contact-us" 
-                className="group p-6 hover:bg-[#0f1031] transition-colors duration-300 cursor-pointer"
+              <Link
+                href="/contact-us"
+                className="flex flex-col items-center justify-center p-6 text-center bg-[#0f1031] text-white transition-none"
               >
-                <div className="flex flex-col items-center text-center">
-                  <Phone className="text-[#640e0e] group-hover:text-white mb-4" size={40} />
-                  <h3 className="text-lg font-semibold mb-2 group-hover:text-white">Contact Us</h3>
-                  <p className="text-sm text-gray-600 group-hover:text-white">
-                    Get in touch with our customer service team
-                  </p>
-                </div>
+                <Plane className="mb-2 w-6 h-6" />
+                <h3 className="font-semibold mb-1">Contact Us</h3>
+                <p className="text-sm opacity-80">Reach out for support</p>
               </Link>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
 
-      {showPopup && <CustomAlert onClose={closePopup} />}
-      {showContactForm && <ContactForm onClose={() => setShowContactForm(false)} />}
-    </div>
-  );
-};
+      {/* Image Slider Modal — FULL IMAGE VISIBLE */}
+      <AnimatePresence>
+        {showImageSlider && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm px-4"
+            onClick={() => setShowImageSlider(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", duration: 0.5 }}
+              className="relative w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden bg-white"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setShowImageSlider(false)}
+                aria-label="Close image gallery"
+                className="absolute top-4 right-4 z-30 p-2 bg-white/90 hover:bg-white rounded-full shadow-lg transition-all hover:scale-110"
+              >
+                <X className="w-6 h-6 text-gray-800" />
+              </button>
 
-export default Hero;
+              {/* Slider Container — critical fix here */}
+              <div className="relative h-[400px] md:h-[500px] flex items-center justify-center bg-white">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentSlideIndex}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="w-full h-full flex items-center justify-center"
+                  >
+                    <Image
+                      src={sliderImages[currentSlideIndex].src}
+                      alt={sliderImages[currentSlideIndex].alt}
+                      width={800} // ← helps Next.js optimize
+                      height={500} // ← set based on your actual image ratio
+                      className="max-h-full max-w-full object-contain"
+                      priority={currentSlideIndex === 0}
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Navigation Arrows */}
+              <button
+                onClick={prevSlide}
+                aria-label="Previous image"
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/90 hover:bg-white rounded-full shadow-lg transition-all hover:scale-110"
+              >
+                <ChevronLeft className="w-6 h-6 text-gray-800" />
+              </button>
+              <button
+                onClick={nextSlide}
+                aria-label="Next image"
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/90 hover:bg-white rounded-full shadow-lg transition-all hover:scale-110"
+              >
+                <ChevronRight className="w-6 h-6 text-gray-800" />
+              </button>
+
+              {/* Dots Indicator */}
+              <div className="flex items-center justify-center gap-2 py-6">
+                {sliderImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    aria-label={`Go to slide ${index + 1}`}
+                    className={`transition-all duration-300 rounded-full ${
+                      index === currentSlideIndex
+                        ? "w-8 h-3 bg-[#0f1031]"
+                        : "w-3 h-3 bg-gray-300 hover:bg-gray-400"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              {/* Slide Counter */}
+              <div
+                role="region"
+                aria-live="polite"
+                className="absolute top-4 left-4 z-30 px-4 py-2 bg-black/60 backdrop-blur-sm rounded-full"
+              >
+                <span className="text-white font-semibold text-sm">
+                  {currentSlideIndex + 1} / {sliderImages.length}
+                </span>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Only Contact Form Modal */}
+      {showContactForm && (
+        <ContactForm onClose={() => setShowContactForm(false)} />
+      )}
+
+      {/* ❌ REMOVED: Announcement popup (CustomAlert) */}
+    </motion.div>
+  );
+}

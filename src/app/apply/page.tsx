@@ -1,11 +1,12 @@
 import React from "react";
 import ApplyPage from "../shared/Components/ApplyPage/ApplyPage";
-import Bannerapply from "../shared/Components/Bannerapply/Bannerapply";
+import Banner from "../shared/Components/Banner/Banner";
+import { applyBannerContent } from "@/data/data";
 
 const page = () => {
   return (
     <div>
-      <Bannerapply />
+      <Banner content={applyBannerContent} imageSrc="image4.jpg" />
       <ApplyPage />
     </div>
   );
