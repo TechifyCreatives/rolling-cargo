@@ -11,7 +11,6 @@ import Image from "next/image";
 import {
   Menu,
   X,
-  DollarSign,
   Bell,
   Mail,
   Search,
@@ -266,7 +265,6 @@ const Navbar: React.FC = () => {
   // Memoized navigation items for better performance
   const rightNavItems = useMemo(
     () => [
-      { href: "/cost-estimator", icon: DollarSign, label: "Cost Estimator" },
       { href: "/blog", icon: Bell, label: "Updates" },
       { href: "/contact-us", icon: Mail, label: "Contact" },
       { href: "/gallery", icon: Camera, label: "Gallery" },

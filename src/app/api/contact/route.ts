@@ -103,16 +103,10 @@ function validateContactForm(data: any): {
 // Create email transporter
 function createTransporter() {
   return nodemailer.createTransport({
-    host: "smtp-mail.outlook.com",
-    port: 587,
-    secure: false, // true for 465, false for other ports
+    service: "gmail",
     auth: {
-      user: process.env.OUTLOOK_EMAIL, // Your Outlook email
-      pass: process.env.OUTLOOK_PASSWORD, // Your Outlook password or app password
-    },
-    tls: {
-      ciphers: "SSLv3",
-      rejectUnauthorized: false,
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_APP_PASSWORD,
     },
   });
 }
@@ -241,7 +235,7 @@ This message was sent from the Rolling Cargo contact form.
 export async function POST(request: NextRequest) {
   try {
     // Check environment variables
-    if (!process.env.OUTLOOK_EMAIL || !process.env.OUTLOOK_PASSWORD) {
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
       console.error("Missing email configuration");
       return NextResponse.json(
         { error: "Server configuration error" },
@@ -296,8 +290,8 @@ export async function POST(request: NextRequest) {
 
     // Email options
     const mailOptions = {
-      from: `"Rolling Cargo Website" <${process.env.OUTLOOK_EMAIL}>`,
-      to: "sales@rollingcargo.co.ke",
+      from: `"Rolling Cargo Website" <${process.env.GMAIL_USER}>`,
+      to: process.env.CONTACT_RECIPIENT || "salesinquiries@rollingcargo.co.ke",
       replyTo: sanitizedData.email,
       subject: `New Contact: ${sanitizedData.subject}`,
       text: generateEmailText(sanitizedData),
@@ -316,7 +310,7 @@ export async function POST(request: NextRequest) {
 
     // Send auto-reply to customer
     const autoReplyOptions = {
-      from: `"Rolling Cargo" <${process.env.OUTLOOK_EMAIL}>`,
+      from: `"Rolling Cargo" <${process.env.GMAIL_USER}>`,
       to: sanitizedData.email,
       subject: "Thank you for contacting Rolling Cargo",
       html: `

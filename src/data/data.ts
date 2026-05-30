@@ -56,7 +56,6 @@ export const NAVIGATION_LINKS = {
   ],
   quickLinks: [
     { name: "Track Shipment", href: "/tracking", icon: Search },
-    { name: "Cost Estimator", href: "/cost-estimator", icon: DollarSign },
     { name: "Updates", href: "/blog", icon: Bell },
     { name: "Gallery", href: "/gallery", icon: Camera },
   ],
@@ -332,47 +331,6 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     views: 432,
     likes: 29,
     type: "image",
-  },
-  {
-    id: 21,
-    title: "Drone Overview of Logistics Center",
-    description:
-      "Aerial drone footage showing operations inside a modern logistics center.",
-    category: "logistics",
-    tags: ["drone", "aerial", "logistics"],
-    video: "https://www.youtube.com/watch?v=v18Lv-fg2g4",
-    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-    date: "2024-04-25",
-    views: 789,
-    likes: 56,
-    type: "video",
-  },
-  {
-    id: 22,
-    title: "Cargo Ship Timelapse",
-    description: "Timelapse of cargo ship loading at night under floodlights.",
-    category: "shipping",
-    tags: ["ship", "night", "cargo"],
-    video: "https://www.youtube.com/watch?v=gB6QhVuuQ9U",
-    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-    date: "2024-04-26",
-    views: 987,
-    likes: 65,
-    type: "video",
-  },
-  {
-    id: 23,
-    title: "Warehouse Automation Demo",
-    description:
-      "Video demonstration of automated warehouse systems in action.",
-    category: "automation",
-    tags: ["robotics", "automation", "warehouses"],
-    video: "https://www.youtube.com/watch?v=WpjT6ZMTJC4",
-    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-    date: "2024-04-27",
-    views: 654,
-    likes: 43,
-    type: "video",
   },
 ];
 
@@ -1446,6 +1404,126 @@ export const blogPosts: BlogPost[] = [
     ],
     category: "Shipping Guide",
     image: "/RC Jan Blog 26.png",
+    author: "Rolling Cargo",
+  },
+  {
+    id: 14,
+    title: "How to Prevent Damaged Goods When Packing Fragile Items",
+    excerpt:
+      "Fragile items pass through multiple handling points in international shipping. Learn how proper packing and labelling significantly reduces the risk of damage in transit.",
+    sections: [
+      {
+        title: "Why Packaging Matters",
+        content: [
+          "Damaged goods during shipping are often preventable with the right packing. Fragile items pass through multiple handling points in international shipping, so poor packaging is one of the main causes of breakage.",
+        ],
+      },
+      {
+        title: "Rolling Cargo's Repackaging Services",
+        content: [
+          "At Rolling Cargo, we advise clients to inform us when shipping fragile goods. We offer repackaging services where needed, using bubble wrap, reinforced cartons, and wooden pallets depending on the type of cargo.",
+          "We also require a fragile sticker on all such packages to ensure proper handling during sorting and dispatch.",
+        ],
+      },
+      {
+        title: "Labelling Is Not Enough",
+        content: [
+          "However, labeling alone is not enough. Strong internal packaging is what truly prevents damage in transit. Proper packing significantly reduces the risk of damaged goods during international shipping.",
+        ],
+      },
+      {
+        title: "Need Help Packing?",
+        content: [
+          "Contact us before shipping fragile items and our team will advise on the best packaging approach for your cargo.",
+        ],
+      },
+    ],
+    category: "Shipping Tips",
+    image: "/blog-fragile-items.jpeg",
+    author: "Rolling Cargo",
+  },
+  {
+    id: 15,
+    title: "What Is Volumetric Weight and How Is It Calculated?",
+    excerpt:
+      "A package may feel light, but if it takes up a lot of space it can still cost more to ship. Understanding volumetric weight helps you estimate shipping charges accurately.",
+    sections: [
+      {
+        title: "What Is Volumetric Weight?",
+        content: [
+          "Volumetric weight, also known as dimensional weight, is a way of calculating shipping charges based on the amount of space a package occupies rather than its actual weight.",
+          "For air freight, shipping charges are based on whichever is higher: the actual weight or the volumetric weight.",
+        ],
+      },
+      {
+        title: "How to Calculate Volumetric Weight",
+        content: [
+          "Measure the package in centimeters: Length × Width × Height ÷ 6,000",
+          "The answer gives you the volumetric weight in kilograms.",
+          "Example: If a carton measures 60 cm × 50 cm × 40 cm:",
+          "60 × 50 × 40 = 120,000 ÷ 6,000 = 20 kg",
+          "Even if the carton weighs only 8 kg, the chargeable weight will be 20 kg because it occupies more space.",
+        ],
+      },
+      {
+        title: "Why Volumetric Weight Matters",
+        content: [
+          "Airlines charge for both space and weight. Large but lightweight items — such as pillows, lampshades, plastic products, and shoe boxes — can attract higher shipping charges because they take up more room.",
+        ],
+      },
+      {
+        title: "How Rolling Cargo Charges",
+        content: [
+          "At Rolling Cargo, air freight charges are based on the actual weight or volumetric weight, whichever is higher.",
+        ],
+      },
+      {
+        title: "How to Reduce Volumetric Weight",
+        content: [
+          "Use compact packaging and remove unnecessary empty space. Smaller cartons can significantly reduce shipping costs.",
+          "Understanding volumetric weight helps you estimate your shipping charges more accurately and avoid surprises.",
+        ],
+      },
+      {
+        title: "Need Help Calculating Your Shipping Cost?",
+        content: [
+          "Call or WhatsApp us on 0706 289289 and our team will be happy to assist you.",
+        ],
+      },
+    ],
+    category: "Shipping Tips",
+    image: "/blog-volumetric-weight.jpeg",
+    author: "Rolling Cargo",
+  },
+  {
+    id: 16,
+    title: "What Is a Shipping Mark and Why It Matters",
+    excerpt:
+      "A shipping mark is the basic identification written on your cargo boxes. Without it, packages can be misrouted or sent by the wrong shipping method.",
+    sections: [
+      {
+        title: "What Is a Shipping Mark?",
+        content: [
+          "A shipping mark is the basic identification written on your cargo boxes to help us know whose shipment it is and how it should be handled.",
+        ],
+      },
+      {
+        title: "What Rolling Cargo Requires",
+        content: [
+          "At Rolling Cargo, the shipping mark is very simple. It is your name, your phone number, and your shipping method — either air or sea.",
+          "This is what we use in our warehouses, especially in China, to sort cargo correctly. We have separate handling for air and sea shipments, so this detail is important.",
+        ],
+      },
+      {
+        title: "Why It Matters",
+        content: [
+          "If a package arrives without a proper shipping mark, it can easily be mixed up or even sent using the wrong shipping method. That is why we always tell clients to make sure their suppliers label every box clearly before shipping.",
+          "A small label, but it makes a big difference in getting your cargo processed and dispatched correctly.",
+        ],
+      },
+    ],
+    category: "Shipping Tips",
+    image: "/blog-shipping-mark.jpeg",
     author: "Rolling Cargo",
   },
 ];

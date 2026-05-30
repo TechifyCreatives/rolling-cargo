@@ -1,6 +1,8 @@
 "use client";
 import React, { useState, useEffect, useMemo } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { Youtube, ExternalLink } from "lucide-react";
 import { CATEGORIES, GALLERY_ITEMS } from "@/data/data";
 import GalleryGrid from "../GalleryGrid/GalleryGrid";
 import GalleryList from "../GalleryList/GalleryList";
@@ -243,42 +245,55 @@ const GalleryPage: React.FC = () => {
         {/* No Results */}
         {filteredImages.length === 0 && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="text-center py-20"
           >
-            <div className="text-gray-300 mb-6">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="80"
-                height="80"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-              >
-                <circle cx="11" cy="11" r="8" />
-                <path d="M21 21l-4.35-4.35" />
-              </svg>
-            </div>
-            <h3 className="text-2xl font-bold text-gray-600 mb-4">
-              No items found
-            </h3>
-            <p className="text-gray-500 text-lg max-w-md mx-auto">
-              Try adjusting your search terms or filters to discover more
-              amazing content
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => {
-                setSearchTerm("");
-                setSelectedCategory("all");
-              }}
-              className="mt-6 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Clear Filters
-            </motion.button>
+            {activeTab === "videos" ? (
+              <div className="flex flex-col items-center gap-6">
+                <div className="bg-red-600 rounded-2xl p-5">
+                  <Youtube className="w-12 h-12 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-700 mb-2">
+                    Watch Our Videos on YouTube
+                  </h3>
+                  <p className="text-gray-500 mb-6">
+                    Visit our channel to see all our latest videos
+                  </p>
+                </div>
+                <Link
+                  href="https://www.youtube.com/@RollingCargo/videos"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3 rounded-xl transition-colors duration-200"
+                >
+                  <Youtube className="w-5 h-5" />
+                  Watch on YouTube
+                </Link>
+              </div>
+            ) : (
+              <>
+                <h3 className="text-2xl font-bold text-gray-600 mb-4">
+                  No items found
+                </h3>
+                <p className="text-gray-500 text-lg max-w-md mx-auto">
+                  Try adjusting your search terms or filters
+                </p>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => {
+                    setSearchTerm("");
+                    setSelectedCategory("all");
+                  }}
+                  className="mt-6 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  Clear Filters
+                </motion.button>
+              </>
+            )}
           </motion.div>
         )}
 
@@ -303,6 +318,77 @@ const GalleryPage: React.FC = () => {
           getYoutubeEmbedUrl={getYoutubeEmbedUrl}
         />
       </div>
+
+      {/* YouTube Channel Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        className="bg-gradient-to-br from-[#0f1031] to-[#1a1548] py-16 px-4 sm:px-6 lg:px-8"
+      >
+        <div className="max-w-5xl mx-auto">
+          {/* Header */}
+          <div className="flex flex-col items-center text-center mb-10">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="bg-red-600 rounded-xl p-3">
+                <Youtube className="w-7 h-7 text-white" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white">
+                Watch Our Videos
+              </h2>
+            </div>
+            <p className="text-gray-300 text-lg max-w-2xl">
+              Subscribe to our YouTube channel for shipping tips, service
+              updates, office tours, and more.
+            </p>
+          </div>
+
+          {/* Channel Card */}
+          <Link
+            href="https://www.youtube.com/@RollingCargo/videos"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block rounded-2xl overflow-hidden border border-white/10 shadow-2xl hover:border-red-500/50 transition-all duration-300"
+          >
+            {/* Banner */}
+            <div className="relative bg-gradient-to-r from-red-700 to-red-500 h-36 flex items-center justify-center">
+              <div className="absolute inset-0 bg-black/20" />
+              <div className="relative flex flex-col items-center gap-2">
+                <div className="bg-white/10 backdrop-blur-sm rounded-full p-5 group-hover:scale-110 transition-transform duration-300">
+                  <Youtube className="w-12 h-12 text-white" />
+                </div>
+              </div>
+            </div>
+
+            {/* Channel Info */}
+            <div className="bg-[#1a1548] px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="text-center sm:text-left">
+                <h3 className="text-white text-xl font-bold">Rolling Cargo</h3>
+                <p className="text-gray-400 text-sm mt-1">
+                  @RollingCargo · Shipping tips, updates & more
+                </p>
+              </div>
+              <div className="flex items-center gap-2 bg-red-600 group-hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-200 shrink-0">
+                <Youtube className="w-5 h-5" />
+                Watch on YouTube
+                <ExternalLink className="w-4 h-4 ml-1" />
+              </div>
+            </div>
+          </Link>
+
+          {/* Secondary link */}
+          <div className="flex justify-center mt-6">
+            <Link
+              href="https://www.youtube.com/@RollingCargo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white text-sm underline underline-offset-4 transition-colors duration-200"
+            >
+              Visit full channel page →
+            </Link>
+          </div>
+        </div>
+      </motion.section>
     </div>
   );
 };
