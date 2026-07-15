@@ -1526,6 +1526,44 @@ export const blogPosts: BlogPost[] = [
     image: "/blog-shipping-mark.jpeg",
     author: "Rolling Cargo",
   },
+{
+    id: 17,
+    title: "Kenya's Rolling Cargo Wins International Transport, Freight and Logistics Company of the Year",
+    excerpt:
+      "Rolling Cargo has been named Transport, Freight and Logistics Company of the Year by Elite Brands Awards International",
+    sections: [
+      {
+        content: [
+          "Nairobi-based freight forwarding company Rolling Cargo has been named Transport, Freight and Logistics Company of the Year. This is according to the Elite Brands Awards International, a recognition that comes at a critical moment for Africa's trade landscape.",
+        ],
+      },
+      {
+        title: "Why was Rolling Cargo named Company of the Year?",
+        content: [
+          "The recognition comes as Africa advances the African Continental Free Trade Area (AfCFTA), an initiative aimed at creating a single market for goods and services across the continent.",
+          "For logistics companies such as Rolling Cargo, the award coincides with growing opportunities as businesses increasingly look for solutions under the AfCFTA framework. While governments continue negotiating policy frameworks and dismantling trade barriers, a quieter but equally pressing challenge has emerged, getting products to actually move across those borders efficiently. That reality has placed logistics companies at the centre of Africa's next economic chapter, and Rolling Cargo is positioning itself right in the middle of it. Speaking on the award and what it means for the company's future, Rolling Cargo Director Mohamed Abdi said the shifting trade environment presents both opportunity and responsibility. "Our vision is to deepen our presence within the African Continental Free Trade Area and position African businesses to trade with one another and with the global economy using the same efficiency and reliability that has become our hallmark," Abdi said. AfCFTA is gradually chipping away at those barriers through infrastructure investment, policy reform and tighter regional cooperation. Still, dropping tariffs alone won't be enough since manufacturers need raw materials delivered on schedule, exporters need their goods reaching new markets and retailers need supply chains they can count on. That's the gap freight forwarders like Rolling Cargo are stepping in to fill, offering not just transport but integrated solutions built around speed, compliance, technology and full visibility over the shipping process.",
+        ],
+      },
+      {
+        title: "How has Rolling Cargo expanded its logistics network?",
+        content: [
+          "Rolling Cargo's own story stretches back 18 years, starting in Nairobi with a key operational base in Mombasa. The company has since built a network stretching into China, the United Arab Emirates, the United Kingdom, the Netherlands, Italy, Turkey, South Africa and Germany, connecting Kenyan and East African businesses to some of the world's biggest manufacturing and commercial hubs. Despite that global reach, Abdi insists Africa remains the company's long-term focus. "We believe businesses across Africa deserve access to seamless, professional and trustworthy global logistics services," he said.",
+          "Rolling Cargo holds ISO certification alongside Authorised Economic Operator (AEO) accreditation, both of which signal compliance with strict operational, security and customs standards. Abdi said the accreditations give clients peace of mind, no matter how their cargo travels. "Together these accreditations are a guarantee to every client that their cargo is in safe, compliant and professional hands," he said.",
+        ],
+      },
+      {
+        title: "How is Rolling Cargo helping businesses benefit from AfCFTA?",
+        content: [
+          "Small and medium-sized enterprises make up a growing share of Rolling Cargo's client base, alongside larger firms managing complex international supply chains. Many small and medium-sized businesses looking to enter regional markets continue to face logistics challenges, including expensive transport, complicated customs processes and extensive shipping documentation. Rolling Cargo has also poured resources into training its workforce in freight operations, trade regulations, customs compliance and customer service, while adopting technology to improve real-time shipment tracking, a feature customers increasingly expect. Kenya's position as East Africa's commercial hub means the achievements of logistics companies such as Rolling Cargo have wider significance beyond the company's latest international recognition. Strong logistics networks boost the country's competitiveness, support exporters and cement the Port of Mombasa's place as a key regional trade corridor.",
+          "Looking ahead, Abdi said the company's next chapter will centre on helping African businesses of all sizes tap into the opportunities a more connected continent has to offer. "Our ambition is to ensure that businesses, regardless of their size, have access to logistics solutions that allow them to compete confidently in regional and global markets," he said.",
+        ],
+      },
+    ],
+    category: "Shipping Tips",
+    image: "/blog-shipping-mark.jpeg",
+    author: "Rolling Cargo",
+  },
+  
 ];
 
 // Offices Data (Contact Us Page)
