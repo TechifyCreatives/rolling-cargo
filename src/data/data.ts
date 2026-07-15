@@ -1535,10 +1535,13 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Rolling Cargo has been named Transport, Freight and Logistics Company of the Year by Elite Brands Awards International",
     sections: [
-      {
-        content: [
-          "Nairobi-based freight forwarding company Rolling Cargo has been named Transport, Freight and Logistics Company of the Year. This is according to the Elite Brands Awards International, a recognition that comes at a critical moment for Africa's trade landscape.",
-        ],
+  {
+    title: "Overview",
+    content: [
+      "Nairobi-based freight forwarding company has been named Transport, Freight and Logistics Company of the Year by Elite Brands Awards International. This recognition comes at a critical moment for Africa's trade landscape."
+    ]
+  }
+],
       },
       {
         title: "Why was Rolling Cargo named Company of the Year?",
