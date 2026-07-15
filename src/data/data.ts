@@ -1559,7 +1559,11 @@ export const offices: Office[] = [
     chinesePhone: "Helen+8618826260043 (WhatsApp), Liuan +8618826260042 (WeChat)",
     email: "salesinquiries@rollingcargo.co.ke",
     address:
-      "CHINA AIR WAREHOUSE ADDRESS\n\nUnit 102, Building E\nShengli Industrial Zone, Lishui Town, Nanhai District, Foshan, Guangdong\nHelen+8618826260043 (WhatsApp)\nLiuan +8618826260042 (WeChat)\n\nROLLING CARGO 空运地址：\n广东省佛山市南海区里水镇 东秀路胜利工业区 11 号 E 栋 102\nHelen+8618826260043 (WhatsApp)\nLiuan +8618826260042 (WeChat)\n货物外箱每箱必须标注 国外客户姓名电话号码以及空运，\n再附上装箱单发到仓库，如唛头信息不齐，仓库拒收\n（上班时间周一至周六 11 点～19 点）",
+      "CHINA AIR WAREHOUSE ADDRESS\n\nUnit 102, Building E\nShengli Industrial Zone, Lishui Town, Nanhai District, Foshan, Guangdong\nHelen+8618826260043 (WhatsApp)\nLiuan +8618826260042 (WeChat)\n\n Kindly ask your supplier to write your
+
+Name and Number on the package,
+
+Specify mode of shipping air, for fragile goods inform supplier to package well and also inform our China offices.Supplier must also attach a well detailed packing list showing name of items, quantity and the weight. This is very important thanks! ROLLING CARGO 空运地址：\n广东省佛山市南海区里水镇 东秀路胜利工业区 11 号 E 栋 102\nHelen+8618826260043 (WhatsApp)\nLiuan +8618826260042 (WeChat)\n货物外箱每箱必须标注 国外客户姓名电话号码以及空运，\n再附上装箱单发到仓库，如唛头信息不齐，仓库拒收\n（上班时间周一至周六 11 点～19 点）",
     chineseAddress:
       "CHINA AIR WAREHOUSE ADDRESS\n\nUnit 102, Building E\nShengli Industrial Zone, Lishui Town, Nanhai District, Foshan, Guangdong\nHelen+8618826260043 (WhatsApp)\nLiuan +8618826260042 (WeChat)\n\nROLLING CARGO 空运地址：\n广东省佛山市南海区里水镇 东秀路胜利工业区 11 号 E 栋 102\nHelen+8618826260043 (WhatsApp)\nLiuan +8618826260042 (WeChat)\n货物外箱每箱必须标注 国外客户姓名电话号码以及空运，\n再附上装箱单发到仓库，如唛头信息不齐，仓库拒收\n（上班时间周一至周六 11 点～19 点）",
   },
