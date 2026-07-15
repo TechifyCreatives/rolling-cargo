@@ -1560,7 +1560,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     category: "Shipping Tips",
-    image: "/blog-shipping-mark.jpeg",
+    image: "/Elite Awards.JPG",
     author: "Rolling Cargo",
   },
   
