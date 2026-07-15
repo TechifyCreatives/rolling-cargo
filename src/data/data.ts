@@ -449,28 +449,28 @@ export const recentShipments: RecentShipment[] = [
   {
     id: "RC001",
     client: "Safaricom Ltd",
-    route: "Nairobi → Mombasa",
+    route: "Nairobi â†’ Mombasa",
     status: "delivered",
     amount: 15000,
   },
   {
     id: "RC002",
     client: "KCB Bank",
-    route: "Mombasa → Kisumu",
+    route: "Mombasa â†’ Kisumu",
     status: "transit",
     amount: 22000,
   },
   {
     id: "RC003",
     client: "Equity Bank",
-    route: "Nairobi → Eldoret",
+    route: "Nairobi â†’ Eldoret",
     status: "pending",
     amount: 18500,
   },
   {
     id: "RC004",
     client: "East African Breweries",
-    route: "Mombasa → Nairobi",
+    route: "Mombasa â†’ Nairobi",
     status: "delivered",
     amount: 31000,
   },
@@ -588,7 +588,8 @@ export const aboutQuote: AboutQuote = {
 };
 
 export const aboutContent: AboutContent = {
-  title: "About Rolling Cargo | Trusted International Freight Forwarding in Kenya",
+  title:
+    "About Rolling Cargo | Trusted International Freight Forwarding in Kenya",
   description:
     "Rolling Cargo is a leading international freight forwarding company providing reliable\n" +
     "air and sea freight solutions for Kenyan businesses. For over 18 years, we have\n" +
@@ -611,8 +612,8 @@ export const aboutContent: AboutContent = {
     "full, and compliant with all regulatory requirements.\n\n" +
     "Our Freight Services\n" +
     "We offer tailored shipping services to meet business needs:\n" +
-    "Air Freight – Fast, secure shipping for time-sensitive cargo\n" +
-    "Sea Freight – Cost-effective solutions for bulk shipments\n" +
+    "Air Freight â€“ Fast, secure shipping for time-sensitive cargo\n" +
+    "Sea Freight â€“ Cost-effective solutions for bulk shipments\n" +
     "Rolling Cargo facilitates imports from key sourcing destinations, including:\n" +
     "China, United Arab Emirates, United Kingdom, Turkey, Netherlands, South Africa, Italy.\n\n" +
     "Why Businesses Trust Rolling Cargo\n" +
@@ -1191,7 +1192,7 @@ export const blogPosts: BlogPost[] = [
       {
         title: "Overview",
         content: [
-          "Want to access amazing products and prices from Amazon UAE? Rolling Cargo makes it easy to shop, ship, and receive your items in Kenya — fast and stress-free.",
+          "Want to access amazing products and prices from Amazon UAE? Rolling Cargo makes it easy to shop, ship, and receive your items in Kenya â€” fast and stress-free.",
         ],
       },
       {
@@ -1204,7 +1205,7 @@ export const blogPosts: BlogPost[] = [
         title: "Step 2: Use Our Dubai Office Address at Checkout",
         content: [
           "When you're ready to check out, enter this delivery address:",
-          "Rolling Cargo – Office Address",
+          "Rolling Cargo â€“ Office Address",
           "City: Dubai",
           "District/Area: Deira",
           "Street: Sabkha Road",
@@ -1277,13 +1278,13 @@ export const blogPosts: BlogPost[] = [
         content: [
           "1. Shop online and use our UK warehouse address as your delivery destination.",
           "2. We consolidate, ship, and clear your items.",
-          "3. Your order arrives safely in Kenya – fast, secure, and affordable.",
+          "3. Your order arrives safely in Kenya â€“ fast, secure, and affordable.",
         ],
       },
       {
         title: "Fast and Reliable Shipping",
         content: [
-          "✈️ Our UK flights depart every Friday. Shopping has never been easier.",
+          "âœˆï¸ Our UK flights depart every Friday. Shopping has never been easier.",
         ],
       },
     ],
@@ -1293,7 +1294,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 12,
-    title: "Ship from the UK to Kenya — Fast, Simple, and Worry-Free",
+    title: "Ship from the UK to Kenya â€” Fast, Simple, and Worry-Free",
     excerpt:
       "Shipping from the UK for the first time? Rolling Cargo makes it easy. From choosing trusted shops to ensuring your packages reach Kenya safely, we've got you covered.",
     sections: [
@@ -1330,11 +1331,11 @@ export const blogPosts: BlogPost[] = [
         title: "Step 3: Track Your Shipment to Kenya",
         content: [
           "Once your items arrive at our UK warehouse, we handle:",
-          "• Package consolidation",
-          "• Customs clearance",
-          "• Doorstep delivery in Kenya",
+          "â€¢ Package consolidation",
+          "â€¢ Customs clearance",
+          "â€¢ Doorstep delivery in Kenya",
           "",
-          "Stay updated every step of the way — from UK checkout to your home or business.",
+          "Stay updated every step of the way â€” from UK checkout to your home or business.",
         ],
       },
       {
@@ -1356,7 +1357,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 13,
-    title: "Air Freight vs. Sea Freight: Which Shipping Method Should You Choose?",
+    title:
+      "Air Freight vs. Sea Freight: Which Shipping Method Should You Choose?",
     excerpt:
       "When it comes to international shipping, one of the most important decisions you'll make is whether to use air freight or sea freight. Each method has its benefits depending on your shipment's size, urgency, and budget.",
     sections: [
@@ -1372,10 +1374,10 @@ export const blogPosts: BlogPost[] = [
         title: "Air Freight: Fast and Reliable",
         content: [
           "Air freight is ideal when speed matters. It typically takes 3 to 7 days to arrive, making it the best choice for:",
-          "• Urgent shipments",
-          "• Small or lightweight packages",
-          "• Fragile or high-value goods (e.g., electronics, designer items)",
-          "• E-commerce restocks",
+          "â€¢ Urgent shipments",
+          "â€¢ Small or lightweight packages",
+          "â€¢ Fragile or high-value goods (e.g., electronics, designer items)",
+          "â€¢ E-commerce restocks",
           "",
           "At Rolling Cargo, we offer weekly air shipments from major hubs including the UAE, UK, South Africa, China, Turkey, Netherlands and Italy.",
         ],
@@ -1384,9 +1386,9 @@ export const blogPosts: BlogPost[] = [
         title: "Sea Freight: Cost-Effective for Bulk Cargo",
         content: [
           "Sea freight is your go-to when you're shipping large volumes or working with a tighter budget. While delivery takes longer, it's much more affordable for:",
-          "• Heavy or bulky items (e.g., furniture, machinery)",
-          "• Wholesale and inventory restock",
-          "• Planned or non-urgent shipments",
+          "â€¢ Heavy or bulky items (e.g., furniture, machinery)",
+          "â€¢ Wholesale and inventory restock",
+          "â€¢ Planned or non-urgent shipments",
           "",
           "We also offer consolidation services, so you can ship multiple packages together at reduced rates.",
         ],
@@ -1458,17 +1460,17 @@ export const blogPosts: BlogPost[] = [
       {
         title: "How to Calculate Volumetric Weight",
         content: [
-          "Measure the package in centimeters: Length × Width × Height ÷ 6,000",
+          "Measure the package in centimeters: Length Ã— Width Ã— Height Ã· 6,000",
           "The answer gives you the volumetric weight in kilograms.",
-          "Example: If a carton measures 60 cm × 50 cm × 40 cm:",
-          "60 × 50 × 40 = 120,000 ÷ 6,000 = 20 kg",
+          "Example: If a carton measures 60 cm Ã— 50 cm Ã— 40 cm:",
+          "60 Ã— 50 Ã— 40 = 120,000 Ã· 6,000 = 20 kg",
           "Even if the carton weighs only 8 kg, the chargeable weight will be 20 kg because it occupies more space.",
         ],
       },
       {
         title: "Why Volumetric Weight Matters",
         content: [
-          "Airlines charge for both space and weight. Large but lightweight items — such as pillows, lampshades, plastic products, and shoe boxes — can attract higher shipping charges because they take up more room.",
+          "Airlines charge for both space and weight. Large but lightweight items â€” such as pillows, lampshades, plastic products, and shoe boxes â€” can attract higher shipping charges because they take up more room.",
         ],
       },
       {
@@ -1510,7 +1512,7 @@ export const blogPosts: BlogPost[] = [
       {
         title: "What Rolling Cargo Requires",
         content: [
-          "At Rolling Cargo, the shipping mark is very simple. It is your name, your phone number, and your shipping method — either air or sea.",
+          "At Rolling Cargo, the shipping mark is very simple. It is your name, your phone number, and your shipping method â€” either air or sea.",
           "This is what we use in our warehouses, especially in China, to sort cargo correctly. We have separate handling for air and sea shipments, so this detail is important.",
         ],
       },
@@ -1526,9 +1528,10 @@ export const blogPosts: BlogPost[] = [
     image: "/blog-shipping-mark.jpeg",
     author: "Rolling Cargo",
   },
-{
+  {
     id: 17,
-    title: "Kenya's Rolling Cargo Wins International Transport, Freight and Logistics Company of the Year",
+    title:
+      "Kenya's Rolling Cargo Wins International Transport, Freight and Logistics Company of the Year",
     excerpt:
       "Rolling Cargo has been named Transport, Freight and Logistics Company of the Year by Elite Brands Awards International",
     sections: [
@@ -1541,21 +1544,21 @@ export const blogPosts: BlogPost[] = [
         title: "Why was Rolling Cargo named Company of the Year?",
         content: [
           "The recognition comes as Africa advances the African Continental Free Trade Area (AfCFTA), an initiative aimed at creating a single market for goods and services across the continent.",
-          "For logistics companies such as Rolling Cargo, the award coincides with growing opportunities as businesses increasingly look for solutions under the AfCFTA framework. While governments continue negotiating policy frameworks and dismantling trade barriers, a quieter but equally pressing challenge has emerged, getting products to actually move across those borders efficiently. That reality has placed logistics companies at the centre of Africa's next economic chapter, and Rolling Cargo is positioning itself right in the middle of it. Speaking on the award and what it means for the company's future, Rolling Cargo Director Mohamed Abdi said the shifting trade environment presents both opportunity and responsibility. "Our vision is to deepen our presence within the African Continental Free Trade Area and position African businesses to trade with one another and with the global economy using the same efficiency and reliability that has become our hallmark," Abdi said. AfCFTA is gradually chipping away at those barriers through infrastructure investment, policy reform and tighter regional cooperation. Still, dropping tariffs alone won't be enough since manufacturers need raw materials delivered on schedule, exporters need their goods reaching new markets and retailers need supply chains they can count on. That's the gap freight forwarders like Rolling Cargo are stepping in to fill, offering not just transport but integrated solutions built around speed, compliance, technology and full visibility over the shipping process.",
+          "For logistics companies such as Rolling Cargo, the award coincides with growing opportunities as businesses increasingly look for solutions under the AfCFTA framework. While governments continue negotiating policy frameworks and dismantling trade barriers, a quieter but equally pressing challenge has emerged, getting products to actually move across those borders efficiently. That reality has placed logistics companies at the centre of Africa's next economic chapter, and Rolling Cargo is positioning itself right in the middle of it. Speaking on the award and what it means for the company's future, Rolling Cargo Director Mohamed Abdi said the shifting trade environment presents both opportunity and responsibility. \"Our vision is to deepen our presence within the African Continental Free Trade Area and position African businesses to trade with one another and with the global economy using the same efficiency and reliability that has become our hallmark,\" Abdi said. AfCFTA is gradually chipping away at those barriers through infrastructure investment, policy reform and tighter regional cooperation. Still, dropping tariffs alone won't be enough since manufacturers need raw materials delivered on schedule, exporters need their goods reaching new markets and retailers need supply chains they can count on. That's the gap freight forwarders like Rolling Cargo are stepping in to fill, offering not just transport but integrated solutions built around speed, compliance, technology and full visibility over the shipping process.",
         ],
       },
       {
         title: "How has Rolling Cargo expanded its logistics network?",
         content: [
-          "Rolling Cargo's own story stretches back 18 years, starting in Nairobi with a key operational base in Mombasa. The company has since built a network stretching into China, the United Arab Emirates, the United Kingdom, the Netherlands, Italy, Turkey, South Africa and Germany, connecting Kenyan and East African businesses to some of the world's biggest manufacturing and commercial hubs. Despite that global reach, Abdi insists Africa remains the company's long-term focus. "We believe businesses across Africa deserve access to seamless, professional and trustworthy global logistics services," he said.",
-          "Rolling Cargo holds ISO certification alongside Authorised Economic Operator (AEO) accreditation, both of which signal compliance with strict operational, security and customs standards. Abdi said the accreditations give clients peace of mind, no matter how their cargo travels. "Together these accreditations are a guarantee to every client that their cargo is in safe, compliant and professional hands," he said.",
+          "Rolling Cargo's own story stretches back 18 years, starting in Nairobi with a key operational base in Mombasa. The company has since built a network stretching into China, the United Arab Emirates, the United Kingdom, the Netherlands, Italy, Turkey, South Africa and Germany, connecting Kenyan and East African businesses to some of the world's biggest manufacturing and commercial hubs. Despite that global reach, Abdi insists Africa remains the company's long-term focus. \"We believe businesses across Africa deserve access to seamless, professional and trustworthy global logistics services,\" he said.",
+          'Rolling Cargo holds ISO certification alongside Authorised Economic Operator (AEO) accreditation, both of which signal compliance with strict operational, security and customs standards. Abdi said the accreditations give clients peace of mind, no matter how their cargo travels. "Together these accreditations are a guarantee to every client that their cargo is in safe, compliant and professional hands," he said.',
         ],
       },
       {
         title: "How is Rolling Cargo helping businesses benefit from AfCFTA?",
         content: [
           "Small and medium-sized enterprises make up a growing share of Rolling Cargo's client base, alongside larger firms managing complex international supply chains. Many small and medium-sized businesses looking to enter regional markets continue to face logistics challenges, including expensive transport, complicated customs processes and extensive shipping documentation. Rolling Cargo has also poured resources into training its workforce in freight operations, trade regulations, customs compliance and customer service, while adopting technology to improve real-time shipment tracking, a feature customers increasingly expect. Kenya's position as East Africa's commercial hub means the achievements of logistics companies such as Rolling Cargo have wider significance beyond the company's latest international recognition. Strong logistics networks boost the country's competitiveness, support exporters and cement the Port of Mombasa's place as a key regional trade corridor.",
-          "Looking ahead, Abdi said the company's next chapter will centre on helping African businesses of all sizes tap into the opportunities a more connected continent has to offer. "Our ambition is to ensure that businesses, regardless of their size, have access to logistics solutions that allow them to compete confidently in regional and global markets," he said.",
+          'Looking ahead, Abdi said the company\'s next chapter will centre on helping African businesses of all sizes tap into the opportunities a more connected continent has to offer. "Our ambition is to ensure that businesses, regardless of their size, have access to logistics solutions that allow them to compete confidently in regional and global markets," he said.',
         ],
       },
     ],
@@ -1563,7 +1566,6 @@ export const blogPosts: BlogPost[] = [
     image: "/Elite Awards.JPG",
     author: "Rolling Cargo",
   },
-  
 ];
 
 // Offices Data (Contact Us Page)
@@ -1583,32 +1585,70 @@ export const offices: Office[] = [
       "Sheikh Abdullas F. Rd, Opposite Alliance Medical Centre Bondeni, Kilifi Corner, Mombasa.",
   },
   {
-    name: "UAE – Dubai",
+    name: "UAE â€“ Dubai",
     phone: "+97 155 919 6774",
     email: "salesinquiries@rollingcargo.co.ke",
     address:
       "Deira, Sabkha Road, Behind Sabkha Bus Station Sabkha Building 1st floor RM 118. Warehouse at Al Hamriya port side gate No.9 next to Mosque Sheikh Murr.",
   },
   {
-    name: "China – Guangzhou (Air Shipment)",
-    chineseName: "中国 – 广州（空运）",
-    phone:
+    name: "China â€“ Guangzhou (Air Shipment)",
+    chineseName: "ä¸­å›½ â€“ å¹¿å·žï¼ˆç©ºè¿ï¼‰",
+    phone: "Helen+8618826260043 (WhatsApp), Liuan +8618826260042 (WeChat)",
+    chinesePhone:
       "Helen+8618826260043 (WhatsApp), Liuan +8618826260042 (WeChat)",
-    chinesePhone: "Helen+8618826260043 (WhatsApp), Liuan +8618826260042 (WeChat)",
     email: "salesinquiries@rollingcargo.co.ke",
-    address:
-      "CHINA AIR WAREHOUSE ADDRESS\n\nUnit 102, Building E\nShengli Industrial Zone, Lishui Town, Nanhai District, Foshan, Guangdong\nHelen+8618826260043 (WhatsApp)\nLiuan +8618826260042 (WeChat)\n\n Kindly ask your supplier to write your
+    address: `CHINA AIR WAREHOUSE ADDRESS
 
-Name and Number on the package,
+Unit 102, Building E
+Shengli Industrial Zone, Lishui Town, Nanhai District, Foshan, Guangdong
 
-Specify mode of shipping air, for fragile goods inform supplier to package well and also inform our China offices.Supplier must also attach a well detailed packing list showing name of items, quantity and the weight. This is very important thanks! ROLLING CARGO 空运地址：\n广东省佛山市南海区里水镇 东秀路胜利工业区 11 号 E 栋 102\nHelen+8618826260043 (WhatsApp)\nLiuan +8618826260042 (WeChat)\n货物外箱每箱必须标注 国外客户姓名电话号码以及空运，\n再附上装箱单发到仓库，如唛头信息不齐，仓库拒收\n（上班时间周一至周六 11 点～19 点）",
-    chineseAddress:
-      "CHINA AIR WAREHOUSE ADDRESS\n\nUnit 102, Building E\nShengli Industrial Zone, Lishui Town, Nanhai District, Foshan, Guangdong\nHelen+8618826260043 (WhatsApp)\nLiuan +8618826260042 (WeChat)\n\nROLLING CARGO 空运地址：\n广东省佛山市南海区里水镇 东秀路胜利工业区 11 号 E 栋 102\nHelen+8618826260043 (WhatsApp)\nLiuan +8618826260042 (WeChat)\n货物外箱每箱必须标注 国外客户姓名电话号码以及空运，\n再附上装箱单发到仓库，如唛头信息不齐，仓库拒收\n（上班时间周一至周六 11 点～19 点）",
+Helen +8618826260043 (WhatsApp)
+Liuan +8618826260042 (WeChat)
+
+Kindly ask your supplier to write your name and phone number on the package.
+
+Specify AIR shipment.
+
+For fragile goods, inform the supplier to package them properly and also notify our China office.
+
+The supplier must attach a detailed packing list showing:
+â€¢ Item names
+â€¢ Quantity
+â€¢ Weight
+
+ROLLING CARGO ç©ºè¿åœ°å€ï¼š
+å¹¿ä¸œçœä½›å±±å¸‚å—æµ·åŒºé‡Œæ°´é•‡ä¸œç§€è·¯èƒœåˆ©å·¥ä¸šåŒº11å·Eæ ‹102
+
+Helen +8618826260043 (WhatsApp)
+Liuan +8618826260042 (WeChat)
+
+è´§ç‰©å¤–ç®±æ¯ç®±å¿…é¡»æ ‡æ³¨å›½å¤–å®¢æˆ·å§“åç”µè¯å·ç ä»¥åŠç©ºè¿ï¼Œ
+å†é™„ä¸Šè£…ç®±å•å‘åˆ°ä»“åº“ï¼Œå¦‚å”›å¤´ä¿¡æ¯ä¸é½ï¼Œä»“åº“æ‹’æ”¶ã€‚
+ï¼ˆä¸Šç­æ—¶é—´ï¼šå‘¨ä¸€è‡³å‘¨å…­ 11:00â€“19:00ï¼‰`,
+    chineseAddress: `CHINA AIR WAREHOUSE ADDRESS
+
+Unit 102, Building E
+Shengli Industrial Zone, Lishui Town, Nanhai District, Foshan, Guangdong
+
+Helen +8618826260043 (WhatsApp)
+Liuan +8618826260042 (WeChat)
+
+ROLLING CARGO ç©ºè¿åœ°å€ï¼š
+å¹¿ä¸œçœä½›å±±å¸‚å—æµ·åŒºé‡Œæ°´é•‡ä¸œç§€è·¯èƒœåˆ©å·¥ä¸šåŒº11å·Eæ ‹102
+
+Helen +8618826260043 (WhatsApp)
+Liuan +8618826260042 (WeChat)
+
+è´§ç‰©å¤–ç®±æ¯ç®±å¿…é¡»æ ‡æ³¨å›½å¤–å®¢æˆ·å§“åç”µè¯å·ç ä»¥åŠç©ºè¿ï¼Œ
+å†é™„ä¸Šè£…ç®±å•å‘åˆ°ä»“åº“ï¼Œå¦‚å”›å¤´ä¿¡æ¯ä¸é½ï¼Œä»“åº“æ‹’æ”¶ã€‚
+ï¼ˆä¸Šç­æ—¶é—´ï¼šå‘¨ä¸€è‡³å‘¨å…­ 11:00â€“19:00ï¼‰`,
   },
   {
-    name: "China – Guangzhou (Sea Shipment)",
-    chineseName: "中国 – 广州（海运）",
-    phone: "Lenah+8619927462062 (WhatsApp), Awei+8618826260044 (WeChat), Kevin+8619927449452 (WeChat)",
+    name: "China â€“ Guangzhou (Sea Shipment)",
+    chineseName: "ä¸­å›½ â€“ å¹¿å·žï¼ˆæµ·è¿ï¼‰",
+    phone:
+      "Lenah+8619927462062 (WhatsApp), Awei+8618826260044 (WeChat), Kevin+8619927449452 (WeChat)",
     chinesePhone:
       "Lenah+8619927462062 (WhatsApp), Awei+8618826260044 (WeChat), Kevin+8619927449452 (WeChat)",
     email: "salesinquiries@rollingcargo.co.ke",
@@ -1622,13 +1662,13 @@ Kevin+8619927449452 (WeChat)
 Kindly ask your supplier to write your name and number on the package,
 mode of shipping sea very important thanks!
 
-ROLLING CARGO 海运地址：
-广东省佛山市南海区里水镇东秀路胜利工业区 11 号 E 栋 101
+ROLLING CARGO æµ·è¿åœ°å€ï¼š
+å¹¿ä¸œçœä½›å±±å¸‚å—æµ·åŒºé‡Œæ°´é•‡ä¸œç§€è·¯èƒœåˆ©å·¥ä¸šåŒº 11 å· E æ ‹ 101
 Awei+8618826260044  
 Kevin+8619927449452
-货物外箱每箱必须标注 国外客户姓名电话号码以及海运，
-再附上装箱单发到仓库，如唛头信息不齐，仓库拒收
-（上班时间周一至周六 11 点～18 点）`,
+è´§ç‰©å¤–ç®±æ¯ç®±å¿…é¡»æ ‡æ³¨ å›½å¤–å®¢æˆ·å§“åç”µè¯å·ç ä»¥åŠæµ·è¿ï¼Œ
+å†é™„ä¸Šè£…ç®±å•å‘åˆ°ä»“åº“ï¼Œå¦‚å”›å¤´ä¿¡æ¯ä¸é½ï¼Œä»“åº“æ‹’æ”¶
+ï¼ˆä¸Šç­æ—¶é—´å‘¨ä¸€è‡³å‘¨å…­ 11 ç‚¹ï½ž18 ç‚¹ï¼‰`,
     chineseAddress: `CHINA SEA WAREHOUSE ADDRESS
 
 Unit 101, Building E
@@ -1639,35 +1679,35 @@ Kevin+8619927449452 (WeChat)
 Kindly ask your supplier to write your name and number on the package,
 mode of shipping sea very important thanks!
 
-ROLLING CARGO 海运地址：
-广东省佛山市南海区里水镇东秀路胜利工业区 11 号 E 栋 101
+ROLLING CARGO æµ·è¿åœ°å€ï¼š
+å¹¿ä¸œçœä½›å±±å¸‚å—æµ·åŒºé‡Œæ°´é•‡ä¸œç§€è·¯èƒœåˆ©å·¥ä¸šåŒº 11 å· E æ ‹ 101
 Awei+8618826260044  
 Kevin+8619927449452
-货物外箱每箱必须标注 国外客户姓名电话号码以及海运，
-再附上装箱单发到仓库，如唛头信息不齐，仓库拒收
-（上班时间周一至周六 11 点～18 点）`,
+è´§ç‰©å¤–ç®±æ¯ç®±å¿…é¡»æ ‡æ³¨ å›½å¤–å®¢æˆ·å§“åç”µè¯å·ç ä»¥åŠæµ·è¿ï¼Œ
+å†é™„ä¸Šè£…ç®±å•å‘åˆ°ä»“åº“ï¼Œå¦‚å”›å¤´ä¿¡æ¯ä¸é½ï¼Œä»“åº“æ‹’æ”¶
+ï¼ˆä¸Šç­æ—¶é—´å‘¨ä¸€è‡³å‘¨å…­ 11 ç‚¹ï½ž18 ç‚¹ï¼‰`,
   },
   {
-    name: "U.K – London",
+    name: "U.K â€“ London",
     phone: "+44 7447 959259",
     email: "salesinquiries@rollingcargo.co.ke",
     address: "Unit 3 Alpha Estate Clayton Road Hayes Middlesex, UB3 1BB",
   },
   {
-    name: "Turkey – Instanbul",
+    name: "Turkey â€“ Instanbul",
     phone: "+905526128645",
     email: "salesinquiries@rollingcargo.co.ke",
     address:
-      "Saraç İshak Mah. Turanlı Sok. No:12 Safir İ˛Merkezi D. 304-312. Beyazıt v.d 3710200842 Beyazıt / İSTANBUL / TÜRKİYE.",
+      "SaraÃ§ Ä°shak Mah. TuranlÄ± Sok. No:12 Safir Ä°Ë›Merkezi D. 304-312. BeyazÄ±t v.d 3710200842 BeyazÄ±t / Ä°STANBUL / TÃœRKÄ°YE.",
   },
   {
-    name: "Europe – Netherlands",
+    name: "Europe â€“ Netherlands",
     phone: "+31 610624607",
     email: "salesinquiries@rollingcargo.co.ke",
     address: "Zuid-Afrikaweg 12-K1432 DA Aalsmeer Netherlands",
   },
   {
-    name: "Europe – Italy",
+    name: "Europe â€“ Italy",
     phone: "+393716953158",
     email: "salesinquiries@rollingcargo.co.ke",
     address: "Via Montorfano 98, 20831 Seregno (MB)",
@@ -1729,12 +1769,12 @@ export const faqData: FAQItem[] = [
   {
     question:
       "What are your new working days in Dubai with the revised weekend?",
-    answer: "Our Dubai office is open everyday from 9AM – 10PM.",
+    answer: "Our Dubai office is open everyday from 9AM â€“ 10PM.",
   },
   {
     question: "Do you ship from the USA?",
     answer:
-      "Currently we don't have an office in USA, and for this reason we are unable to ship.😔",
+      "Currently we don't have an office in USA, and for this reason we are unable to ship.ðŸ˜”",
   },
   {
     question: "How can I track my package?",
@@ -1781,22 +1821,22 @@ export const countries: Country[] = [
     email: "salesinquiries@rollingcargo.co.ke",
   },
   {
-    name: "Europe – Italy",
+    name: "Europe â€“ Italy",
     phone: "+393716953158",
     email: "salesinquiries@rollingcargo.co.ke",
   },
   {
-    name: "Europe – Netherlands",
+    name: "Europe â€“ Netherlands",
     phone: "+31 610624607",
     email: "salesinquiries@rollingcargo.co.ke",
   },
   {
-    name: "Turkey – Istanbul",
+    name: "Turkey â€“ Istanbul",
     phone: "+905526128645",
     email: "salesinquiries@rollingcargo.co.ke",
   },
   {
-    name: "U.K – London",
+    name: "U.K â€“ London",
     phone: "+44 7447 959259",
     email: "salesinquiries@rollingcargo.co.ke",
   },
@@ -1865,7 +1905,7 @@ export interface CurrencyInfo {
 }
 
 export const currencyMap: Record<CountryName, CurrencyInfo> = {
-  UK: { code: "GBP", symbol: "£", rate: 0.79 },
+  UK: { code: "GBP", symbol: "Â£", rate: 0.79 },
   China: { code: "KSH", symbol: "KSH", rate: 1 },
   Turkey: { code: "USD", symbol: "$", rate: 1 },
   Netherlands: { code: "USD", symbol: "$", rate: 1 },
@@ -1878,20 +1918,20 @@ export const airFreightRates: Record<
   CountryName,
   { baseRate: number; minimumRate?: number; currency?: string }
 > = {
-  UK: { baseRate: 6.49, currency: "GBP" }, // £6.49 per kg
-  China: { baseRate: 12, minimumRate: 15, currency: "USD" }, // $12 per kg, $15 minimum for ≤1kg
+  UK: { baseRate: 6.49, currency: "GBP" }, // Â£6.49 per kg
+  China: { baseRate: 12, minimumRate: 15, currency: "USD" }, // $12 per kg, $15 minimum for â‰¤1kg
   Turkey: { baseRate: 7.5, currency: "USD" }, // $7.5 per kg
   Netherlands: { baseRate: 11, currency: "USD" }, // $11 per kg
   Italy: { baseRate: 11, currency: "USD" }, // $11 per kg
   "South Africa": { baseRate: 13, currency: "USD" }, // $13 per kg
-  Dubai: { baseRate: 8, minimumRate: 10, currency: "USD" }, // $8 per kg, $10 minimum for ≤1kg
+  Dubai: { baseRate: 8, minimumRate: 10, currency: "USD" }, // $8 per kg, $10 minimum for â‰¤1kg
 };
 
 export const handlingFees: Record<
   CountryName,
   { air: number; sea?: number; airCurrency?: string; seaCurrency?: string }
 > = {
-  UK: { air: 25, sea: 15, airCurrency: "GBP", seaCurrency: "GBP" }, // £25 air, £15 sea
+  UK: { air: 25, sea: 15, airCurrency: "GBP", seaCurrency: "GBP" }, // Â£25 air, Â£15 sea
   China: { air: 0, sea: 0 }, // No handling fees
   Turkey: { air: 0, sea: 10, seaCurrency: "USD" }, // $10 sea handling
   Netherlands: { air: 40, sea: 20, airCurrency: "USD", seaCurrency: "USD" }, // $40 air, $20 sea
@@ -1903,9 +1943,9 @@ export const handlingFees: Record<
 export const seaFreightRates: Partial<
   Record<CountryName, SeaFreightRate & { currency?: string }>
 > = {
-  UK: { regular: 5, currency: "GBP" }, // £5 per CBM
-  Dubai: { regular: 60000, small: 12000, currency: "KSH" }, // KSH 60,000 per CBM, KSH 12,000 for ≤0.2CBM
-  China: { regular: 60000, small: 12000, currency: "KSH" }, // KSH 60,000 per CBM, KSH 12,000 for ≤0.2CBM
+  UK: { regular: 5, currency: "GBP" }, // Â£5 per CBM
+  Dubai: { regular: 60000, small: 12000, currency: "KSH" }, // KSH 60,000 per CBM, KSH 12,000 for â‰¤0.2CBM
+  China: { regular: 60000, small: 12000, currency: "KSH" }, // KSH 60,000 per CBM, KSH 12,000 for â‰¤0.2CBM
   Turkey: { regular: 750, currency: "USD" }, // $750 per CBM
   Netherlands: { regular: 10, currency: "USD" }, // $10 per CBM
 };
