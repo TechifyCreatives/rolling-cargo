@@ -449,28 +449,28 @@ export const recentShipments: RecentShipment[] = [
   {
     id: "RC001",
     client: "Safaricom Ltd",
-    route: "Nairobi â†’ Mombasa",
+    route: "Nairobi → Mombasa",
     status: "delivered",
     amount: 15000,
   },
   {
     id: "RC002",
     client: "KCB Bank",
-    route: "Mombasa â†’ Kisumu",
+    route: "Mombasa → Kisumu",
     status: "transit",
     amount: 22000,
   },
   {
     id: "RC003",
     client: "Equity Bank",
-    route: "Nairobi â†’ Eldoret",
+    route: "Nairobi → Eldoret",
     status: "pending",
     amount: 18500,
   },
   {
     id: "RC004",
     client: "East African Breweries",
-    route: "Mombasa â†’ Nairobi",
+    route: "Mombasa → Nairobi",
     status: "delivered",
     amount: 31000,
   },
@@ -612,8 +612,8 @@ export const aboutContent: AboutContent = {
     "full, and compliant with all regulatory requirements.\n\n" +
     "Our Freight Services\n" +
     "We offer tailored shipping services to meet business needs:\n" +
-    "Air Freight â€“ Fast, secure shipping for time-sensitive cargo\n" +
-    "Sea Freight â€“ Cost-effective solutions for bulk shipments\n" +
+    "Air Freight – Fast, secure shipping for time-sensitive cargo\n" +
+    "Sea Freight – Cost-effective solutions for bulk shipments\n" +
     "Rolling Cargo facilitates imports from key sourcing destinations, including:\n" +
     "China, United Arab Emirates, United Kingdom, Turkey, Netherlands, South Africa, Italy.\n\n" +
     "Why Businesses Trust Rolling Cargo\n" +
@@ -1192,7 +1192,7 @@ export const blogPosts: BlogPost[] = [
       {
         title: "Overview",
         content: [
-          "Want to access amazing products and prices from Amazon UAE? Rolling Cargo makes it easy to shop, ship, and receive your items in Kenya â€” fast and stress-free.",
+          "Want to access amazing products and prices from Amazon UAE? Rolling Cargo makes it easy to shop, ship, and receive your items in Kenya — fast and stress-free.",
         ],
       },
       {
@@ -1205,7 +1205,7 @@ export const blogPosts: BlogPost[] = [
         title: "Step 2: Use Our Dubai Office Address at Checkout",
         content: [
           "When you're ready to check out, enter this delivery address:",
-          "Rolling Cargo â€“ Office Address",
+          "Rolling Cargo – Office Address",
           "City: Dubai",
           "District/Area: Deira",
           "Street: Sabkha Road",
@@ -1278,13 +1278,13 @@ export const blogPosts: BlogPost[] = [
         content: [
           "1. Shop online and use our UK warehouse address as your delivery destination.",
           "2. We consolidate, ship, and clear your items.",
-          "3. Your order arrives safely in Kenya â€“ fast, secure, and affordable.",
+          "3. Your order arrives safely in Kenya – fast, secure, and affordable.",
         ],
       },
       {
         title: "Fast and Reliable Shipping",
         content: [
-          "âœˆï¸ Our UK flights depart every Friday. Shopping has never been easier.",
+          "✈️ Our UK flights depart every Friday. Shopping has never been easier.",
         ],
       },
     ],
@@ -1294,7 +1294,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 12,
-    title: "Ship from the UK to Kenya â€” Fast, Simple, and Worry-Free",
+    title: "Ship from the UK to Kenya — Fast, Simple, and Worry-Free",
     excerpt:
       "Shipping from the UK for the first time? Rolling Cargo makes it easy. From choosing trusted shops to ensuring your packages reach Kenya safely, we've got you covered.",
     sections: [
@@ -1331,11 +1331,11 @@ export const blogPosts: BlogPost[] = [
         title: "Step 3: Track Your Shipment to Kenya",
         content: [
           "Once your items arrive at our UK warehouse, we handle:",
-          "â€¢ Package consolidation",
-          "â€¢ Customs clearance",
-          "â€¢ Doorstep delivery in Kenya",
+          "• Package consolidation",
+          "• Customs clearance",
+          "• Doorstep delivery in Kenya",
           "",
-          "Stay updated every step of the way â€” from UK checkout to your home or business.",
+          "Stay updated every step of the way — from UK checkout to your home or business.",
         ],
       },
       {
@@ -1374,10 +1374,10 @@ export const blogPosts: BlogPost[] = [
         title: "Air Freight: Fast and Reliable",
         content: [
           "Air freight is ideal when speed matters. It typically takes 3 to 7 days to arrive, making it the best choice for:",
-          "â€¢ Urgent shipments",
-          "â€¢ Small or lightweight packages",
-          "â€¢ Fragile or high-value goods (e.g., electronics, designer items)",
-          "â€¢ E-commerce restocks",
+          "• Urgent shipments",
+          "• Small or lightweight packages",
+          "• Fragile or high-value goods (e.g., electronics, designer items)",
+          "• E-commerce restocks",
           "",
           "At Rolling Cargo, we offer weekly air shipments from major hubs including the UAE, UK, South Africa, China, Turkey, Netherlands and Italy.",
         ],
@@ -1386,9 +1386,9 @@ export const blogPosts: BlogPost[] = [
         title: "Sea Freight: Cost-Effective for Bulk Cargo",
         content: [
           "Sea freight is your go-to when you're shipping large volumes or working with a tighter budget. While delivery takes longer, it's much more affordable for:",
-          "â€¢ Heavy or bulky items (e.g., furniture, machinery)",
-          "â€¢ Wholesale and inventory restock",
-          "â€¢ Planned or non-urgent shipments",
+          "• Heavy or bulky items (e.g., furniture, machinery)",
+          "• Wholesale and inventory restock",
+          "• Planned or non-urgent shipments",
           "",
           "We also offer consolidation services, so you can ship multiple packages together at reduced rates.",
         ],
@@ -1460,17 +1460,17 @@ export const blogPosts: BlogPost[] = [
       {
         title: "How to Calculate Volumetric Weight",
         content: [
-          "Measure the package in centimeters: Length Ã— Width Ã— Height Ã· 6,000",
+          "Measure the package in centimeters: Length × Width × Height ÷ 6,000",
           "The answer gives you the volumetric weight in kilograms.",
-          "Example: If a carton measures 60 cm Ã— 50 cm Ã— 40 cm:",
-          "60 Ã— 50 Ã— 40 = 120,000 Ã· 6,000 = 20 kg",
+          "Example: If a carton measures 60 cm × 50 cm × 40 cm:",
+          "60 × 50 × 40 = 120,000 ÷ 6,000 = 20 kg",
           "Even if the carton weighs only 8 kg, the chargeable weight will be 20 kg because it occupies more space.",
         ],
       },
       {
         title: "Why Volumetric Weight Matters",
         content: [
-          "Airlines charge for both space and weight. Large but lightweight items â€” such as pillows, lampshades, plastic products, and shoe boxes â€” can attract higher shipping charges because they take up more room.",
+          "Airlines charge for both space and weight. Large but lightweight items — such as pillows, lampshades, plastic products, and shoe boxes — can attract higher shipping charges because they take up more room.",
         ],
       },
       {
@@ -1512,7 +1512,7 @@ export const blogPosts: BlogPost[] = [
       {
         title: "What Rolling Cargo Requires",
         content: [
-          "At Rolling Cargo, the shipping mark is very simple. It is your name, your phone number, and your shipping method â€” either air or sea.",
+          "At Rolling Cargo, the shipping mark is very simple. It is your name, your phone number, and your shipping method — either air or sea.",
           "This is what we use in our warehouses, especially in China, to sort cargo correctly. We have separate handling for air and sea shipments, so this detail is important.",
         ],
       },
@@ -1585,15 +1585,15 @@ export const offices: Office[] = [
       "Sheikh Abdullas F. Rd, Opposite Alliance Medical Centre Bondeni, Kilifi Corner, Mombasa.",
   },
   {
-    name: "UAE â€“ Dubai",
+    name: "UAE – Dubai",
     phone: "+97 155 919 6774",
     email: "salesinquiries@rollingcargo.co.ke",
     address:
       "Deira, Sabkha Road, Behind Sabkha Bus Station Sabkha Building 1st floor RM 118. Warehouse at Al Hamriya port side gate No.9 next to Mosque Sheikh Murr.",
   },
   {
-    name: "China â€“ Guangzhou (Air Shipment)",
-    chineseName: "ä¸­å›½ â€“ å¹¿å·žï¼ˆç©ºè¿ï¼‰",
+    name: "China – Guangzhou (Air Shipment)",
+    chineseName: "中国 – 广州（空运）",
     phone: "Helen+8618826260043 (WhatsApp), Liuan +8618826260042 (WeChat)",
     chinesePhone:
       "Helen+8618826260043 (WhatsApp), Liuan +8618826260042 (WeChat)",
@@ -1613,19 +1613,19 @@ Specify AIR shipment.
 For fragile goods, inform the supplier to package them properly and also notify our China office.
 
 The supplier must attach a detailed packing list showing:
-â€¢ Item names
-â€¢ Quantity
-â€¢ Weight
+• Item names
+• Quantity
+• Weight
 
-ROLLING CARGO ç©ºè¿åœ°å€ï¼š
-å¹¿ä¸œçœä½›å±±å¸‚å—æµ·åŒºé‡Œæ°´é•‡ä¸œç§€è·¯èƒœåˆ©å·¥ä¸šåŒº11å·Eæ ‹102
+ROLLING CARGO 空运地址：
+广东省佛山市南海区里水镇东秀路胜利工业区11号E栋102
 
 Helen +8618826260043 (WhatsApp)
 Liuan +8618826260042 (WeChat)
 
-è´§ç‰©å¤–ç®±æ¯ç®±å¿…é¡»æ ‡æ³¨å›½å¤–å®¢æˆ·å§“åç”µè¯å·ç ä»¥åŠç©ºè¿ï¼Œ
-å†é™„ä¸Šè£…ç®±å•å‘åˆ°ä»“åº“ï¼Œå¦‚å”›å¤´ä¿¡æ¯ä¸é½ï¼Œä»“åº“æ‹’æ”¶ã€‚
-ï¼ˆä¸Šç­æ—¶é—´ï¼šå‘¨ä¸€è‡³å‘¨å…­ 11:00â€“19:00ï¼‰`,
+货物外箱每箱必须标注国外客户姓名电话号码以及空运，
+再附上装箱单发到仓库，如唛头信息不齐，仓库拒收。
+（上班时间：周一至周六 11:00–19:00）`,
     chineseAddress: `CHINA AIR WAREHOUSE ADDRESS
 
 Unit 102, Building E
@@ -1634,19 +1634,19 @@ Shengli Industrial Zone, Lishui Town, Nanhai District, Foshan, Guangdong
 Helen +8618826260043 (WhatsApp)
 Liuan +8618826260042 (WeChat)
 
-ROLLING CARGO ç©ºè¿åœ°å€ï¼š
-å¹¿ä¸œçœä½›å±±å¸‚å—æµ·åŒºé‡Œæ°´é•‡ä¸œç§€è·¯èƒœåˆ©å·¥ä¸šåŒº11å·Eæ ‹102
+ROLLING CARGO 空运地址：
+广东省佛山市南海区里水镇东秀路胜利工业区11号E栋102
 
 Helen +8618826260043 (WhatsApp)
 Liuan +8618826260042 (WeChat)
 
-è´§ç‰©å¤–ç®±æ¯ç®±å¿…é¡»æ ‡æ³¨å›½å¤–å®¢æˆ·å§“åç”µè¯å·ç ä»¥åŠç©ºè¿ï¼Œ
-å†é™„ä¸Šè£…ç®±å•å‘åˆ°ä»“åº“ï¼Œå¦‚å”›å¤´ä¿¡æ¯ä¸é½ï¼Œä»“åº“æ‹’æ”¶ã€‚
-ï¼ˆä¸Šç­æ—¶é—´ï¼šå‘¨ä¸€è‡³å‘¨å…­ 11:00â€“19:00ï¼‰`,
+货物外箱每箱必须标注国外客户姓名电话号码以及空运，
+再附上装箱单发到仓库，如唛头信息不齐，仓库拒收。
+（上班时间：周一至周六 11:00–19:00）`,
   },
   {
-    name: "China â€“ Guangzhou (Sea Shipment)",
-    chineseName: "ä¸­å›½ â€“ å¹¿å·žï¼ˆæµ·è¿ï¼‰",
+    name: "China – Guangzhou (Sea Shipment)",
+    chineseName: "中国 – 广州（海运）",
     phone:
       "Lenah+8619927462062 (WhatsApp), Awei+8618826260044 (WeChat), Kevin+8619927449452 (WeChat)",
     chinesePhone:
@@ -1662,13 +1662,13 @@ Kevin+8619927449452 (WeChat)
 Kindly ask your supplier to write your name and number on the package,
 mode of shipping sea very important thanks!
 
-ROLLING CARGO æµ·è¿åœ°å€ï¼š
-å¹¿ä¸œçœä½›å±±å¸‚å—æµ·åŒºé‡Œæ°´é•‡ä¸œç§€è·¯èƒœåˆ©å·¥ä¸šåŒº 11 å· E æ ‹ 101
+ROLLING CARGO 海运地址：
+广东省佛山市南海区里水镇东秀路胜利工业区 11 号 E 栋 101
 Awei+8618826260044  
 Kevin+8619927449452
-è´§ç‰©å¤–ç®±æ¯ç®±å¿…é¡»æ ‡æ³¨ å›½å¤–å®¢æˆ·å§“åç”µè¯å·ç ä»¥åŠæµ·è¿ï¼Œ
-å†é™„ä¸Šè£…ç®±å•å‘åˆ°ä»“åº“ï¼Œå¦‚å”›å¤´ä¿¡æ¯ä¸é½ï¼Œä»“åº“æ‹’æ”¶
-ï¼ˆä¸Šç­æ—¶é—´å‘¨ä¸€è‡³å‘¨å…­ 11 ç‚¹ï½ž18 ç‚¹ï¼‰`,
+货物外箱每箱必须标注 国外客户姓名电话号码以及海运，
+再附上装箱单发到仓库，如唛头信息不齐，仓库拒收
+（上班时间周一至周六 11 点～18 点）`,
     chineseAddress: `CHINA SEA WAREHOUSE ADDRESS
 
 Unit 101, Building E
@@ -1679,35 +1679,35 @@ Kevin+8619927449452 (WeChat)
 Kindly ask your supplier to write your name and number on the package,
 mode of shipping sea very important thanks!
 
-ROLLING CARGO æµ·è¿åœ°å€ï¼š
-å¹¿ä¸œçœä½›å±±å¸‚å—æµ·åŒºé‡Œæ°´é•‡ä¸œç§€è·¯èƒœåˆ©å·¥ä¸šåŒº 11 å· E æ ‹ 101
+ROLLING CARGO 海运地址：
+广东省佛山市南海区里水镇东秀路胜利工业区 11 号 E 栋 101
 Awei+8618826260044  
 Kevin+8619927449452
-è´§ç‰©å¤–ç®±æ¯ç®±å¿…é¡»æ ‡æ³¨ å›½å¤–å®¢æˆ·å§“åç”µè¯å·ç ä»¥åŠæµ·è¿ï¼Œ
-å†é™„ä¸Šè£…ç®±å•å‘åˆ°ä»“åº“ï¼Œå¦‚å”›å¤´ä¿¡æ¯ä¸é½ï¼Œä»“åº“æ‹’æ”¶
-ï¼ˆä¸Šç­æ—¶é—´å‘¨ä¸€è‡³å‘¨å…­ 11 ç‚¹ï½ž18 ç‚¹ï¼‰`,
+货物外箱每箱必须标注 国外客户姓名电话号码以及海运，
+再附上装箱单发到仓库，如唛头信息不齐，仓库拒收
+（上班时间周一至周六 11 点～18 点）`,
   },
   {
-    name: "U.K â€“ London",
+    name: "U.K – London",
     phone: "+44 7447 959259",
     email: "salesinquiries@rollingcargo.co.ke",
     address: "Unit 3 Alpha Estate Clayton Road Hayes Middlesex, UB3 1BB",
   },
   {
-    name: "Turkey â€“ Instanbul",
+    name: "Turkey – Instanbul",
     phone: "+905526128645",
     email: "salesinquiries@rollingcargo.co.ke",
     address:
-      "SaraÃ§ Ä°shak Mah. TuranlÄ± Sok. No:12 Safir Ä°Ë›Merkezi D. 304-312. BeyazÄ±t v.d 3710200842 BeyazÄ±t / Ä°STANBUL / TÃœRKÄ°YE.",
+      "Saraç İshak Mah. Turanlı Sok. No:12 Safir İ˛Merkezi D. 304-312. Beyazıt v.d 3710200842 Beyazıt / İSTANBUL / TÜRKİYE.",
   },
   {
-    name: "Europe â€“ Netherlands",
+    name: "Europe – Netherlands",
     phone: "+31 610624607",
     email: "salesinquiries@rollingcargo.co.ke",
     address: "Zuid-Afrikaweg 12-K1432 DA Aalsmeer Netherlands",
   },
   {
-    name: "Europe â€“ Italy",
+    name: "Europe – Italy",
     phone: "+393716953158",
     email: "salesinquiries@rollingcargo.co.ke",
     address: "Via Montorfano 98, 20831 Seregno (MB)",
@@ -1769,12 +1769,12 @@ export const faqData: FAQItem[] = [
   {
     question:
       "What are your new working days in Dubai with the revised weekend?",
-    answer: "Our Dubai office is open everyday from 9AM â€“ 10PM.",
+    answer: "Our Dubai office is open everyday from 9AM – 10PM.",
   },
   {
     question: "Do you ship from the USA?",
     answer:
-      "Currently we don't have an office in USA, and for this reason we are unable to ship.ðŸ˜”",
+      "Currently we don't have an office in USA, and for this reason we are unable to ship.😔",
   },
   {
     question: "How can I track my package?",
@@ -1821,22 +1821,22 @@ export const countries: Country[] = [
     email: "salesinquiries@rollingcargo.co.ke",
   },
   {
-    name: "Europe â€“ Italy",
+    name: "Europe – Italy",
     phone: "+393716953158",
     email: "salesinquiries@rollingcargo.co.ke",
   },
   {
-    name: "Europe â€“ Netherlands",
+    name: "Europe – Netherlands",
     phone: "+31 610624607",
     email: "salesinquiries@rollingcargo.co.ke",
   },
   {
-    name: "Turkey â€“ Istanbul",
+    name: "Turkey – Istanbul",
     phone: "+905526128645",
     email: "salesinquiries@rollingcargo.co.ke",
   },
   {
-    name: "U.K â€“ London",
+    name: "U.K – London",
     phone: "+44 7447 959259",
     email: "salesinquiries@rollingcargo.co.ke",
   },
@@ -1905,7 +1905,7 @@ export interface CurrencyInfo {
 }
 
 export const currencyMap: Record<CountryName, CurrencyInfo> = {
-  UK: { code: "GBP", symbol: "Â£", rate: 0.79 },
+  UK: { code: "GBP", symbol: "£", rate: 0.79 },
   China: { code: "KSH", symbol: "KSH", rate: 1 },
   Turkey: { code: "USD", symbol: "$", rate: 1 },
   Netherlands: { code: "USD", symbol: "$", rate: 1 },
@@ -1918,20 +1918,20 @@ export const airFreightRates: Record<
   CountryName,
   { baseRate: number; minimumRate?: number; currency?: string }
 > = {
-  UK: { baseRate: 6.49, currency: "GBP" }, // Â£6.49 per kg
-  China: { baseRate: 12, minimumRate: 15, currency: "USD" }, // $12 per kg, $15 minimum for â‰¤1kg
+  UK: { baseRate: 6.49, currency: "GBP" }, // £6.49 per kg
+  China: { baseRate: 12, minimumRate: 15, currency: "USD" }, // $12 per kg, $15 minimum for ≤1kg
   Turkey: { baseRate: 7.5, currency: "USD" }, // $7.5 per kg
   Netherlands: { baseRate: 11, currency: "USD" }, // $11 per kg
   Italy: { baseRate: 11, currency: "USD" }, // $11 per kg
   "South Africa": { baseRate: 13, currency: "USD" }, // $13 per kg
-  Dubai: { baseRate: 8, minimumRate: 10, currency: "USD" }, // $8 per kg, $10 minimum for â‰¤1kg
+  Dubai: { baseRate: 8, minimumRate: 10, currency: "USD" }, // $8 per kg, $10 minimum for ≤1kg
 };
 
 export const handlingFees: Record<
   CountryName,
   { air: number; sea?: number; airCurrency?: string; seaCurrency?: string }
 > = {
-  UK: { air: 25, sea: 15, airCurrency: "GBP", seaCurrency: "GBP" }, // Â£25 air, Â£15 sea
+  UK: { air: 25, sea: 15, airCurrency: "GBP", seaCurrency: "GBP" }, // £25 air, £15 sea
   China: { air: 0, sea: 0 }, // No handling fees
   Turkey: { air: 0, sea: 10, seaCurrency: "USD" }, // $10 sea handling
   Netherlands: { air: 40, sea: 20, airCurrency: "USD", seaCurrency: "USD" }, // $40 air, $20 sea
@@ -1943,9 +1943,9 @@ export const handlingFees: Record<
 export const seaFreightRates: Partial<
   Record<CountryName, SeaFreightRate & { currency?: string }>
 > = {
-  UK: { regular: 5, currency: "GBP" }, // Â£5 per CBM
-  Dubai: { regular: 60000, small: 12000, currency: "KSH" }, // KSH 60,000 per CBM, KSH 12,000 for â‰¤0.2CBM
-  China: { regular: 60000, small: 12000, currency: "KSH" }, // KSH 60,000 per CBM, KSH 12,000 for â‰¤0.2CBM
+  UK: { regular: 5, currency: "GBP" }, // £5 per CBM
+  Dubai: { regular: 60000, small: 12000, currency: "KSH" }, // KSH 60,000 per CBM, KSH 12,000 for ≤0.2CBM
+  China: { regular: 60000, small: 12000, currency: "KSH" }, // KSH 60,000 per CBM, KSH 12,000 for ≤0.2CBM
   Turkey: { regular: 750, currency: "USD" }, // $750 per CBM
   Netherlands: { regular: 10, currency: "USD" }, // $10 per CBM
 };
