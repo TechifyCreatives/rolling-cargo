@@ -456,12 +456,13 @@ const Terms = () => {
             <ShieldCheck className="w-3.5 h-3.5" />
             Legal Document
           </div>
-          <h1
+          {/* h2, not h1: the page Banner above already supplies the single h1. */}
+          <h2
             className="text-4xl sm:text-5xl font-bold text-stone-900 leading-tight mb-3"
             style={{ fontFamily: "'Georgia', serif", letterSpacing: "-0.02em" }}
           >
             Terms & Conditions
-          </h1>
+          </h2>
           <p className="text-lg text-stone-500 mb-2" style={{ fontFamily: "system-ui, sans-serif" }}>
             Rolling Cargo Limited
           </p>
