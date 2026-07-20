@@ -37,9 +37,10 @@ const OurServices: React.FC = () => {
             <Image
               src="/image1.jpg"
               alt="Workforce Development"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={70}
+              className="rounded-lg object-cover"
             />
           </div>
           <div>
@@ -71,9 +72,10 @@ const OurServices: React.FC = () => {
             <Image
               src="/image2.jpg"
               alt="Recognising Our Stars"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={70}
+              className="rounded-lg object-cover"
             />
           </div>
         </div>
@@ -83,9 +85,10 @@ const OurServices: React.FC = () => {
             <Image
               src="/image3.jpg"
               alt="Recruiting Globally"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={70}
+              className="rounded-lg object-cover"
             />
           </div>
           <div>

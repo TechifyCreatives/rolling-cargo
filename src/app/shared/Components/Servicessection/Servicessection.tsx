@@ -28,9 +28,11 @@ const Servicessection = () => {
           {/* Image Container */}
           <div className="w-full md:w-1/2 mb-6 md:mb-0">
             <div className="relative w-full h-48 md:h-[600px]">
+              {/* Below the fold: no `priority`. See Onlineshoppingsection. */}
               <Image
                 fill
-                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={70}
                 src="/RC Jan-65.jpg"
                 alt="Shipping and logistics services illustration"
                 className="w-full h-full rounded-lg shadow-lg object-cover"

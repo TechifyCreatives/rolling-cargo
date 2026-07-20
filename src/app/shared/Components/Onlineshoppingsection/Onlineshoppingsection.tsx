@@ -26,9 +26,12 @@ const Onlineshoppingsection = () => {
       {/* Mobile Image */}
       <div className="md:hidden w-full h-64 px-4">
         <div className="relative w-full h-full">
+          {/* Below the fold: no `priority`, or it preloads at high priority
+              and starves the hero's LCP image of bandwidth. */}
           <Image
             fill
-            priority
+            sizes="100vw"
+            quality={70}
             src="/RC Jan-101.jpg"
             alt="Strategic locations worldwide"
             className="absolute inset-0 w-full h-full object-cover rounded-lg shadow-lg"
@@ -42,7 +45,8 @@ const Onlineshoppingsection = () => {
           <Image
             src="/RC Jan-101.jpg"
             fill
-            priority
+            sizes="50vw"
+            quality={70}
             alt="Strategic locations worldwide"
             className="absolute inset-0 h-full w-full object-cover rounded-lg shadow-xl"
           />

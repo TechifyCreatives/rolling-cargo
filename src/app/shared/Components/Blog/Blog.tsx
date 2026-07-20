@@ -33,8 +33,10 @@ const Blog: React.FC = () => {
               <Image
                 src={post.image}
                 alt={post.title}
-                layout="fill"
-                objectFit="cover"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                quality={70}
+                className="object-cover"
               />
             </div>
             <div className="p-6">
@@ -81,8 +83,10 @@ const Blog: React.FC = () => {
                   <Image
                     src={selectedPost.image}
                     alt={selectedPost.title}
-                    layout="fill"
-                    objectFit="cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 800px"
+                    quality={75}
+                    className="object-cover"
                   />
                 </div>
                 <div className="flex justify-between text-sm text-gray-500 mb-6">
