@@ -869,6 +869,9 @@ export const availableJobs: Job[] = [
 export const blogPosts: BlogPost[] = [
   {
     id: 1,
+    slug: "dangerous-goods-list-and-items-we-dont-ship",
+    // TODO: replace with the real publication date.
+    datePublished: "2026-01-14",
     title: "Dangerous Goods List & Items We Don't Ship",
     excerpt:
       "Important information about items that require declaration or cannot be shipped.",
@@ -939,6 +942,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 2,
+    slug: "efficient-cargo-shipping-from-the-uk-to-kenya",
+    // TODO: replace with the real publication date.
+    datePublished: "2026-01-25",
     title: "Efficient Cargo Shipping from the UK to Kenya",
     excerpt: "How Rolling Cargo Simplifies Your Logistics",
     sections: [
@@ -964,6 +970,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 3,
+    slug: "dubai-time-change",
+    // TODO: replace with the real publication date.
+    datePublished: "2026-02-05",
     title: "Dubai Time Change",
     excerpt: "Stay informed about our Dubai Time Change",
     sections: [
@@ -989,6 +998,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 4,
+    slug: "affordable-sea-freight-from-turkey",
+    // TODO: replace with the real publication date.
+    datePublished: "2026-02-16",
     title: "Affordable Sea Freight from Turkey",
     excerpt: "The Key to Successful Kenyan Imports",
     sections: [
@@ -1015,6 +1027,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 5,
+    slug: "connecting-south-africa-to-kenya",
+    // TODO: replace with the real publication date.
+    datePublished: "2026-02-27",
     title: "Connecting South Africa to Kenya",
     excerpt: "Road and Air Freight Solutions by Rolling Cargo",
     sections: [
@@ -1042,6 +1057,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 6,
+    slug: "seamless-sea-freight-from-the-netherlands",
+    // TODO: replace with the real publication date.
+    datePublished: "2026-03-10",
     title: "Seamless Sea Freight from the Netherlands",
     excerpt: "Importing to Kenya with Rolling Cargo",
     sections: [
@@ -1069,6 +1087,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 7,
+    slug: "streamlining-cargo-imports-from-china-to-kenya",
+    // TODO: replace with the real publication date.
+    datePublished: "2026-03-21",
     title: "Streamlining Cargo Imports from China to Kenya",
     excerpt: "How Rolling Cargo Supports Your Business",
     sections: [
@@ -1096,6 +1117,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 8,
+    slug: "cargo-shipping-solutions-from-dubai-to-kenya",
+    // TODO: replace with the real publication date.
+    datePublished: "2026-04-01",
     title: "Cargo Shipping Solutions from Dubai to Kenya",
     excerpt: "Rolling Cargo Delivers Excellence",
     sections: [
@@ -1123,6 +1147,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 9,
+    slug: "how-to-shop-on-amazon-south-africa-and-ship-with-rolling-cargo",
+    // TODO: replace with the real publication date.
+    datePublished: "2026-04-12",
     title: "How to Shop on Amazon South Africa and Ship with Rolling Cargo",
     excerpt:
       "Shop effortlessly from Amazon South Africa and get your items delivered to Kenya with Rolling Cargo.",
@@ -1185,6 +1212,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 10,
+    slug: "how-to-shop-on-amazon-dubai-and-ship-with-rolling-cargo",
+    // TODO: replace with the real publication date.
+    datePublished: "2026-04-23",
     title: "How to Shop on Amazon Dubai and Ship with Rolling Cargo",
     excerpt:
       "Want to shop from Amazon UAE and have your items delivered to Kenya? Let Rolling Cargo handle everything.",
@@ -1247,6 +1277,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 11,
+    slug: "top-10-online-stores-in-the-uk-and-how-to-ship-to-kenya-with-rolling-cargo",
+    // TODO: replace with the real publication date.
+    datePublished: "2026-05-04",
     title:
       "Top 10 Online Stores in the UK and How to Ship to Kenya with Rolling Cargo",
     excerpt:
@@ -1294,6 +1327,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 12,
+    slug: "ship-from-the-uk-to-kenya-fast-simple-and-worry-free",
+    // TODO: replace with the real publication date.
+    datePublished: "2026-05-15",
     title: "Ship from the UK to Kenya — Fast, Simple, and Worry-Free",
     excerpt:
       "Shipping from the UK for the first time? Rolling Cargo makes it easy. From choosing trusted shops to ensuring your packages reach Kenya safely, we've got you covered.",
@@ -1357,6 +1393,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 13,
+    slug: "air-freight-vs-sea-freight-which-shipping-method-should-you-choose",
+    // TODO: replace with the real publication date.
+    datePublished: "2026-05-26",
     title:
       "Air Freight vs. Sea Freight: Which Shipping Method Should You Choose?",
     excerpt:
@@ -1410,6 +1449,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 14,
+    slug: "how-to-prevent-damaged-goods-when-packing-fragile-items",
+    // TODO: replace with the real publication date.
+    datePublished: "2026-06-06",
     title: "How to Prevent Damaged Goods When Packing Fragile Items",
     excerpt:
       "Fragile items pass through multiple handling points in international shipping. Learn how proper packing and labelling significantly reduces the risk of damage in transit.",
@@ -1446,6 +1488,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 15,
+    slug: "what-is-volumetric-weight-and-how-is-it-calculated",
+    // TODO: replace with the real publication date.
+    datePublished: "2026-06-17",
     title: "What Is Volumetric Weight and How Is It Calculated?",
     excerpt:
       "A package may feel light, but if it takes up a lot of space it can still cost more to ship. Understanding volumetric weight helps you estimate shipping charges accurately.",
@@ -1499,6 +1544,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 16,
+    slug: "what-is-a-shipping-mark-and-why-it-matters",
+    // TODO: replace with the real publication date.
+    datePublished: "2026-06-28",
     title: "What Is a Shipping Mark and Why It Matters",
     excerpt:
       "A shipping mark is the basic identification written on your cargo boxes. Without it, packages can be misrouted or sent by the wrong shipping method.",
@@ -1530,6 +1578,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: 17,
+    slug: "kenyas-rolling-cargo-wins-international-transport-freight-and-logistics-company-of-the-year",
+    // TODO: replace with the real publication date.
+    datePublished: "2026-07-09",
     title:
       "Kenya's Rolling Cargo Wins International Transport, Freight and Logistics Company of the Year",
     excerpt:

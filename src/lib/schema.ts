@@ -105,6 +105,49 @@ export function serviceSchema({
   };
 }
 
+/**
+ * Article markup for a single blog post. `body` is the flattened section text,
+ * which gives answer engines something to quote beyond the excerpt.
+ */
+export function articleSchema({
+  title,
+  description,
+  slug,
+  image,
+  author,
+  datePublished,
+  section,
+  body,
+}: {
+  title: string;
+  description: string;
+  slug: string;
+  image: string;
+  author: string;
+  datePublished: string;
+  section: string;
+  body: string;
+}) {
+  const url = `${SITE_URL}/blog/${slug}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${url}#article`,
+    headline: title,
+    description,
+    image: [`${SITE_URL}${image}`],
+    datePublished,
+    dateModified: datePublished,
+    articleSection: section,
+    author: { "@type": "Organization", name: author, url: SITE_URL },
+    publisher: { "@id": ORG_ID },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    inLanguage: "en",
+    articleBody: body,
+  };
+}
+
 export function breadcrumbSchema(trail: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",

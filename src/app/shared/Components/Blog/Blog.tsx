@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { BlogPost } from "@/types/blog.types";
 import { blogPosts } from "@/data/data";
@@ -47,14 +48,24 @@ const Blog: React.FC = () => {
                 {post.title}
               </h2>
               <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center gap-3">
                 <span className="text-sm text-gray-500">{post.author}</span>
-                <button
-                  onClick={() => openModal(post)}
-                  className="bg-[#0f1031] hover:bg-[#640e0e] text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
-                >
-                  Read More
-                </button>
+                <div className="flex items-center gap-3">
+                  {/* Real crawlable link to the post's own page, alongside the
+                      quick-look modal. */}
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="text-sm font-semibold text-[#0f1031] underline underline-offset-4 hover:text-[#640e0e] transition-colors"
+                  >
+                    Open page
+                  </Link>
+                  <button
+                    onClick={() => openModal(post)}
+                    className="bg-[#0f1031] hover:bg-[#640e0e] text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
+                  >
+                    Read More
+                  </button>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -112,12 +123,20 @@ const Blog: React.FC = () => {
                     </div>
                   ))}
                 </div>
-                <button
-                  onClick={closeModal}
-                  className="mt-8 bg-[#0f1031] hover:bg-[#640e0e] text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
-                >
-                  Close
-                </button>
+                <div className="mt-8 flex flex-wrap items-center gap-4">
+                  <button
+                    onClick={closeModal}
+                    className="bg-[#0f1031] hover:bg-[#640e0e] text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105"
+                  >
+                    Close
+                  </button>
+                  <Link
+                    href={`/blog/${selectedPost.slug}`}
+                    className="font-semibold text-[#0f1031] underline underline-offset-4 hover:text-[#640e0e] transition-colors"
+                  >
+                    Read full article on its own page
+                  </Link>
+                </div>
               </div>
             </motion.div>
           </motion.div>

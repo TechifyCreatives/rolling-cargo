@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
+import { blogPosts } from "@/data/data";
 
 type Route = {
   path: string;
@@ -35,11 +36,21 @@ const routes: Route[] = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
-  return routes.map(({ path, changeFrequency, priority }) => ({
+  const staticRoutes = routes.map(({ path, changeFrequency, priority }) => ({
     // Encode the ampersand so the emitted XML stays valid.
     url: `${SITE_URL}${path.replace(/&/g, "%26")}`,
     lastModified,
     changeFrequency,
     priority,
   }));
+
+  // Derived from blogPosts, so a new post appears here with no edit needed.
+  const postRoutes = blogPosts.map((post) => ({
+    url: `${SITE_URL}/blog/${post.slug}`,
+    lastModified: new Date(`${post.datePublished}T00:00:00Z`),
+    changeFrequency: "yearly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...postRoutes];
 }
