@@ -9,6 +9,7 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
+  Images,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -37,11 +38,10 @@ export default function Hero() {
 
   const { handleSubmit } = useFormHandler();
 
-  // Auto-show slider after 3s
-  useEffect(() => {
-    const timer = setTimeout(() => setShowImageSlider(true), 3000);
-    return () => clearTimeout(timer);
-  }, []);
+  // The slider is opened by the "View Our Gallery" button below, never on a
+  // timer. Auto-opening it made the full-screen slide the page's largest
+  // contentful element, which pinned LCP to roughly when the modal appeared
+  // (~13s) no matter what else was optimised.
 
   // Auto-advance slides
   useEffect(() => {
@@ -84,9 +84,21 @@ export default function Hero() {
             <Plane size={48} className="text-white" />
             <Ship size={48} className="text-white" />
           </div>
-          <h1 className="text-2xl md:text-4xl font-bold drop-shadow-lg max-w-3xl mx-auto my-6">
+          <h1 className="text-2xl md:text-4xl font-bold drop-shadow-lg max-w-3xl mx-auto mt-6 mb-4">
             Air and Sea Cargo Experts to Kenya
           </h1>
+
+          <button
+            type="button"
+            onClick={() => {
+              setCurrentSlideIndex(0);
+              setShowImageSlider(true);
+            }}
+            className="inline-flex items-center gap-2 rounded-xl bg-white/95 px-5 py-2.5 font-semibold text-[#0f1031] shadow-lg transition-colors duration-200 hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f1031]"
+          >
+            <Images className="h-5 w-5" />
+            View Our Gallery
+          </button>
         </div>
       </div>
 
