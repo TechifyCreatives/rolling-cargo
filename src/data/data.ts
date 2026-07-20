@@ -1635,6 +1635,10 @@ Shengli Industrial Zone, Lishui Town, Nanhai District, Foshan, Guangdong
 Helen +8618826260043 (WhatsApp)
 Liuan +8618826260042 (WeChat)
 
+Kindly ask your supplier to write your
+Name and Number on the package,
+Specify mode of shipping air, for fragile goods inform supplier to package well and also inform our China offices.Supplier must also attach a well detailed packing list showing name of items, quantity and the weight. This is very important thanks!
+
 ROLLING CARGO 空运地址：
 广东省佛山市南海区里水镇东秀路胜利工业区11号E栋102
 
@@ -1660,8 +1664,9 @@ Shengli Industrial Zone, Lishui Town, Nanhai District, Foshan, Guangdong
 Lenah+8619927462062 (WhatsApp)
 Awei+8618826260044 (WeChat)
 Kevin+8619927449452 (WeChat)
-Kindly ask your supplier to write your name and number on the package,
-mode of shipping sea very important thanks!
+Kindly ask your supplier to write your
+Name and Number on the package,
+Specify mode of shipping sea, for fragile goods inform supplier to package well and also inform our China offices.Supplier must also attach a well detailed packing list showing name of items, quantity and the CBM. This is very important thanks!
 
 ROLLING CARGO 海运地址：
 广东省佛山市南海区里水镇东秀路胜利工业区 11 号 E 栋 101
@@ -1677,8 +1682,9 @@ Shengli Industrial Zone, Lishui Town, Nanhai District, Foshan, Guangdong
 Lenah+8619927462062 (WhatsApp)
 Awei+8618826260044 (WeChat)
 Kevin+8619927449452 (WeChat)
-Kindly ask your supplier to write your name and number on the package,
-mode of shipping sea very important thanks!
+Kindly ask your supplier to write your
+Name and Number on the package,
+Specify mode of shipping sea, for fragile goods inform supplier to package well and also inform our China offices.Supplier must also attach a well detailed packing list showing name of items, quantity and the CBM. This is very important thanks!
 
 ROLLING CARGO 海运地址：
 广东省佛山市南海区里水镇东秀路胜利工业区 11 号 E 栋 101
