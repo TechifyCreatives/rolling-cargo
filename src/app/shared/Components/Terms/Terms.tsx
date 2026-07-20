@@ -377,6 +377,66 @@ const Terms = () => {
     },
   ];
 
+  const damagedGoodsSections: SectionData[] = [
+    {
+      id: "partial-compensation",
+      title: "Partial Compensation Model",
+      icon: <ShieldCheck className="w-5 h-5" />,
+      tag: "Policy",
+      paragraphs: [
+        "At Rolling Cargo, we aim for transparent and fair handling of damaged goods. Our policy outlines how compensation is managed, ensuring clarity for both our clients and our operations.",
+        "For goods that are properly packaged and declared, Rolling Cargo may offer partial compensation up to 50% of the declared value if damage/loss occurs while under our handling responsibility.",
+        "Eligibility Criteria:",
+      ],
+      items: [
+        "Goods must be well packaged.",
+        "Fragile items must be declared prior to shipment.",
+        "Damage must be confirmed to have occurred during Rolling Cargo's handling.",
+      ],
+    },
+    {
+      id: "owners-risk-items",
+      title: "Owner's Risk Items",
+      icon: <GlassIcon className="w-5 h-5" />,
+      tag: "Important",
+      paragraphs: [
+        "Certain items are transported strictly at the owner's risk due to their delicate nature and high susceptibility to damage during transit. For these items, Rolling Cargo will not accept liability for damage arising from their inherent fragility.",
+        "Examples of Owner's Risk Items:",
+      ],
+      items: [
+        "TVs",
+        "Microwaves",
+        "Vehicle headlights",
+        "Furniture (household items with glass, e.g. dressing mirrors)",
+        "Windscreens",
+        "Tiles",
+        "Mirrors",
+        "Ceramics, marbles",
+      ],
+    },
+    {
+      id: "owners-risk-responsibilities",
+      title: "Client Responsibilities for Owner's Risk Items",
+      icon: <PackageIcon className="w-5 h-5" />,
+      items: [
+        "Ensure suppliers provide suitable protective packaging.",
+        "Clearly label fragile items.",
+        "Consider additional protective measures, such as wooden packaging, where recommended.",
+      ],
+    },
+    {
+      id: "damaged-goods-important-info",
+      title: "Important Information",
+      icon: <FileTextIcon className="w-5 h-5" />,
+      items: [
+        "Mandatory Declaration: All cargo requires a declaration process before shipment, especially fragile and high-value items.",
+        "Packaging Guidelines: Refer to our packaging guidelines for different cargo categories.",
+        "Claims Procedure: A standard claims form and investigation procedure are in place.",
+        "Customer Agreements: Compensation terms and exclusions are clearly outlined in customer agreements and shipment documentation.",
+      ],
+    },
+  ];
+
   return (
     <div
       className="min-h-screen py-16 px-4 sm:px-6 lg:px-8"
@@ -442,6 +502,12 @@ const Terms = () => {
 
           <SectionGroup label="Fragile Goods Collection Policy">
             {fragileSections.map((section, i) => (
+              <AccordionSection key={section.id} section={section} index={i} />
+            ))}
+          </SectionGroup>
+
+          <SectionGroup label="Damaged Goods & Compensation Policy">
+            {damagedGoodsSections.map((section, i) => (
               <AccordionSection key={section.id} section={section} index={i} />
             ))}
           </SectionGroup>
