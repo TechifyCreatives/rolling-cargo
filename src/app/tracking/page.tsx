@@ -1,3 +1,12 @@
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  title: "Track Your Shipment",
+  description:
+    "Track your Rolling Cargo shipment in real time. Enter your tracking number for live location updates and estimated delivery times.",
+  path: "/tracking",
+});
+
 import React from "react";
 import TrackingSection from "../shared/Components/TrackingSection/TrackingSection";
 import { trackingBannerContent } from "@/data/data";

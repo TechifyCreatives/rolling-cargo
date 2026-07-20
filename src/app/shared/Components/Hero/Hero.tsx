@@ -61,37 +61,33 @@ export default function Hero() {
   const goToSlide = (index: number) => setCurrentSlideIndex(index);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className="relative mb-28"
-    >
+    // No entrance animation on this wrapper: framer-motion serialises
+    // `initial` into the SSR markup as opacity:0, which hides the LCP element
+    // until hydration finishes and inflates Largest Contentful Paint.
+    <div className="relative mb-28">
       {/* Background Hero */}
       <div className="relative mt-16 h-[250px] md:h-[400px] overflow-hidden">
         <Image
           src={currentImage.src}
           alt={currentImage.alt}
           fill
+          sizes="100vw"
+          quality={70}
           className="object-cover"
           priority
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-black opacity-50" />
 
-        <motion.div
-          className="relative z-10 flex flex-col items-center justify-center text-center text-white px-4 h-full"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5 }}
-        >
+        <div className="relative z-10 flex flex-col items-center justify-center text-center text-white px-4 h-full">
           <div className="flex items-center justify-center gap-4 mb-4">
             <Plane size={48} className="text-white" />
             <Ship size={48} className="text-white" />
           </div>
           <h1 className="text-2xl md:text-4xl font-bold drop-shadow-lg max-w-3xl mx-auto my-6">
-            Air and Sea Cargo Experts
+            Air and Sea Cargo Experts to Kenya
           </h1>
-        </motion.div>
+        </div>
       </div>
 
       {/* Services Box - Desktop */}
@@ -234,6 +230,6 @@ export default function Hero() {
       )}
 
       {/* ❌ REMOVED: Announcement popup (CustomAlert) */}
-    </motion.div>
+    </div>
   );
 }

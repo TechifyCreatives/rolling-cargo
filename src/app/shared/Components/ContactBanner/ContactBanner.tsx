@@ -399,9 +399,9 @@ const ContactPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-slate-800 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
+            <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-slate-800 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
               Get in Touch
-            </h1>
+            </h2>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
               Ready to transform your logistics? Let's discuss how we can help
               streamline your cargo operations.

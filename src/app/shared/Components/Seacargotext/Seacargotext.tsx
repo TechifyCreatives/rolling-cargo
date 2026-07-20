@@ -4,13 +4,13 @@ const Seacargotext = () => {
   return (
     <div className="flex flex-col items-center justify-center my-10 bg-light-blue-100 px-2">
       <div className="w-full bg-white p-8">
-        {/* <h1 className="text-4xl font-bold mb-4 text-center">
+        {/* <h2 className="text-4xl font-bold mb-4 text-center">
           Ocean & Sea Transport
-        </h1> */}
+        </h2> */}
         {/* <hr className="border-t-4 border-[#640e0e] rounded-full w-1/2 mx-auto mb-6" /> */}
-        <h1 className="text-4xl font-bold mb-4 text-center">
+        <h2 className="text-4xl font-bold mb-4 text-center">
         We Offer LCL & FCL.
-        </h1>
+        </h2>
         <hr className="border-t-4 border-[#640e0e] rounded-full w-1/2 mx-auto mb-6" />
         <p className="text-gray-700 text-center">
         Sea freight is a cost-efficient way of shipping large amount of goods. At Rolling Cargo, we offer tailored alternatives for the movement of all kinds of commodities using various equipment types and capacities. From full Container Loads <strong>(FCL)</strong> & Less Container Loads <strong>(LCL)</strong>, Rolling Cargo’s Sea freight solutions enables you to ship large amounts of cargo at a competitive rate from any destination in the world. LCL is shipment that is less than a container load.<br/><br/>

@@ -18,9 +18,9 @@ const Blog: React.FC = () => {
 
   return (
     <div className="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <h1 className="text-5xl font-extrabold text-center mb-12 text-gray-800">
+      <h2 className="text-5xl font-extrabold text-center mb-12 text-gray-800">
         Shipping Insights
-      </h1>
+      </h2>
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {blogPosts.map((post) => (

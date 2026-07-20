@@ -50,9 +50,9 @@ export default function ApplyPage() {
             <div className="uppercase tracking-wide text-sm text-[#0f1031] font-semibold mb-1">
               Career opportunity
             </div>
-            <h1 className="block mt-1 text-lg leading-tight font-medium text-black">
+            <h2 className="block mt-1 text-lg leading-tight font-medium text-black">
               Apply for a Position
-            </h1>
+            </h2>
             <p className="mt-2 text-gray-500">
               Join our team and be part of a growing shipping company.
             </p>
