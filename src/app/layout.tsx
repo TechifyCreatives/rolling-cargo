@@ -72,11 +72,13 @@ export default function RootLayout({
         {/* Warm up the connections for the deferred third-party widgets. */}
         <link rel="preconnect" href="https://salesiq.zohopublic.com" />
         <link rel="dns-prefetch" href="https://salesiq.zohopublic.com" />
+
+        {/* Site-wide structured data. Deliberately in <head>: Google reads
+            JSON-LD from <body> too, but simpler third-party SEO crawlers only
+            parse <head> and report the markup as missing. */}
+        <JsonLd data={[organizationSchema(), websiteSchema()]} />
       </head>
       <body>
-        {/* Site-wide structured data */}
-        <JsonLd data={[organizationSchema(), websiteSchema()]} />
-
         {/* Google Analytics */}
         <GoogleAnalytics />
 
